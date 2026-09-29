@@ -1,9 +1,8 @@
 {
-  "version": 1,
-  "total": 154,
+  "version": 3,
+  "total": 163,
   "entries": [
     {
-      "id": "A-00001",
       "face": "A",
       "type": "commande",
       "nom": "cd",
@@ -14,12 +13,15 @@
       ],
       "os_raw": "Linux/macOS/Windows",
       "categories": [
-        "navigation"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Changer de répertoire",
       "syntaxe": "cd [option] <chemin>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "cd /tmp",
@@ -42,16 +44,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`cd ..` remonte d'un niveau ; `cd -` revient au dernier répertoire",
       "equivalents": [
         {
           "note": "Set-Location (PowerShell)"
         }
       ],
-      "source": "faceA_01_navigation.md"
+      "voir_aussi": [],
+      "source": "faceA_01_navigation.md",
+      "id": "A-00001",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00002",
       "face": "A",
       "type": "commande",
       "nom": "pwd",
@@ -62,24 +70,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "navigation"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Afficher le répertoire courant",
       "syntaxe": "pwd",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "pwd` → /home/utilisateur/projet",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_01_navigation.md"
+      "voir_aussi": [],
+      "source": "faceA_01_navigation.md",
+      "id": "A-00002",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00003",
       "face": "A",
       "type": "commande",
       "nom": "ls",
@@ -90,12 +107,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "navigation"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Lister le contenu d'un répertoire",
       "syntaxe": "ls [options] <chemin>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "ls",
@@ -118,16 +138,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "L'option `-l` montre les détails ; `-a` inclut les cachés",
       "equivalents": [
         {
           "note": "dir (Windows)"
         }
       ],
-      "source": "faceA_01_navigation.md"
+      "voir_aussi": [],
+      "source": "faceA_01_navigation.md",
+      "id": "A-00003",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00004",
       "face": "A",
       "type": "commande",
       "nom": "dir",
@@ -137,12 +163,15 @@
       ],
       "os_raw": "Windows (CMD)",
       "categories": [
-        "navigation"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Lister le contenu",
       "syntaxe": "dir [options] <chemin>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "dir",
@@ -157,16 +186,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`/s` liste récursivement",
       "equivalents": [
         {
           "note": "ls (Linux)"
         }
       ],
-      "source": "faceA_01_navigation.md"
+      "voir_aussi": [],
+      "source": "faceA_01_navigation.md",
+      "id": "A-00004",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00005",
       "face": "A",
       "type": "commande",
       "nom": "Get-ChildItem",
@@ -176,12 +211,15 @@
       ],
       "os_raw": "PowerShell",
       "categories": [
-        "navigation"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Lister le contenu",
       "syntaxe": "Get-ChildItem [options] <chemin>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Get-ChildItem",
@@ -196,16 +234,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Alias `gci`, `ls`",
       "equivalents": [
         {
           "note": "dir, ls"
         }
       ],
-      "source": "faceA_01_navigation.md"
+      "voir_aussi": [],
+      "source": "faceA_01_navigation.md",
+      "id": "A-00005",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00006",
       "face": "A",
       "type": "commande",
       "nom": "tree",
@@ -216,12 +260,15 @@
       ],
       "os_raw": "Linux/macOS/Windows",
       "categories": [
-        "navigation"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Afficher l'arborescence graphique",
       "syntaxe": "tree [options] <chemin>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "tree",
@@ -240,12 +287,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-L` limite la profondeur ; `-d` n'affiche que les dossiers",
       "equivalents": [],
-      "source": "faceA_01_navigation.md"
+      "voir_aussi": [],
+      "source": "faceA_01_navigation.md",
+      "id": "A-00006",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00007",
       "face": "A",
       "type": "commande",
       "nom": "explorer.exe",
@@ -255,12 +308,15 @@
       ],
       "os_raw": "Windows",
       "categories": [
-        "navigation"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Ouvrir l'Explorateur Windows",
       "syntaxe": "explorer.exe <chemin>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "explorer.exe C:\\",
@@ -271,16 +327,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "open (macOS)"
         }
       ],
-      "source": "faceA_01_navigation.md"
+      "voir_aussi": [],
+      "source": "faceA_01_navigation.md",
+      "id": "A-00007",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00008",
       "face": "A",
       "type": "commande",
       "nom": "open",
@@ -290,12 +352,15 @@
       ],
       "os_raw": "macOS",
       "categories": [
-        "navigation"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Ouvrir un fichier ou dossier",
       "syntaxe": "open <chemin>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "open /Applications",
@@ -306,16 +371,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-e` ouvre dans l'éditeur par défaut",
       "equivalents": [
         {
           "note": "explorer.exe (Windows)"
         }
       ],
-      "source": "faceA_01_navigation.md"
+      "voir_aussi": [],
+      "source": "faceA_01_navigation.md",
+      "id": "A-00008",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00009",
       "face": "A",
       "type": "commande",
       "nom": "realpath",
@@ -326,24 +397,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "navigation"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Afficher le chemin absolu résolu",
       "syntaxe": "realpath <chemin>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "realpath ../foo",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Résout les liens symboliques",
       "equivalents": [],
-      "source": "faceA_01_navigation.md"
+      "voir_aussi": [],
+      "source": "faceA_01_navigation.md",
+      "id": "A-00009",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00010",
       "face": "A",
       "type": "commande",
       "nom": "basename",
@@ -354,24 +434,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "navigation"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Extraire le dernier composant",
       "syntaxe": "basename <chemin>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "basename /a/b/c.txt` → c.txt",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_01_navigation.md"
+      "voir_aussi": [],
+      "source": "faceA_01_navigation.md",
+      "id": "A-00010",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00011",
       "face": "A",
       "type": "commande",
       "nom": "dirname",
@@ -382,24 +471,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "navigation"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Extraire le répertoire parent",
       "syntaxe": "dirname <chemin>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "dirname /a/b/c.txt` → /a/b",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_01_navigation.md"
+      "voir_aussi": [],
+      "source": "faceA_01_navigation.md",
+      "id": "A-00011",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00012",
       "face": "A",
       "type": "commande",
       "nom": "cp",
@@ -410,12 +508,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Copier un fichier",
       "syntaxe": "cp [options] <source> <cible>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "cp a.txt b.txt",
@@ -430,16 +531,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-r` requis pour les dossiers ; `-p` préserve les attributs",
       "equivalents": [
         {
           "note": "Copy-Item (PowerShell)"
         }
       ],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00012",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00013",
       "face": "A",
       "type": "commande",
       "nom": "cp -r",
@@ -450,24 +557,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Copier récursivement un dossier",
       "syntaxe": "cp -r <source> <cible>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "cp -r src/ dest/",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00013",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00014",
       "face": "A",
       "type": "commande",
       "nom": "cp -a",
@@ -478,24 +594,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Copier en préservant attributs",
       "syntaxe": "cp -a <source> <cible>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "cp -a src/ dest/",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Équivalent à `-dR --preserve=all`",
       "equivalents": [],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00014",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00015",
       "face": "A",
       "type": "commande",
       "nom": "mv",
@@ -506,12 +631,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Déplacer ou renommer",
       "syntaxe": "mv [options] <source> <cible>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "mv a.txt b.txt",
@@ -522,16 +650,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Écrase sans confirmation",
       "equivalents": [
         {
           "note": "Move-Item (PowerShell)"
         }
       ],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00015",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00016",
       "face": "A",
       "type": "commande",
       "nom": "rm",
@@ -542,12 +676,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Supprimer un fichier",
       "syntaxe": "rm [options] <cible>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "rm a.txt",
@@ -558,16 +695,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "⚠️ Destructif — aucune corbeille",
       "equivalents": [
         {
           "note": "Remove-Item (PowerShell)"
         }
       ],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00016",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00017",
       "face": "A",
       "type": "commande",
       "nom": "rm -rf",
@@ -578,12 +721,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Supprimer récursivement et forcer",
       "syntaxe": "rm -rf <cible>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "rm -rf dossier/",
@@ -594,12 +740,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "⚠️ TRÈS DANGEREUX — peut tout effacer",
       "equivalents": [],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00017",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00018",
       "face": "A",
       "type": "commande",
       "nom": "rm -i",
@@ -610,24 +762,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Supprimer avec confirmation",
       "syntaxe": "rm -i <cible>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "rm -i *.txt",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Plus sûr en script interactif",
       "equivalents": [],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00018",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00019",
       "face": "A",
       "type": "commande",
       "nom": "mkdir",
@@ -638,12 +799,15 @@
       ],
       "os_raw": "Linux/macOS/Windows",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Créer un répertoire",
       "syntaxe": "mkdir [options] <nom>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "mkdir projet",
@@ -654,16 +818,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-p` crée les parents",
       "equivalents": [
         {
           "note": "md (Windows)"
         }
       ],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00019",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00020",
       "face": "A",
       "type": "commande",
       "nom": "md",
@@ -673,12 +843,15 @@
       ],
       "os_raw": "Windows (CMD)",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Créer un répertoire",
       "syntaxe": "md <nom>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "md projet",
@@ -689,16 +862,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "mkdir"
         }
       ],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00020",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00021",
       "face": "A",
       "type": "commande",
       "nom": "rmdir",
@@ -709,24 +888,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Supprimer un dossier vide",
       "syntaxe": "rmdir <nom>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "rmdir vide",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Échoue si le dossier n'est pas vide",
       "equivalents": [],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00021",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00022",
       "face": "A",
       "type": "commande",
       "nom": "Remove-Item -Force",
@@ -736,28 +924,37 @@
       ],
       "os_raw": "PowerShell",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Supprimer un fichier/dossier",
       "syntaxe": "Remove-Item -Force <cible>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Remove-Item -Force dossier\\",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "rm, rmdir"
         }
       ],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00022",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00023",
       "face": "A",
       "type": "commande",
       "nom": "touch",
@@ -768,12 +965,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Créer un fichier vide / maj date",
       "syntaxe": "touch <nom>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "touch nouveau.txt",
@@ -784,12 +984,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Met à jour la date de dernier accès",
       "equivalents": [],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00023",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00024",
       "face": "A",
       "type": "commande",
       "nom": "ln",
@@ -800,24 +1006,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Créer un lien",
       "syntaxe": "ln [options] <cible> <nom>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "ln -s /path/fichier lien",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-s` pour lien symbolique ; sans -s, lien dur",
       "equivalents": [],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00024",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00025",
       "face": "A",
       "type": "commande",
       "nom": "ln -s",
@@ -828,24 +1043,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Lien symbolique",
       "syntaxe": "ln -s <cible> <nom>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "ln -s /usr/bin/python3 python",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Le lien pointe vers la cible ; supprimer le lien ne supprime pas la cible",
       "equivalents": [],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00025",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00026",
       "face": "A",
       "type": "commande",
       "nom": "chmod",
@@ -856,12 +1080,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Modifier les permissions",
       "syntaxe": "chmod [options] <mode> <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "chmod 755 script.sh",
@@ -876,12 +1103,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Mode octal : u=rwx g=rwx o=rwx",
       "equivalents": [],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00026",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00027",
       "face": "A",
       "type": "commande",
       "nom": "chmod +x",
@@ -892,24 +1125,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Rendre exécutable",
       "syntaxe": "chmod +x <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "chmod +x script.sh",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00027",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00028",
       "face": "A",
       "type": "commande",
       "nom": "chown",
@@ -920,12 +1162,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Changer le propriétaire",
       "syntaxe": "chown [options] <utilisateur>[:<groupe>] <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "chown root:root fichier",
@@ -936,12 +1181,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Nécessite les privilèges root",
       "equivalents": [],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00028",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00029",
       "face": "A",
       "type": "commande",
       "nom": "chgrp",
@@ -952,28 +1203,37 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Changer le groupe",
       "syntaxe": "chgrp <groupe> <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "chgrp admin fichier",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "chown"
         }
       ],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00029",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00030",
       "face": "A",
       "type": "commande",
       "nom": "stat",
@@ -984,24 +1244,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Afficher les métadonnées",
       "syntaxe": "stat <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "stat /etc/hosts",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00030",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00031",
       "face": "A",
       "type": "commande",
       "nom": "file",
@@ -1012,12 +1281,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Détecter le type de fichier",
       "syntaxe": "file <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "file image.png",
@@ -1028,12 +1300,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00031",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00032",
       "face": "A",
       "type": "commande",
       "nom": "wc",
@@ -1044,12 +1322,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Compter lignes/mots/octets",
       "syntaxe": "wc [options] <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "wc -l a.txt",
@@ -1064,12 +1345,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-l` lignes ; `-w` mots ; `-c` octets",
       "equivalents": [],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00032",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00033",
       "face": "A",
       "type": "commande",
       "nom": "head",
@@ -1080,12 +1367,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Afficher le début",
       "syntaxe": "head [options] <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "head -n 20 a.txt",
@@ -1096,12 +1386,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Par défaut 10 lignes",
       "equivalents": [],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00033",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00034",
       "face": "A",
       "type": "commande",
       "nom": "tail",
@@ -1112,12 +1408,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Afficher la fin",
       "syntaxe": "tail [options] <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "tail -f app.log",
@@ -1128,12 +1427,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-f` suit le fichier en temps réel (utile pour les logs)",
       "equivalents": [],
-      "source": "faceA_02_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_02_fichiers.md",
+      "id": "A-00034",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00035",
       "face": "A",
       "type": "commande",
       "nom": "cat",
@@ -1144,12 +1449,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Afficher / concaténer",
       "syntaxe": "cat [options] <fichiers>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "cat a.txt",
@@ -1164,16 +1472,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "Get-Content (PowerShell)"
         }
       ],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00035",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00036",
       "face": "A",
       "type": "commande",
       "nom": "Get-Content",
@@ -1183,28 +1497,37 @@
       ],
       "os_raw": "PowerShell",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Afficher un fichier",
       "syntaxe": "Get-Content <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Get-Content log.txt",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Alias `cat`, `type`",
       "equivalents": [
         {
           "note": "cat"
         }
       ],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00036",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00037",
       "face": "A",
       "type": "commande",
       "nom": "less",
@@ -1215,28 +1538,37 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Parcourir un fichier page par page",
       "syntaxe": "less <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "less /var/log/syslog",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`q` pour quitter ; `f` / `b` pour descendre/monter",
       "equivalents": [
         {
           "note": "more"
         }
       ],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00037",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00038",
       "face": "A",
       "type": "commande",
       "nom": "more",
@@ -1247,28 +1579,37 @@
       ],
       "os_raw": "Linux/macOS/Windows",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Parcourir page par page (plus simple)",
       "syntaxe": "more <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "more a.txt",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "less"
         }
       ],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00038",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00039",
       "face": "A",
       "type": "commande",
       "nom": "grep",
@@ -1279,12 +1620,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Recherche de motif (regex)",
       "syntaxe": "grep [options] <motif> <fichiers>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "grep \"error\" *.log",
@@ -1303,16 +1647,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-r` récursif ; `-i` insensible à la cas ; `-v` inverse",
       "equivalents": [
         {
           "note": "Select-String (PowerShell)"
         }
       ],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00039",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00040",
       "face": "A",
       "type": "commande",
       "nom": "Select-String",
@@ -1322,28 +1672,37 @@
       ],
       "os_raw": "PowerShell",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Recherche de motif",
       "syntaxe": "Select-String <motif> <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Select-String \"error\" *.log",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "grep"
         }
       ],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00040",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00041",
       "face": "A",
       "type": "commande",
       "nom": "find",
@@ -1354,12 +1713,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Trouver des fichiers par nom/type",
       "syntaxe": "find <chemin> [critères]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "find . -name \"*.txt\"",
@@ -1374,12 +1736,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Peut être lent sur de grands arborescences",
       "equivalents": [],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00041",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00042",
       "face": "A",
       "type": "commande",
       "nom": "locate",
@@ -1390,24 +1758,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Recherche rapide (indexé)",
       "syntaxe": "locate <motif>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "locate nginx.conf",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Nécessite un index à jour (`updatedb`) ; moins précis que find",
       "equivalents": [],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00042",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00043",
       "face": "A",
       "type": "commande",
       "nom": "sed",
@@ -1418,12 +1795,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Éditeur de flux (substitution)",
       "syntaxe": "sed [options] 'commande' <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "sed 's/ancien/nouveau/' a.txt",
@@ -1434,12 +1814,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-i` modifie le fichier en place — attention à la sauvegarde",
       "equivalents": [],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00043",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00044",
       "face": "A",
       "type": "commande",
       "nom": "awk",
@@ -1450,12 +1836,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Traitement de colonnes",
       "syntaxe": "awk 'condition {action}' <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "awk '{print $1}' a.txt",
@@ -1466,12 +1855,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00044",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00045",
       "face": "A",
       "type": "commande",
       "nom": "cut",
@@ -1482,12 +1877,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Extraire des colonnes",
       "syntaxe": "cut [options] <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "cut -d: -f1 /etc/passwd",
@@ -1498,12 +1896,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00045",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00046",
       "face": "A",
       "type": "commande",
       "nom": "sort",
@@ -1514,12 +1918,15 @@
       ],
       "os_raw": "Linux/macOS/Windows",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Trier les lignes",
       "syntaxe": "sort [options] <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "sort a.txt",
@@ -1534,12 +1941,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-n` numérique ; `-r` inverse",
       "equivalents": [],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00046",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00047",
       "face": "A",
       "type": "commande",
       "nom": "uniq",
@@ -1550,12 +1963,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Dédupliquer les lignes consécutives",
       "syntaxe": "uniq [options] <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "sort a.txt | uniq",
@@ -1566,12 +1982,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Doit être utilisé après `sort`",
       "equivalents": [],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00047",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00048",
       "face": "A",
       "type": "commande",
       "nom": "tr",
@@ -1582,12 +2004,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Traduire des caractères",
       "syntaxe": "tr [options] <ensemble1> <ensemble2>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "tr 'a-z' 'A-Z'",
@@ -1598,12 +2023,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00048",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00049",
       "face": "A",
       "type": "commande",
       "nom": "diff",
@@ -1614,12 +2045,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Comparer deux fichiers",
       "syntaxe": "diff [options] <f1> <f2>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "diff a.txt b.txt",
@@ -1630,12 +2064,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00049",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00050",
       "face": "A",
       "type": "commande",
       "nom": "cmp",
@@ -1646,24 +2086,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Comparer octet par octet",
       "syntaxe": "cmp [options] <f1> <f2>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "cmp a.txt b.txt",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Affiche la première différence",
       "equivalents": [],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00050",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00051",
       "face": "A",
       "type": "commande",
       "nom": "nano",
@@ -1674,24 +2123,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Éditeur de texte simple",
       "syntaxe": "nano <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "nano a.txt",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00051",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00052",
       "face": "A",
       "type": "commande",
       "nom": "vim / vi",
@@ -1702,24 +2160,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Éditeur de texte puissant",
       "syntaxe": "vim <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "vim a.txt",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Courbe d'apprentissage ; `:q!` pour quitter sans sauvegarder",
       "equivalents": [],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00052",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00053",
       "face": "A",
       "type": "commande",
       "nom": "emacs",
@@ -1730,24 +2197,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Éditeur extensible",
       "syntaxe": "emacs <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "emacs a.txt",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00053",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00054",
       "face": "A",
       "type": "commande",
       "nom": "code",
@@ -1758,12 +2234,15 @@
       ],
       "os_raw": "Linux/macOS/Windows",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Éditeur VS Code",
       "syntaxe": "code [options] <chemin>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "code a.txt",
@@ -1774,12 +2253,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00054",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00055",
       "face": "A",
       "type": "commande",
       "nom": "notepad",
@@ -1789,24 +2274,33 @@
       ],
       "os_raw": "Windows",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Éditeur de texte",
       "syntaxe": "notepad <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "notepad a.txt",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00055",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00056",
       "face": "A",
       "type": "commande",
       "nom": "notepad++",
@@ -1816,24 +2310,33 @@
       ],
       "os_raw": "Windows",
       "categories": [
-        "contenu_fichiers"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Éditeur avancé",
       "syntaxe": "notepad++ <fichier>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "notepad++ a.txt",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_03_contenu_fichiers.md"
+      "voir_aussi": [],
+      "source": "faceA_03_contenu_fichiers.md",
+      "id": "A-00056",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00057",
       "face": "A",
       "type": "commande",
       "nom": "ps",
@@ -1844,12 +2347,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Lister les processus",
       "syntaxe": "ps [options]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "ps",
@@ -1868,16 +2374,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`ps aux` montre tous les processus (BSD style)",
       "equivalents": [
         {
           "note": "tasklist (Windows)"
         }
       ],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00057",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00058",
       "face": "A",
       "type": "commande",
       "nom": "ps aux",
@@ -1888,24 +2400,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Tous les processus (utilisateur, CPU, mémoire)",
       "syntaxe": "ps aux",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "ps aux",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00058",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00059",
       "face": "A",
       "type": "commande",
       "nom": "top",
@@ -1916,12 +2437,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Surveillance CPU en temps réel",
       "syntaxe": "top [options]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "top",
@@ -1932,16 +2456,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`q` pour quitter",
       "equivalents": [
         {
           "note": "htop (Linux)"
         }
       ],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00059",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00060",
       "face": "A",
       "type": "commande",
       "nom": "htop",
@@ -1951,28 +2481,37 @@
       ],
       "os_raw": "Linux",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Interface graphique pour top",
       "syntaxe": "htop",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "htop",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "top"
         }
       ],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00060",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00061",
       "face": "A",
       "type": "commande",
       "nom": "kill",
@@ -1983,12 +2522,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Terminer un processus",
       "syntaxe": "kill [options] <PID>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "kill 1234",
@@ -1999,16 +2541,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-9` (SIGKILL) force l'arrêt, non rattrapable",
       "equivalents": [
         {
           "note": "taskkill (Windows)"
         }
       ],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00061",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00062",
       "face": "A",
       "type": "commande",
       "nom": "kill -9",
@@ -2019,24 +2567,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Forcer l'arrêt d'un processus",
       "syntaxe": "kill -9 <PID>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "kill -9 1234",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "⚠️ Impossible à ignorer ; pas de nettoyage",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00062",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00063",
       "face": "A",
       "type": "commande",
       "nom": "kill -15",
@@ -2047,24 +2604,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Signal par défaut (SIGTERM)",
       "syntaxe": "kill -15 <PID>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "kill 1234` (par défaut c'est -15)",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Laisse le temps au processus de se terminer proprement",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00063",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00064",
       "face": "A",
       "type": "commande",
       "nom": "pkill",
@@ -2075,12 +2641,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Tue les processus par nom",
       "syntaxe": "pkill [options] <nom>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "pkill nginx",
@@ -2091,12 +2660,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00064",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00065",
       "face": "A",
       "type": "commande",
       "nom": "pgrep",
@@ -2107,24 +2682,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Affiche les PID par nom",
       "syntaxe": "pgrep <nom>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "pgrep nginx",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00065",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00066",
       "face": "A",
       "type": "commande",
       "nom": "tasklist",
@@ -2134,12 +2718,15 @@
       ],
       "os_raw": "Windows (CMD)",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Lister les processus",
       "syntaxe": "tasklist",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "tasklist",
@@ -2150,16 +2737,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "ps"
         }
       ],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00066",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00067",
       "face": "A",
       "type": "commande",
       "nom": "taskkill",
@@ -2169,12 +2762,15 @@
       ],
       "os_raw": "Windows (CMD)",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Terminer un processus",
       "syntaxe": "taskkill [options] <PID|/im nom>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "taskkill /PID 1234",
@@ -2185,16 +2781,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`/f` force l'arrêt",
       "equivalents": [
         {
           "note": "kill"
         }
       ],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00067",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00068",
       "face": "A",
       "type": "commande",
       "nom": "Get-Process",
@@ -2204,12 +2806,15 @@
       ],
       "os_raw": "PowerShell",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Lister les processus",
       "syntaxe": "Get-Process [nom]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Get-Process",
@@ -2220,16 +2825,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Alias `gps`",
       "equivalents": [
         {
           "note": "ps, tasklist"
         }
       ],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00068",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00069",
       "face": "A",
       "type": "commande",
       "nom": "Stop-Process",
@@ -2239,12 +2850,15 @@
       ],
       "os_raw": "PowerShell",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Terminer un processus",
       "syntaxe": "Stop-Process <PID|nom>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Stop-Process -Id 1234",
@@ -2255,16 +2869,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "kill, taskkill"
         }
       ],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00069",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00070",
       "face": "A",
       "type": "commande",
       "nom": "systemctl",
@@ -2274,12 +2894,15 @@
       ],
       "os_raw": "Linux",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Gestion des services systemd",
       "syntaxe": "systemctl [commande] <service>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "systemctl start nginx",
@@ -2298,16 +2921,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "service (ancien)"
         }
       ],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00070",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00071",
       "face": "A",
       "type": "commande",
       "nom": "service",
@@ -2318,28 +2947,37 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Gestion des services (ancien)",
       "syntaxe": "service <service> <action>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "service nginx start",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "systemctl"
         }
       ],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00071",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00072",
       "face": "A",
       "type": "commande",
       "nom": "launchctl",
@@ -2349,12 +2987,15 @@
       ],
       "os_raw": "macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Gestion des services (launchd)",
       "syntaxe": "launchctl [commande] <label>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "launchctl start com.apple.cups",
@@ -2365,16 +3006,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "systemctl"
         }
       ],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00072",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00073",
       "face": "A",
       "type": "commande",
       "nom": "uname",
@@ -2385,12 +3032,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Nom du système",
       "syntaxe": "uname [options]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "uname",
@@ -2409,12 +3059,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00073",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00074",
       "face": "A",
       "type": "commande",
       "nom": "hostname",
@@ -2425,12 +3081,15 @@
       ],
       "os_raw": "Linux/macOS/Windows",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Nom de la machine",
       "syntaxe": "hostname [options]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "hostname",
@@ -2441,12 +3100,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00074",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00075",
       "face": "A",
       "type": "commande",
       "nom": "hostname -I",
@@ -2456,28 +3121,37 @@
       ],
       "os_raw": "Linux",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Adresse IP locale",
       "syntaxe": "hostname -I",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "hostname -I",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "N'existe pas sur macOS (utiliser `ipconfig getifaddr en0`)",
       "equivalents": [
         {
           "note": "ipconfig (Windows)"
         }
       ],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00075",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00076",
       "face": "A",
       "type": "commande",
       "nom": "df",
@@ -2488,12 +3162,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Espace disque utilisé",
       "syntaxe": "df [options]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "df -h",
@@ -2504,12 +3181,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-h` humainement lisible",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00076",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00077",
       "face": "A",
       "type": "commande",
       "nom": "du",
@@ -2520,12 +3203,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Taille d'un répertoire",
       "syntaxe": "du [options] <chemin>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "du -sh .",
@@ -2536,12 +3222,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-s` résume ; `-h` lisible",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00077",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00078",
       "face": "A",
       "type": "commande",
       "nom": "free",
@@ -2551,24 +3243,33 @@
       ],
       "os_raw": "Linux",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Mémoire utilisée",
       "syntaxe": "free [options]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "free -h",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "N'existe pas en natif sur macOS (utiliser `vm_stat` ou `top`)",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00078",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00079",
       "face": "A",
       "type": "commande",
       "nom": "vmstat",
@@ -2579,24 +3280,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Statistiques système",
       "syntaxe": "vmstat [intervalle]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "vmstat 1",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00079",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00080",
       "face": "A",
       "type": "commande",
       "nom": "iostat",
@@ -2607,12 +3317,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Statistiques E/S disque",
       "syntaxe": "iostat [options]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "iostat",
@@ -2623,12 +3336,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00080",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00081",
       "face": "A",
       "type": "commande",
       "nom": "uptime",
@@ -2639,24 +3358,33 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Temps de fonctionnement",
       "syntaxe": "uptime",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "uptime",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00081",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00082",
       "face": "A",
       "type": "commande",
       "nom": "whoami",
@@ -2667,24 +3395,33 @@
       ],
       "os_raw": "Linux/macOS/Windows",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Utilisateur courant",
       "syntaxe": "whoami",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "whoami",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00082",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00083",
       "face": "A",
       "type": "commande",
       "nom": "id",
@@ -2695,12 +3432,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Identité de l'utilisateur",
       "syntaxe": "id [options]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "id",
@@ -2711,12 +3451,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00083",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00084",
       "face": "A",
       "type": "commande",
       "nom": "sudo",
@@ -2727,12 +3473,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Exécuter en tant que root",
       "syntaxe": "sudo [options] <commande>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "sudo apt update",
@@ -2743,12 +3492,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "⚠️ Accès root — utiliser avec précaution",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00084",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00085",
       "face": "A",
       "type": "commande",
       "nom": "su",
@@ -2759,12 +3514,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "processus_systeme"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Changer d'utilisateur",
       "syntaxe": "su [options] <utilisateur>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "su root",
@@ -2775,12 +3533,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-` charge le profil de l'utilisateur",
       "equivalents": [],
-      "source": "faceA_04_processus_systeme.md"
+      "voir_aussi": [],
+      "source": "faceA_04_processus_systeme.md",
+      "id": "A-00085",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00086",
       "face": "A",
       "type": "commande",
       "nom": "ping",
@@ -2791,12 +3555,15 @@
       ],
       "os_raw": "Linux/macOS/Windows",
       "categories": [
-        "reseau"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Tester la connectivité vers un hôte",
       "syntaxe": "ping [options] <hôte>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "ping google.com",
@@ -2811,16 +3578,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-c` compte sur Linux/macOS, continu par défaut sur Windows",
       "equivalents": [
         {
           "note": "Test-Connection (PowerShell)"
         }
       ],
-      "source": "faceA_05_reseau.md"
+      "voir_aussi": [],
+      "source": "faceA_05_reseau.md",
+      "id": "A-00086",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00087",
       "face": "A",
       "type": "commande",
       "nom": "curl",
@@ -2831,12 +3604,15 @@
       ],
       "os_raw": "Linux/macOS/Windows",
       "categories": [
-        "reseau"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Transférer des données via URL",
       "syntaxe": "curl [options] <url>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "curl https://api.site.fr",
@@ -2851,16 +3627,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-o` écrit sur disque ; sans option affiche dans le terminal",
       "equivalents": [
         {
           "note": "Invoke-WebRequest (PowerShell)"
         }
       ],
-      "source": "faceA_05_reseau.md"
+      "voir_aussi": [],
+      "source": "faceA_05_reseau.md",
+      "id": "A-00087",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00088",
       "face": "A",
       "type": "commande",
       "nom": "wget",
@@ -2871,12 +3653,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "reseau"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Télécharger des fichiers via HTTP/FTP",
       "syntaxe": "wget [options] <url>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "wget https://site.fr/f.zip",
@@ -2887,16 +3672,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-r` peut aspirer un site entier",
       "equivalents": [
         {
           "note": "curl"
         }
       ],
-      "source": "faceA_05_reseau.md"
+      "voir_aussi": [],
+      "source": "faceA_05_reseau.md",
+      "id": "A-00088",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00089",
       "face": "A",
       "type": "commande",
       "nom": "ssh",
@@ -2907,12 +3698,15 @@
       ],
       "os_raw": "Linux/macOS/Windows",
       "categories": [
-        "reseau"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Se connecter à un shell distant chiffré",
       "syntaxe": "ssh [options] <user>@<hôte>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "ssh ada@serveur.fr",
@@ -2927,12 +3721,18 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Vérifier l'empreinte du serveur au premier contact",
       "equivalents": [],
-      "source": "faceA_05_reseau.md"
+      "voir_aussi": [],
+      "source": "faceA_05_reseau.md",
+      "id": "A-00089",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00090",
       "face": "A",
       "type": "commande",
       "nom": "scp",
@@ -2943,12 +3743,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "reseau"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Copier des fichiers via SSH",
       "syntaxe": "scp [options] <source> <cible>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "scp a.txt ada@srv:/tmp/",
@@ -2959,16 +3762,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "`-r` requis pour les dossiers",
       "equivalents": [
         {
           "note": "rsync, sftp"
         }
       ],
-      "source": "faceA_05_reseau.md"
+      "voir_aussi": [],
+      "source": "faceA_05_reseau.md",
+      "id": "A-00090",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00091",
       "face": "A",
       "type": "commande",
       "nom": "sftp",
@@ -2979,12 +3788,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "reseau"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Transférer des fichiers en interactif via SSH",
       "syntaxe": "sftp <user>@<hôte>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "sftp ada@serveur.fr",
@@ -2999,16 +3811,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "scp, FTP (non chiffré)"
         }
       ],
-      "source": "faceA_05_reseau.md"
+      "voir_aussi": [],
+      "source": "faceA_05_reseau.md",
+      "id": "A-00091",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00092",
       "face": "A",
       "type": "commande",
       "nom": "ip",
@@ -3018,12 +3836,15 @@
       ],
       "os_raw": "Linux",
       "categories": [
-        "reseau"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Afficher et configurer le réseau (iproute2)",
       "syntaxe": "ip [objet] [commande]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "ip addr",
@@ -3038,16 +3859,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Remplace `ifconfig` et `route` obsolètes",
       "equivalents": [
         {
           "note": "ifconfig, Get-NetIPAddress (PowerShell)"
         }
       ],
-      "source": "faceA_05_reseau.md"
+      "voir_aussi": [],
+      "source": "faceA_05_reseau.md",
+      "id": "A-00092",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00093",
       "face": "A",
       "type": "commande",
       "nom": "ip addr",
@@ -3057,12 +3884,15 @@
       ],
       "os_raw": "Linux",
       "categories": [
-        "reseau"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Afficher les adresses IP des interfaces",
       "syntaxe": "ip addr [show <iface>]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "ip addr",
@@ -3077,16 +3907,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Lecture seule, sans risque",
       "equivalents": [
         {
           "note": "ifconfig, ipconfig (Windows)"
         }
       ],
-      "source": "faceA_05_reseau.md"
+      "voir_aussi": [],
+      "source": "faceA_05_reseau.md",
+      "id": "A-00093",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00094",
       "face": "A",
       "type": "commande",
       "nom": "ip route",
@@ -3096,12 +3932,15 @@
       ],
       "os_raw": "Linux",
       "categories": [
-        "reseau"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Afficher et gérer la table de routage",
       "syntaxe": "ip route [show|add|del]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "ip route",
@@ -3112,16 +3951,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "⚠️ Une mauvaise route coupe le réseau",
       "equivalents": [
         {
           "note": "route"
         }
       ],
-      "source": "faceA_05_reseau.md"
+      "voir_aussi": [],
+      "source": "faceA_05_reseau.md",
+      "id": "A-00094",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00095",
       "face": "A",
       "type": "commande",
       "nom": "ifconfig",
@@ -3132,12 +3977,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "reseau"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Afficher les interfaces réseau (ancien)",
       "syntaxe": "ifconfig [interface]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "ifconfig",
@@ -3148,16 +3996,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Obsolète sur Linux, préférer `ip addr`",
       "equivalents": [
         {
           "note": "ip addr"
         }
       ],
-      "source": "faceA_05_reseau.md"
+      "voir_aussi": [],
+      "source": "faceA_05_reseau.md",
+      "id": "A-00095",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00096",
       "face": "A",
       "type": "commande",
       "nom": "netstat",
@@ -3168,12 +4022,15 @@
       ],
       "os_raw": "Linux/macOS/Windows",
       "categories": [
-        "reseau"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Afficher connexions et ports en écoute",
       "syntaxe": "netstat [options]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "netstat -tulpn",
@@ -3188,16 +4045,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Obsolète sur Linux, préférer `ss`",
       "equivalents": [
         {
           "note": "ss (Linux)"
         }
       ],
-      "source": "faceA_05_reseau.md"
+      "voir_aussi": [],
+      "source": "faceA_05_reseau.md",
+      "id": "A-00096",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00097",
       "face": "A",
       "type": "commande",
       "nom": "ss",
@@ -3207,12 +4070,15 @@
       ],
       "os_raw": "Linux",
       "categories": [
-        "reseau"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Afficher sockets et ports (remplace netstat)",
       "syntaxe": "ss [options]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "ss -tulpn",
@@ -3227,16 +4093,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "netstat"
         }
       ],
-      "source": "faceA_05_reseau.md"
+      "voir_aussi": [],
+      "source": "faceA_05_reseau.md",
+      "id": "A-00097",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00098",
       "face": "A",
       "type": "commande",
       "nom": "dig",
@@ -3247,12 +4119,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "reseau"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Interroger les serveurs DNS",
       "syntaxe": "dig [@serveur] <nom> [type]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "dig example.com",
@@ -3267,16 +4142,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "nslookup, host"
         }
       ],
-      "source": "faceA_05_reseau.md"
+      "voir_aussi": [],
+      "source": "faceA_05_reseau.md",
+      "id": "A-00098",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00099",
       "face": "A",
       "type": "commande",
       "nom": "nslookup",
@@ -3287,12 +4168,15 @@
       ],
       "os_raw": "Linux/macOS/Windows",
       "categories": [
-        "reseau"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Interroger le DNS en interactif ou direct",
       "syntaxe": "nslookup <nom> [serveur]",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "nslookup example.com",
@@ -3303,16 +4187,22 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "Outil en mode déprécié, préférer `dig` sur Linux",
       "equivalents": [
         {
           "note": "dig, host"
         }
       ],
-      "source": "faceA_05_reseau.md"
+      "voir_aussi": [],
+      "source": "faceA_05_reseau.md",
+      "id": "A-00099",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "A-00100",
       "face": "A",
       "type": "commande",
       "nom": "host",
@@ -3323,12 +4213,15 @@
       ],
       "os_raw": "Linux/macOS",
       "categories": [
-        "reseau"
+        "legacy"
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Résoudre un nom en adresse IP",
       "syntaxe": "host <nom>",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "host example.com",
@@ -3339,16 +4232,1048 @@
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [
         {
           "note": "dig, nslookup"
         }
       ],
-      "source": "faceA_05_reseau.md"
+      "voir_aussi": [],
+      "source": "faceA_05_reseau.md",
+      "id": "A-00100",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00001",
+      "nom": "tar",
+      "aliases": [],
+      "niveau": "intermediaire",
+      "popularite": 92,
+      "contextes": [
+        "sauvegarde serveur",
+        "distribution logicielle",
+        "backup avant migration",
+        "envoi de projet"
+      ],
+      "origine": "Tape ARchive, Unix V7 (1979), bandes magnétiques ; devenu standard POSIX, omniprésent sur serveurs.",
+      "subtilites": [
+        "Sans -z/-j/-J, tar ne compresse PAS, il concatène seulement (archive .tar non compressée).",
+        "tar vs zip : tar préserve permissions et liens Unix, zip non — préférer tar sur Linux.",
+        "`-f` doit être immédiatement suivi du nom d'archive : `tar -czf arc.tar.gz` OK, `tar -cfz` piégeux.",
+        "c=create, x=extract, t=list, z=gzip, j=bzip2, J=xz — un seul de c/x/t à la fois.",
+        "*Urgences/dangers :** ⚠️ `tar -xzf arc -C /` écrase le système — toujours lister avec -t avant d'extraire une archive inconnue.",
+        "*Précautions :** Vérifier la taille et le contenu avec `tar -tzf` avant extraction.",
+        "*Équivalents :** Compress-Archive (PowerShell), 7z (Windows)",
+        "*Voir aussi :** gzip, gunzip, zip, unzip, rsync"
+      ],
+      "voir_aussi": [
+        "gzip",
+        "gunzip",
+        "zip",
+        "unzip",
+        "rsync"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Créer, lister et extraire des archives (souvent compressées en .tar.gz).",
+      "syntaxe": "tar [options] <archive> <fichiers>",
+      "cas_reguliers": [
+        {
+          "cmd": "tar -czf backup.tar.gz dossier/",
+          "explication": "Sauvegarde compressée du dossier (backup quotidien, le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "tar -tzf backup.tar.gz",
+          "explication": "Lister le contenu SANS extraire (vérification avant restauration)",
+          "contexte": ""
+        },
+        {
+          "cmd": "tar -xzf backup.tar.gz -C /tmp/resto",
+          "explication": "Extraire dans un dossier cible précis",
+          "contexte": ""
+        },
+        {
+          "cmd": "tar -czf site-$(date +%F).tar.gz /var/www",
+          "explication": "Backup daté d'un site web",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Tape ARchive, Unix V7 (1979), bandes magnétiques ; devenu standard POSIX, omniprésent sur serveurs.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Sans -z/-j/-J, tar ne compresse PAS, il concatène seulement (archive .tar non compressée).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "tar vs zip : tar préserve permissions et liens Unix, zip non — préférer tar sur Linux.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "-f` doit être immédiatement suivi du nom d'archive : `tar -czf arc.tar.gz` OK, `tar -cfz` piégeux.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "c=create, x=extract, t=list, z=gzip, j=bzip2, J=xz — un seul de c/x/t à la fois.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `tar -xzf arc -C /` écrase le système — toujours lister avec -t avant d'extraire une archive inconnue.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Vérifier la taille et le contenu avec `tar -tzf` avant extraction.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** Compress-Archive (PowerShell), 7z (Windows)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** gzip, gunzip, zip, unzip, rsync",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "tar -czf backup.tar.gz dossier/",
+          "explication": "Sauvegarde compressée du dossier (backup quotidien, le plus courant)"
+        },
+        {
+          "cmd": "tar -tzf backup.tar.gz",
+          "explication": "Lister le contenu SANS extraire (vérification avant restauration)"
+        },
+        {
+          "cmd": "tar -xzf backup.tar.gz -C /tmp/resto",
+          "explication": "Extraire dans un dossier cible précis"
+        },
+        {
+          "cmd": "tar -czf site-$(date +%F).tar.gz /var/www",
+          "explication": "Backup daté d'un site web"
+        },
+        {
+          "cmd": "*Origine :** Tape ARchive, Unix V7 (1979), bandes magnétiques ; devenu standard POSIX, omniprésent sur serveurs.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "Sans -z/-j/-J, tar ne compresse PAS, il concatène seulement (archive .tar non compressée).",
+          "explication": ""
+        },
+        {
+          "cmd": "tar vs zip : tar préserve permissions et liens Unix, zip non — préférer tar sur Linux.",
+          "explication": ""
+        },
+        {
+          "cmd": "-f` doit être immédiatement suivi du nom d'archive : `tar -czf arc.tar.gz` OK, `tar -cfz` piégeux.",
+          "explication": ""
+        },
+        {
+          "cmd": "c=create, x=extract, t=list, z=gzip, j=bzip2, J=xz — un seul de c/x/t à la fois.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `tar -xzf arc -C /` écrase le système — toujours lister avec -t avant d'extraire une archive inconnue.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Vérifier la taille et le contenu avec `tar -tzf` avant extraction.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** Compress-Archive (PowerShell), 7z (Windows)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** gzip, gunzip, zip, unzip, rsync",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `tar -xzf arc -C /` écrase le système — toujours lister avec -t avant d'extraire une archive inconnue.",
+      "precautions": "Vérifier la taille et le contenu avec `tar -tzf` avant extraction.",
+      "equivalents": [
+        {
+          "note": "Compress-Archive (PowerShell), 7z (Windows)"
+        }
+      ],
+      "id": "A-00101",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "gzip",
+      "aliases": [],
+      "niveau": "debutant",
+      "popularite": 80,
+      "contextes": [
+        "compression de logs",
+        "préparation d'archive tar.gz",
+        "économie d'espace disque"
+      ],
+      "origine": "GNU zip, 1992 (Deutsch/Gailly), successeur libre de compress ; algorithme DEFLATE, standard du web.",
+      "subtilites": [
+        "gzip écrase l'original par défaut — utiliser -k pour le garder.",
+        "gzip = 1 seul fichier ; pour un dossier passer par tar (tar.gz).",
+        "gzip vs bzip2 vs xz : gzip rapide, xz compresse mieux mais lent.",
+        "*Urgences/dangers :** — (écrase l'original mais c'est réversible avec gunzip, pas de danger système)",
+        "*Précautions :** Ajouter -k si l'original doit être conservé.",
+        "*Équivalents :** Compress-Archive (PowerShell)",
+        "*Voir aussi :** gunzip, tar, bzip2, xz"
+      ],
+      "voir_aussi": [
+        "gunzip",
+        "tar",
+        "bzip2",
+        "xz"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Compresser un fichier (remplace l'original par .gz) et décompresser avec gunzip.",
+      "syntaxe": "gzip [options] <fichier>",
+      "cas_reguliers": [
+        {
+          "cmd": "gzip acces.log",
+          "explication": "Compresse le log (devient acces.log.gz, le plus courant en rotation de logs)",
+          "contexte": ""
+        },
+        {
+          "cmd": "gzip -k rapport.csv",
+          "explication": "Compresse en gardant l'original (-k = keep)",
+          "contexte": ""
+        },
+        {
+          "cmd": "gzip -9 dump.sql",
+          "explication": "Compression maximale pour archivage",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** GNU zip, 1992 (Deutsch/Gailly), successeur libre de compress ; algorithme DEFLATE, standard du web.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "gzip écrase l'original par défaut — utiliser -k pour le garder.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "gzip = 1 seul fichier ; pour un dossier passer par tar (tar.gz).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "gzip vs bzip2 vs xz : gzip rapide, xz compresse mieux mais lent.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (écrase l'original mais c'est réversible avec gunzip, pas de danger système)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Ajouter -k si l'original doit être conservé.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** Compress-Archive (PowerShell)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** gunzip, tar, bzip2, xz",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "gzip acces.log",
+          "explication": "Compresse le log (devient acces.log.gz, le plus courant en rotation de logs)"
+        },
+        {
+          "cmd": "gzip -k rapport.csv",
+          "explication": "Compresse en gardant l'original (-k = keep)"
+        },
+        {
+          "cmd": "gzip -9 dump.sql",
+          "explication": "Compression maximale pour archivage"
+        },
+        {
+          "cmd": "*Origine :** GNU zip, 1992 (Deutsch/Gailly), successeur libre de compress ; algorithme DEFLATE, standard du web.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "gzip écrase l'original par défaut — utiliser -k pour le garder.",
+          "explication": ""
+        },
+        {
+          "cmd": "gzip = 1 seul fichier ; pour un dossier passer par tar (tar.gz).",
+          "explication": ""
+        },
+        {
+          "cmd": "gzip vs bzip2 vs xz : gzip rapide, xz compresse mieux mais lent.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (écrase l'original mais c'est réversible avec gunzip, pas de danger système)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Ajouter -k si l'original doit être conservé.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** Compress-Archive (PowerShell)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** gunzip, tar, bzip2, xz",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (écrase l'original mais c'est réversible avec gunzip, pas de danger système)",
+      "precautions": "Ajouter -k si l'original doit être conservé.",
+      "equivalents": [
+        {
+          "note": "Compress-Archive (PowerShell)"
+        }
+      ],
+      "id": "A-00102",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "zip",
+      "aliases": [],
+      "niveau": "debutant",
+      "popularite": 88,
+      "contextes": [
+        "envoi par e-mail",
+        "partage Windows-Linux",
+        "distribution multi-OS"
+      ],
+      "origine": "Phil Katz, PKZIP 1989 (DOS) ; format devenu standard universel, intégré à Windows et macOS.",
+      "subtilites": [
+        "Oublier -r sur un dossier ne zippe que les fichiers racine, pas le contenu.",
+        "zip vs tar.gz : zip portable multi-OS mais perd les permissions Unix — tar.gz sur serveurs Linux.",
+        "-e chiffre faiblement (ZipCrypto) — pour du sensible préférer 7z AES-256.",
+        "*Urgences/dangers :** — (pas destructif ; attention aux mots de passe faibles avec -e)",
+        "*Précautions :** Toujours -r pour les dossiers ; vérifier avec `unzip -l`.",
+        "*Équivalents :** Compress-Archive (PowerShell), 7z (Windows)",
+        "*Voir aussi :** unzip, tar, 7z"
+      ],
+      "voir_aussi": [
+        "unzip",
+        "tar",
+        "7z"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Créer des archives .zip lisibles partout (Windows, macOS, Linux).",
+      "syntaxe": "zip [options] <archive.zip> <fichiers>",
+      "cas_reguliers": [
+        {
+          "cmd": "zip -r projet.zip projet/",
+          "explication": "Zip récursif d'un dossier (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "zip livrable.zip *.pdf",
+          "explication": "Zip de fichiers précis pour envoi",
+          "contexte": ""
+        },
+        {
+          "cmd": "zip -e secret.zip contrats/",
+          "explication": "Archive chiffrée par mot de passe",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Phil Katz, PKZIP 1989 (DOS) ; format devenu standard universel, intégré à Windows et macOS.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Oublier -r sur un dossier ne zippe que les fichiers racine, pas le contenu.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "zip vs tar.gz : zip portable multi-OS mais perd les permissions Unix — tar.gz sur serveurs Linux.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "-e chiffre faiblement (ZipCrypto) — pour du sensible préférer 7z AES-256.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (pas destructif ; attention aux mots de passe faibles avec -e)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Toujours -r pour les dossiers ; vérifier avec `unzip -l`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** Compress-Archive (PowerShell), 7z (Windows)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** unzip, tar, 7z",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "zip -r projet.zip projet/",
+          "explication": "Zip récursif d'un dossier (le plus courant)"
+        },
+        {
+          "cmd": "zip livrable.zip *.pdf",
+          "explication": "Zip de fichiers précis pour envoi"
+        },
+        {
+          "cmd": "zip -e secret.zip contrats/",
+          "explication": "Archive chiffrée par mot de passe"
+        },
+        {
+          "cmd": "*Origine :** Phil Katz, PKZIP 1989 (DOS) ; format devenu standard universel, intégré à Windows et macOS.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "Oublier -r sur un dossier ne zippe que les fichiers racine, pas le contenu.",
+          "explication": ""
+        },
+        {
+          "cmd": "zip vs tar.gz : zip portable multi-OS mais perd les permissions Unix — tar.gz sur serveurs Linux.",
+          "explication": ""
+        },
+        {
+          "cmd": "-e chiffre faiblement (ZipCrypto) — pour du sensible préférer 7z AES-256.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (pas destructif ; attention aux mots de passe faibles avec -e)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Toujours -r pour les dossiers ; vérifier avec `unzip -l`.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** Compress-Archive (PowerShell), 7z (Windows)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** unzip, tar, 7z",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (pas destructif ; attention aux mots de passe faibles avec -e)",
+      "precautions": "Toujours -r pour les dossiers ; vérifier avec `unzip -l`.",
+      "equivalents": [
+        {
+          "note": "Compress-Archive (PowerShell), 7z (Windows)"
+        }
+      ],
+      "id": "A-00103",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "apt",
+      "aliases": [
+        "apt-get",
+        "apt-cache"
+      ],
+      "niveau": "debutant",
+      "popularite": 95,
+      "contextes": [
+        "installation logicielle",
+        "mise à jour serveur Ubuntu/Debian",
+        "provisioning"
+      ],
+      "origine": "Advanced Package Tool, Debian 1998 ; `apt` moderne (2014) fusionne apt-get/apt-cache en interface conviviale.",
+      "subtilites": [
+        "update ≠ upgrade : update recharge la LISTE, upgrade installe les MAJ — faire les deux dans l'ordre.",
+        "apt vs apt-get : apt pour l'humain (barre de progression), apt-get pour les scripts (stable).",
+        "remove garde la config, purge l'efface ; autoremove nettoie les dépendances orphelines.",
+        "*Urgences/dangers :** ⚠️ `apt upgrade` sur un serveur de prod sans snapshot peut casser un service — tester d'abord, upgrader en heure creuse.",
+        "*Précautions :** Toujours `update` avant `install` ; lire ce qui sera supprimé avant de valider.",
+        "*Équivalents :** yum/dnf (Fedora), pacman (Arch), brew (macOS)",
+        "*Voir aussi :** dpkg, snap, yum, brew"
+      ],
+      "voir_aussi": [
+        "dpkg",
+        "snap",
+        "yum",
+        "brew"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Installer, mettre à jour et supprimer les logiciels (.deb) depuis les dépôts.",
+      "syntaxe": "sudo apt [update|upgrade|install|remove] [paquet]",
+      "cas_reguliers": [
+        {
+          "cmd": "sudo apt update && sudo apt upgrade -y",
+          "explication": "Mise à jour complète du système (le rituel hebdo)",
+          "contexte": ""
+        },
+        {
+          "cmd": "sudo apt install nginx",
+          "explication": "Installer un logiciel depuis les dépôts",
+          "contexte": ""
+        },
+        {
+          "cmd": "sudo apt remove --purge apache2",
+          "explication": "Désinstaller + purger la configuration",
+          "contexte": ""
+        },
+        {
+          "cmd": "apt search postgres",
+          "explication": "Chercher un paquet disponible",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Advanced Package Tool, Debian 1998 ; `apt` moderne (2014) fusionne apt-get/apt-cache en interface conviviale.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "update ≠ upgrade : update recharge la LISTE, upgrade installe les MAJ — faire les deux dans l'ordre.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "apt vs apt-get : apt pour l'humain (barre de progression), apt-get pour les scripts (stable).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "remove garde la config, purge l'efface ; autoremove nettoie les dépendances orphelines.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `apt upgrade` sur un serveur de prod sans snapshot peut casser un service — tester d'abord, upgrader en heure creuse.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Toujours `update` avant `install` ; lire ce qui sera supprimé avant de valider.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** yum/dnf (Fedora), pacman (Arch), brew (macOS)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** dpkg, snap, yum, brew",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "sudo apt update && sudo apt upgrade -y",
+          "explication": "Mise à jour complète du système (le rituel hebdo)"
+        },
+        {
+          "cmd": "sudo apt install nginx",
+          "explication": "Installer un logiciel depuis les dépôts"
+        },
+        {
+          "cmd": "sudo apt remove --purge apache2",
+          "explication": "Désinstaller + purger la configuration"
+        },
+        {
+          "cmd": "apt search postgres",
+          "explication": "Chercher un paquet disponible"
+        },
+        {
+          "cmd": "*Origine :** Advanced Package Tool, Debian 1998 ; `apt` moderne (2014) fusionne apt-get/apt-cache en interface conviviale.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "update ≠ upgrade : update recharge la LISTE, upgrade installe les MAJ — faire les deux dans l'ordre.",
+          "explication": ""
+        },
+        {
+          "cmd": "apt vs apt-get : apt pour l'humain (barre de progression), apt-get pour les scripts (stable).",
+          "explication": ""
+        },
+        {
+          "cmd": "remove garde la config, purge l'efface ; autoremove nettoie les dépendances orphelines.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `apt upgrade` sur un serveur de prod sans snapshot peut casser un service — tester d'abord, upgrader en heure creuse.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Toujours `update` avant `install` ; lire ce qui sera supprimé avant de valider.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** yum/dnf (Fedora), pacman (Arch), brew (macOS)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** dpkg, snap, yum, brew",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `apt upgrade` sur un serveur de prod sans snapshot peut casser un service — tester d'abord, upgrader en heure creuse.",
+      "precautions": "Toujours `update` avant `install` ; lire ce qui sera supprimé avant de valider.",
+      "equivalents": [
+        {
+          "note": "yum/dnf (Fedora), pacman (Arch), brew (macOS)"
+        }
+      ],
+      "id": "A-00104",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "unzip",
+      "aliases": [],
+      "niveau": "debutant",
+      "popularite": 85,
+      "contextes": [
+        "réception d'un livrable",
+        "déploiement d'un plugin",
+        "extraction de pièce jointe"
+      ],
+      "origine": "Info-ZIP, 1989, compagnon libre de zip ; préinstallé sur la plupart des Linux et macOS.",
+      "subtilites": [
+        "Sans -d tout part dans le dossier courant et peut l'inonder — préférer -d.",
+        "unzip vs tar -xzf : unzip pour .zip, tar pour .tar.gz — extensions différentes.",
+        "Fichier avec mot de passe : `unzip -P motdepasse secret.zip` (le mot de passe reste visible dans l'historique).",
+        "*Urgences/dangers :** ⚠️ Zip Slip : une archive piégée peut écrire hors du dossier — toujours lister avec -l avant sur une archive inconnue.",
+        "*Précautions :** Lister avec -l avant d'extraire ; extraire dans un dossier dédié avec -d.",
+        "*Équivalents :** Expand-Archive (PowerShell)",
+        "*Voir aussi :** zip, tar, 7z"
+      ],
+      "voir_aussi": [
+        "zip",
+        "tar",
+        "7z"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Extraire le contenu d'une archive .zip, lister ou tester son intégrité.",
+      "syntaxe": "unzip [options] <archive.zip> [-d <dossier>]",
+      "cas_reguliers": [
+        {
+          "cmd": "unzip livrable.zip",
+          "explication": "Extrait dans le dossier courant (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "unzip livrable.zip -d /tmp/depot",
+          "explication": "Extrait dans un dossier cible propre",
+          "contexte": ""
+        },
+        {
+          "cmd": "unzip -l livrable.zip",
+          "explication": "Liste le contenu SANS extraire (vérification)",
+          "contexte": ""
+        },
+        {
+          "cmd": "unzip -q gros.zip",
+          "explication": "Extraction silencieuse pour les scripts",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Info-ZIP, 1989, compagnon libre de zip ; préinstallé sur la plupart des Linux et macOS.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Sans -d tout part dans le dossier courant et peut l'inonder — préférer -d.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "unzip vs tar -xzf : unzip pour .zip, tar pour .tar.gz — extensions différentes.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Fichier avec mot de passe : `unzip -P motdepasse secret.zip` (le mot de passe reste visible dans l'historique).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ Zip Slip : une archive piégée peut écrire hors du dossier — toujours lister avec -l avant sur une archive inconnue.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Lister avec -l avant d'extraire ; extraire dans un dossier dédié avec -d.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** Expand-Archive (PowerShell)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** zip, tar, 7z",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "unzip livrable.zip",
+          "explication": "Extrait dans le dossier courant (le plus courant)"
+        },
+        {
+          "cmd": "unzip livrable.zip -d /tmp/depot",
+          "explication": "Extrait dans un dossier cible propre"
+        },
+        {
+          "cmd": "unzip -l livrable.zip",
+          "explication": "Liste le contenu SANS extraire (vérification)"
+        },
+        {
+          "cmd": "unzip -q gros.zip",
+          "explication": "Extraction silencieuse pour les scripts"
+        },
+        {
+          "cmd": "*Origine :** Info-ZIP, 1989, compagnon libre de zip ; préinstallé sur la plupart des Linux et macOS.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "Sans -d tout part dans le dossier courant et peut l'inonder — préférer -d.",
+          "explication": ""
+        },
+        {
+          "cmd": "unzip vs tar -xzf : unzip pour .zip, tar pour .tar.gz — extensions différentes.",
+          "explication": ""
+        },
+        {
+          "cmd": "Fichier avec mot de passe : `unzip -P motdepasse secret.zip` (le mot de passe reste visible dans l'historique).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ Zip Slip : une archive piégée peut écrire hors du dossier — toujours lister avec -l avant sur une archive inconnue.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Lister avec -l avant d'extraire ; extraire dans un dossier dédié avec -d.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** Expand-Archive (PowerShell)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** zip, tar, 7z",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ Zip Slip : une archive piégée peut écrire hors du dossier — toujours lister avec -l avant sur une archive inconnue.",
+      "precautions": "Lister avec -l avant d'extraire ; extraire dans un dossier dédié avec -d.",
+      "equivalents": [
+        {
+          "note": "Expand-Archive (PowerShell)"
+        }
+      ],
+      "id": "A-00105",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "brew",
+      "aliases": [
+        "Homebrew"
+      ],
+      "niveau": "debutant",
+      "popularite": 82,
+      "contextes": [
+        "poste développeur Mac",
+        "installation d'outils open source",
+        "environnement de dev"
+      ],
+      "origine": "Homebrew, Max Howell 2009 ; devenu le gestionnaire de facto sur macOS (\"le chaînon manquant d'Apple\").",
+      "subtilites": [
+        "brew = outils en ligne de commande ; `brew install --cask` = vraies apps GUI (VS Code, Docker Desktop).",
+        "Pas de sudo avec brew — il installe dans /opt/homebrew, jamais en root.",
+        "brew vs MacPorts : brew plus simple et populaire, MacPorts plus isolé.",
+        "*Urgences/dangers :** — (n'installe qu'en espace utilisateur ; un `brew upgrade` peut changer une version d'outil et casser un projet — épingler avec `brew pin` si critique)",
+        "*Précautions :** `brew update` avant `brew upgrade` ; vérifier `brew doctor` si ça coince.",
+        "*Équivalents :** apt (Debian/Ubuntu), winget/choco (Windows)",
+        "*Voir aussi :** apt, winget, mas"
+      ],
+      "voir_aussi": [
+        "apt",
+        "winget",
+        "mas"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "macos"
+      ],
+      "os_raw": "macOS",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Installer et mettre à jour logiciels et outils absents du Mac par défaut.",
+      "syntaxe": "brew [install|upgrade|search|list] [formule]",
+      "cas_reguliers": [
+        {
+          "cmd": "brew install git",
+          "explication": "Installer un outil manquant (le plus courant sur Mac neuf)",
+          "contexte": ""
+        },
+        {
+          "cmd": "brew upgrade",
+          "explication": "Tout mettre à jour (rituel hebdo)",
+          "contexte": ""
+        },
+        {
+          "cmd": "brew search postgres",
+          "explication": "Chercher un paquet",
+          "contexte": ""
+        },
+        {
+          "cmd": "brew list",
+          "explication": "Voir ce qui est installé",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Homebrew, Max Howell 2009 ; devenu le gestionnaire de facto sur macOS (\"le chaînon manquant d'Apple\").",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "brew = outils en ligne de commande ; `brew install --cask` = vraies apps GUI (VS Code, Docker Desktop).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Pas de sudo avec brew — il installe dans /opt/homebrew, jamais en root.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "brew vs MacPorts : brew plus simple et populaire, MacPorts plus isolé.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (n'installe qu'en espace utilisateur ; un `brew upgrade` peut changer une version d'outil et casser un projet — épingler avec `brew pin` si critique)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** `brew update` avant `brew upgrade` ; vérifier `brew doctor` si ça coince.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** apt (Debian/Ubuntu), winget/choco (Windows)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** apt, winget, mas",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "brew install git",
+          "explication": "Installer un outil manquant (le plus courant sur Mac neuf)"
+        },
+        {
+          "cmd": "brew upgrade",
+          "explication": "Tout mettre à jour (rituel hebdo)"
+        },
+        {
+          "cmd": "brew search postgres",
+          "explication": "Chercher un paquet"
+        },
+        {
+          "cmd": "brew list",
+          "explication": "Voir ce qui est installé"
+        },
+        {
+          "cmd": "*Origine :** Homebrew, Max Howell 2009 ; devenu le gestionnaire de facto sur macOS (\"le chaînon manquant d'Apple\").",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "brew = outils en ligne de commande ; `brew install --cask` = vraies apps GUI (VS Code, Docker Desktop).",
+          "explication": ""
+        },
+        {
+          "cmd": "Pas de sudo avec brew — il installe dans /opt/homebrew, jamais en root.",
+          "explication": ""
+        },
+        {
+          "cmd": "brew vs MacPorts : brew plus simple et populaire, MacPorts plus isolé.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (n'installe qu'en espace utilisateur ; un `brew upgrade` peut changer une version d'outil et casser un projet — épingler avec `brew pin` si critique)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** `brew update` avant `brew upgrade` ; vérifier `brew doctor` si ça coince.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** apt (Debian/Ubuntu), winget/choco (Windows)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** apt, winget, mas",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (n'installe qu'en espace utilisateur ; un `brew upgrade` peut changer une version d'outil et casser un projet — épingler avec `brew pin` si critique)",
+      "precautions": "`brew update` avant `brew upgrade` ; vérifier `brew doctor` si ça coince.",
+      "equivalents": [
+        {
+          "note": "apt (Debian/Ubuntu), winget/choco (Windows)"
+        }
+      ],
+      "id": "A-00106",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
       "face": "B",
       "type": "sigle",
       "nom": "CPU",
@@ -3364,24 +5289,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Processeur, exécute les instructions des programmes",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Intel Core i7, AMD Ryzen 7",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "GPU",
         "RAM"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00001",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00002",
       "face": "B",
       "type": "sigle",
       "nom": "RAM",
@@ -3397,24 +5330,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Mémoire vive de travail, effacée à l'arrêt",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "16 Go de RAM DDR4",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "ROM",
         "SSD"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00002",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00003",
       "face": "B",
       "type": "sigle",
       "nom": "ROM",
@@ -3430,24 +5371,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Mémoire non volatile, non modifiable en usage normal",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "BIOS stocké en ROM",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "RAM",
         "BIOS"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00003",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00004",
       "face": "B",
       "type": "sigle",
       "nom": "GPU",
@@ -3463,23 +5412,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Processeur graphique, calcul parallèle et IA",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "NVIDIA RTX 4060",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "CPU"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00004",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00005",
       "face": "B",
       "type": "sigle",
       "nom": "SSD",
@@ -3495,23 +5452,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Disque à mémoire flash, rapide et silencieux",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "SSD NVMe 1 To",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "HDD"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00005",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00006",
       "face": "B",
       "type": "sigle",
       "nom": "HDD",
@@ -3527,23 +5492,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Disque magnétique rotatif, grande capacité pas chère",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "HDD 2 To 7200 tr/min",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "SSD"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00006",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00007",
       "face": "B",
       "type": "sigle",
       "nom": "USB",
@@ -3559,21 +5532,29 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Connectique universelle pour périphériques",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Clé USB 3.0",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00007",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00008",
       "face": "B",
       "type": "sigle",
       "nom": "HDMI",
@@ -3589,21 +5570,29 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Connectique audio-vidéo haute définition",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Câble HDMI 2.1",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00008",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00009",
       "face": "B",
       "type": "sigle",
       "nom": "OS",
@@ -3619,24 +5608,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Système d'exploitation qui pilote le matériel",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Linux, Windows 11, macOS",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "BIOS",
         "CLI"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00009",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00010",
       "face": "B",
       "type": "sigle",
       "nom": "BIOS",
@@ -3652,23 +5649,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Firmware historique de démarrage du PC",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Accéder au BIOS avec F2",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "UEFI"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00010",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00011",
       "face": "B",
       "type": "sigle",
       "nom": "UEFI",
@@ -3684,23 +5689,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Successeur moderne du BIOS avec Secure Boot",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Boot UEFI, Secure Boot",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "BIOS"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00011",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00012",
       "face": "B",
       "type": "sigle",
       "nom": "VM",
@@ -3716,23 +5729,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Machine virtuelle émulant un ordinateur complet",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "VM Ubuntu sous VirtualBox",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "OS"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00012",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00013",
       "face": "B",
       "type": "sigle",
       "nom": "CLI",
@@ -3748,23 +5769,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Interface en ligne de commande au clavier",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Terminal, PowerShell",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "GUI"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00013",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00014",
       "face": "B",
       "type": "sigle",
       "nom": "GUI",
@@ -3780,23 +5809,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Interface graphique avec fenêtres et souris",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Windows, GNOME",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "CLI"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00014",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00015",
       "face": "B",
       "type": "sigle",
       "nom": "IP",
@@ -3812,24 +5849,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Protocole d'adressage des machines en réseau",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "192.168.1.1 et IPv6 ::1",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "DNS",
         "TCP"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00015",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00016",
       "face": "B",
       "type": "sigle",
       "nom": "DNS",
@@ -3845,24 +5890,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Annuaire qui traduit les noms en adresses IP",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "google.com vers 142.250.x.x",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "IP",
         "DHCP"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00016",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00017",
       "face": "B",
       "type": "sigle",
       "nom": "DHCP",
@@ -3878,24 +5931,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Attribution automatique des adresses IP",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "La box distribue les IP en DHCP",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "DNS",
         "IP"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00017",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00018",
       "face": "B",
       "type": "sigle",
       "nom": "TCP",
@@ -3911,24 +5972,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Transport fiable en mode connecté",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "HTTP sur TCP port 80",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "UDP",
         "IP"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00018",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00019",
       "face": "B",
       "type": "sigle",
       "nom": "UDP",
@@ -3944,23 +6013,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Transport rapide sans connexion ni garantie",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "DNS et streaming sur UDP",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "TCP"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00019",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00020",
       "face": "B",
       "type": "sigle",
       "nom": "LAN",
@@ -3976,23 +6053,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Réseau local d'un bâtiment ou domicile",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "LAN 192.168.1.0/24",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "WAN"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00020",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00021",
       "face": "B",
       "type": "sigle",
       "nom": "WAN",
@@ -4008,23 +6093,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Réseau étendu sur de longues distances",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Internet est un WAN",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "LAN"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00021",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00022",
       "face": "B",
       "type": "sigle",
       "nom": "WiFi",
@@ -4040,23 +6133,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Réseau local sans fil normalisé IEEE 802.11",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "WiFi 6 avec WPA3",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "LAN"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00022",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00023",
       "face": "B",
       "type": "sigle",
       "nom": "FTP",
@@ -4072,23 +6173,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Transfert de fichiers, non chiffré",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "ftp serveur.fr port 21",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "SSH"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00023",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00024",
       "face": "B",
       "type": "sigle",
       "nom": "SSH",
@@ -4104,24 +6213,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Shell distant chiffré et transfert sécurisé",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "ssh ada@serveur.fr",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "FTP",
         "VPN"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00024",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00025",
       "face": "B",
       "type": "sigle",
       "nom": "VPN",
@@ -4137,23 +6254,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Tunnel chiffré vers un réseau distant",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "WireGuard, OpenVPN",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "SSH"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00025",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00026",
       "face": "B",
       "type": "sigle",
       "nom": "HTTP",
@@ -4169,23 +6294,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Protocole du Web non chiffré port 80",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "http://example.com",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "HTTPS"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00026",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00027",
       "face": "B",
       "type": "sigle",
       "nom": "HTTPS",
@@ -4201,24 +6334,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "HTTP chiffré par TLS port 443",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "https://banque.fr",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "HTTP",
         "SSL"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00027",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00028",
       "face": "B",
       "type": "sigle",
       "nom": "URL",
@@ -4234,24 +6375,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Adresse complète d'une ressource",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "https://site.fr/page?id=1",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "URI",
         "DNS"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00028",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00029",
       "face": "B",
       "type": "sigle",
       "nom": "URI",
@@ -4267,23 +6416,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Identifiant de ressource, sur-ensemble d'URL",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "mailto:contact@site.fr",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "URL"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00029",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00030",
       "face": "B",
       "type": "sigle",
       "nom": "HTML",
@@ -4299,24 +6456,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Langage de structure des pages Web",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "<h1>Titre</h1>",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "CSS",
         "JS"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00030",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00031",
       "face": "B",
       "type": "sigle",
       "nom": "CSS",
@@ -4332,23 +6497,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Feuilles de style pour la présentation",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "body { color: red; }",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "HTML"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00031",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00032",
       "face": "B",
       "type": "sigle",
       "nom": "JS",
@@ -4364,24 +6537,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Langage du Web interactif côté client et serveur",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "console.log('bonjour')",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "TS",
         "HTML"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00032",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00033",
       "face": "B",
       "type": "sigle",
       "nom": "TS",
@@ -4397,23 +6578,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "JavaScript typé compilé par Microsoft",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "const x: number = 1",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "JS"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00033",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00034",
       "face": "B",
       "type": "sigle",
       "nom": "JSON",
@@ -4429,24 +6618,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Format d'échange léger clé-valeur",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "{\"nom\": \"Ada\"}",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "XML",
         "YAML"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00034",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00035",
       "face": "B",
       "type": "sigle",
       "nom": "XML",
@@ -4462,23 +6659,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Format balisé extensible et verbeux",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "<nom>Ada</nom>",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "JSON"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00035",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00036",
       "face": "B",
       "type": "sigle",
       "nom": "YAML",
@@ -4494,23 +6699,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Format lisible pour la configuration",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "nom: Ada",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "JSON"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00036",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00037",
       "face": "B",
       "type": "sigle",
       "nom": "API",
@@ -4526,24 +6739,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Interface pour faire dialoguer des logiciels",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "GET /api/users",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "SDK",
         "REST"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00037",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00038",
       "face": "B",
       "type": "sigle",
       "nom": "SDK",
@@ -4559,23 +6780,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Kit de développement pour une plateforme",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Android SDK",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "API"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00038",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00039",
       "face": "B",
       "type": "sigle",
       "nom": "IDE",
@@ -4591,23 +6820,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Environnement de développement complet",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "VS Code, IntelliJ",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "CLI"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00039",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00040",
       "face": "B",
       "type": "sigle",
       "nom": "SQL",
@@ -4623,23 +6860,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Langage des bases de données relationnelles",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "SELECT * FROM users",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "SGBD"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00040",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00041",
       "face": "B",
       "type": "sigle",
       "nom": "SGBD",
@@ -4655,23 +6900,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Logiciel qui gère les bases de données",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "PostgreSQL, MySQL",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "SQL"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00041",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00042",
       "face": "B",
       "type": "sigle",
       "nom": "ORM",
@@ -4687,23 +6940,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Pont entre objets code et tables SQL",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Prisma, SQLAlchemy",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "SQL"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00042",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00043",
       "face": "B",
       "type": "sigle",
       "nom": "REST",
@@ -4719,23 +6980,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Style d'API HTTP avec verbes et ressources",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "GET POST PUT DELETE",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "API"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00043",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00044",
       "face": "B",
       "type": "sigle",
       "nom": "SMTP",
@@ -4751,23 +7020,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Envoi des e-mails port 25",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Serveur SMTP smtp.site.fr",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "IMAP"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00044",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00045",
       "face": "B",
       "type": "sigle",
       "nom": "IMAP",
@@ -4783,24 +7060,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Lecture des e-mails conservés sur serveur",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Port 993 en TLS",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "SMTP",
         "POP3"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00045",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00046",
       "face": "B",
       "type": "sigle",
       "nom": "POP3",
@@ -4816,23 +7101,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Téléchargement des e-mails port 110",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Récupérer les mails en POP",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "IMAP"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00046",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00047",
       "face": "B",
       "type": "sigle",
       "nom": "SSL",
@@ -4848,24 +7141,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Ancien protocole de chiffrement, remplacé par TLS",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Ne plus utiliser SSL",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "TLS",
         "HTTPS"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00047",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00048",
       "face": "B",
       "type": "sigle",
       "nom": "TLS",
@@ -4881,23 +7182,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Chiffrement moderne des échanges",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "TLS 1.3 sur HTTPS",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "SSL"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00048",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00049",
       "face": "B",
       "type": "sigle",
       "nom": "MFA",
@@ -4913,23 +7222,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Double preuve d'identité pour se connecter",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Mot de passe + code SMS",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "2FA"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00049",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00050",
       "face": "B",
       "type": "sigle",
       "nom": "2FA",
@@ -4945,23 +7262,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Cas particulier de MFA avec deux facteurs",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Code TOTP à 6 chiffres",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "MFA"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00050",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00051",
       "face": "B",
       "type": "sigle",
       "nom": "DDoS",
@@ -4977,24 +7302,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Attaque par saturation depuis un botnet",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Attaque DDoS 1 Tbps",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "VPN",
         "Firewall"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00051",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00052",
       "face": "B",
       "type": "sigle",
       "nom": "IA",
@@ -5010,23 +7343,31 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Systèmes simulant des capacités cognitives",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "LLM comme Muse",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "ML"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00052",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00053",
       "face": "B",
       "type": "sigle",
       "nom": "ML",
@@ -5042,24 +7383,32 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Apprentissage automatique à partir de données",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "Régression, clustering",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "IA",
         "DL"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00053",
+      "version": 1,
+      "updated_at": "2026-09-29"
     },
     {
-      "id": "B-00054",
       "face": "B",
       "type": "sigle",
       "nom": "DL",
@@ -5075,20 +7424,344 @@
       ],
       "tags": [],
       "niveau": "debutant",
+      "popularite": 50,
       "role_fr": "Réseaux de neurones profonds",
       "syntaxe": "",
+      "contextes": [],
+      "cas_reguliers": [],
       "exemples": [
         {
           "cmd": "CNN pour la vision",
           "explication": ""
         }
       ],
+      "origine": "",
+      "subtilites": [],
+      "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
       "voir_aussi": [
         "ML"
       ],
-      "source": "faceB_01_abreviations.md"
+      "source": "faceB_01_abreviations.md",
+      "id": "B-00054",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "CI",
+      "aliases": [
+        "Continuous Integration (Intégration Continue)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 88,
+      "contextes": [
+        "équipe de développement",
+        "pipeline GitHub Actions ou GitLab CI",
+        "qualité logicielle",
+        "revue de code"
+      ],
+      "origine": "Grady Booch (1991), popularisée par Extreme Programming de Kent Beck (1999), explosée avec Jenkins (2011) puis GitHub Actions (2019).",
+      "subtilites": [
+        "CI vs CD : CI = tester et intégrer, CD = livrer et déployer. Faire de la CI sans CD = tests sans mise en prod automatique.",
+        "Committer souvent sans pipeline n'est PAS de la CI, c'est juste du versionnement.",
+        "Faux vert : une pipeline qui ne teste rien donne une fausse confiance pire que pas de CI.",
+        "*Exemple :** `.github/workflows/ci.yml qui lance pytest à chaque pull request`",
+        "*Voir aussi :** CD, DevOps, TDD, Jenkins"
+      ],
+      "voir_aussi": [
+        "CD",
+        "DevOps",
+        "TDD",
+        "Jenkins"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Pratique qui fusionne et teste automatiquement le code à chaque commit pour détecter les bugs tôt.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Pipeline CI : lint + tests à chaque push",
+          "explication": "Bloquer la fusion si les tests échouent (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Badge CI vert sur README",
+          "explication": "Preuve visible que la branche principale est saine",
+          "contexte": ""
+        },
+        {
+          "cmd": "CI qui publie un rapport de couverture",
+          "explication": "Suivre que 80% du code est testé",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Grady Booch (1991), popularisée par Extreme Programming de Kent Beck (1999), explosée avec Jenkins (2011) puis GitHub Actions (2019).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "CI vs CD : CI = tester et intégrer, CD = livrer et déployer. Faire de la CI sans CD = tests sans mise en prod automatique.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Committer souvent sans pipeline n'est PAS de la CI, c'est juste du versionnement.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Faux vert : une pipeline qui ne teste rien donne une fausse confiance pire que pas de CI.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `.github/workflows/ci.yml qui lance pytest à chaque pull request",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** CD, DevOps, TDD, Jenkins",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": ".github/workflows/ci.yml qui lance pytest à chaque pull request",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00055",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "SaaS",
+      "aliases": [
+        "Software as a Service (Logiciel en tant que Service)"
+      ],
+      "niveau": "debutant",
+      "popularite": 90,
+      "contextes": [
+        "bureautique d'entreprise",
+        "CRM",
+        "paie",
+        "choix d'outil sans serveur à gérer"
+      ],
+      "origine": "Années 2000 (Salesforce 1999 pionnier) ; démocratisé par le cloud AWS (2006) et le haut débit.",
+      "subtilites": [
+        "SaaS vs PaaS vs IaaS : SaaS = logiciel clé en main, PaaS = plateforme pour coder, IaaS = serveurs nus à gérer.",
+        "SaaS = dépendance : sans internet ou si l'éditeur augmente ses prix, pas d'alternative locale.",
+        "Données chez l'éditeur : vérifier RGPD et lieu d'hébergement avant de mettre des données sensibles.",
+        "*Exemple :** `Abonnement 12€/utilisateur/mois à un CRM en ligne`",
+        "*Voir aussi :** PaaS, IaaS, Cloud, CRM"
+      ],
+      "voir_aussi": [
+        "PaaS",
+        "IaaS",
+        "Cloud",
+        "CRM"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Cloud"
+      ],
+      "tags": [],
+      "role_fr": "Logiciel utilisé via le navigateur sans installation, facturé par abonnement et hébergé par l'éditeur.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Gmail ou Microsoft 365",
+          "explication": "Messagerie et bureautique sans serveur mail à administrer (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Salesforce pour le commercial",
+          "explication": "CRM accessible partout sans installation",
+          "contexte": ""
+        },
+        {
+          "cmd": "Notion pour la documentation d'équipe",
+          "explication": "Collaboration temps réel facturée par utilisateur",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Années 2000 (Salesforce 1999 pionnier) ; démocratisé par le cloud AWS (2006) et le haut débit.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "SaaS vs PaaS vs IaaS : SaaS = logiciel clé en main, PaaS = plateforme pour coder, IaaS = serveurs nus à gérer.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "SaaS = dépendance : sans internet ou si l'éditeur augmente ses prix, pas d'alternative locale.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Données chez l'éditeur : vérifier RGPD et lieu d'hébergement avant de mettre des données sensibles.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `Abonnement 12€/utilisateur/mois à un CRM en ligne",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** PaaS, IaaS, Cloud, CRM",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "Abonnement 12€/utilisateur/mois à un CRM en ligne",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00056",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "NoSQL",
+      "aliases": [
+        "Not Only SQL (Pas Seulement SQL)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 75,
+      "contextes": [
+        "application web à fort trafic",
+        "données semi-structurées",
+        "prototypage rapide",
+        "temps réel"
+      ],
+      "origine": "Terme de Carlo Strozzi (1998), renaissance 2009 (Big Data, web 2.0) : MongoDB, Cassandra, Redis contre la rigidité du relationnel.",
+      "subtilites": [
+        "NoSQL = Not Only SQL, pas No SQL : beaucoup supportent un langage proche de SQL.",
+        "NoSQL vs SQL : NoSQL = flexibilité et scale, SQL = cohérence et jointures. Choisir selon le besoin, beaucoup de projets mixent les deux.",
+        "Sans schéma ne veut pas dire sans structure : valider les données côté application sinon c'est le chaos.",
+        "*Exemple :** `db.users.insertOne({nom: \"Ada\", tags: [\"dev\", \"linux\"]})`",
+        "*Voir aussi :** SQL, SGBD, MongoDB, Redis"
+      ],
+      "voir_aussi": [
+        "SQL",
+        "SGBD",
+        "MongoDB",
+        "Redis"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Bases de données"
+      ],
+      "tags": [],
+      "role_fr": "Famille de bases sans schéma SQL rigide : documents, clé-valeur, colonnes ou graphes, pensées pour le scale horizontal.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "MongoDB pour un catalogue produit",
+          "explication": "Chaque produit a des champs différents sans migration de schéma (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Redis pour le cache de session",
+          "explication": "Clé-valeur ultra-rapide en mémoire",
+          "contexte": ""
+        },
+        {
+          "cmd": "Elasticsearch pour la recherche plein texte",
+          "explication": "Moteur de recherche du dictionnaire IT lui-même",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Terme de Carlo Strozzi (1998), renaissance 2009 (Big Data, web 2.0) : MongoDB, Cassandra, Redis contre la rigidité du relationnel.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "NoSQL = Not Only SQL, pas No SQL : beaucoup supportent un langage proche de SQL.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "NoSQL vs SQL : NoSQL = flexibilité et scale, SQL = cohérence et jointures. Choisir selon le besoin, beaucoup de projets mixent les deux.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Sans schéma ne veut pas dire sans structure : valider les données côté application sinon c'est le chaos.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `db.users.insertOne({nom: \"Ada\", tags: [\"dev\", \"linux\"]})",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** SQL, SGBD, MongoDB, Redis",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "db.users.insertOne({nom: \"Ada\", tags: [\"dev\", \"linux\"]})",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00057",
+      "version": 1,
+      "updated_at": "2026-09-29"
     }
   ]
 }

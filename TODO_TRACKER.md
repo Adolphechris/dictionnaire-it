@@ -1,57 +1,57 @@
-# TODO TRACKER — Source de vérité (mettre à jour à chaque session)
+# TODO TRACKER — Source de vérité (MVP porté à 1000 le 29/09 à la demande d'Adolphe)
 
-> Comment l'utiliser : cocher `[x]`, ajouter date + initiales. Ne jamais supprimer une ligne, barrer si abandonné. `npm run stats` ou `python tools/stats.py` met à jour les compteurs.
+> Rituel : début session → lire ce fichier ; fin session → cocher + CHANGELOG + commit. Outils : `python3 tools/parse_rich.py && python3 tools/validate.py && python3 tools/stats.py`
+
+## 🎯 MVP 1000 = 600 commandes (A) + 400 sigles (B) — fiches RICHES v3
+A : existant 115 | A06 archives/paquets 40 | A07 aide/shell 40 | A08 git 60 | A09 docker/k8s 50 | A10 sysadmin 60 | A11 paquets/multiOS 50 | A12 réseau II+sécurité 60 | A13 dev/outils 60 | A14 compléments 60 = 600.
+B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 entreprise/concepts 90 | B05 compléments 76 = 400.
 
 ## 🔥 En cours (WIP — max 3)
-- [x] 2026-09-29 — #001 git init + nettoyage (Phase 0) — AI
-- [x] 2026-09-29 — #002 corriger erreurs factuelles (tail, hostname, free, mv, head) — AI
-- [x] 2026-09-29 — #003 valider plan avec Adolphe → OK Phase 0 lancée — AI+Adolphe
-- [x] 2026-09-29 — #010 créer `tools/validate.py` (split_row anti-pipe, clés Face:nom) — AI
-- [x] 2026-09-29 — #011 créer `data/dictionnaire.json` (154 entrées) — AI
-- [x] 2026-09-29 — #012 créer `web_preview/index.html` démo recherche — AI
-- [x] 2026-09-29 — #020 FaceA_05_reseau (15 cmds) — AI
-- [ ] #021 FaceA_06_archives_paquets (25 cmds) — prochain
-- [ ] #022 FaceA_07_git_docker_base (30 cmds)
-- [ ] #023 FaceB_01 vague 1/4 faite (54/200 : matériel, réseau, web, prog, sécu, concept) — reste 146
+- [ ] #021 FaceA_06_archives_paquets : 6/40 (tar, gzip, zip, apt, unzip, brew) — reste 34 — LOT ACTUEL
+- [ ] #023b FaceB_02_devops_cloud_bdd : 3/90 (CI, SaaS, NoSQL) — reste 87 — LOT ACTUEL
+- [ ] Prochain : #022 FaceA_07_aide_shell (40)
 
-## 📋 Backlog trié par priorité
-### P0 — Bloquant
-- [ ] #010 créer `tools/validate.py`
-- [ ] #011 créer `data/dictionnaire.json` (85 entrées actuelles)
-- [ ] #012 créer `web_preview/index.html` démo recherche
+## ✅ Fait (détail)
+- 2026-09-29 #001 git init + nettoyage — AI
+- 2026-09-29 #002 corrections factuelles (tail, hostname, free, mv, head) — AI
+- 2026-09-29 #003 plan validé par Adolphe — AI+Adolphe
+- 2026-09-29 #010/#011/#012 validate + JSON + web_preview — AI
+- 2026-09-29 #020 FaceA_05_reseau legacy (15) — AI
+- 2026-09-29 #023 FaceB_01 vague 1 legacy (54) — AI
+- 2026-09-29 #050 parse_rich.py fiche v3 + validation 10 rubriques + stats MVP1000 + app web enrichie — AI
+- 2026-09-29 #023b FaceB_02 lot 1 (3 fiches riches) — AI
+- 2026-09-29 #021 FaceA_06 lot 1 (6 fiches riches) — AI
 
-### P1 — Contenu (vers 500)
-- [ ] #020 FaceA_05_reseau (30 cmds)
-- [ ] #021 FaceA_06_archives_paquets (25 cmds)
-- [ ] #022 FaceA_07_git_docker_base (30 cmds)
-- [ ] #023 FaceB_01_abreviations_top200
-- [ ] #024 FaceC_01_concepts_100
-- [ ] #025 dédupliquer cp/cp-r, kill/kill-9, ps/ps-aux
+## 📋 Backlog MVP 1000 (P1 = contenu, dans l'ordre)
+- [ ] #021 FaceA_06 archives/paquets : +34 fiches (gunzip, 7z, dpkg, rpm, yum, dnf, pacman, snap, flatpak, winget, choco, npm, pip, maven...)
+- [ ] #023b FaceB_02 : +87 fiches (DevOps, Cloud, BDD)
+- [ ] #022 FaceA_07_aide_shell (40) : man, --help, which, history, alias, export, env, echo...
+- [ ] #024 FaceA_08_git (60)
+- [ ] #026 FaceA_09_docker_k8s (50)
+- [ ] #027 FaceA_10_sysadmin (60)
+- [ ] #028 FaceA_11_paquets_multiOS (50)
+- [ ] #029 FaceA_12_reseau2_secu (60)
+- [ ] #033 FaceA_13_dev_outils (60) + #034 FaceA_14 compléments (60)
+- [ ] #035 FaceB_03 (90) + #036 FaceB_04 (90) + #037 FaceB_05 (76)
+- [ ] #025 enrichir les 154 legacy vers v3 (progressif, non bloquant)
 
-### P2 — Cloud & Apps
-- [ ] #030 firebase.json + rules + import
-- [ ] #031 Flutter init + SQLite FTS5
-- [ ] #032 builds Web+Android
-- [ ] #033 builds Desktop
+## 📋 Backlog hors-MVP (P2/P3)
+- [ ] #030 Firebase import (rules déjà posées) — P2
+- [ ] #031 Flutter init + SQLite FTS5 — P2
+- [ ] #032 builds Web+Android — P2
+- [ ] #033b builds Desktop — P2
+- [ ] #040 pipeline import masse — P3
+- [ ] #041 Meilisearch synonymes — P3
+- [ ] #042 recherche sémantique IA — P3
 
-### P3 — Scale & IA
-- [ ] #040 pipeline import masse
-- [ ] #041 Meilisearch synonymes
-- [ ] #042 recherche sémantique IA
-
-## ✅ Fait
-- [x] 2026-09-29 — 4 fichiers FaceA créés (85 entrées) — Adolphe
-- [x] 2026-09-29 — Vision v2 + Architecture + DataModel + Plan — AI
-
-## 📊 Compteurs (auto — maj 29/09 10h40)
-- Entités: 154 / 500 MVP (30.8%) / 5000 P2 (3.1%)
-- Faces: A 100 cmds (5 fichiers) | B 54 sigles (vague 1/4) | C 0% | D 0% | E 0% | F 0%
-- Apps: Web preview OK (offline, filtres OS) | Android 0% | iOS 0% | Desktop 0%
-- Dette: 0 erreur validate ✅ | 0 doublon intra-face ✅ | reste à fusionner cp/cp-r, kill/-9 (volontaire, #025)
+## 📊 Compteurs (auto — maj 29/09 session 3)
+- Entités: 163 / 1000 MVP (16.3%) — A 106/600 | B 57/400 | riches v3: 9 | legacy: 154
+- Apps: Web preview OK (offline + fiches riches dépliables) | Android 0% | Desktop 0%
+- Dette: validate ✅ 0 erreur | parse_rich ✅ 9 fiches conformes
 
 ## 🧰 Outils anti-perte-de-fil
-1. Ce fichier = tableau Kanban texte (branché à git)
-2. `CHANGELOG.md` : 1 ligne par session (quoi/pourquoi)
-3. `DECISIONS.md` : toute décision tech notée (ex: Flutter choisi car...)
-4. `tools/` : validate, stats, import (la machine vérifie, pas ta mémoire)
-5. Rituel : début session → lire TODO, fin session → cocher + changelog
+1. Ce fichier = Kanban texte, source de vérité (branché à git)
+2. `CHANGELOG.md` : 1 entrée par session
+3. `DECISIONS.md` : toute décision tech notée avec pourquoi
+4. `tools/parse_rich.py` : la machine valide les 10 rubriques, pas ta mémoire
+5. Rituel : début session → lire TODO ; fin session → cocher + changelog + commit

@@ -2,29 +2,25 @@
 
 Toute entité, quelle que soit sa Face, utilise ce schéma JSON. C'est ce qui permet la recherche "dans tous les sens" + l'export multi-plateforme.
 
+## Fiche Riche v3 — schéma complet (obligatoire pour tout nouveau contenu, 29/09)
 ```json
 {
-  "id": "A-01234",
-  "face": "A",
-  "type": "commande",
-  "nom": "cp",
-  "aliases": ["copy", "Copy-Item"],
-  "os": ["linux", "macos"],
-  "categories": ["fichiers", "copie"],
-  "tags": ["copier", "dupliquer", "backup"],
-  "niveau": "debutant",
-  "role_fr": "Copier un fichier ou dossier",
-  "role_en": "Copy files and directories",
-  "syntaxe": "cp [options] <source> <cible>",
-  "exemples": [{"cmd": "cp -r src/ dest/", "explication": "Copie récursive"}],
-  "precautions": "Écrase sans confirmation",
-  "equivalents": [{"os": "windows-powershell", "cmd": "Copy-Item"}],
-  "voir_aussi": ["A-00012", "B-00231"],
-  "popularite": 95,
-  "version": 1,
-  "updated_at": "2026-09-29"
+  "id": "A-00101", "face": "A", "type": "commande", "nom": "tar",
+  "aliases": [], "os": ["linux", "macos"], "os_raw": "Linux/macOS",
+  "categories": ["archives"], "tags": ["compresser", "sauvegarde"],
+  "niveau": "intermediaire", "popularite": 90,
+  "role_fr": "Archiver et compresser des fichiers",
+  "syntaxe": "tar [options] <archive> <fichiers>",
+  "contextes": ["sauvegarde serveur", "distribution logicielle"],
+  "cas_reguliers": [{"cmd": "tar -czf b.tar.gz d/", "explication": "Sauvegarde", "contexte": "backup quotidien"}],
+  "origine": "Tape ARchive, Unix V7 1979",
+  "subtilites": ["Sans -z pas de compression"],
+  "urgences_dangers": "⚠️ ...", "precautions": "...",
+  "equivalents": [{"os": "windows", "cmd": "Compress-Archive"}],
+  "voir_aussi": ["gzip"], "source": "faceA_06_archives.md", "version": 1, "updated_at": "2026-09-29"
 }
 ```
+Face B : mêmes champs, `signification` dans aliases[0], `role_fr`=définition, `syntaxe`="". 10 rubriques A / 8 rubriques B obligatoires. Format source : fiches Markdown `##` (voir CONVENTIONS), parsées par tools/parse_rich.py.
 
 ## Règles
 - `id` stable, jamais réutilisé. A=Commandes, B=Sigles, C=Concepts, D=Erreurs, E=Dev, F=Outils.
@@ -38,7 +34,7 @@ Tableau actuel 7 colonnes → mapping auto :
 `commande→nom, OS→os (normalisé), rôle→role_fr, syntaxe→syntaxe, exemples→exemples (split ·), précautions→precautions, équivalents→equivalents`
 Script `tools/import.py` fera ça + rapport d'erreurs (ex: `tail -f.log`, `hostname -I` sur macOS à corriger).
 
-## Volumes cibles
-- Phase 1 (MVP 500 entrées propres) : finir A + démarrer B
+## Volumes cibles (MVP porté à 1000 le 29/09 — demande Adolphe)
+- MVP 1000 = 600 commandes A + 400 sigles B, en fiches RICHES v3 ("la totale" : contextes, cas réguliers, origines, subtilités/confusions, urgences)
 - Phase 2 (5000) : A complète + B + C
 - Phase 3 (30000+) : import auto Wiktionary, man pages, docs MS, contributions communauté avec modération

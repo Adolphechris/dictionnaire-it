@@ -12,6 +12,20 @@ let D=[], F="all";
 fetch("../data/dictionnaire.json").then(r=>r.json()).then(j=>{D=j.entries;document.getElementById("n").textContent=D.length;go("")});
 document.querySelectorAll("button").forEach(b=>b.onclick=()=>{document.querySelectorAll("button").forEach(x=>x.classList.remove("act"));b.classList.add("act");F=b.dataset.os;go(document.getElementById("q").value)});
 document.getElementById("q").oninput=e=>go(e.target.value);
-function go(q){q=q.toLowerCase();let h=D.filter(e=>(F==="all"||e.os.includes(F))&&(!q||(e.nom+" "+e.role_fr+" "+e.syntaxe+" "+(e.tags||[]).join(" ")).toLowerCase().includes(q))).slice(0,50);
-document.getElementById("r").innerHTML=h.map(e=>`<div class="card"><b><code>${e.nom}</code></b> <span class="tag">${e.os_raw}</span><span class="tag">${e.id}</span><br>${e.role_fr}<br>Syntaxe: <code>${e.syntaxe}</code><br>Ex: ${e.exemples.map(x=>`<code>${x.cmd}</code>`).join(" · ")}${e.precautions?`<br>⚠️ ${e.precautions}`:""}</div>`).join("")||"<p>Aucun résultat.</p>"}
+function go(q){q=q.toLowerCase();let h=D.filter(e=>(F==="all"||e.os.includes(F))&&(!q||(e.nom+" "+e.role_fr+" "+e.syntaxe+" "+(e.aliases||[]).join(" ")+" "+(e.tags||[]).join(" ")+" "+(e.contextes||[]).join(" ")+" "+(e.subtilites||[]).join(" ")).toLowerCase().includes(q))).slice(0,50);
+document.getElementById("r").innerHTML=h.map(e=>{
+let s=`<div class="card"><b><code>${e.nom}</code></b> <span class="tag">${e.os_raw}</span><span class="tag">${e.id}</span>${e.niveau&&e.niveau!=="debutant"?`<span class="tag">${e.niveau}</span>`:""}`;
+if(e.role_fr)s+=`<br>${e.role_fr}`;
+if(e.aliases&&e.aliases.length)s+=`<br><i>${e.aliases.join(" · ")}</i>`;
+if(e.contextes&&e.contextes.length)s+=`<br><span class="tag">📍</span>${e.contextes.join(" · ")}`;
+if(e.syntaxe)s+=`<br>Syntaxe: <code>${e.syntaxe}</code>`;
+if(e.cas_reguliers&&e.cas_reguliers.length)s+=`<br>Cas courants:<ul style="margin:.3rem 0">`+e.cas_reguliers.slice(0,4).map(c=>`<li><code>${c.cmd}</code>${c.explication?" — "+c.explication:""}</li>`).join("")+`</ul>`;
+else if(e.exemples&&e.exemples.length)s+=`<br>Ex: ${e.exemples.slice(0,3).map(x=>`<code>${x.cmd}</code>`).join(" · ")}`;
+if(e.precautions)s+=`<br>⚠️ ${e.precautions}`;
+if(e.urgences_dangers&&e.urgences_dangers!=="—")s+=`<br>${e.urgences_dangers}`;
+if(e.subtilites&&e.subtilites.length)s+=`<br><details><summary>🔮 ${e.subtilites.length} subtilité(s)/confusion(s)</summary><ul>`+e.subtilites.map(x=>`<li>${x}</li>`).join("")+`</ul></details>`;
+if(e.origine)s+=`<details><summary>📜 Origine</summary>${e.origine}</details>`;
+if(e.equivalents&&e.equivalents.length)s+=`<br>↔ ${e.equivalents.map(x=>x.cmd||x.note).join(" · ")}`;
+if(e.voir_aussi&&e.voir_aussi.length)s+=`<br>Voir aussi: ${e.voir_aussi.join(", ")}`;
+return s+`</div>`}).join("")||"<p>Aucun résultat.</p>"}
 </script></body></html>
