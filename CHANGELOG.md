@@ -13,3 +13,11 @@
 - Corrections : tail -f.log→-f app.log, head/tail OS Linux/macOS, mv typo, hostname -I→Linux seul, free→Linux seul + alternatives macOS
 - Ajout vision v2, architecture Flutter+Firebase, data model, plan 10 phases, todo tracker, conventions
 - Outils : validate.py, md_to_json.py, stats.py + web_preview/index.html + firebase.json/rules/indexes
+
+## Session 3 — 29/09/2026 : contenu riche v3 en marche (181 entités)
+- MVP officiellement porté à **1000** (600 A + 400 B) dans TODO_TRACKER
+- `parse_rich.py` validé : 29 fiches riches v3 conformes (10 rubriques Face A / 8 Face B) + fusion automatique riche→legacy (SQL, VM élévés)
+- `stats.py` MVP1000, app web : contextes, cas réguliers, subtilités dépliables, origine
+- FaceA_06 : 17/40 (tar, gzip, zip, apt, unzip, brew, gunzip, 7z, dpkg, winget, yum/dnf, pacman, snap, flatpak, rpm, choco, npm)
+- FaceB_02 : 15/90 (CI, SaaS, NoSQL, CD, DevOps, IaaS, PaaS, SQL, AWS, K8s, IaC, Serverless, VM...)
+- TOTAL : 181 entités / 1000 (18.1%) — validate 0 erreur

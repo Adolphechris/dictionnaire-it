@@ -119,3 +119,221 @@
 **Équivalents :** apt (Debian/Ubuntu), winget/choco (Windows)
 **Voir aussi :** apt, winget, mas
 
+## `gunzip` — Décompresser un fichier .gz [Linux/macOS]
+**Niveau :** debutant | **Popularité :** 75 | **Aliases :** gzip -d
+**Contextes :** restauration de backup, déballage de paquet source, lecture de logs compressés
+**Rôle :** Décompresser un fichier .gz (remplace l'archive .gz par le fichier original).
+**Syntaxe :** `gunzip [options] <fichier.gz>`
+**Cas réguliers :**
+- `gunzip acces.log.gz` — Décompresse le log (redevient acces.log, le plus courant)
+- `gunzip -k ancien.sql.gz.gz` — Décompresse en gardant le .gz (-k = keep)
+- `zcat acces.log.gz | grep error` — Lit SANS décompresser (pipeline direct)
+**Origine :** GNU gzip 1992, écrit par Jean-loup Gailly et Mark Adler — c'est la binaison naturelle de gzip.
+**Subtilités/confusions :**
+- gunzip ne lit pas les .zip ni les .tar.gz complets — pour .tar.gz utiliser tar -xzf directement.
+- `-c` ou zcat : lire le contenu décompressé dans le terminal sans toucher au fichier.
+- gunzip -f écrase un fichier existant sans avertissement.
+**Urgences/dangers :** — (opération réversible ; gunzip -f peut écraser un fichier homonyme existant)
+**Précautions :** Vérifier qu'aucun fichier du même nom n'existe déjà (ou utiliser -k).
+**Équivalents :** Expand-Archive sur décompressé (PowerShell), 7z x (Windows)
+**Voir aussi :** gzip, tar, zcat
+
+## `7z` — Archives 7-Zip haute compression [Linux/macOS/Windows]
+**Niveau :** intermediaire | **Popularité :** 70 | **Aliases :** 7za, p7zip
+**Contextes :** archives volumineuses, envoi avec taille limitée, échange Windows-Linux avec chiffrement
+**Rôle :** Créer/extraire des archives .7z (compression forte, chiffrement AES-256).
+**Syntaxe :** `7z [a|x|l] <archive.7z> <fichiers>`
+**Cas réguliers :**
+- `7z a -t7z gros.7z dossier/` — Créer une archive 7z compressée au max
+- `7z x gros.7z -o/tmp/extraire` — Extraire avec structure complète (-o sans espace !)
+- `7z l gros.7z` — Lister le contenu (avant extraction, réflexe sécurité)
+- `7z a -p secret.7z contrats/` — Archive chiffrée mot de passe + AES-256
+**Origine :** Igor Pavlov, 1999, format ouvert 7z ; sur Linux c'est le paquet p7zip (`7z`).
+**Subtilités/confusions :**
+- `-o/tmp` sans espace : `7z x -o /tmp` crée un dossier " /tmp" fautif (bug classique).
+- 7z vs zip : 7z compresse 30-50% mieux mais moins lisible nativement sur Windows ancien.
+- `7z x` préserve les chemins complets, `7z e` extrait à plat — x recommandé.
+**Urgences/dangers :** — (non destructif ; le danger vient du -o extrait par-dessus un dossier existant)
+**Précautions :** Toujours `7z l` avant `7z x` sur une archive inconnue.
+**Équivalents :** zip/unzip, tar, Compress-Archive (PowerShell)
+**Voir aussi :** zip, tar, gzip
+
+## `dpkg` — Paquets Debian au niveau bas [Linux]
+**Niveau :** avance | **Popularité :** 60 | **Aliases :** —
+**Contextes :** installation locale .deb hors dépôt, débogage de dépendances, scripts d'admin
+**Rôle :** Installer/lister/supprimer les paquets .deb directement, sans gestion des dépendances.
+**Syntaxe:** `sudo dpkg [ -i|-l|-r ] <paquet.deb|nom>`
+**Cas réguliers :**
+- `sudo dpkg -i outil.deb` — Installe un .deb téléchargé (le plus courant : driver, .deb maison)
+- `dpkg -l | grep nginx` — Lister les paquets installés filtrés
+- `sudo apt --fix-broken install` — Réparer après un dpkg -i qui a échoué sur une dépendance
+**Origine :** Debian Package management, 1993, noyau historique de la distribution Debian ; base de RPM.
+**Subtilités/confusions :**
+- dpkg n'installe PAS les dépendances — d'où les erreurs "dependency problems" → utiliser apt.
+- dpkg vs apt : dpkg = bas niveau (local, offline), apt = haut niveau (réseau, résolution).
+- dpkg -r supprime le paquet, --purge efface aussi la configuration.
+**Urgences/dangers :** ⚠️ `dpkg -r --force-depends` peut casser des paquets qui dépendent de celui-ci — utiliser avec méthode.
+**Précautions :** Préférer apt install ./fichier.deb ; réparer avec `apt --fix-broken install`.
+**Équivalents :** rpm (Fedora/RHEL), msiexec (Windows)
+**Voir aussi :** apt, rpm, snap
+
+## `winget` — Gestionnaire de paquets Windows officiel [Windows]
+**Niveau :** debutant | **Popularité :** 78 | **Aliases :** Windows Package Manager
+**Contextes :** poste Windows neuf, déploiement de logiciels, automatisation post-réinstallation
+**Rôle :** Installer, mettre à jour et trouver des logiciels depuis le terminal Windows officiel.
+**Syntaxe :** `winget [install|upgrade|search|uninstall] <paquet>`
+**Cas réguliers :**
+- `winget install Google.Chrome` — Installer un logiciel sans passer par le navigateur (le plus courant)
+- `winget upgrade --all` — Tout mettre à jour
+- `winget search vscode` — Chercher un paquet
+- `winget export -o apps.json` — Sauvegarder la liste des apps (après réinstallation de Windows)
+**Origine :** Microsoft, 2020 (preview), 2021 (stable) — réponse officielle à apt/brew, intégré à Windows 10/11.
+**Subtilités/confusions :**
+- winget vs Store Microsoft : winget = terminal, Store = GUI ; même source mais winget ouvre tout le catalogue MSI/EXE.
+- winget vs choco/Scoop : winget natif (pas d'admin requis en général), choco plus vieux et orienté entreprise.
+- Certains paquets installent en machine-wide → demande d'élévation UAC.
+**Urgences/dangers :** ⚠️ `winget uninstall` peut retirer une app système si on tape mal — vérifier la liste avec `winget list` avant.
+**Précautions :** Toujours `winget search` puis vérifier l'éditeur avant install.
+**Équivalents :** apt (Linux), brew (macOS)
+**Voir aussi :** choco, scoop, apt, brew
+
+## `yum` / `dnf` — Paquets sur RHEL/CentOS/Fedora [Linux]
+**Niveau :** intermediaire | **Popularité :** 65 | **Aliases :** dnf (successeur de yum)
+**Contextes :** serveurs d'entreprise RHEL/CentOS/AlmaLinux, poste Fedora, provisioning serveur
+**Rôle :** Installer et mettre à jour les paquets .rpm depuis les dépôts (l'équivalent apt des distros Red Hat).
+**Syntaxe :** `sudo dnf [install|update|remove|search] <paquet>`
+**Cas réguliers :**
+- `sudo dnf install nginx` — Installer un service (Fedora/RHEL 8+, le plus courant)
+- `sudo dnf update` — Mettre à jour le système complet
+- `dnf search mysql` — Chercher un paquet
+- `sudo yum install httpd` — Version historique sur CentOS 7 (toujours vu en prod)
+**Origine :** Yellowdog Updater Modified (2003, années Yellow Dog), réécrit en Yum (2003) puis remplacé par DNF (2015, Fedora 21) — même public, gestionnaire plus rapide.
+**Subtilités/confusions :**
+- yum vs dnf : même rôle ; dnf est le successeur (CentOS 8+ / Fedora), yum reste sur CentOS 7.
+- .rpm vs .deb : même concept, formats différents — un paquet .deb ne s'installe pas sur RHEL.
+- dnf remove ≠ désinstallation complète : `dnf autoremove` nettoie les dépendances orphelines.
+**Urgences/dangers :** ⚠️ `dnf update` sur un serveur de prod peut upgrer le kernel et demander un reboot — planifier la fenêtre de maintenance.
+**Précautions :** Lire le plan d'update avant valider ; verrouiller les versions critiques (`versionlock`).
+**Équivalents :** apt (Debian), zypper (openSUSE), pacman (Arch)
+**Voir aussi :** apt, rpm, pacman
+
+## `pacman` — Gestionnaire de paquets Arch Linux [Linux]
+**Niveau :** intermediaire | **Popularité :** 55 | **Aliases :** —
+**Contextes :** Arch Linux et dérivés (Manjaro, EndeavourOS), poste minimaliste d'experts, AUR
+**Rôle :** Installer/gérer les paquets sur Arch — rapide, minimaliste, associé à l'AUR communautaire.
+**Syntaxe :** `sudo pacman [-S|-Syu|-R] <paquet>`
+**Cas réguliers :**
+- `sudo pacman -Syu` — Mise à jour complète système+paquets (obligatoire, les 2 y = sync)
+- `sudo pacman -S htop` — Installer un paquet des dépôts officiels
+- `paru -S paquet-aur` — Installer depuis l'AUR (helper communautaire)
+**Origine :** Judd Vinet, 2002, Arch Linux ; design minimaliste "KISS" — souvent cité comme le gestionnaire le plus rapide.
+**Subtilités/confusions :**
+- `-Syu` vs `-Sy` : installer -S + -y SANS -u désynchronise les dépôts → CASSE le système (erreur d'Arch classique).
+- AUR ≠ dépôt officiel : des PKGBUILDs communautaires, à auditer avant install (risque de code).
+- pacman vs apt : pas de "pacman update" séparé — tout passe par -Syu.
+**Urgences/dangers :** ⚠️ NE JAMAIS faire `pacman -Sy pkg` sans u (paquets à moitié à jour = breakage). ⚠️ AUR sans vérification = exécution de code inconnu.
+**Précautions :** Toujours `-Syu` ; lire le PKGBUILD de l'AUR ; sauvegarder avant grosse maj.
+**Équivalents :** apt (Debian), dnf (Fedora), brew (macOS)
+**Voir aussi :** apt, dnf, AUR, snap
+
+## `snap` — Paquets universels Linux (Canonical) [Linux]
+**Niveau :** intermediaire | **Popularité :** 60 | **Aliases :** Snappy
+**Contextes :** Ubuntu, apps multi-distro sans dépendances, logiciels versions récentes sur LTS
+**Rôle :** Installer des applications auto-contenues (sandbox) qui tournent partout sur Linux.
+**Syntaxe :** `sudo snap [install|refresh|list|remove] <app>`
+**Cas réguliers :**
+- `sudo snap install code --classic` — VS Code à jour quelle que soit la distro (le plus courant)
+- `sudo snap refresh` — Mettre à jour tous les snaps
+- `snap list` — Voir les snaps installés
+- `sudo snap remove firefox` — Supprimer un snap (souvent préinstallé sur Ubuntu)
+**Origine :** Canonical (Ubuntu), 2014-2016 ; packagée comme réponse à Flatpak/Snapcraft, intégrée à Ubuntu 16.04+.
+**Subtilités/confusions :**
+- snap vs apt : snap = auto-contenu (gros, isolé, toujours à jour), apt = dépendances partagées (léger).
+- `--classic` désactive la sandbox — nécessaire pour VS Code mais moins sûr.
+- Snap est un daemon en fond (snapd) : peut ralentir le boot et manger du CPU à l'auto-refresh.
+**Urgences/dangers :** — (pas destructif ; snap refresh en cours peut bloquer une app 30 secondes)
+**Précautions :** Désactiver l'auto-refresh dans les environnements de prod (`snap set system refresh.hold=...`).
+**Équivalents :** flatpak (multidistro), apt, brew
+**Voir aussi :** flatpak, apt, AppImage
+
+## `flatpak` — Apps universelles Linux (open) [Linux]
+**Niveau :** intermediaire | **Popularité :** 55 | **Aliases :** —
+**Contextes :** GNOME, Fedora, applications graphiques multi-distro, distribution indépendante des distros
+**Rôle :** Installer des applications graphiques auto-contenues et sandboxées, compatibles sur toutes les distros Linux.
+**Syntaxe :** `flatpak [install|update|list|run] <app>`
+**Cas réguliers :**
+- `flatpak install flathub org.gimp.GIMP` — Installer GIMP depuis Flathub (le plus courant)
+- `flatpak update` — Tout mettre à jour
+- `flatpak run org.mozilla.firefox` — Lancer une app flatpak
+- `flatpak uninstall --unused` — Nettoyer les anciennes versions (elles s'accumulent !)
+**Origine :** Red Hat + Collabora, 2015-2016 — réponse open à Snap, portée par Flathub (2017) comme magasin unique.
+**Subtilités/confusions :**
+- flatpak vs Snap : même concept ; flatpak open (Flathub) et plus léger, Snap propre à Canonical.
+- Les flatpaks pèsent cher en disque : anciennes versions gardées → `--unused` régulièrement.
+- Applications graphiques surtout : outils serveur (nginx...) restent en apt.
+**Urgences/dangers :** — (non destructif ; désinstallation massive par erreur avec `flatpak uninstall --all` est possible mais rare)
+**Précautions :** Réserver flatpak aux apps graphiques ; nettoyer avec `--unused` après chaque update.
+**Équivalents :** snap, AppImage, brew
+**Voir aussi :** snap, AppImage, brew
+
+## `rpm` — Paquets bruts RPM [Linux]
+**Niveau :** avance | **Popularité :** 50 | **Aliases :** —
+**Contextes :** RHEL/CentOS/Fedora/SUSE, installation locale hors dépôt, audits de sécurité
+**Rôle :** Installer/interroger individuellement les fichiers .rpm (l'équivalent dpkg côté Red Hat).
+**Syntaxe :** `sudo rpm [-i|-q|-e] <paquet.rpm>`
+**Cas réguliers :**
+- `sudo rpm -i outil.rpm` — Installer un .rpm téléchargé (le plus courant : driver, firmware)
+- `rpm -qa | grep kernel` — Lister les paquets installés (audit, nettoyage vieux kernels)
+- `rpm -ql paquet` — Voir les fichiers installés par ce paquet
+**Origine :** Red Hat Package Manager, 1997 — conçu pour la distribution Red Hat, devenu standard RPM (Fedora, SUSE, openSUSE).
+**Subtilités/confusions :**
+- rpm vs yum/dnf : rpm = bas niveau local (pas de dépendances), dnf = haut niveau (résout les dépendances).
+- rpm -i échoue si dépendance manquante → `dnf install ./fichier.rpm` gère le cas.
+- rpm -e désinstalle (erase) : sans vérifier les dépendants, casse les paquets qui en dépendent.
+**Urgences/dangers :** ⚠️ `rpm -e --nodeps` casse la cohérence du système — réservé à la dépannage d'expert.
+**Précautions :** Préférer dnf même en local ; vérifier `rpm -qR` avant suppression.
+**Équivalents :** dpkg (Debian), msiexec (Windows)
+**Voir aussi :** dpkg, dnf, yum
+
+## `choco` — Gestionnaire de paquets Windows (Chocolatey) [Windows]
+**Niveau :** intermediaire | **Popularité :** 65 | **Aliases :** Chocolatey
+**Contextes :** poste Windows pro, déploiement d'outils dev, réinstallation après format
+**Rôle :** Installer des logiciels Windows en ligne de commande, par scripts (l'apt de Windows).
+**Syntaxe :** `choco [install|upgrade|uninstall] <paquet> [-y]`
+**Cas réguliers :**
+- `choco install vscode -y` — Installer VS Code sans cliquer (le plus courant)
+- `choco upgrade all -y` — Tout mettre à jour
+- `choco install python git nodejs -y` — Préparer un poste dev en 1 commande
+**Origine :** Rob Reynolds, 2011 (ferventchocolate) — premier gros gestionnaire Windows communautaire, avant l'officiel winget (2020).
+**Subtilités/confusions :**
+- choco vs winget : choco = plus vieux, catalogue plus large (scripts NuGet) ; winget = officiel Microsoft intégré.
+- -y évite les prompts — indispensable en script, sinon l'install s'attend à une validation.
+- Les paquets choco exécutent souvent des scripts .ps1 : source de confiance = code exécuté (auditer).
+**Urgences/dangers :** ⚠️ `choco uninstall` d'un paquet système mal identifié peut retirer un outil critique — `choco list` d'abord.
+**Précautions :** Référencer les paquets nécessaires dans un script de bootstrap ; vérifier les sources.
+**Équivalents :** winget, scoop (Windows), apt (Linux)
+**Voir aussi :** winget, scoop, apt
+
+## `npm` — Registre et outillage Node.js [Cross/Dev]
+**Niveau :** intermediaire | **Popularité :** 85 | **Aliases :** Node Package Manager
+**Contextes :** projets JavaScript/TypeScript, front React/Vue, back Node, scripts d'automatisation
+**Rôle :** Installer les dépendances d'un projet JS et lancer les scripts définis dans package.json.
+**Syntaxe :** `npm [install|i|run|init] <paquet> [--save-dev]`
+**Cas réguliers :**
+- `npm install` — Installer toutes les dépendances du projet (génère node_modules/ — le plus courant)
+- `npm install express --save` — Ajouter une dépendance à package.json
+- `npm run dev` — Lancer le script "dev" (watcher, serveur local...)
+- `npm init -y` — Créer un package.json minimal
+**Origine :** Isaac Z. Schlueter, 2010 chez Joyent — né du besoin de gérer les dépendances de Node.js (2009) ; le registre npm est le plus gros au monde (2M+ paquets).
+**Subtilités/confusions :**
+- node_modules/ = dents-de-l'âge : jamais commité (ajouter au .gitignore), pesant des Go.
+- npm vs yarn vs pnpm : même rôle ; yarn ajoute des locks plus stricts, pnpm déduplique (disque).
+- `npm install -g` : global = risque de conflits entre projets — préférer local + npx.
+**Urgences/dangers :** ⚠️ `npm install` tire du code de n'importe qui — vérifier le lockfile et éviter les paquets typosquatés (even-node...).
+**Précautions :** Commiter package.json + package-lock.json ; régénérer node_modules proprement.
+**Équivalents :** pip (Python), maven (Java), yarn, pnpm
+**Voir aussi :** node, yarn, pip, git
+
+
+
+

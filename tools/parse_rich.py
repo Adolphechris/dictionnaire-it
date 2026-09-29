@@ -139,7 +139,7 @@ def parse_legacy(path):
                     "source": path.name})
             break
     return out
-entries, seen = [], set()
+entries, seen = [], {}
 for f in sorted(glob.glob(str(ROOT / "face*.md"))):
     p = Path(f)
     riches = parse_fiches(p)
@@ -147,8 +147,15 @@ for f in sorted(glob.glob(str(ROOT / "face*.md"))):
     for e in riches + legacy:
         key = (e["face"], e["nom"].lower())
         if key in seen:
-            print(f"DOUBLON ignore: {e['face']}:{e['nom']} dans {p.name}"); continue
-        seen.add(key)
+            i = seen[key]
+            # Une fiche riche ÉLÈVE la version legacy (même nom) au lieu d'être ignorée
+            if e.get("origine") and not entries[i].get("origine"):
+                entries[i] = e
+                print(f"FUSION riche→legacy: {e['face']}:{e['nom']} ({p.name})")
+            else:
+                print(f"DOUBLON ignore: {e['face']}:{e['nom']} dans {p.name}")
+            continue
+        seen[key] = len(entries)
         entries.append(e)
 cpt = {}
 for e in entries:

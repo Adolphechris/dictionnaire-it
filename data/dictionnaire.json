@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "total": 163,
+  "total": 181,
   "entries": [
     {
       "face": "A",
@@ -5274,6 +5274,1682 @@
       "updated_at": "2026-09-29"
     },
     {
+      "nom": "gunzip",
+      "aliases": [
+        "gzip -d"
+      ],
+      "niveau": "debutant",
+      "popularite": 75,
+      "contextes": [
+        "restauration de backup",
+        "déballage de paquet source",
+        "lecture de logs compressés"
+      ],
+      "origine": "GNU gzip 1992, écrit par Jean-loup Gailly et Mark Adler — c'est la binaison naturelle de gzip.",
+      "subtilites": [
+        "gunzip ne lit pas les .zip ni les .tar.gz complets — pour .tar.gz utiliser tar -xzf directement.",
+        "`-c` ou zcat : lire le contenu décompressé dans le terminal sans toucher au fichier.",
+        "gunzip -f écrase un fichier existant sans avertissement.",
+        "*Urgences/dangers :** — (opération réversible ; gunzip -f peut écraser un fichier homonyme existant)",
+        "*Précautions :** Vérifier qu'aucun fichier du même nom n'existe déjà (ou utiliser -k).",
+        "*Équivalents :** Expand-Archive sur décompressé (PowerShell), 7z x (Windows)",
+        "*Voir aussi :** gzip, tar, zcat"
+      ],
+      "voir_aussi": [
+        "gzip",
+        "tar",
+        "zcat"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Décompresser un fichier .gz (remplace l'archive .gz par le fichier original).",
+      "syntaxe": "gunzip [options] <fichier.gz>",
+      "cas_reguliers": [
+        {
+          "cmd": "gunzip acces.log.gz",
+          "explication": "Décompresse le log (redevient acces.log, le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "gunzip -k ancien.sql.gz.gz",
+          "explication": "Décompresse en gardant le .gz (-k = keep)",
+          "contexte": ""
+        },
+        {
+          "cmd": "zcat acces.log.gz | grep error",
+          "explication": "Lit SANS décompresser (pipeline direct)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** GNU gzip 1992, écrit par Jean-loup Gailly et Mark Adler — c'est la binaison naturelle de gzip.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "gunzip ne lit pas les .zip ni les .tar.gz complets — pour .tar.gz utiliser tar -xzf directement.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "-c` ou zcat : lire le contenu décompressé dans le terminal sans toucher au fichier.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "gunzip -f écrase un fichier existant sans avertissement.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (opération réversible ; gunzip -f peut écraser un fichier homonyme existant)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Vérifier qu'aucun fichier du même nom n'existe déjà (ou utiliser -k).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** Expand-Archive sur décompressé (PowerShell), 7z x (Windows)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** gzip, tar, zcat",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "gunzip acces.log.gz",
+          "explication": "Décompresse le log (redevient acces.log, le plus courant)"
+        },
+        {
+          "cmd": "gunzip -k ancien.sql.gz.gz",
+          "explication": "Décompresse en gardant le .gz (-k = keep)"
+        },
+        {
+          "cmd": "zcat acces.log.gz | grep error",
+          "explication": "Lit SANS décompresser (pipeline direct)"
+        },
+        {
+          "cmd": "*Origine :** GNU gzip 1992, écrit par Jean-loup Gailly et Mark Adler — c'est la binaison naturelle de gzip.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "gunzip ne lit pas les .zip ni les .tar.gz complets — pour .tar.gz utiliser tar -xzf directement.",
+          "explication": ""
+        },
+        {
+          "cmd": "-c` ou zcat : lire le contenu décompressé dans le terminal sans toucher au fichier.",
+          "explication": ""
+        },
+        {
+          "cmd": "gunzip -f écrase un fichier existant sans avertissement.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (opération réversible ; gunzip -f peut écraser un fichier homonyme existant)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Vérifier qu'aucun fichier du même nom n'existe déjà (ou utiliser -k).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** Expand-Archive sur décompressé (PowerShell), 7z x (Windows)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** gzip, tar, zcat",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (opération réversible ; gunzip -f peut écraser un fichier homonyme existant)",
+      "precautions": "Vérifier qu'aucun fichier du même nom n'existe déjà (ou utiliser -k).",
+      "equivalents": [
+        {
+          "note": "Expand-Archive sur décompressé (PowerShell), 7z x (Windows)"
+        }
+      ],
+      "id": "A-00107",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "7z",
+      "aliases": [
+        "7za",
+        "p7zip"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 70,
+      "contextes": [
+        "archives volumineuses",
+        "envoi avec taille limitée",
+        "échange Windows-Linux avec chiffrement"
+      ],
+      "origine": "Igor Pavlov, 1999, format ouvert 7z ; sur Linux c'est le paquet p7zip (`7z`).",
+      "subtilites": [
+        "`-o/tmp` sans espace : `7z x -o /tmp` crée un dossier \" /tmp\" fautif (bug classique).",
+        "7z vs zip : 7z compresse 30-50% mieux mais moins lisible nativement sur Windows ancien.",
+        "`7z x` préserve les chemins complets, `7z e` extrait à plat — x recommandé.",
+        "*Urgences/dangers :** — (non destructif ; le danger vient du -o extrait par-dessus un dossier existant)",
+        "*Précautions :** Toujours `7z l` avant `7z x` sur une archive inconnue.",
+        "*Équivalents :** zip/unzip, tar, Compress-Archive (PowerShell)",
+        "*Voir aussi :** zip, tar, gzip"
+      ],
+      "voir_aussi": [
+        "zip",
+        "tar",
+        "gzip"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Créer/extraire des archives .7z (compression forte, chiffrement AES-256).",
+      "syntaxe": "7z [a|x|l] <archive.7z> <fichiers>",
+      "cas_reguliers": [
+        {
+          "cmd": "7z a -t7z gros.7z dossier/",
+          "explication": "Créer une archive 7z compressée au max",
+          "contexte": ""
+        },
+        {
+          "cmd": "7z x gros.7z -o/tmp/extraire",
+          "explication": "Extraire avec structure complète (-o sans espace !)",
+          "contexte": ""
+        },
+        {
+          "cmd": "7z l gros.7z",
+          "explication": "Lister le contenu (avant extraction, réflexe sécurité)",
+          "contexte": ""
+        },
+        {
+          "cmd": "7z a -p secret.7z contrats/",
+          "explication": "Archive chiffrée mot de passe + AES-256",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Igor Pavlov, 1999, format ouvert 7z ; sur Linux c'est le paquet p7zip (`7z`).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "-o/tmp` sans espace : `7z x -o /tmp` crée un dossier \" /tmp\" fautif (bug classique).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "7z vs zip : 7z compresse 30-50% mieux mais moins lisible nativement sur Windows ancien.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "7z x` préserve les chemins complets, `7z e` extrait à plat — x recommandé.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (non destructif ; le danger vient du -o extrait par-dessus un dossier existant)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Toujours `7z l` avant `7z x` sur une archive inconnue.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** zip/unzip, tar, Compress-Archive (PowerShell)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** zip, tar, gzip",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "7z a -t7z gros.7z dossier/",
+          "explication": "Créer une archive 7z compressée au max"
+        },
+        {
+          "cmd": "7z x gros.7z -o/tmp/extraire",
+          "explication": "Extraire avec structure complète (-o sans espace !)"
+        },
+        {
+          "cmd": "7z l gros.7z",
+          "explication": "Lister le contenu (avant extraction, réflexe sécurité)"
+        },
+        {
+          "cmd": "7z a -p secret.7z contrats/",
+          "explication": "Archive chiffrée mot de passe + AES-256"
+        },
+        {
+          "cmd": "*Origine :** Igor Pavlov, 1999, format ouvert 7z ; sur Linux c'est le paquet p7zip (`7z`).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "-o/tmp` sans espace : `7z x -o /tmp` crée un dossier \" /tmp\" fautif (bug classique).",
+          "explication": ""
+        },
+        {
+          "cmd": "7z vs zip : 7z compresse 30-50% mieux mais moins lisible nativement sur Windows ancien.",
+          "explication": ""
+        },
+        {
+          "cmd": "7z x` préserve les chemins complets, `7z e` extrait à plat — x recommandé.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (non destructif ; le danger vient du -o extrait par-dessus un dossier existant)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Toujours `7z l` avant `7z x` sur une archive inconnue.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** zip/unzip, tar, Compress-Archive (PowerShell)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** zip, tar, gzip",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (non destructif ; le danger vient du -o extrait par-dessus un dossier existant)",
+      "precautions": "Toujours `7z l` avant `7z x` sur une archive inconnue.",
+      "equivalents": [
+        {
+          "note": "zip/unzip, tar, Compress-Archive (PowerShell)"
+        }
+      ],
+      "id": "A-00108",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "dpkg",
+      "aliases": [],
+      "niveau": "avance",
+      "popularite": 60,
+      "contextes": [
+        "installation locale .deb hors dépôt",
+        "débogage de dépendances",
+        "scripts d'admin"
+      ],
+      "origine": "Debian Package management, 1993, noyau historique de la distribution Debian ; base de RPM.",
+      "subtilites": [
+        "dpkg n'installe PAS les dépendances — d'où les erreurs \"dependency problems\" → utiliser apt.",
+        "dpkg vs apt : dpkg = bas niveau (local, offline), apt = haut niveau (réseau, résolution).",
+        "dpkg -r supprime le paquet, --purge efface aussi la configuration.",
+        "*Urgences/dangers :** ⚠️ `dpkg -r --force-depends` peut casser des paquets qui dépendent de celui-ci — utiliser avec méthode.",
+        "*Précautions :** Préférer apt install ./fichier.deb ; réparer avec `apt --fix-broken install`.",
+        "*Équivalents :** rpm (Fedora/RHEL), msiexec (Windows)",
+        "*Voir aussi :** apt, rpm, snap"
+      ],
+      "voir_aussi": [
+        "apt",
+        "rpm",
+        "snap"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Installer/lister/supprimer les paquets .deb directement, sans gestion des dépendances.",
+      "syntaxe": "sudo dpkg [ -i|-l|-r ] <paquet.deb|nom>",
+      "cas_reguliers": [
+        {
+          "cmd": "sudo dpkg -i outil.deb",
+          "explication": "Installe un .deb téléchargé (le plus courant : driver, .deb maison)",
+          "contexte": ""
+        },
+        {
+          "cmd": "dpkg -l | grep nginx",
+          "explication": "Lister les paquets installés filtrés",
+          "contexte": ""
+        },
+        {
+          "cmd": "sudo apt --fix-broken install",
+          "explication": "Réparer après un dpkg -i qui a échoué sur une dépendance",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Debian Package management, 1993, noyau historique de la distribution Debian ; base de RPM.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "dpkg n'installe PAS les dépendances — d'où les erreurs \"dependency problems\" → utiliser apt.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "dpkg vs apt : dpkg = bas niveau (local, offline), apt = haut niveau (réseau, résolution).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "dpkg -r supprime le paquet, --purge efface aussi la configuration.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `dpkg -r --force-depends` peut casser des paquets qui dépendent de celui-ci — utiliser avec méthode.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Préférer apt install ./fichier.deb ; réparer avec `apt --fix-broken install`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** rpm (Fedora/RHEL), msiexec (Windows)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** apt, rpm, snap",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "sudo dpkg -i outil.deb",
+          "explication": "Installe un .deb téléchargé (le plus courant : driver, .deb maison)"
+        },
+        {
+          "cmd": "dpkg -l | grep nginx",
+          "explication": "Lister les paquets installés filtrés"
+        },
+        {
+          "cmd": "sudo apt --fix-broken install",
+          "explication": "Réparer après un dpkg -i qui a échoué sur une dépendance"
+        },
+        {
+          "cmd": "*Origine :** Debian Package management, 1993, noyau historique de la distribution Debian ; base de RPM.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "dpkg n'installe PAS les dépendances — d'où les erreurs \"dependency problems\" → utiliser apt.",
+          "explication": ""
+        },
+        {
+          "cmd": "dpkg vs apt : dpkg = bas niveau (local, offline), apt = haut niveau (réseau, résolution).",
+          "explication": ""
+        },
+        {
+          "cmd": "dpkg -r supprime le paquet, --purge efface aussi la configuration.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `dpkg -r --force-depends` peut casser des paquets qui dépendent de celui-ci — utiliser avec méthode.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Préférer apt install ./fichier.deb ; réparer avec `apt --fix-broken install`.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** rpm (Fedora/RHEL), msiexec (Windows)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** apt, rpm, snap",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `dpkg -r --force-depends` peut casser des paquets qui dépendent de celui-ci — utiliser avec méthode.",
+      "precautions": "Préférer apt install ./fichier.deb ; réparer avec `apt --fix-broken install`.",
+      "equivalents": [
+        {
+          "note": "rpm (Fedora/RHEL), msiexec (Windows)"
+        }
+      ],
+      "id": "A-00109",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "winget",
+      "aliases": [
+        "Windows Package Manager"
+      ],
+      "niveau": "debutant",
+      "popularite": 78,
+      "contextes": [
+        "poste Windows neuf",
+        "déploiement de logiciels",
+        "automatisation post-réinstallation"
+      ],
+      "origine": "Microsoft, 2020 (preview), 2021 (stable) — réponse officielle à apt/brew, intégré à Windows 10/11.",
+      "subtilites": [
+        "winget vs Store Microsoft : winget = terminal, Store = GUI ; même source mais winget ouvre tout le catalogue MSI/EXE.",
+        "winget vs choco/Scoop : winget natif (pas d'admin requis en général), choco plus vieux et orienté entreprise.",
+        "Certains paquets installent en machine-wide → demande d'élévation UAC.",
+        "*Urgences/dangers :** ⚠️ `winget uninstall` peut retirer une app système si on tape mal — vérifier la liste avec `winget list` avant.",
+        "*Précautions :** Toujours `winget search` puis vérifier l'éditeur avant install.",
+        "*Équivalents :** apt (Linux), brew (macOS)",
+        "*Voir aussi :** choco, scoop, apt, brew"
+      ],
+      "voir_aussi": [
+        "choco",
+        "scoop",
+        "apt",
+        "brew"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "windows"
+      ],
+      "os_raw": "Windows",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Installer, mettre à jour et trouver des logiciels depuis le terminal Windows officiel.",
+      "syntaxe": "winget [install|upgrade|search|uninstall] <paquet>",
+      "cas_reguliers": [
+        {
+          "cmd": "winget install Google.Chrome",
+          "explication": "Installer un logiciel sans passer par le navigateur (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "winget upgrade --all",
+          "explication": "Tout mettre à jour",
+          "contexte": ""
+        },
+        {
+          "cmd": "winget search vscode",
+          "explication": "Chercher un paquet",
+          "contexte": ""
+        },
+        {
+          "cmd": "winget export -o apps.json",
+          "explication": "Sauvegarder la liste des apps (après réinstallation de Windows)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Microsoft, 2020 (preview), 2021 (stable) — réponse officielle à apt/brew, intégré à Windows 10/11.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "winget vs Store Microsoft : winget = terminal, Store = GUI ; même source mais winget ouvre tout le catalogue MSI/EXE.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "winget vs choco/Scoop : winget natif (pas d'admin requis en général), choco plus vieux et orienté entreprise.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Certains paquets installent en machine-wide → demande d'élévation UAC.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `winget uninstall` peut retirer une app système si on tape mal — vérifier la liste avec `winget list` avant.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Toujours `winget search` puis vérifier l'éditeur avant install.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** apt (Linux), brew (macOS)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** choco, scoop, apt, brew",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "winget install Google.Chrome",
+          "explication": "Installer un logiciel sans passer par le navigateur (le plus courant)"
+        },
+        {
+          "cmd": "winget upgrade --all",
+          "explication": "Tout mettre à jour"
+        },
+        {
+          "cmd": "winget search vscode",
+          "explication": "Chercher un paquet"
+        },
+        {
+          "cmd": "winget export -o apps.json",
+          "explication": "Sauvegarder la liste des apps (après réinstallation de Windows)"
+        },
+        {
+          "cmd": "*Origine :** Microsoft, 2020 (preview), 2021 (stable) — réponse officielle à apt/brew, intégré à Windows 10/11.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "winget vs Store Microsoft : winget = terminal, Store = GUI ; même source mais winget ouvre tout le catalogue MSI/EXE.",
+          "explication": ""
+        },
+        {
+          "cmd": "winget vs choco/Scoop : winget natif (pas d'admin requis en général), choco plus vieux et orienté entreprise.",
+          "explication": ""
+        },
+        {
+          "cmd": "Certains paquets installent en machine-wide → demande d'élévation UAC.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `winget uninstall` peut retirer une app système si on tape mal — vérifier la liste avec `winget list` avant.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Toujours `winget search` puis vérifier l'éditeur avant install.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** apt (Linux), brew (macOS)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** choco, scoop, apt, brew",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `winget uninstall` peut retirer une app système si on tape mal — vérifier la liste avec `winget list` avant.",
+      "precautions": "Toujours `winget search` puis vérifier l'éditeur avant install.",
+      "equivalents": [
+        {
+          "note": "apt (Linux), brew (macOS)"
+        }
+      ],
+      "id": "A-00110",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "pacman",
+      "aliases": [],
+      "niveau": "intermediaire",
+      "popularite": 55,
+      "contextes": [
+        "Arch Linux et dérivés (Manjaro",
+        "EndeavourOS)",
+        "poste minimaliste d'experts",
+        "AUR"
+      ],
+      "origine": "Judd Vinet, 2002, Arch Linux ; design minimaliste \"KISS\" — souvent cité comme le gestionnaire le plus rapide.",
+      "subtilites": [
+        "`-Syu` vs `-Sy` : installer -S + -y SANS -u désynchronise les dépôts → CASSE le système (erreur d'Arch classique).",
+        "AUR ≠ dépôt officiel : des PKGBUILDs communautaires, à auditer avant install (risque de code).",
+        "pacman vs apt : pas de \"pacman update\" séparé — tout passe par -Syu.",
+        "*Urgences/dangers :** ⚠️ NE JAMAIS faire `pacman -Sy pkg` sans u (paquets à moitié à jour = breakage). ⚠️ AUR sans vérification = exécution de code inconnu.",
+        "*Précautions :** Toujours `-Syu` ; lire le PKGBUILD de l'AUR ; sauvegarder avant grosse maj.",
+        "*Équivalents :** apt (Debian), dnf (Fedora), brew (macOS)",
+        "*Voir aussi :** apt, dnf, AUR, snap"
+      ],
+      "voir_aussi": [
+        "apt",
+        "dnf",
+        "AUR",
+        "snap"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Installer/gérer les paquets sur Arch — rapide, minimaliste, associé à l'AUR communautaire.",
+      "syntaxe": "sudo pacman [-S|-Syu|-R] <paquet>",
+      "cas_reguliers": [
+        {
+          "cmd": "sudo pacman -Syu",
+          "explication": "Mise à jour complète système+paquets (obligatoire, les 2 y = sync)",
+          "contexte": ""
+        },
+        {
+          "cmd": "sudo pacman -S htop",
+          "explication": "Installer un paquet des dépôts officiels",
+          "contexte": ""
+        },
+        {
+          "cmd": "paru -S paquet-aur",
+          "explication": "Installer depuis l'AUR (helper communautaire)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Judd Vinet, 2002, Arch Linux ; design minimaliste \"KISS\" — souvent cité comme le gestionnaire le plus rapide.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "-Syu` vs `-Sy` : installer -S + -y SANS -u désynchronise les dépôts → CASSE le système (erreur d'Arch classique).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "AUR ≠ dépôt officiel : des PKGBUILDs communautaires, à auditer avant install (risque de code).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "pacman vs apt : pas de \"pacman update\" séparé — tout passe par -Syu.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ NE JAMAIS faire `pacman -Sy pkg` sans u (paquets à moitié à jour = breakage). ⚠️ AUR sans vérification = exécution de code inconnu.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Toujours `-Syu` ; lire le PKGBUILD de l'AUR ; sauvegarder avant grosse maj.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** apt (Debian), dnf (Fedora), brew (macOS)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** apt, dnf, AUR, snap",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "sudo pacman -Syu",
+          "explication": "Mise à jour complète système+paquets (obligatoire, les 2 y = sync)"
+        },
+        {
+          "cmd": "sudo pacman -S htop",
+          "explication": "Installer un paquet des dépôts officiels"
+        },
+        {
+          "cmd": "paru -S paquet-aur",
+          "explication": "Installer depuis l'AUR (helper communautaire)"
+        },
+        {
+          "cmd": "*Origine :** Judd Vinet, 2002, Arch Linux ; design minimaliste \"KISS\" — souvent cité comme le gestionnaire le plus rapide.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "-Syu` vs `-Sy` : installer -S + -y SANS -u désynchronise les dépôts → CASSE le système (erreur d'Arch classique).",
+          "explication": ""
+        },
+        {
+          "cmd": "AUR ≠ dépôt officiel : des PKGBUILDs communautaires, à auditer avant install (risque de code).",
+          "explication": ""
+        },
+        {
+          "cmd": "pacman vs apt : pas de \"pacman update\" séparé — tout passe par -Syu.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ NE JAMAIS faire `pacman -Sy pkg` sans u (paquets à moitié à jour = breakage). ⚠️ AUR sans vérification = exécution de code inconnu.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Toujours `-Syu` ; lire le PKGBUILD de l'AUR ; sauvegarder avant grosse maj.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** apt (Debian), dnf (Fedora), brew (macOS)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** apt, dnf, AUR, snap",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ NE JAMAIS faire `pacman -Sy pkg` sans u (paquets à moitié à jour = breakage). ⚠️ AUR sans vérification = exécution de code inconnu.",
+      "precautions": "Toujours `-Syu` ; lire le PKGBUILD de l'AUR ; sauvegarder avant grosse maj.",
+      "equivalents": [
+        {
+          "note": "apt (Debian), dnf (Fedora), brew (macOS)"
+        }
+      ],
+      "id": "A-00111",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "snap",
+      "aliases": [
+        "Snappy"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 60,
+      "contextes": [
+        "Ubuntu",
+        "apps multi-distro sans dépendances",
+        "logiciels versions récentes sur LTS"
+      ],
+      "origine": "Canonical (Ubuntu), 2014-2016 ; packagée comme réponse à Flatpak/Snapcraft, intégrée à Ubuntu 16.04+.",
+      "subtilites": [
+        "snap vs apt : snap = auto-contenu (gros, isolé, toujours à jour), apt = dépendances partagées (léger).",
+        "`--classic` désactive la sandbox — nécessaire pour VS Code mais moins sûr.",
+        "Snap est un daemon en fond (snapd) : peut ralentir le boot et manger du CPU à l'auto-refresh.",
+        "*Urgences/dangers :** — (pas destructif ; snap refresh en cours peut bloquer une app 30 secondes)",
+        "*Précautions :** Désactiver l'auto-refresh dans les environnements de prod (`snap set system refresh.hold=...`).",
+        "*Équivalents :** flatpak (multidistro), apt, brew",
+        "*Voir aussi :** flatpak, apt, AppImage"
+      ],
+      "voir_aussi": [
+        "flatpak",
+        "apt",
+        "AppImage"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Installer des applications auto-contenues (sandbox) qui tournent partout sur Linux.",
+      "syntaxe": "sudo snap [install|refresh|list|remove] <app>",
+      "cas_reguliers": [
+        {
+          "cmd": "sudo snap install code --classic",
+          "explication": "VS Code à jour quelle que soit la distro (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "sudo snap refresh",
+          "explication": "Mettre à jour tous les snaps",
+          "contexte": ""
+        },
+        {
+          "cmd": "snap list",
+          "explication": "Voir les snaps installés",
+          "contexte": ""
+        },
+        {
+          "cmd": "sudo snap remove firefox",
+          "explication": "Supprimer un snap (souvent préinstallé sur Ubuntu)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Canonical (Ubuntu), 2014-2016 ; packagée comme réponse à Flatpak/Snapcraft, intégrée à Ubuntu 16.04+.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "snap vs apt : snap = auto-contenu (gros, isolé, toujours à jour), apt = dépendances partagées (léger).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "--classic` désactive la sandbox — nécessaire pour VS Code mais moins sûr.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Snap est un daemon en fond (snapd) : peut ralentir le boot et manger du CPU à l'auto-refresh.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (pas destructif ; snap refresh en cours peut bloquer une app 30 secondes)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Désactiver l'auto-refresh dans les environnements de prod (`snap set system refresh.hold=...`).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** flatpak (multidistro), apt, brew",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** flatpak, apt, AppImage",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "sudo snap install code --classic",
+          "explication": "VS Code à jour quelle que soit la distro (le plus courant)"
+        },
+        {
+          "cmd": "sudo snap refresh",
+          "explication": "Mettre à jour tous les snaps"
+        },
+        {
+          "cmd": "snap list",
+          "explication": "Voir les snaps installés"
+        },
+        {
+          "cmd": "sudo snap remove firefox",
+          "explication": "Supprimer un snap (souvent préinstallé sur Ubuntu)"
+        },
+        {
+          "cmd": "*Origine :** Canonical (Ubuntu), 2014-2016 ; packagée comme réponse à Flatpak/Snapcraft, intégrée à Ubuntu 16.04+.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "snap vs apt : snap = auto-contenu (gros, isolé, toujours à jour), apt = dépendances partagées (léger).",
+          "explication": ""
+        },
+        {
+          "cmd": "--classic` désactive la sandbox — nécessaire pour VS Code mais moins sûr.",
+          "explication": ""
+        },
+        {
+          "cmd": "Snap est un daemon en fond (snapd) : peut ralentir le boot et manger du CPU à l'auto-refresh.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (pas destructif ; snap refresh en cours peut bloquer une app 30 secondes)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Désactiver l'auto-refresh dans les environnements de prod (`snap set system refresh.hold=...`).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** flatpak (multidistro), apt, brew",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** flatpak, apt, AppImage",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (pas destructif ; snap refresh en cours peut bloquer une app 30 secondes)",
+      "precautions": "Désactiver l'auto-refresh dans les environnements de prod (`snap set system refresh.hold=...`).",
+      "equivalents": [
+        {
+          "note": "flatpak (multidistro), apt, brew"
+        }
+      ],
+      "id": "A-00112",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "flatpak",
+      "aliases": [],
+      "niveau": "intermediaire",
+      "popularite": 55,
+      "contextes": [
+        "GNOME",
+        "Fedora",
+        "applications graphiques multi-distro",
+        "distribution indépendante des distros"
+      ],
+      "origine": "Red Hat + Collabora, 2015-2016 — réponse open à Snap, portée par Flathub (2017) comme magasin unique.",
+      "subtilites": [
+        "flatpak vs Snap : même concept ; flatpak open (Flathub) et plus léger, Snap propre à Canonical.",
+        "Les flatpaks pèsent cher en disque : anciennes versions gardées → `--unused` régulièrement.",
+        "Applications graphiques surtout : outils serveur (nginx...) restent en apt.",
+        "*Urgences/dangers :** — (non destructif ; désinstallation massive par erreur avec `flatpak uninstall --all` est possible mais rare)",
+        "*Précautions :** Réserver flatpak aux apps graphiques ; nettoyer avec `--unused` après chaque update.",
+        "*Équivalents :** snap, AppImage, brew",
+        "*Voir aussi :** snap, AppImage, brew"
+      ],
+      "voir_aussi": [
+        "snap",
+        "AppImage",
+        "brew"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Installer des applications graphiques auto-contenues et sandboxées, compatibles sur toutes les distros Linux.",
+      "syntaxe": "flatpak [install|update|list|run] <app>",
+      "cas_reguliers": [
+        {
+          "cmd": "flatpak install flathub org.gimp.GIMP",
+          "explication": "Installer GIMP depuis Flathub (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "flatpak update",
+          "explication": "Tout mettre à jour",
+          "contexte": ""
+        },
+        {
+          "cmd": "flatpak run org.mozilla.firefox",
+          "explication": "Lancer une app flatpak",
+          "contexte": ""
+        },
+        {
+          "cmd": "flatpak uninstall --unused",
+          "explication": "Nettoyer les anciennes versions (elles s'accumulent !)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Red Hat + Collabora, 2015-2016 — réponse open à Snap, portée par Flathub (2017) comme magasin unique.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "flatpak vs Snap : même concept ; flatpak open (Flathub) et plus léger, Snap propre à Canonical.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Les flatpaks pèsent cher en disque : anciennes versions gardées → `--unused` régulièrement.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Applications graphiques surtout : outils serveur (nginx...) restent en apt.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (non destructif ; désinstallation massive par erreur avec `flatpak uninstall --all` est possible mais rare)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Réserver flatpak aux apps graphiques ; nettoyer avec `--unused` après chaque update.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** snap, AppImage, brew",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** snap, AppImage, brew",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "flatpak install flathub org.gimp.GIMP",
+          "explication": "Installer GIMP depuis Flathub (le plus courant)"
+        },
+        {
+          "cmd": "flatpak update",
+          "explication": "Tout mettre à jour"
+        },
+        {
+          "cmd": "flatpak run org.mozilla.firefox",
+          "explication": "Lancer une app flatpak"
+        },
+        {
+          "cmd": "flatpak uninstall --unused",
+          "explication": "Nettoyer les anciennes versions (elles s'accumulent !)"
+        },
+        {
+          "cmd": "*Origine :** Red Hat + Collabora, 2015-2016 — réponse open à Snap, portée par Flathub (2017) comme magasin unique.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "flatpak vs Snap : même concept ; flatpak open (Flathub) et plus léger, Snap propre à Canonical.",
+          "explication": ""
+        },
+        {
+          "cmd": "Les flatpaks pèsent cher en disque : anciennes versions gardées → `--unused` régulièrement.",
+          "explication": ""
+        },
+        {
+          "cmd": "Applications graphiques surtout : outils serveur (nginx...) restent en apt.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (non destructif ; désinstallation massive par erreur avec `flatpak uninstall --all` est possible mais rare)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Réserver flatpak aux apps graphiques ; nettoyer avec `--unused` après chaque update.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** snap, AppImage, brew",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** snap, AppImage, brew",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (non destructif ; désinstallation massive par erreur avec `flatpak uninstall --all` est possible mais rare)",
+      "precautions": "Réserver flatpak aux apps graphiques ; nettoyer avec `--unused` après chaque update.",
+      "equivalents": [
+        {
+          "note": "snap, AppImage, brew"
+        }
+      ],
+      "id": "A-00113",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "rpm",
+      "aliases": [],
+      "niveau": "avance",
+      "popularite": 50,
+      "contextes": [
+        "RHEL/CentOS/Fedora/SUSE",
+        "installation locale hors dépôt",
+        "audits de sécurité"
+      ],
+      "origine": "Red Hat Package Manager, 1997 — conçu pour la distribution Red Hat, devenu standard RPM (Fedora, SUSE, openSUSE).",
+      "subtilites": [
+        "rpm vs yum/dnf : rpm = bas niveau local (pas de dépendances), dnf = haut niveau (résout les dépendances).",
+        "rpm -i échoue si dépendance manquante → `dnf install ./fichier.rpm` gère le cas.",
+        "rpm -e désinstalle (erase) : sans vérifier les dépendants, casse les paquets qui en dépendent.",
+        "*Urgences/dangers :** ⚠️ `rpm -e --nodeps` casse la cohérence du système — réservé à la dépannage d'expert.",
+        "*Précautions :** Préférer dnf même en local ; vérifier `rpm -qR` avant suppression.",
+        "*Équivalents :** dpkg (Debian), msiexec (Windows)",
+        "*Voir aussi :** dpkg, dnf, yum"
+      ],
+      "voir_aussi": [
+        "dpkg",
+        "dnf",
+        "yum"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Installer/interroger individuellement les fichiers .rpm (l'équivalent dpkg côté Red Hat).",
+      "syntaxe": "sudo rpm [-i|-q|-e] <paquet.rpm>",
+      "cas_reguliers": [
+        {
+          "cmd": "sudo rpm -i outil.rpm",
+          "explication": "Installer un .rpm téléchargé (le plus courant : driver, firmware)",
+          "contexte": ""
+        },
+        {
+          "cmd": "rpm -qa | grep kernel",
+          "explication": "Lister les paquets installés (audit, nettoyage vieux kernels)",
+          "contexte": ""
+        },
+        {
+          "cmd": "rpm -ql paquet",
+          "explication": "Voir les fichiers installés par ce paquet",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Red Hat Package Manager, 1997 — conçu pour la distribution Red Hat, devenu standard RPM (Fedora, SUSE, openSUSE).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "rpm vs yum/dnf : rpm = bas niveau local (pas de dépendances), dnf = haut niveau (résout les dépendances).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "rpm -i échoue si dépendance manquante → `dnf install ./fichier.rpm` gère le cas.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "rpm -e désinstalle (erase) : sans vérifier les dépendants, casse les paquets qui en dépendent.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `rpm -e --nodeps` casse la cohérence du système — réservé à la dépannage d'expert.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Préférer dnf même en local ; vérifier `rpm -qR` avant suppression.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** dpkg (Debian), msiexec (Windows)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** dpkg, dnf, yum",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "sudo rpm -i outil.rpm",
+          "explication": "Installer un .rpm téléchargé (le plus courant : driver, firmware)"
+        },
+        {
+          "cmd": "rpm -qa | grep kernel",
+          "explication": "Lister les paquets installés (audit, nettoyage vieux kernels)"
+        },
+        {
+          "cmd": "rpm -ql paquet",
+          "explication": "Voir les fichiers installés par ce paquet"
+        },
+        {
+          "cmd": "*Origine :** Red Hat Package Manager, 1997 — conçu pour la distribution Red Hat, devenu standard RPM (Fedora, SUSE, openSUSE).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "rpm vs yum/dnf : rpm = bas niveau local (pas de dépendances), dnf = haut niveau (résout les dépendances).",
+          "explication": ""
+        },
+        {
+          "cmd": "rpm -i échoue si dépendance manquante → `dnf install ./fichier.rpm` gère le cas.",
+          "explication": ""
+        },
+        {
+          "cmd": "rpm -e désinstalle (erase) : sans vérifier les dépendants, casse les paquets qui en dépendent.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `rpm -e --nodeps` casse la cohérence du système — réservé à la dépannage d'expert.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Préférer dnf même en local ; vérifier `rpm -qR` avant suppression.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** dpkg (Debian), msiexec (Windows)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** dpkg, dnf, yum",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `rpm -e --nodeps` casse la cohérence du système — réservé à la dépannage d'expert.",
+      "precautions": "Préférer dnf même en local ; vérifier `rpm -qR` avant suppression.",
+      "equivalents": [
+        {
+          "note": "dpkg (Debian), msiexec (Windows)"
+        }
+      ],
+      "id": "A-00114",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "choco",
+      "aliases": [
+        "Chocolatey"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 65,
+      "contextes": [
+        "poste Windows pro",
+        "déploiement d'outils dev",
+        "réinstallation après format"
+      ],
+      "origine": "Rob Reynolds, 2011 (ferventchocolate) — premier gros gestionnaire Windows communautaire, avant l'officiel winget (2020).",
+      "subtilites": [
+        "choco vs winget : choco = plus vieux, catalogue plus large (scripts NuGet) ; winget = officiel Microsoft intégré.",
+        "-y évite les prompts — indispensable en script, sinon l'install s'attend à une validation.",
+        "Les paquets choco exécutent souvent des scripts .ps1 : source de confiance = code exécuté (auditer).",
+        "*Urgences/dangers :** ⚠️ `choco uninstall` d'un paquet système mal identifié peut retirer un outil critique — `choco list` d'abord.",
+        "*Précautions :** Référencer les paquets nécessaires dans un script de bootstrap ; vérifier les sources.",
+        "*Équivalents :** winget, scoop (Windows), apt (Linux)",
+        "*Voir aussi :** winget, scoop, apt"
+      ],
+      "voir_aussi": [
+        "winget",
+        "scoop",
+        "apt"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "windows"
+      ],
+      "os_raw": "Windows",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Installer des logiciels Windows en ligne de commande, par scripts (l'apt de Windows).",
+      "syntaxe": "choco [install|upgrade|uninstall] <paquet> [-y]",
+      "cas_reguliers": [
+        {
+          "cmd": "choco install vscode -y",
+          "explication": "Installer VS Code sans cliquer (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "choco upgrade all -y",
+          "explication": "Tout mettre à jour",
+          "contexte": ""
+        },
+        {
+          "cmd": "choco install python git nodejs -y",
+          "explication": "Préparer un poste dev en 1 commande",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Rob Reynolds, 2011 (ferventchocolate) — premier gros gestionnaire Windows communautaire, avant l'officiel winget (2020).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "choco vs winget : choco = plus vieux, catalogue plus large (scripts NuGet) ; winget = officiel Microsoft intégré.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "-y évite les prompts — indispensable en script, sinon l'install s'attend à une validation.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Les paquets choco exécutent souvent des scripts .ps1 : source de confiance = code exécuté (auditer).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `choco uninstall` d'un paquet système mal identifié peut retirer un outil critique — `choco list` d'abord.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Référencer les paquets nécessaires dans un script de bootstrap ; vérifier les sources.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** winget, scoop (Windows), apt (Linux)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** winget, scoop, apt",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "choco install vscode -y",
+          "explication": "Installer VS Code sans cliquer (le plus courant)"
+        },
+        {
+          "cmd": "choco upgrade all -y",
+          "explication": "Tout mettre à jour"
+        },
+        {
+          "cmd": "choco install python git nodejs -y",
+          "explication": "Préparer un poste dev en 1 commande"
+        },
+        {
+          "cmd": "*Origine :** Rob Reynolds, 2011 (ferventchocolate) — premier gros gestionnaire Windows communautaire, avant l'officiel winget (2020).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "choco vs winget : choco = plus vieux, catalogue plus large (scripts NuGet) ; winget = officiel Microsoft intégré.",
+          "explication": ""
+        },
+        {
+          "cmd": "-y évite les prompts — indispensable en script, sinon l'install s'attend à une validation.",
+          "explication": ""
+        },
+        {
+          "cmd": "Les paquets choco exécutent souvent des scripts .ps1 : source de confiance = code exécuté (auditer).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `choco uninstall` d'un paquet système mal identifié peut retirer un outil critique — `choco list` d'abord.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Référencer les paquets nécessaires dans un script de bootstrap ; vérifier les sources.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** winget, scoop (Windows), apt (Linux)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** winget, scoop, apt",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `choco uninstall` d'un paquet système mal identifié peut retirer un outil critique — `choco list` d'abord.",
+      "precautions": "Référencer les paquets nécessaires dans un script de bootstrap ; vérifier les sources.",
+      "equivalents": [
+        {
+          "note": "winget, scoop (Windows), apt (Linux)"
+        }
+      ],
+      "id": "A-00115",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "npm",
+      "aliases": [
+        "Node Package Manager"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 85,
+      "contextes": [
+        "projets JavaScript/TypeScript",
+        "front React/Vue",
+        "back Node",
+        "scripts d'automatisation"
+      ],
+      "origine": "Isaac Z. Schlueter, 2010 chez Joyent — né du besoin de gérer les dépendances de Node.js (2009) ; le registre npm est le plus gros au monde (2M+ paquets).",
+      "subtilites": [
+        "node_modules/ = dents-de-l'âge : jamais commité (ajouter au .gitignore), pesant des Go.",
+        "npm vs yarn vs pnpm : même rôle ; yarn ajoute des locks plus stricts, pnpm déduplique (disque).",
+        "`npm install -g` : global = risque de conflits entre projets — préférer local + npx.",
+        "*Urgences/dangers :** ⚠️ `npm install` tire du code de n'importe qui — vérifier le lockfile et éviter les paquets typosquatés (even-node...).",
+        "*Précautions :** Commiter package.json + package-lock.json ; régénérer node_modules proprement.",
+        "*Équivalents :** pip (Python), maven (Java), yarn, pnpm",
+        "*Voir aussi :** node, yarn, pip, git"
+      ],
+      "voir_aussi": [
+        "node",
+        "yarn",
+        "pip",
+        "git"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "Cross/Dev",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Installer les dépendances d'un projet JS et lancer les scripts définis dans package.json.",
+      "syntaxe": "npm [install|i|run|init] <paquet> [--save-dev]",
+      "cas_reguliers": [
+        {
+          "cmd": "npm install",
+          "explication": "Installer toutes les dépendances du projet (génère node_modules/ — le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "npm install express --save",
+          "explication": "Ajouter une dépendance à package.json",
+          "contexte": ""
+        },
+        {
+          "cmd": "npm run dev",
+          "explication": "Lancer le script \"dev\" (watcher, serveur local...)",
+          "contexte": ""
+        },
+        {
+          "cmd": "npm init -y",
+          "explication": "Créer un package.json minimal",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Isaac Z. Schlueter, 2010 chez Joyent — né du besoin de gérer les dépendances de Node.js (2009) ; le registre npm est le plus gros au monde (2M+ paquets).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "node_modules/ = dents-de-l'âge : jamais commité (ajouter au .gitignore), pesant des Go.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "npm vs yarn vs pnpm : même rôle ; yarn ajoute des locks plus stricts, pnpm déduplique (disque).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "npm install -g` : global = risque de conflits entre projets — préférer local + npx.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `npm install` tire du code de n'importe qui — vérifier le lockfile et éviter les paquets typosquatés (even-node...).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Commiter package.json + package-lock.json ; régénérer node_modules proprement.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** pip (Python), maven (Java), yarn, pnpm",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** node, yarn, pip, git",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "npm install",
+          "explication": "Installer toutes les dépendances du projet (génère node_modules/ — le plus courant)"
+        },
+        {
+          "cmd": "npm install express --save",
+          "explication": "Ajouter une dépendance à package.json"
+        },
+        {
+          "cmd": "npm run dev",
+          "explication": "Lancer le script \"dev\" (watcher, serveur local...)"
+        },
+        {
+          "cmd": "npm init -y",
+          "explication": "Créer un package.json minimal"
+        },
+        {
+          "cmd": "*Origine :** Isaac Z. Schlueter, 2010 chez Joyent — né du besoin de gérer les dépendances de Node.js (2009) ; le registre npm est le plus gros au monde (2M+ paquets).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "node_modules/ = dents-de-l'âge : jamais commité (ajouter au .gitignore), pesant des Go.",
+          "explication": ""
+        },
+        {
+          "cmd": "npm vs yarn vs pnpm : même rôle ; yarn ajoute des locks plus stricts, pnpm déduplique (disque).",
+          "explication": ""
+        },
+        {
+          "cmd": "npm install -g` : global = risque de conflits entre projets — préférer local + npx.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `npm install` tire du code de n'importe qui — vérifier le lockfile et éviter les paquets typosquatés (even-node...).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Commiter package.json + package-lock.json ; régénérer node_modules proprement.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** pip (Python), maven (Java), yarn, pnpm",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** node, yarn, pip, git",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `npm install` tire du code de n'importe qui — vérifier le lockfile et éviter les paquets typosquatés (even-node...).",
+      "precautions": "Commiter package.json + package-lock.json ; régénérer node_modules proprement.",
+      "equivalents": [
+        {
+          "note": "pip (Python), maven (Java), yarn, pnpm"
+        }
+      ],
+      "id": "A-00116",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
       "face": "B",
       "type": "sigle",
       "nom": "CPU",
@@ -5714,41 +7390,106 @@
       "updated_at": "2026-09-29"
     },
     {
-      "face": "B",
-      "type": "sigle",
       "nom": "VM",
       "aliases": [
-        "Virtual Machine"
+        "Virtual Machine (Machine Virtuelle)"
       ],
+      "niveau": "debutant",
+      "popularite": 82,
+      "contextes": [
+        "hébergement serveurs",
+        "tests multi-OS",
+        "isolation d'environnements",
+        "legacy"
+      ],
+      "origine": "IBM CP-40 (1967), théorisée par Gerald Popek ; VMware (1998) démocratise le x86, KVM (2007) l'intègre au noyau Linux.",
+      "subtilites": [
+        "VM vs conteneur : VM = OS complet isolé (lourd, minutes), conteneur = processus partageant le noyau (léger, secondes).",
+        "Hyperviseur type 1 (ESXi, bare metal) vs type 2 (VirtualBox, sur un OS) : le 1 est proche du matériel, plus performant.",
+        "Snapshot ≠ backup : un snapshot fige l'état mais vit sur le même stockage — crash du disque = tout perdu.",
+        "*Exemple :** `qemu-system-x86_64 -m 2048 -cdro ubuntu.iso`",
+        "*Voir aussi :** Docker, IaaS, hyperviseur, cloud"
+      ],
+      "voir_aussi": [
+        "Docker",
+        "IaaS",
+        "hyperviseur",
+        "cloud"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
       "os": [
         "cross"
       ],
       "os_raw": "cross",
       "categories": [
-        "Système"
+        "Virtualisation"
       ],
       "tags": [],
-      "niveau": "debutant",
-      "popularite": 50,
-      "role_fr": "Machine virtuelle émulant un ordinateur complet",
+      "role_fr": "Ordinateur logique complet (OS + applications) émulé sur un hyperviseur partageant le matériel physique.",
       "syntaxe": "",
-      "contextes": [],
-      "cas_reguliers": [],
+      "cas_reguliers": [
+        {
+          "cmd": "VM VirtualBox avec Ubuntu pour tester",
+          "explication": "Tester une distro sans toucher au poste (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "VM sur VMware ESXi en datacenter",
+          "explication": "Découper un serveur physique en 10 serveurs logiques",
+          "contexte": ""
+        },
+        {
+          "cmd": "VM Windows dans un Mac",
+          "explication": "Utiliser un logiciel Windows-only",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** IBM CP-40 (1967), théorisée par Gerald Popek ; VMware (1998) démocratise le x86, KVM (2007) l'intègre au noyau Linux.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "VM vs conteneur : VM = OS complet isolé (lourd, minutes), conteneur = processus partageant le noyau (léger, secondes).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Hyperviseur type 1 (ESXi, bare metal) vs type 2 (VirtualBox, sur un OS) : le 1 est proche du matériel, plus performant.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Snapshot ≠ backup : un snapshot fige l'état mais vit sur le même stockage — crash du disque = tout perdu.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `qemu-system-x86_64 -m 2048 -cdro ubuntu.iso",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** Docker, IaaS, hyperviseur, cloud",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
       "exemples": [
         {
-          "cmd": "VM Ubuntu sous VirtualBox",
+          "cmd": "qemu-system-x86_64 -m 2048 -cdro ubuntu.iso",
           "explication": ""
         }
       ],
-      "origine": "",
-      "subtilites": [],
       "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "voir_aussi": [
-        "OS"
-      ],
-      "source": "faceB_01_abreviations.md",
       "id": "B-00012",
       "version": 1,
       "updated_at": "2026-09-29"
@@ -6845,41 +8586,112 @@
       "updated_at": "2026-09-29"
     },
     {
-      "face": "B",
-      "type": "sigle",
       "nom": "SQL",
       "aliases": [
-        "Structured Query Language"
+        "Structured Query Language (Langage de Requête Structuré)"
       ],
+      "niveau": "intermediaire",
+      "popularite": 92,
+      "contextes": [
+        "applications web",
+        "reporting",
+        "data analysis",
+        "back-office",
+        "dictionnaire IT"
+      ],
+      "origine": "Recherche IBM System R (1974, Chamberlin & Boyce), standardisé SQL-86 après commercialisation d'Oracle (1979) ; le \"relationnel\" vient d'Edgar Codd (1970).",
+      "subtilites": [
+        "SQL ≠ MySQL : SQL = langage, MySQL = logiciel (SGBD) qui l'implémente.",
+        "SELECT * en prod = lent et fragile — lister explicitement les colonnes.",
+        "Injection SQL : concaténer l'entrée utilisateur dans la requête permet de tout voler — utiliser des requêtes préparées.",
+        "*Exemple :** `SELECT o.id, u.nom FROM orders o JOIN users u ON u.id = o.user_id WHERE o.total > 100`",
+        "*Voir aussi :** SGBD, NoSQL, ORM, MySQL"
+      ],
+      "voir_aussi": [
+        "SGBD",
+        "NoSQL",
+        "ORM",
+        "MySQL"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
       "os": [
         "cross"
       ],
       "os_raw": "cross",
       "categories": [
-        "Programmation"
+        "Bases de données"
       ],
       "tags": [],
-      "niveau": "debutant",
-      "popularite": 50,
-      "role_fr": "Langage des bases de données relationnelles",
+      "role_fr": "Langage standard pour interroger, modifier et gérer les bases de données relationnelles.",
       "syntaxe": "",
-      "contextes": [],
-      "cas_reguliers": [],
+      "cas_reguliers": [
+        {
+          "cmd": "SELECT nom FROM users WHERE actif = 1",
+          "explication": "Lire des données filtrées (le plus courant de loin)",
+          "contexte": ""
+        },
+        {
+          "cmd": "INSERT INTO logs(message) VALUES ('erreur 500')",
+          "explication": "Enregistrer un événement",
+          "contexte": ""
+        },
+        {
+          "cmd": "UPDATE users SET ville='Paris' WHERE id=42",
+          "explication": "Corriger une donnée",
+          "contexte": ""
+        },
+        {
+          "cmd": "JOIN users ON orders.user_id = users.id",
+          "explication": "Croiser deux tables (le vrai pouvoir du relationnel)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Recherche IBM System R (1974, Chamberlin & Boyce), standardisé SQL-86 après commercialisation d'Oracle (1979) ; le \"relationnel\" vient d'Edgar Codd (1970).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "SQL ≠ MySQL : SQL = langage, MySQL = logiciel (SGBD) qui l'implémente.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "SELECT * en prod = lent et fragile — lister explicitement les colonnes.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Injection SQL : concaténer l'entrée utilisateur dans la requête permet de tout voler — utiliser des requêtes préparées.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `SELECT o.id, u.nom FROM orders o JOIN users u ON u.id = o.user_id WHERE o.total > 100",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** SGBD, NoSQL, ORM, MySQL",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
       "exemples": [
         {
-          "cmd": "SELECT * FROM users",
+          "cmd": "SELECT o.id, u.nom FROM orders o JOIN users u ON u.id = o.user_id WHERE o.total > 100",
           "explication": ""
         }
       ],
-      "origine": "",
-      "subtilites": [],
       "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "voir_aussi": [
-        "SGBD"
-      ],
-      "source": "faceB_01_abreviations.md",
       "id": "B-00040",
       "version": 1,
       "updated_at": "2026-09-29"
@@ -7760,6 +9572,853 @@
       "precautions": "",
       "equivalents": [],
       "id": "B-00057",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "CD",
+      "aliases": [
+        "Continuous Delivery / Continuous Deployment (Livraison / Déploiement Continus)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 85,
+      "contextes": [
+        "mises à jour fréquentes",
+        "équipe produit agile",
+        "sortie de version quotidienne"
+      ],
+      "origine": "Livraison continue popularisée par Jez Humble et David Farley (2010, \"Continuous Delivery\"), prolongement logique de la CI.",
+      "subtilites": [
+        "Delivery vs Deployment : Delivery = TOUT EST PRÊT (validation humaine ok), Deployment = DÉPLOYÉ AUTO (aucune).",
+        "CD ≠ CI : la CI teste, la CD livre ; un projet CI sans CD s'arrête aux tests.",
+        "Deployment automatique sans tests solides = débâcle ; la CI est un prérequis, pas une option.",
+        "*Exemple :** `Git push → tests → staging auto → prod après approbation Slack`",
+        "*Voir aussi :** CI, DevOps, GitOps"
+      ],
+      "voir_aussi": [
+        "CI",
+        "DevOps",
+        "GitOps"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Delivery : le code prêt à partir en prod à tout moment avec validation humaine. Deployment : la prod se fait SANS validation humaine, automatiquement.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Merge sur main → déploiement auto en staging",
+          "explication": "Teste à chaque fusion (delivery, le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Tag v1.4 → release GitHub → prod auto",
+          "explication": "Deployment sans clic humain",
+          "contexte": ""
+        },
+        {
+          "cmd": "Rollback en 1 clic sur une version stable",
+          "explication": "Sécurité quand tout part tout seul",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Livraison continue popularisée par Jez Humble et David Farley (2010, \"Continuous Delivery\"), prolongement logique de la CI.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Delivery vs Deployment : Delivery = TOUT EST PRÊT (validation humaine ok), Deployment = DÉPLOYÉ AUTO (aucune).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "CD ≠ CI : la CI teste, la CD livre ; un projet CI sans CD s'arrête aux tests.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Deployment automatique sans tests solides = débâcle ; la CI est un prérequis, pas une option.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `Git push → tests → staging auto → prod après approbation Slack",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** CI, DevOps, GitOps",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "Git push → tests → staging auto → prod après approbation Slack",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00058",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "DevOps",
+      "aliases": [
+        "Development + Operations (Développement et Exploitation)"
+      ],
+      "niveau": "debutant",
+      "popularite": 88,
+      "contextes": [
+        "pipelines",
+        "infra as code",
+        "astreintes",
+        "équipes produit autonomes"
+      ],
+      "origine": "Terme forgé par Patrick Debois et Andrew Shafer au DevOpsDays d'Anvers (2009), inspiré par \"The Agile Administrator\" (2008).",
+      "subtilites": [
+        "DevOps ≠ un outil (Jenkins/Docker ne font pas DevOps) — c'est une CULTURE d'équipe.",
+        "DevOps vs SRE : SRE est une façon précise (Google) de faire du DevOps avec objectifs chiffrés de fiabilité.",
+        "\"On a mis Docker donc on est DevOps\" : outillage sans collaboration = DevOps de façade.",
+        "*Exemple :** `Équipe de 6 : chacun code, teste, déploie et monitor`",
+        "*Voir aussi :** CI, CD, SRE, IaC, Agile"
+      ],
+      "voir_aussi": [
+        "CI",
+        "CD",
+        "SRE",
+        "IaC",
+        "Agile"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Culture et pratiques qui réunissent dev et sysadmin autour d'outils communs pour livrer plus vite sans casser la prod.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Dev enregistre l'infra dans du code (Terraform)",
+          "explication": "Reproduire un environnement en 10 min (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Astreinte partagée dev/prod",
+          "explication": "Ceux qui écrivent le code en assument l'exploitation",
+          "contexte": ""
+        },
+        {
+          "cmd": "Monitoring commun (Grafana)",
+          "explication": "Dev voit ce que voit l'ops en production",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Terme forgé par Patrick Debois et Andrew Shafer au DevOpsDays d'Anvers (2009), inspiré par \"The Agile Administrator\" (2008).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "DevOps ≠ un outil (Jenkins/Docker ne font pas DevOps) — c'est une CULTURE d'équipe.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "DevOps vs SRE : SRE est une façon précise (Google) de faire du DevOps avec objectifs chiffrés de fiabilité.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "\"On a mis Docker donc on est DevOps\" : outillage sans collaboration = DevOps de façade.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `Équipe de 6 : chacun code, teste, déploie et monitor",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** CI, CD, SRE, IaC, Agile",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "Équipe de 6 : chacun code, teste, déploie et monitor",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00059",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "IaaS",
+      "aliases": [
+        "Infrastructure as a Service (Infrastructure en tant que Service)"
+      ],
+      "niveau": "debutant",
+      "popularite": 80,
+      "contextes": [
+        "migration serveur vers le cloud",
+        "environnements de test éphémères",
+        "besoin de scale rapide"
+      ],
+      "origine": "Modèle popularisé par Amazon EC2 (2006), formalisé par NIST (2011) avec PaaS et SaaS comme couches.",
+      "subtilites": [
+        "IaaS vs PaaS vs SaaS : IaaS = serveur nu (tu gères l'OS), PaaS = plateforme (tu gères le code), SaaS = logiciel fini.",
+        "\"Cloud\" ≠ IaaS : un SaaS comme Gmail est cloud mais PAS de l'IaaS.",
+        "Coût à l'usage : une VM oubliée allumée 24/7 coûte plus cher qu'un serveur physique à l'ancienne — surveiller les coûts (FinOps).",
+        "*Exemple :** `aws ec2 run-instances --image-id ami-0abc --instance-type t3.micro`",
+        "*Voir aussi :** SaaS, PaaS, Cloud, VM"
+      ],
+      "voir_aussi": [
+        "SaaS",
+        "PaaS",
+        "Cloud",
+        "VM"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Cloud"
+      ],
+      "tags": [],
+      "role_fr": "Louer des serveurs, réseaux et stockage virtualisés à la demande, on gère le dessus (OS, apps), le fournisseur le dessous.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Lancer un VM Debian sur Scaleway/AWS",
+          "explication": "Serveur prêt en 2 min (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Serveur de test qui vit 3 heures",
+          "explication": "Payer à l'usage réel sans investissement",
+          "contexte": ""
+        },
+        {
+          "cmd": "Scale auto de 2 à 10 VMs à Black Friday",
+          "explication": "Suivre la charge sans acheter du fer",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Modèle popularisé par Amazon EC2 (2006), formalisé par NIST (2011) avec PaaS et SaaS comme couches.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "IaaS vs PaaS vs SaaS : IaaS = serveur nu (tu gères l'OS), PaaS = plateforme (tu gères le code), SaaS = logiciel fini.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "\"Cloud\" ≠ IaaS : un SaaS comme Gmail est cloud mais PAS de l'IaaS.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Coût à l'usage : une VM oubliée allumée 24/7 coûte plus cher qu'un serveur physique à l'ancienne — surveiller les coûts (FinOps).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `aws ec2 run-instances --image-id ami-0abc --instance-type t3.micro",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** SaaS, PaaS, Cloud, VM",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "aws ec2 run-instances --image-id ami-0abc --instance-type t3.micro",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00060",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "PaaS",
+      "aliases": [
+        "Platform as a Service (Plateforme en tant que Service)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 75,
+      "contextes": [
+        "startups sans ops",
+        "apps web rapidement déployées",
+        "serverless"
+      ],
+      "origine": "Concept formalisé par NIST (2011) après l'explosion d'Heroku (2007) et Google App Engine (2008).",
+      "subtilites": [
+        "PaaS vs IaaS : sur PaaS tu ne choisis même pas l'OS — plus simple mais moins de contrôle.",
+        "PaaS vs SaaS : PaaS sert à CONSTRUIRE un logiciel, SaaS à l'UTILISER.",
+        "Vendor lock-in fort : partir d'Heroku vers autre chose = réécrire la config de déploiement.",
+        "*Exemple :** `git push heroku main` qui build et déploie automatiquement",
+        "*Voir aussi :** IaaS, SaaS, Serverless, Cloud"
+      ],
+      "voir_aussi": [
+        "IaaS",
+        "SaaS",
+        "Serverless",
+        "Cloud"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Cloud"
+      ],
+      "tags": [],
+      "role_fr": "Une plateforme hébergée où on dépose son code sans gérer ni serveurs ni système : runtime, base, déploiement inclus.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Déployer une API sur Heroku/Render",
+          "explication": "Git push et l'app est en ligne (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Base managée : Cloud SQL, Supabase",
+          "explication": "SGBD sans patchs ni sauvegardes à gérer",
+          "contexte": ""
+        },
+        {
+          "cmd": "Fonction serverless sur Cloud Functions",
+          "explication": "Du code qui tourne sans serveur visible",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Concept formalisé par NIST (2011) après l'explosion d'Heroku (2007) et Google App Engine (2008).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "PaaS vs IaaS : sur PaaS tu ne choisis même pas l'OS — plus simple mais moins de contrôle.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "PaaS vs SaaS : PaaS sert à CONSTRUIRE un logiciel, SaaS à l'UTILISER.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Vendor lock-in fort : partir d'Heroku vers autre chose = réécrire la config de déploiement.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `git push heroku main` qui build et déploie automatiquement",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** IaaS, SaaS, Serverless, Cloud",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git push heroku main` qui build et déploie automatiquement",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00061",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "AWS",
+      "aliases": [
+        "Amazon Web Services"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 90,
+      "contextes": [
+        "startups scale-ups",
+        "sites à fort trafic",
+        "data engineering",
+        "migration d'infra"
+      ],
+      "origine": "Amazon, 2006 (S3 puis EC2) — pionnier du cloud moderne, né de l'excédent d'infrastructure de la boutique en ligne.",
+      "subtilites": [
+        "Facturation à l'usage : un bucket S3 ouvert publiquement ou une VM oubliée = facture qui explose — activer les alertes de coût.",
+        "AWS ≠ \"le cloud\" : Azure (Microsoft) et GCP (Google) sont les concurrents directs.",
+        "Region ≠ AZ : une région (Paris) contient plusieurs zones de disponibilité — pour la haute dispo, répartir sur 2+ AZ.",
+        "*Exemple :** `aws s3 sync ./site s3://mon-site --delete`",
+        "*Voir aussi :** Azure, GCP, SaaS, IaaS"
+      ],
+      "voir_aussi": [
+        "Azure",
+        "GCP",
+        "SaaS",
+        "IaaS"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Cloud"
+      ],
+      "tags": [],
+      "role_fr": "Suite cloud n°1 mondiale d'Amazon : compute (EC2), stockage (S3), bases (RDS), serverless (Lambda)...",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Déployer un site sur S3 + CloudFront",
+          "explication": "Site statique rapide et pas cher (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "EC2 pour un serveur d'application",
+          "explication": "Machine virtuelle classique à l'usage",
+          "contexte": ""
+        },
+        {
+          "cmd": "Lambda pour des fonctions sans serveur",
+          "explication": "Code déclenché par événement, facturé à l'exécution",
+          "contexte": ""
+        },
+        {
+          "cmd": "S3 pour les backups",
+          "explication": "Stockage objet quasi inépuisable et peu onéreux",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Amazon, 2006 (S3 puis EC2) — pionnier du cloud moderne, né de l'excédent d'infrastructure de la boutique en ligne.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Facturation à l'usage : un bucket S3 ouvert publiquement ou une VM oubliée = facture qui explose — activer les alertes de coût.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "AWS ≠ \"le cloud\" : Azure (Microsoft) et GCP (Google) sont les concurrents directs.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Region ≠ AZ : une région (Paris) contient plusieurs zones de disponibilité — pour la haute dispo, répartir sur 2+ AZ.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `aws s3 sync ./site s3://mon-site --delete",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** Azure, GCP, SaaS, IaaS",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "aws s3 sync ./site s3://mon-site --delete",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00062",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "Kubernetes",
+      "aliases": [
+        "Kubernetes (Gouverneur en grec), abrégé K8s (K + 8 lettres + s)"
+      ],
+      "niveau": "avance",
+      "popularite": 85,
+      "contextes": [
+        "microservices",
+        "multi-conteneurs",
+        "haute disponibilité",
+        "équipe plateforme"
+      ],
+      "origine": "Né chez Google (2014) de leurs 15 ans d'expérience avec Borg, confié à la CNCF ; standard de facto du cloud depuis 2016.",
+      "subtilites": [
+        "Docker vs Kubernetes : Docker CRÉE les conteneurs, K8s les ORCHESTRE (déploie, redémarre, scale).",
+        "K8s en interne (on-prem) = lourd à opérer (certains, réseau, stockage) — souvent préférer un managé (EKS, GKE).",
+        "Ne pas confondre `kubectl apply` (déclaratif, idempotent) et `kubectl run` (impératif, pour tests).",
+        "*Exemple :** `kubectl get all -n production`",
+        "*Voir aussi :** Docker, DevOps, CI, Docker Compose"
+      ],
+      "voir_aussi": [
+        "Docker",
+        "DevOps",
+        "CI",
+        "Docker Compose"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Système open source qui déploie, monte en charge et maintient des conteneurs Docker en production.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "kubectl apply -f app.yaml",
+          "explication": "Déployer/déployer une mise à jour de l'app (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "kubectl get pods",
+          "explication": "Voir l'état des conteneurs",
+          "contexte": ""
+        },
+        {
+          "cmd": "kubectl logs -f pod-xyz",
+          "explication": "Suivre les logs d'un conteneur",
+          "contexte": ""
+        },
+        {
+          "cmd": "kubectl scale deployment web --replicas=4",
+          "explication": "Passer de 2 à 4 instances (scale auto avec HPA)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Né chez Google (2014) de leurs 15 ans d'expérience avec Borg, confié à la CNCF ; standard de facto du cloud depuis 2016.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Docker vs Kubernetes : Docker CRÉE les conteneurs, K8s les ORCHESTRE (déploie, redémarre, scale).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "K8s en interne (on-prem) = lourd à opérer (certains, réseau, stockage) — souvent préférer un managé (EKS, GKE).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Ne pas confondre `kubectl apply` (déclaratif, idempotent) et `kubectl run` (impératif, pour tests).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `kubectl get all -n production",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** Docker, DevOps, CI, Docker Compose",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "kubectl get all -n production",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00063",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "IaC",
+      "aliases": [
+        "Infrastructure as Code (Infrastructure en tant que Code)"
+      ],
+      "niveau": "avance",
+      "popularite": 75,
+      "contextes": [
+        "environnements reproductibles",
+        "multi-cloud",
+        "reprise après sinistre",
+        "revue de code sur l'infra"
+      ],
+      "origine": "Concept formalisé par la communauté DevOps vers 2011-2013, incarné par Terraform (HashiCorp, 2014) et CloudFormation (AWS, 2011).",
+      "subtilites": [
+        "IaC vs script Bash : un script IMPÉRATIF (fait), l'IaC est DÉCLARATIF (état voulu) → idempotent.",
+        "IaC ≠ configuration managée : Ansible gère l'état des machines, Terraform crée les machines elles-mêmes (chevauchement réel mais rôles distincts).",
+        "État partagé : Terraform stocke un state (souvent distant) — le perdre = ne plus savoir ce qui tourne.",
+        "*Exemple :** `terraform plan` pour voir le diff avant `terraform apply`",
+        "*Voir aussi :** DevOps, Terraform, Ansible, GitOps"
+      ],
+      "voir_aussi": [
+        "DevOps",
+        "Terraform",
+        "Ansible",
+        "GitOps"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Décrire les serveurs, réseaux et bases dans des fichiers texte versionnés, pour les recréer à l'identique à volonté.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "terraform apply",
+          "explication": "Créer l'infra décrite dans main.tf (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Stack CloudFormation déployé via CI",
+          "explication": "Reproduire dev/prod à l'identique",
+          "contexte": ""
+        },
+        {
+          "cmd": "Changement d'infra en pull request",
+          "explication": "Revue par les pairs avant application",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Concept formalisé par la communauté DevOps vers 2011-2013, incarné par Terraform (HashiCorp, 2014) et CloudFormation (AWS, 2011).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "IaC vs script Bash : un script IMPÉRATIF (fait), l'IaC est DÉCLARATIF (état voulu) → idempotent.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "IaC ≠ configuration managée : Ansible gère l'état des machines, Terraform crée les machines elles-mêmes (chevauchement réel mais rôles distincts).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "État partagé : Terraform stocke un state (souvent distant) — le perdre = ne plus savoir ce qui tourne.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `terraform plan` pour voir le diff avant `terraform apply",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** DevOps, Terraform, Ansible, GitOps",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "terraform plan` pour voir le diff avant `terraform apply",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00064",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "Serverless",
+      "aliases": [
+        "Serverless (sans serveur — mais il y en a un, c'est le cloud provider qui le gère)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 78,
+      "contextes": [
+        "APIs légères",
+        "traitements d'images/files",
+        "backends de sites statiques",
+        "coûts à l'usage"
+      ],
+      "origine": "AWS Lambda (2014) — popularisé par des startups voulant ZeroDevOps ; le terme est antérieur (Backends 2006).",
+      "subtilites": [
+        "Serverless ≠ sans machine : un serveur tourne chez le fournisseur, tu ne le gères juste pas.",
+        "Cold start : première exécution = quelques centimètres de latence — à prévoir pour l'API temps réel.",
+        "Facturation par exécution : une boucle infinie ou un trigger en boucle = facture qui grimpe vite.",
+        "*Exemple :** `aws lambda invoke --function-name resize out.json`",
+        "*Voir aussi :** PaaS, AWS, Lambda, Cloud"
+      ],
+      "voir_aussi": [
+        "PaaS",
+        "AWS",
+        "Lambda",
+        "Cloud"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Cloud"
+      ],
+      "tags": [],
+      "role_fr": "Déployer du code en fonctions déclenchées par des événements : le fournisseur alloue les ressources à la demande, facture à l'exécution.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Lambda déclenché par upload S3",
+          "explication": "Traitement automatique d'un fichier déposé (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "API Gateway → fonction → réponse HTTP",
+          "explication": "API sans serveur à surveiller",
+          "contexte": ""
+        },
+        {
+          "cmd": "Cron toutes les heures → fonction",
+          "explication": "Tâches périodiques sans machine dédiée",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** AWS Lambda (2014) — popularisé par des startups voulant ZeroDevOps ; le terme est antérieur (Backends 2006).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Serverless ≠ sans machine : un serveur tourne chez le fournisseur, tu ne le gères juste pas.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Cold start : première exécution = quelques centimètres de latence — à prévoir pour l'API temps réel.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Facturation par exécution : une boucle infinie ou un trigger en boucle = facture qui grimpe vite.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `aws lambda invoke --function-name resize out.json",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** PaaS, AWS, Lambda, Cloud",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "aws lambda invoke --function-name resize out.json",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00065",
       "version": 1,
       "updated_at": "2026-09-29"
     }
