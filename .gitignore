@@ -1,0 +1,8 @@
+firebase-debug.log
+.logs/
+__pycache__/
+*.pyc
+.dart_tool/
+build/
+node_modules/
+.data/

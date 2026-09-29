@@ -1,0 +1,2783 @@
+{
+  "version": 1,
+  "total": 85,
+  "entries": [
+    {
+      "id": "A-00001",
+      "face": "A",
+      "type": "commande",
+      "nom": "cd",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "navigation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Changer de répertoire",
+      "syntaxe": "cd [option] <chemin>",
+      "exemples": [
+        {
+          "cmd": "cd /tmp",
+          "explication": ""
+        },
+        {
+          "cmd": "cd ..",
+          "explication": ""
+        },
+        {
+          "cmd": "cd ~",
+          "explication": ""
+        },
+        {
+          "cmd": "cd -",
+          "explication": ""
+        },
+        {
+          "cmd": "cd` (retour home)",
+          "explication": ""
+        }
+      ],
+      "precautions": "`cd ..` remonte d'un niveau ; `cd -` revient au dernier répertoire",
+      "equivalents": [
+        {
+          "note": "Set-Location (PowerShell)"
+        }
+      ],
+      "source": "faceA_01_navigation.md"
+    },
+    {
+      "id": "A-00002",
+      "face": "A",
+      "type": "commande",
+      "nom": "pwd",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "navigation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Afficher le répertoire courant",
+      "syntaxe": "pwd",
+      "exemples": [
+        {
+          "cmd": "pwd` → /home/utilisateur/projet",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_01_navigation.md"
+    },
+    {
+      "id": "A-00003",
+      "face": "A",
+      "type": "commande",
+      "nom": "ls",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "navigation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Lister le contenu d'un répertoire",
+      "syntaxe": "ls [options] <chemin>",
+      "exemples": [
+        {
+          "cmd": "ls",
+          "explication": ""
+        },
+        {
+          "cmd": "ls -la",
+          "explication": ""
+        },
+        {
+          "cmd": "ls -lh",
+          "explication": ""
+        },
+        {
+          "cmd": "ls -a",
+          "explication": ""
+        },
+        {
+          "cmd": "ls -R",
+          "explication": ""
+        }
+      ],
+      "precautions": "L'option `-l` montre les détails ; `-a` inclut les cachés",
+      "equivalents": [
+        {
+          "note": "dir (Windows)"
+        }
+      ],
+      "source": "faceA_01_navigation.md"
+    },
+    {
+      "id": "A-00004",
+      "face": "A",
+      "type": "commande",
+      "nom": "dir",
+      "aliases": [],
+      "os": [
+        "windows-cmd"
+      ],
+      "os_raw": "Windows (CMD)",
+      "categories": [
+        "navigation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Lister le contenu",
+      "syntaxe": "dir [options] <chemin>",
+      "exemples": [
+        {
+          "cmd": "dir",
+          "explication": ""
+        },
+        {
+          "cmd": "dir /s",
+          "explication": ""
+        },
+        {
+          "cmd": "dir /b",
+          "explication": ""
+        }
+      ],
+      "precautions": "`/s` liste récursivement",
+      "equivalents": [
+        {
+          "note": "ls (Linux)"
+        }
+      ],
+      "source": "faceA_01_navigation.md"
+    },
+    {
+      "id": "A-00005",
+      "face": "A",
+      "type": "commande",
+      "nom": "Get-ChildItem",
+      "aliases": [],
+      "os": [
+        "windows-powershell"
+      ],
+      "os_raw": "PowerShell",
+      "categories": [
+        "navigation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Lister le contenu",
+      "syntaxe": "Get-ChildItem [options] <chemin>",
+      "exemples": [
+        {
+          "cmd": "Get-ChildItem",
+          "explication": ""
+        },
+        {
+          "cmd": "Get-ChildItem -Recurse",
+          "explication": ""
+        },
+        {
+          "cmd": "gci -Force",
+          "explication": ""
+        }
+      ],
+      "precautions": "Alias `gci`, `ls`",
+      "equivalents": [
+        {
+          "note": "dir, ls"
+        }
+      ],
+      "source": "faceA_01_navigation.md"
+    },
+    {
+      "id": "A-00006",
+      "face": "A",
+      "type": "commande",
+      "nom": "tree",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "navigation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Afficher l'arborescence graphique",
+      "syntaxe": "tree [options] <chemin>",
+      "exemples": [
+        {
+          "cmd": "tree",
+          "explication": ""
+        },
+        {
+          "cmd": "tree -L 2",
+          "explication": ""
+        },
+        {
+          "cmd": "tree -a",
+          "explication": ""
+        },
+        {
+          "cmd": "tree -d",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-L` limite la profondeur ; `-d` n'affiche que les dossiers",
+      "equivalents": [],
+      "source": "faceA_01_navigation.md"
+    },
+    {
+      "id": "A-00007",
+      "face": "A",
+      "type": "commande",
+      "nom": "explorer.exe",
+      "aliases": [],
+      "os": [
+        "windows"
+      ],
+      "os_raw": "Windows",
+      "categories": [
+        "navigation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Ouvrir l'Explorateur Windows",
+      "syntaxe": "explorer.exe <chemin>",
+      "exemples": [
+        {
+          "cmd": "explorer.exe C:\\",
+          "explication": ""
+        },
+        {
+          "cmd": "explorer.exe .",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "open (macOS)"
+        }
+      ],
+      "source": "faceA_01_navigation.md"
+    },
+    {
+      "id": "A-00008",
+      "face": "A",
+      "type": "commande",
+      "nom": "open",
+      "aliases": [],
+      "os": [
+        "macos"
+      ],
+      "os_raw": "macOS",
+      "categories": [
+        "navigation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Ouvrir un fichier ou dossier",
+      "syntaxe": "open <chemin>",
+      "exemples": [
+        {
+          "cmd": "open /Applications",
+          "explication": ""
+        },
+        {
+          "cmd": "open -e fichier.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-e` ouvre dans l'éditeur par défaut",
+      "equivalents": [
+        {
+          "note": "explorer.exe (Windows)"
+        }
+      ],
+      "source": "faceA_01_navigation.md"
+    },
+    {
+      "id": "A-00009",
+      "face": "A",
+      "type": "commande",
+      "nom": "realpath",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "navigation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Afficher le chemin absolu résolu",
+      "syntaxe": "realpath <chemin>",
+      "exemples": [
+        {
+          "cmd": "realpath ../foo",
+          "explication": ""
+        }
+      ],
+      "precautions": "Résout les liens symboliques",
+      "equivalents": [],
+      "source": "faceA_01_navigation.md"
+    },
+    {
+      "id": "A-00010",
+      "face": "A",
+      "type": "commande",
+      "nom": "basename",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "navigation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Extraire le dernier composant",
+      "syntaxe": "basename <chemin>",
+      "exemples": [
+        {
+          "cmd": "basename /a/b/c.txt` → c.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_01_navigation.md"
+    },
+    {
+      "id": "A-00011",
+      "face": "A",
+      "type": "commande",
+      "nom": "dirname",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "navigation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Extraire le répertoire parent",
+      "syntaxe": "dirname <chemin>",
+      "exemples": [
+        {
+          "cmd": "dirname /a/b/c.txt` → /a/b",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_01_navigation.md"
+    },
+    {
+      "id": "A-00012",
+      "face": "A",
+      "type": "commande",
+      "nom": "cp",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Copier un fichier",
+      "syntaxe": "cp [options] <source> <cible>",
+      "exemples": [
+        {
+          "cmd": "cp a.txt b.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "cp -r dossier/ cible/",
+          "explication": ""
+        },
+        {
+          "cmd": "cp -a` (archive)",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-r` requis pour les dossiers ; `-p` préserve les attributs",
+      "equivalents": [
+        {
+          "note": "Copy-Item (PowerShell)"
+        }
+      ],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00013",
+      "face": "A",
+      "type": "commande",
+      "nom": "cp -r",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Copier récursivement un dossier",
+      "syntaxe": "cp -r <source> <cible>",
+      "exemples": [
+        {
+          "cmd": "cp -r src/ dest/",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00014",
+      "face": "A",
+      "type": "commande",
+      "nom": "cp -a",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Copier en préservant attributs",
+      "syntaxe": "cp -a <source> <cible>",
+      "exemples": [
+        {
+          "cmd": "cp -a src/ dest/",
+          "explication": ""
+        }
+      ],
+      "precautions": "Équivalent à `-dR --preserve=all`",
+      "equivalents": [],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00015",
+      "face": "A",
+      "type": "commande",
+      "nom": "mv",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Déplacer ou renommer",
+      "syntaxe": "mv [options] <source> <cible>",
+      "exemples": [
+        {
+          "cmd": "mv a.txt b.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "mv dossier/ /nouveau/chemin/",
+          "explication": ""
+        }
+      ],
+      "precautions": "Écrase sans confirmation",
+      "equivalents": [
+        {
+          "note": "Move-Item (PowerShell)"
+        }
+      ],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00016",
+      "face": "A",
+      "type": "commande",
+      "nom": "rm",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Supprimer un fichier",
+      "syntaxe": "rm [options] <cible>",
+      "exemples": [
+        {
+          "cmd": "rm a.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "rm -r dossier/",
+          "explication": ""
+        }
+      ],
+      "precautions": "⚠️ Destructif — aucune corbeille",
+      "equivalents": [
+        {
+          "note": "Remove-Item (PowerShell)"
+        }
+      ],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00017",
+      "face": "A",
+      "type": "commande",
+      "nom": "rm -rf",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Supprimer récursivement et forcer",
+      "syntaxe": "rm -rf <cible>",
+      "exemples": [
+        {
+          "cmd": "rm -rf dossier/",
+          "explication": ""
+        },
+        {
+          "cmd": "rm -rf /tmp/*",
+          "explication": ""
+        }
+      ],
+      "precautions": "⚠️ TRÈS DANGEREUX — peut tout effacer",
+      "equivalents": [],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00018",
+      "face": "A",
+      "type": "commande",
+      "nom": "rm -i",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Supprimer avec confirmation",
+      "syntaxe": "rm -i <cible>",
+      "exemples": [
+        {
+          "cmd": "rm -i *.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "Plus sûr en script interactif",
+      "equivalents": [],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00019",
+      "face": "A",
+      "type": "commande",
+      "nom": "mkdir",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Créer un répertoire",
+      "syntaxe": "mkdir [options] <nom>",
+      "exemples": [
+        {
+          "cmd": "mkdir projet",
+          "explication": ""
+        },
+        {
+          "cmd": "mkdir -p a/b/c",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-p` crée les parents",
+      "equivalents": [
+        {
+          "note": "md (Windows)"
+        }
+      ],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00020",
+      "face": "A",
+      "type": "commande",
+      "nom": "md",
+      "aliases": [],
+      "os": [
+        "windows-cmd"
+      ],
+      "os_raw": "Windows (CMD)",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Créer un répertoire",
+      "syntaxe": "md <nom>",
+      "exemples": [
+        {
+          "cmd": "md projet",
+          "explication": ""
+        },
+        {
+          "cmd": "md a\\b\\c",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "mkdir"
+        }
+      ],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00021",
+      "face": "A",
+      "type": "commande",
+      "nom": "rmdir",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Supprimer un dossier vide",
+      "syntaxe": "rmdir <nom>",
+      "exemples": [
+        {
+          "cmd": "rmdir vide",
+          "explication": ""
+        }
+      ],
+      "precautions": "Échoue si le dossier n'est pas vide",
+      "equivalents": [],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00022",
+      "face": "A",
+      "type": "commande",
+      "nom": "Remove-Item -Force",
+      "aliases": [],
+      "os": [
+        "windows-powershell"
+      ],
+      "os_raw": "PowerShell",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Supprimer un fichier/dossier",
+      "syntaxe": "Remove-Item -Force <cible>",
+      "exemples": [
+        {
+          "cmd": "Remove-Item -Force dossier\\",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "rm, rmdir"
+        }
+      ],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00023",
+      "face": "A",
+      "type": "commande",
+      "nom": "touch",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Créer un fichier vide / maj date",
+      "syntaxe": "touch <nom>",
+      "exemples": [
+        {
+          "cmd": "touch nouveau.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "touch -a a.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "Met à jour la date de dernier accès",
+      "equivalents": [],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00024",
+      "face": "A",
+      "type": "commande",
+      "nom": "ln",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Créer un lien",
+      "syntaxe": "ln [options] <cible> <nom>",
+      "exemples": [
+        {
+          "cmd": "ln -s /path/fichier lien",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-s` pour lien symbolique ; sans -s, lien dur",
+      "equivalents": [],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00025",
+      "face": "A",
+      "type": "commande",
+      "nom": "ln -s",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Lien symbolique",
+      "syntaxe": "ln -s <cible> <nom>",
+      "exemples": [
+        {
+          "cmd": "ln -s /usr/bin/python3 python",
+          "explication": ""
+        }
+      ],
+      "precautions": "Le lien pointe vers la cible ; supprimer le lien ne supprime pas la cible",
+      "equivalents": [],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00026",
+      "face": "A",
+      "type": "commande",
+      "nom": "chmod",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Modifier les permissions",
+      "syntaxe": "chmod [options] <mode> <fichier>",
+      "exemples": [
+        {
+          "cmd": "chmod 755 script.sh",
+          "explication": ""
+        },
+        {
+          "cmd": "chmod +x script.sh",
+          "explication": ""
+        },
+        {
+          "cmd": "chmod -R 755 dossier/",
+          "explication": ""
+        }
+      ],
+      "precautions": "Mode octal : u=rwx g=rwx o=rwx",
+      "equivalents": [],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00027",
+      "face": "A",
+      "type": "commande",
+      "nom": "chmod +x",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Rendre exécutable",
+      "syntaxe": "chmod +x <fichier>",
+      "exemples": [
+        {
+          "cmd": "chmod +x script.sh",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00028",
+      "face": "A",
+      "type": "commande",
+      "nom": "chown",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Changer le propriétaire",
+      "syntaxe": "chown [options] <utilisateur>[:<groupe>] <fichier>",
+      "exemples": [
+        {
+          "cmd": "chown root:root fichier",
+          "explication": ""
+        },
+        {
+          "cmd": "chown -R root dossier/",
+          "explication": ""
+        }
+      ],
+      "precautions": "Nécessite les privilèges root",
+      "equivalents": [],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00029",
+      "face": "A",
+      "type": "commande",
+      "nom": "chgrp",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Changer le groupe",
+      "syntaxe": "chgrp <groupe> <fichier>",
+      "exemples": [
+        {
+          "cmd": "chgrp admin fichier",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "chown"
+        }
+      ],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00030",
+      "face": "A",
+      "type": "commande",
+      "nom": "stat",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Afficher les métadonnées",
+      "syntaxe": "stat <fichier>",
+      "exemples": [
+        {
+          "cmd": "stat /etc/hosts",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00031",
+      "face": "A",
+      "type": "commande",
+      "nom": "file",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Détecter le type de fichier",
+      "syntaxe": "file <fichier>",
+      "exemples": [
+        {
+          "cmd": "file image.png",
+          "explication": ""
+        },
+        {
+          "cmd": "file script.sh",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00032",
+      "face": "A",
+      "type": "commande",
+      "nom": "wc",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Compter lignes/mots/octets",
+      "syntaxe": "wc [options] <fichier>",
+      "exemples": [
+        {
+          "cmd": "wc -l a.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "wc -w a.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "wc -c a.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-l` lignes ; `-w` mots ; `-c` octets",
+      "equivalents": [],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00033",
+      "face": "A",
+      "type": "commande",
+      "nom": "head",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Afficher le début",
+      "syntaxe": "head [options] <fichier>",
+      "exemples": [
+        {
+          "cmd": "head -n 20 a.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "head -c 100 a.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "Par défaut 10 lignes",
+      "equivalents": [],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00034",
+      "face": "A",
+      "type": "commande",
+      "nom": "tail",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Afficher la fin",
+      "syntaxe": "tail [options] <fichier>",
+      "exemples": [
+        {
+          "cmd": "tail -f app.log",
+          "explication": ""
+        },
+        {
+          "cmd": "tail -n 50 a.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-f` suit le fichier en temps réel (utile pour les logs)",
+      "equivalents": [],
+      "source": "faceA_02_fichiers.md"
+    },
+    {
+      "id": "A-00035",
+      "face": "A",
+      "type": "commande",
+      "nom": "cat",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Afficher / concaténer",
+      "syntaxe": "cat [options] <fichiers>",
+      "exemples": [
+        {
+          "cmd": "cat a.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "cat a.txt b.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "cat -n a.txt` (numéroter)",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "Get-Content (PowerShell)"
+        }
+      ],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00036",
+      "face": "A",
+      "type": "commande",
+      "nom": "Get-Content",
+      "aliases": [],
+      "os": [
+        "windows-powershell"
+      ],
+      "os_raw": "PowerShell",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Afficher un fichier",
+      "syntaxe": "Get-Content <fichier>",
+      "exemples": [
+        {
+          "cmd": "Get-Content log.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "Alias `cat`, `type`",
+      "equivalents": [
+        {
+          "note": "cat"
+        }
+      ],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00037",
+      "face": "A",
+      "type": "commande",
+      "nom": "less",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Parcourir un fichier page par page",
+      "syntaxe": "less <fichier>",
+      "exemples": [
+        {
+          "cmd": "less /var/log/syslog",
+          "explication": ""
+        }
+      ],
+      "precautions": "`q` pour quitter ; `f` / `b` pour descendre/monter",
+      "equivalents": [
+        {
+          "note": "more"
+        }
+      ],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00038",
+      "face": "A",
+      "type": "commande",
+      "nom": "more",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Parcourir page par page (plus simple)",
+      "syntaxe": "more <fichier>",
+      "exemples": [
+        {
+          "cmd": "more a.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "less"
+        }
+      ],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00039",
+      "face": "A",
+      "type": "commande",
+      "nom": "grep",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Recherche de motif (regex)",
+      "syntaxe": "grep [options] <motif> <fichiers>",
+      "exemples": [
+        {
+          "cmd": "grep \"error\" *.log",
+          "explication": ""
+        },
+        {
+          "cmd": "grep -i \"mot\" a.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "grep -r \"mot\" dossier/",
+          "explication": ""
+        },
+        {
+          "cmd": "grep -E \"a|b\"",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-r` récursif ; `-i` insensible à la cas ; `-v` inverse",
+      "equivalents": [
+        {
+          "note": "Select-String (PowerShell)"
+        }
+      ],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00040",
+      "face": "A",
+      "type": "commande",
+      "nom": "Select-String",
+      "aliases": [],
+      "os": [
+        "windows-powershell"
+      ],
+      "os_raw": "PowerShell",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Recherche de motif",
+      "syntaxe": "Select-String <motif> <fichier>",
+      "exemples": [
+        {
+          "cmd": "Select-String \"error\" *.log",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "grep"
+        }
+      ],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00041",
+      "face": "A",
+      "type": "commande",
+      "nom": "find",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Trouver des fichiers par nom/type",
+      "syntaxe": "find <chemin> [critères]",
+      "exemples": [
+        {
+          "cmd": "find . -name \"*.txt\"",
+          "explication": ""
+        },
+        {
+          "cmd": "find / -name \"nginx.conf\"",
+          "explication": ""
+        },
+        {
+          "cmd": "find . -type f -mtime -7",
+          "explication": ""
+        }
+      ],
+      "precautions": "Peut être lent sur de grands arborescences",
+      "equivalents": [],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00042",
+      "face": "A",
+      "type": "commande",
+      "nom": "locate",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Recherche rapide (indexé)",
+      "syntaxe": "locate <motif>",
+      "exemples": [
+        {
+          "cmd": "locate nginx.conf",
+          "explication": ""
+        }
+      ],
+      "precautions": "Nécessite un index à jour (`updatedb`) ; moins précis que find",
+      "equivalents": [],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00043",
+      "face": "A",
+      "type": "commande",
+      "nom": "sed",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Éditeur de flux (substitution)",
+      "syntaxe": "sed [options] 'commande' <fichier>",
+      "exemples": [
+        {
+          "cmd": "sed 's/ancien/nouveau/' a.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "sed -i 's/a/b/g' a.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-i` modifie le fichier en place — attention à la sauvegarde",
+      "equivalents": [],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00044",
+      "face": "A",
+      "type": "commande",
+      "nom": "awk",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Traitement de colonnes",
+      "syntaxe": "awk 'condition {action}' <fichier>",
+      "exemples": [
+        {
+          "cmd": "awk '{print $1}' a.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "awk -F: '{print $1}' /etc/passwd",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00045",
+      "face": "A",
+      "type": "commande",
+      "nom": "cut",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Extraire des colonnes",
+      "syntaxe": "cut [options] <fichier>",
+      "exemples": [
+        {
+          "cmd": "cut -d: -f1 /etc/passwd",
+          "explication": ""
+        },
+        {
+          "cmd": "cut -c1-10 a.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00046",
+      "face": "A",
+      "type": "commande",
+      "nom": "sort",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Trier les lignes",
+      "syntaxe": "sort [options] <fichier>",
+      "exemples": [
+        {
+          "cmd": "sort a.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "sort -n a.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "sort -k2 a.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-n` numérique ; `-r` inverse",
+      "equivalents": [],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00047",
+      "face": "A",
+      "type": "commande",
+      "nom": "uniq",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Dédupliquer les lignes consécutives",
+      "syntaxe": "uniq [options] <fichier>",
+      "exemples": [
+        {
+          "cmd": "sort a.txt | uniq",
+          "explication": ""
+        },
+        {
+          "cmd": "uniq -c` (compter)",
+          "explication": ""
+        }
+      ],
+      "precautions": "Doit être utilisé après `sort`",
+      "equivalents": [],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00048",
+      "face": "A",
+      "type": "commande",
+      "nom": "tr",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Traduire des caractères",
+      "syntaxe": "tr [options] <ensemble1> <ensemble2>",
+      "exemples": [
+        {
+          "cmd": "tr 'a-z' 'A-Z'",
+          "explication": ""
+        },
+        {
+          "cmd": "tr -d '\\n'",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00049",
+      "face": "A",
+      "type": "commande",
+      "nom": "diff",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Comparer deux fichiers",
+      "syntaxe": "diff [options] <f1> <f2>",
+      "exemples": [
+        {
+          "cmd": "diff a.txt b.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "diff -u a.txt b.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00050",
+      "face": "A",
+      "type": "commande",
+      "nom": "cmp",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Comparer octet par octet",
+      "syntaxe": "cmp [options] <f1> <f2>",
+      "exemples": [
+        {
+          "cmd": "cmp a.txt b.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "Affiche la première différence",
+      "equivalents": [],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00051",
+      "face": "A",
+      "type": "commande",
+      "nom": "nano",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Éditeur de texte simple",
+      "syntaxe": "nano <fichier>",
+      "exemples": [
+        {
+          "cmd": "nano a.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00052",
+      "face": "A",
+      "type": "commande",
+      "nom": "vim / vi",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Éditeur de texte puissant",
+      "syntaxe": "vim <fichier>",
+      "exemples": [
+        {
+          "cmd": "vim a.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "Courbe d'apprentissage ; `:q!` pour quitter sans sauvegarder",
+      "equivalents": [],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00053",
+      "face": "A",
+      "type": "commande",
+      "nom": "emacs",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Éditeur extensible",
+      "syntaxe": "emacs <fichier>",
+      "exemples": [
+        {
+          "cmd": "emacs a.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00054",
+      "face": "A",
+      "type": "commande",
+      "nom": "code",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Éditeur VS Code",
+      "syntaxe": "code [options] <chemin>",
+      "exemples": [
+        {
+          "cmd": "code a.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "code dossier/",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00055",
+      "face": "A",
+      "type": "commande",
+      "nom": "notepad",
+      "aliases": [],
+      "os": [
+        "windows"
+      ],
+      "os_raw": "Windows",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Éditeur de texte",
+      "syntaxe": "notepad <fichier>",
+      "exemples": [
+        {
+          "cmd": "notepad a.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00056",
+      "face": "A",
+      "type": "commande",
+      "nom": "notepad++",
+      "aliases": [],
+      "os": [
+        "windows"
+      ],
+      "os_raw": "Windows",
+      "categories": [
+        "contenu_fichiers"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Éditeur avancé",
+      "syntaxe": "notepad++ <fichier>",
+      "exemples": [
+        {
+          "cmd": "notepad++ a.txt",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_03_contenu_fichiers.md"
+    },
+    {
+      "id": "A-00057",
+      "face": "A",
+      "type": "commande",
+      "nom": "ps",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Lister les processus",
+      "syntaxe": "ps [options]",
+      "exemples": [
+        {
+          "cmd": "ps",
+          "explication": ""
+        },
+        {
+          "cmd": "ps aux",
+          "explication": ""
+        },
+        {
+          "cmd": "ps -ef",
+          "explication": ""
+        },
+        {
+          "cmd": "ps -u root",
+          "explication": ""
+        }
+      ],
+      "precautions": "`ps aux` montre tous les processus (BSD style)",
+      "equivalents": [
+        {
+          "note": "tasklist (Windows)"
+        }
+      ],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00058",
+      "face": "A",
+      "type": "commande",
+      "nom": "ps aux",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Tous les processus (utilisateur, CPU, mémoire)",
+      "syntaxe": "ps aux",
+      "exemples": [
+        {
+          "cmd": "ps aux",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00059",
+      "face": "A",
+      "type": "commande",
+      "nom": "top",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Surveillance CPU en temps réel",
+      "syntaxe": "top [options]",
+      "exemples": [
+        {
+          "cmd": "top",
+          "explication": ""
+        },
+        {
+          "cmd": "top -u root",
+          "explication": ""
+        }
+      ],
+      "precautions": "`q` pour quitter",
+      "equivalents": [
+        {
+          "note": "htop (Linux)"
+        }
+      ],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00060",
+      "face": "A",
+      "type": "commande",
+      "nom": "htop",
+      "aliases": [],
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Interface graphique pour top",
+      "syntaxe": "htop",
+      "exemples": [
+        {
+          "cmd": "htop",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "top"
+        }
+      ],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00061",
+      "face": "A",
+      "type": "commande",
+      "nom": "kill",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Terminer un processus",
+      "syntaxe": "kill [options] <PID>",
+      "exemples": [
+        {
+          "cmd": "kill 1234",
+          "explication": ""
+        },
+        {
+          "cmd": "kill -9 1234",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-9` (SIGKILL) force l'arrêt, non rattrapable",
+      "equivalents": [
+        {
+          "note": "taskkill (Windows)"
+        }
+      ],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00062",
+      "face": "A",
+      "type": "commande",
+      "nom": "kill -9",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Forcer l'arrêt d'un processus",
+      "syntaxe": "kill -9 <PID>",
+      "exemples": [
+        {
+          "cmd": "kill -9 1234",
+          "explication": ""
+        }
+      ],
+      "precautions": "⚠️ Impossible à ignorer ; pas de nettoyage",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00063",
+      "face": "A",
+      "type": "commande",
+      "nom": "kill -15",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Signal par défaut (SIGTERM)",
+      "syntaxe": "kill -15 <PID>",
+      "exemples": [
+        {
+          "cmd": "kill 1234` (par défaut c'est -15)",
+          "explication": ""
+        }
+      ],
+      "precautions": "Laisse le temps au processus de se terminer proprement",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00064",
+      "face": "A",
+      "type": "commande",
+      "nom": "pkill",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Tue les processus par nom",
+      "syntaxe": "pkill [options] <nom>",
+      "exemples": [
+        {
+          "cmd": "pkill nginx",
+          "explication": ""
+        },
+        {
+          "cmd": "pkill -9 chrome",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00065",
+      "face": "A",
+      "type": "commande",
+      "nom": "pgrep",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Affiche les PID par nom",
+      "syntaxe": "pgrep <nom>",
+      "exemples": [
+        {
+          "cmd": "pgrep nginx",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00066",
+      "face": "A",
+      "type": "commande",
+      "nom": "tasklist",
+      "aliases": [],
+      "os": [
+        "windows-cmd"
+      ],
+      "os_raw": "Windows (CMD)",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Lister les processus",
+      "syntaxe": "tasklist",
+      "exemples": [
+        {
+          "cmd": "tasklist",
+          "explication": ""
+        },
+        {
+          "cmd": "tasklist /fi \"pid eq 1234\"",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "ps"
+        }
+      ],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00067",
+      "face": "A",
+      "type": "commande",
+      "nom": "taskkill",
+      "aliases": [],
+      "os": [
+        "windows-cmd"
+      ],
+      "os_raw": "Windows (CMD)",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Terminer un processus",
+      "syntaxe": "taskkill [options] <PID|/im nom>",
+      "exemples": [
+        {
+          "cmd": "taskkill /PID 1234",
+          "explication": ""
+        },
+        {
+          "cmd": "taskkill /im chrome.exe /f",
+          "explication": ""
+        }
+      ],
+      "precautions": "`/f` force l'arrêt",
+      "equivalents": [
+        {
+          "note": "kill"
+        }
+      ],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00068",
+      "face": "A",
+      "type": "commande",
+      "nom": "Get-Process",
+      "aliases": [],
+      "os": [
+        "windows-powershell"
+      ],
+      "os_raw": "PowerShell",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Lister les processus",
+      "syntaxe": "Get-Process [nom]",
+      "exemples": [
+        {
+          "cmd": "Get-Process",
+          "explication": ""
+        },
+        {
+          "cmd": "Get-Process notepad",
+          "explication": ""
+        }
+      ],
+      "precautions": "Alias `gps`",
+      "equivalents": [
+        {
+          "note": "ps, tasklist"
+        }
+      ],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00069",
+      "face": "A",
+      "type": "commande",
+      "nom": "Stop-Process",
+      "aliases": [],
+      "os": [
+        "windows-powershell"
+      ],
+      "os_raw": "PowerShell",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Terminer un processus",
+      "syntaxe": "Stop-Process <PID|nom>",
+      "exemples": [
+        {
+          "cmd": "Stop-Process -Id 1234",
+          "explication": ""
+        },
+        {
+          "cmd": "Stop-Process notepad",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "kill, taskkill"
+        }
+      ],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00070",
+      "face": "A",
+      "type": "commande",
+      "nom": "systemctl",
+      "aliases": [],
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Gestion des services systemd",
+      "syntaxe": "systemctl [commande] <service>",
+      "exemples": [
+        {
+          "cmd": "systemctl start nginx",
+          "explication": ""
+        },
+        {
+          "cmd": "systemctl status nginx",
+          "explication": ""
+        },
+        {
+          "cmd": "systemctl restart nginx",
+          "explication": ""
+        },
+        {
+          "cmd": "systemctl stop nginx",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "service (ancien)"
+        }
+      ],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00071",
+      "face": "A",
+      "type": "commande",
+      "nom": "service",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Gestion des services (ancien)",
+      "syntaxe": "service <service> <action>",
+      "exemples": [
+        {
+          "cmd": "service nginx start",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "systemctl"
+        }
+      ],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00072",
+      "face": "A",
+      "type": "commande",
+      "nom": "launchctl",
+      "aliases": [],
+      "os": [
+        "macos"
+      ],
+      "os_raw": "macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Gestion des services (launchd)",
+      "syntaxe": "launchctl [commande] <label>",
+      "exemples": [
+        {
+          "cmd": "launchctl start com.apple.cups",
+          "explication": ""
+        },
+        {
+          "cmd": "launchctl load plist",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "systemctl"
+        }
+      ],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00073",
+      "face": "A",
+      "type": "commande",
+      "nom": "uname",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Nom du système",
+      "syntaxe": "uname [options]",
+      "exemples": [
+        {
+          "cmd": "uname",
+          "explication": ""
+        },
+        {
+          "cmd": "uname -a",
+          "explication": ""
+        },
+        {
+          "cmd": "uname -s",
+          "explication": ""
+        },
+        {
+          "cmd": "uname -m",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00074",
+      "face": "A",
+      "type": "commande",
+      "nom": "hostname",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Nom de la machine",
+      "syntaxe": "hostname [options]",
+      "exemples": [
+        {
+          "cmd": "hostname",
+          "explication": ""
+        },
+        {
+          "cmd": "hostname -f",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00075",
+      "face": "A",
+      "type": "commande",
+      "nom": "hostname -I",
+      "aliases": [],
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Adresse IP locale",
+      "syntaxe": "hostname -I",
+      "exemples": [
+        {
+          "cmd": "hostname -I",
+          "explication": ""
+        }
+      ],
+      "precautions": "N'existe pas sur macOS (utiliser `ipconfig getifaddr en0`)",
+      "equivalents": [
+        {
+          "note": "ipconfig (Windows)"
+        }
+      ],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00076",
+      "face": "A",
+      "type": "commande",
+      "nom": "df",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Espace disque utilisé",
+      "syntaxe": "df [options]",
+      "exemples": [
+        {
+          "cmd": "df -h",
+          "explication": ""
+        },
+        {
+          "cmd": "df -h /",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-h` humainement lisible",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00077",
+      "face": "A",
+      "type": "commande",
+      "nom": "du",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Taille d'un répertoire",
+      "syntaxe": "du [options] <chemin>",
+      "exemples": [
+        {
+          "cmd": "du -sh .",
+          "explication": ""
+        },
+        {
+          "cmd": "du -sh *",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-s` résume ; `-h` lisible",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00078",
+      "face": "A",
+      "type": "commande",
+      "nom": "free",
+      "aliases": [],
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Mémoire utilisée",
+      "syntaxe": "free [options]",
+      "exemples": [
+        {
+          "cmd": "free -h",
+          "explication": ""
+        }
+      ],
+      "precautions": "N'existe pas en natif sur macOS (utiliser `vm_stat` ou `top`)",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00079",
+      "face": "A",
+      "type": "commande",
+      "nom": "vmstat",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Statistiques système",
+      "syntaxe": "vmstat [intervalle]",
+      "exemples": [
+        {
+          "cmd": "vmstat 1",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00080",
+      "face": "A",
+      "type": "commande",
+      "nom": "iostat",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Statistiques E/S disque",
+      "syntaxe": "iostat [options]",
+      "exemples": [
+        {
+          "cmd": "iostat",
+          "explication": ""
+        },
+        {
+          "cmd": "iostat -x 1",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00081",
+      "face": "A",
+      "type": "commande",
+      "nom": "uptime",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Temps de fonctionnement",
+      "syntaxe": "uptime",
+      "exemples": [
+        {
+          "cmd": "uptime",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00082",
+      "face": "A",
+      "type": "commande",
+      "nom": "whoami",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Utilisateur courant",
+      "syntaxe": "whoami",
+      "exemples": [
+        {
+          "cmd": "whoami",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00083",
+      "face": "A",
+      "type": "commande",
+      "nom": "id",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Identité de l'utilisateur",
+      "syntaxe": "id [options]",
+      "exemples": [
+        {
+          "cmd": "id",
+          "explication": ""
+        },
+        {
+          "cmd": "id root",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00084",
+      "face": "A",
+      "type": "commande",
+      "nom": "sudo",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Exécuter en tant que root",
+      "syntaxe": "sudo [options] <commande>",
+      "exemples": [
+        {
+          "cmd": "sudo apt update",
+          "explication": ""
+        },
+        {
+          "cmd": "sudo -u postgres psql",
+          "explication": ""
+        }
+      ],
+      "precautions": "⚠️ Accès root — utiliser avec précaution",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00085",
+      "face": "A",
+      "type": "commande",
+      "nom": "su",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "processus_systeme"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Changer d'utilisateur",
+      "syntaxe": "su [options] <utilisateur>",
+      "exemples": [
+        {
+          "cmd": "su root",
+          "explication": ""
+        },
+        {
+          "cmd": "su - postgres",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-` charge le profil de l'utilisateur",
+      "equivalents": [],
+      "source": "faceA_04_processus_systeme.md"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dictionnaire IT — Recherche locale</title>
+<style>body{font-family:system-ui,sans-serif;max-width:900px;margin:2rem auto;padding:0 1rem;background:#0f172a;color:#e2e8f0}input{width:100%;padding:.8rem;font-size:1.1rem;border-radius:8px;border:1px solid #334155;background:#1e293b;color:#fff}button{padding:.4rem .8rem;margin:.2rem;border-radius:6px;border:1px solid #334155;background:#1e293b;color:#fff;cursor:pointer}button.act{background:#2563eb}.card{background:#1e293b;border:1px solid #334155;border-radius:10px;padding:1rem;margin:.6rem 0}code{background:#0f172a;padding:.15rem .4rem;border-radius:4px;color:#7dd3fc}.tag{font-size:.75rem;background:#334155;border-radius:4px;padding:.1rem .4rem;margin-right:.3rem}</style></head>
+<body>
+<h1>📖 Dictionnaire IT — <span id="n">…</span> entrées (offline)</h1>
+<input id="q" placeholder="Tape : copier, processus, réseau, permission denied, cpu…">
+<div><button data-os="all" class="act">Tous</button><button data-os="linux">Linux</button><button data-os="macos">macOS</button><button data-os="windows-powershell">PowerShell</button><button data-os="windows-cmd">CMD</button></div>
+<div id="r"></div>
+<script>
+let D=[], F="all";
+fetch("../data/dictionnaire.json").then(r=>r.json()).then(j=>{D=j.entries;document.getElementById("n").textContent=D.length;go("")});
+document.querySelectorAll("button").forEach(b=>b.onclick=()=>{document.querySelectorAll("button").forEach(x=>x.classList.remove("act"));b.classList.add("act");F=b.dataset.os;go(document.getElementById("q").value)});
+document.getElementById("q").oninput=e=>go(e.target.value);
+function go(q){q=q.toLowerCase();let h=D.filter(e=>(F==="all"||e.os.includes(F))&&(!q||(e.nom+" "+e.role_fr+" "+e.syntaxe+" "+(e.tags||[]).join(" ")).toLowerCase().includes(q))).slice(0,50);
+document.getElementById("r").innerHTML=h.map(e=>`<div class="card"><b><code>${e.nom}</code></b> <span class="tag">${e.os_raw}</span><span class="tag">${e.id}</span><br>${e.role_fr}<br>Syntaxe: <code>${e.syntaxe}</code><br>Ex: ${e.exemples.map(x=>`<code>${x.cmd}</code>`).join(" · ")}${e.precautions?`<br>⚠️ ${e.precautions}`:""}</div>`).join("")||"<p>Aucun résultat.</p>"}
+</script></body></html>

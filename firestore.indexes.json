@@ -1,0 +1,1 @@
+{"indexes": [{"collectionGroup": "entries", "fields": [{"fieldPath": "nom", "order": "ASCENDING"}, {"fieldPath": "face", "order": "ASCENDING"}]}]}
