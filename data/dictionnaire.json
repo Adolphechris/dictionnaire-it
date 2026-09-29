@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "total": 193,
+  "total": 208,
   "entries": [
     {
       "face": "A",
@@ -8111,6 +8111,1334 @@
       "updated_at": "2026-09-29"
     },
     {
+      "nom": "cargo",
+      "aliases": [],
+      "niveau": "intermediaire",
+      "popularite": 68,
+      "contextes": [
+        "projets Rust",
+        "outils CLI modernes (ripgrep",
+        "fd)",
+        "compilation rapide"
+      ],
+      "origine": "Mozilla, 2014 (stable 1.0 en 2015) — résout le \"problème des dépendances\" de Rust ; le nom vient du voilier \"cargo\".",
+      "subtilites": [
+        "cargo vs rustc : cargo = gestionnaire de projet/dépendances, rustc = le compilateur seul (cargo l'appelle).",
+        "Cargo.toml (manifest) vs Cargo.lock (verrouillage) : le lockfile doit être COMMITÉ pour les applis.",
+        "target/ = dossier de build de plusieurs Go — jamais commité.",
+        "*Urgences/dangers :** — (pas destructif ; cargo clean supprime target/)",
+        "*Précautions :** Commiter Cargo.lock ; `cargo publish` envoie sur crates.io = public.",
+        "*Équivalents :** npm (JS), pip (Python), maven (Java)",
+        "*Voir aussi :** rust, npm, git"
+      ],
+      "voir_aussi": [
+        "rust",
+        "npm",
+        "git"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "Cross/Dev",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Créer, compiler et publier les projets Rust en gérant automatiquement les dépendances (crates.io).",
+      "syntaxe": "cargo [new|build|run|test|add] <nom>",
+      "cas_reguliers": [
+        {
+          "cmd": "cargo new mon-outil",
+          "explication": "Créer un nouveau projet (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "cargo run",
+          "explication": "Compiler puis exécuter en une commande",
+          "contexte": ""
+        },
+        {
+          "cmd": "cargo add serde",
+          "explication": "Ajouter une dépendance à Cargo.toml",
+          "contexte": ""
+        },
+        {
+          "cmd": "cargo build --release",
+          "explication": "Build optimisé (binaire rapide, compile plus lentement)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine:** Mozilla, 2014 (stable 1.0 en 2015) — résout le \"problème des dépendances\" de Rust ; le nom vient du voilier \"cargo\".",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "cargo vs rustc : cargo = gestionnaire de projet/dépendances, rustc = le compilateur seul (cargo l'appelle).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Cargo.toml (manifest) vs Cargo.lock (verrouillage) : le lockfile doit être COMMITÉ pour les applis.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "target/ = dossier de build de plusieurs Go — jamais commité.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (pas destructif ; cargo clean supprime target/)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Commiter Cargo.lock ; `cargo publish` envoie sur crates.io = public.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** npm (JS), pip (Python), maven (Java)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** rust, npm, git",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "cargo new mon-outil",
+          "explication": "Créer un nouveau projet (le plus courant)"
+        },
+        {
+          "cmd": "cargo run",
+          "explication": "Compiler puis exécuter en une commande"
+        },
+        {
+          "cmd": "cargo add serde",
+          "explication": "Ajouter une dépendance à Cargo.toml"
+        },
+        {
+          "cmd": "cargo build --release",
+          "explication": "Build optimisé (binaire rapide, compile plus lentement)"
+        },
+        {
+          "cmd": "*Origine:** Mozilla, 2014 (stable 1.0 en 2015) — résout le \"problème des dépendances\" de Rust ; le nom vient du voilier \"cargo\".",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "cargo vs rustc : cargo = gestionnaire de projet/dépendances, rustc = le compilateur seul (cargo l'appelle).",
+          "explication": ""
+        },
+        {
+          "cmd": "Cargo.toml (manifest) vs Cargo.lock (verrouillage) : le lockfile doit être COMMITÉ pour les applis.",
+          "explication": ""
+        },
+        {
+          "cmd": "target/ = dossier de build de plusieurs Go — jamais commité.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (pas destructif ; cargo clean supprime target/)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Commiter Cargo.lock ; `cargo publish` envoie sur crates.io = public.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** npm (JS), pip (Python), maven (Java)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** rust, npm, git",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (pas destructif ; cargo clean supprime target/)",
+      "precautions": "Commiter Cargo.lock ; `cargo publish` envoie sur crates.io = public.",
+      "equivalents": [
+        {
+          "note": "npm (JS), pip (Python), maven (Java)"
+        }
+      ],
+      "id": "A-00124",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "composer",
+      "aliases": [],
+      "niveau": "intermediaire",
+      "popularite": 55,
+      "contextes": [
+        "sites Symfony/Laravel/WordPress",
+        "refonte legacy",
+        "hébergement mutualisé"
+      ],
+      "origine": "Nils Adermann et Jordi Boggiano, 2011 — réponse à npm et pip pour l'écosystème PHP ; Packagist = registre central.",
+      "subtilites": [
+        "composer install (applique le lock, prod) vs composer update (change les versions, dev) — ne JAMAIS update en prod.",
+        "composer.json (souhait) vs composer.lock (versions exactes) : le lock fait foi.",
+        "Autoload : composer dump-autoload régénère après ajout de classe (pas de require manuel).",
+        "*Urgences/dangers :** ⚠️ `composer update` en prod peut faire monter une lib et casser le site — toujours `install` en prod.",
+        "*Précautions :** Commiter composer.lock ; scripts post-install audités.",
+        "*Équivalents :** npm, pip, gem",
+        "*Voir aussi :** php, npm, git"
+      ],
+      "voir_aussi": [
+        "php",
+        "npm",
+        "git"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "Cross/Dev",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Gérer les bibliothèques PHP d'un projet et générer l'autoloading (Packagist).",
+      "syntaxe": "composer [require|install|update] <paquet>",
+      "cas_reguliers": [
+        {
+          "cmd": "composer install",
+          "explication": "Installer les dépendances de composer.lock (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "composer require monolog/monolog",
+          "explication": "Ajouter une librairie",
+          "contexte": ""
+        },
+        {
+          "cmd": "composer update",
+          "explication": "Recalculer et mettre à jour les dépendances (régénère le lock)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine:** Nils Adermann et Jordi Boggiano, 2011 — réponse à npm et pip pour l'écosystème PHP ; Packagist = registre central.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "composer install (applique le lock, prod) vs composer update (change les versions, dev) — ne JAMAIS update en prod.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "composer.json (souhait) vs composer.lock (versions exactes) : le lock fait foi.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Autoload : composer dump-autoload régénère après ajout de classe (pas de require manuel).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `composer update` en prod peut faire monter une lib et casser le site — toujours `install` en prod.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Commiter composer.lock ; scripts post-install audités.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** npm, pip, gem",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** php, npm, git",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "composer install",
+          "explication": "Installer les dépendances de composer.lock (le plus courant)"
+        },
+        {
+          "cmd": "composer require monolog/monolog",
+          "explication": "Ajouter une librairie"
+        },
+        {
+          "cmd": "composer update",
+          "explication": "Recalculer et mettre à jour les dépendances (régénère le lock)"
+        },
+        {
+          "cmd": "*Origine:** Nils Adermann et Jordi Boggiano, 2011 — réponse à npm et pip pour l'écosystème PHP ; Packagist = registre central.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "composer install (applique le lock, prod) vs composer update (change les versions, dev) — ne JAMAIS update en prod.",
+          "explication": ""
+        },
+        {
+          "cmd": "composer.json (souhait) vs composer.lock (versions exactes) : le lock fait foi.",
+          "explication": ""
+        },
+        {
+          "cmd": "Autoload : composer dump-autoload régénère après ajout de classe (pas de require manuel).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `composer update` en prod peut faire monter une lib et casser le site — toujours `install` en prod.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Commiter composer.lock ; scripts post-install audités.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** npm, pip, gem",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** php, npm, git",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `composer update` en prod peut faire monter une lib et casser le site — toujours `install` en prod.",
+      "precautions": "Commiter composer.lock ; scripts post-install audités.",
+      "equivalents": [
+        {
+          "note": "npm, pip, gem"
+        }
+      ],
+      "id": "A-00125",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "conda",
+      "aliases": [
+        "Anaconda/Miniconda"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 60,
+      "contextes": [
+        "data science",
+        "versions Python multiples",
+        "bibliothèques scientifiques (numpy",
+        "torch)"
+      ],
+      "origine": "Continuum Analytics (Anaconda Inc.), 2012 — né du chaos des bibliothèques scientifiques compilées (C/Fortran) sur les 3 OS.",
+      "subtilites": [
+        "conda vs pip : conda gère TOUT (Python + C libs + versions de Python), pip = packages Python uniquement — souvent utilisés ensemble (conda pour le lourd, pip pour le reste).",
+        "Anaconda = conda + 250 paquets préinstallés (4 Go), Miniconda = conda seul (~100 Mo) — préférer Miniconda.",
+        "conda update conda ≠ mise à jour de l'env actif — vérifier avec `conda info`.",
+        "*Urgences/dangers :** — (les envs sont isolés ; `conda env remove -n ml` supprime un env et son contenu)",
+        "*Précautions :** Exporter : `conda env export > environment.yml` ; garder environment.yml en version control.",
+        "*Équivalents :** venv/pip (Python), docker (conteneurs)",
+        "*Voir aussi :** pip, python, venv, docker"
+      ],
+      "voir_aussi": [
+        "pip",
+        "python",
+        "venv",
+        "docker"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "Cross/Dev",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Créer des environnements isolés avec des versions EXACTES de Python et de bibliothèques scientifiques.",
+      "syntaxe": "conda [create|activate|install|env list] -n nom",
+      "cas_reguliers": [
+        {
+          "cmd": "conda create -n ml python=3.11",
+          "explication": "Env avec une version Python précise (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "conda activate ml",
+          "explication": "Activer l'environnement",
+          "contexte": ""
+        },
+        {
+          "cmd": "conda install pandas numpy",
+          "explication": "Installer une bibliothèque dans l'env actif",
+          "contexte": ""
+        },
+        {
+          "cmd": "conda env list",
+          "explication": "Lister les environnements",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine:** Continuum Analytics (Anaconda Inc.), 2012 — né du chaos des bibliothèques scientifiques compilées (C/Fortran) sur les 3 OS.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "conda vs pip : conda gère TOUT (Python + C libs + versions de Python), pip = packages Python uniquement — souvent utilisés ensemble (conda pour le lourd, pip pour le reste).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Anaconda = conda + 250 paquets préinstallés (4 Go), Miniconda = conda seul (~100 Mo) — préférer Miniconda.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "conda update conda ≠ mise à jour de l'env actif — vérifier avec `conda info`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (les envs sont isolés ; `conda env remove -n ml` supprime un env et son contenu)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Exporter : `conda env export > environment.yml` ; garder environment.yml en version control.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** venv/pip (Python), docker (conteneurs)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** pip, python, venv, docker",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "conda create -n ml python=3.11",
+          "explication": "Env avec une version Python précise (le plus courant)"
+        },
+        {
+          "cmd": "conda activate ml",
+          "explication": "Activer l'environnement"
+        },
+        {
+          "cmd": "conda install pandas numpy",
+          "explication": "Installer une bibliothèque dans l'env actif"
+        },
+        {
+          "cmd": "conda env list",
+          "explication": "Lister les environnements"
+        },
+        {
+          "cmd": "*Origine:** Continuum Analytics (Anaconda Inc.), 2012 — né du chaos des bibliothèques scientifiques compilées (C/Fortran) sur les 3 OS.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "conda vs pip : conda gère TOUT (Python + C libs + versions de Python), pip = packages Python uniquement — souvent utilisés ensemble (conda pour le lourd, pip pour le reste).",
+          "explication": ""
+        },
+        {
+          "cmd": "Anaconda = conda + 250 paquets préinstallés (4 Go), Miniconda = conda seul (~100 Mo) — préférer Miniconda.",
+          "explication": ""
+        },
+        {
+          "cmd": "conda update conda ≠ mise à jour de l'env actif — vérifier avec `conda info`.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (les envs sont isolés ; `conda env remove -n ml` supprime un env et son contenu)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Exporter : `conda env export > environment.yml` ; garder environment.yml en version control.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** venv/pip (Python), docker (conteneurs)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** pip, python, venv, docker",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (les envs sont isolés ; `conda env remove -n ml` supprime un env et son contenu)",
+      "precautions": "Exporter : `conda env export > environment.yml` ; garder environment.yml en version control.",
+      "equivalents": [
+        {
+          "note": "venv/pip (Python), docker (conteneurs)"
+        }
+      ],
+      "id": "A-00126",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "gem",
+      "aliases": [],
+      "niveau": "debutant",
+      "popularite": 45,
+      "contextes": [
+        "projets Rails",
+        "scripts Ruby",
+        "outils Vagrant/Jekyll"
+      ],
+      "origine": "Chad Fowler, Dave Thomas et Jim Weirich, 2003 — le gestionnaire natif de Ruby ; \"gem\" = petite pépite de code réutilisable.",
+      "subtilites": [
+        "gem install (global) vs Bundler/bundle install (par projet, versions verrouillées avec Gemfile.lock) — en Rails, c'est BUNDLE qui compte.",
+        "Gemfile (souhait) ≠ Gemfile.lock (versions exactes) — le lockfile fait foi et se commit.",
+        "sudo gem install = mauvaise pratique (conflits avec rbenv/rvm) — installer en utilisateur.",
+        "*Urgences/dangers :** — (gem uninstall supprime la gem, parfois ses dépendances — lire l'avertissement)",
+        "*Précautions :** Toujours passer par Bundler sur un projet Rails ; commiter Gemfile.lock.",
+        "*Équivalents :** npm, pip, composer",
+        "*Voir aussi :** ruby, rails, git, npm"
+      ],
+      "voir_aussi": [
+        "ruby",
+        "rails",
+        "git",
+        "npm"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "Cross/Dev",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Installer et publier les bibliothèques Ruby depuis RubyGems.org.",
+      "syntaxe": "gem [install|list|update|uninstall] <nom>",
+      "cas_reguliers": [
+        {
+          "cmd": "gem install rails",
+          "explication": "Installer Rails (le plus courant, avant bundle)",
+          "contexte": ""
+        },
+        {
+          "cmd": "gem list --local",
+          "explication": "Lister les gems installées",
+          "contexte": ""
+        },
+        {
+          "cmd": "gem install vagrant",
+          "explication": "Installer un outil CLI Ruby",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine:** Chad Fowler, Dave Thomas et Jim Weirich, 2003 — le gestionnaire natif de Ruby ; \"gem\" = petite pépite de code réutilisable.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "gem install (global) vs Bundler/bundle install (par projet, versions verrouillées avec Gemfile.lock) — en Rails, c'est BUNDLE qui compte.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Gemfile (souhait) ≠ Gemfile.lock (versions exactes) — le lockfile fait foi et se commit.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "sudo gem install = mauvaise pratique (conflits avec rbenv/rvm) — installer en utilisateur.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (gem uninstall supprime la gem, parfois ses dépendances — lire l'avertissement)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Toujours passer par Bundler sur un projet Rails ; commiter Gemfile.lock.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** npm, pip, composer",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** ruby, rails, git, npm",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "gem install rails",
+          "explication": "Installer Rails (le plus courant, avant bundle)"
+        },
+        {
+          "cmd": "gem list --local",
+          "explication": "Lister les gems installées"
+        },
+        {
+          "cmd": "gem install vagrant",
+          "explication": "Installer un outil CLI Ruby"
+        },
+        {
+          "cmd": "*Origine:** Chad Fowler, Dave Thomas et Jim Weirich, 2003 — le gestionnaire natif de Ruby ; \"gem\" = petite pépite de code réutilisable.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "gem install (global) vs Bundler/bundle install (par projet, versions verrouillées avec Gemfile.lock) — en Rails, c'est BUNDLE qui compte.",
+          "explication": ""
+        },
+        {
+          "cmd": "Gemfile (souhait) ≠ Gemfile.lock (versions exactes) — le lockfile fait foi et se commit.",
+          "explication": ""
+        },
+        {
+          "cmd": "sudo gem install = mauvaise pratique (conflits avec rbenv/rvm) — installer en utilisateur.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (gem uninstall supprime la gem, parfois ses dépendances — lire l'avertissement)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Toujours passer par Bundler sur un projet Rails ; commiter Gemfile.lock.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** npm, pip, composer",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** ruby, rails, git, npm",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (gem uninstall supprime la gem, parfois ses dépendances — lire l'avertissement)",
+      "precautions": "Toujours passer par Bundler sur un projet Rails ; commiter Gemfile.lock.",
+      "equivalents": [
+        {
+          "note": "npm, pip, composer"
+        }
+      ],
+      "id": "A-00127",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "dpkg-reconfigure",
+      "aliases": [],
+      "niveau": "avance",
+      "popularite": 40,
+      "contextes": [
+        "changement de clé SSH",
+        "bascule de service",
+        "serveur Debian post-install"
+      ],
+      "origine": "DebConf (Debian Configuration, 1999-2001) — le système de questions paramétrables de Debian, réutilisé par Ubuntu.",
+      "subtilites": [
+        "dpkg-reconfigure ne MODIFIE PAS le fichier à la main — c'est le mécanisme officiel Debian (les éditions manuelles peuvent être écrasées).",
+        "`debconf-set-selections` permet la même chose en script (sans IHM) pour le provisioning.",
+        "Ne fonctionne que sur les paquets DEB (Debian/Ubuntu) — sur Fedora c'est `system-config-*`.",
+        "*Urgences/dangers :** ⚠️ Sur openssh-server : une config fausse après reconfigure peut COUPER l'accès SSH distant — préparer une console physique/VNC avant.",
+        "*Précautions :** Sauvegarder le fichier de config avant ; jamais à distance sans filet.",
+        "*Équivalents :** reconfigure via scripts (dnf), systemsettings (GUI)",
+        "*Voir aussi :** dpkg, apt, sshd"
+      ],
+      "voir_aussi": [
+        "dpkg",
+        "apt",
+        "sshd"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Rouvrir l'écran de configuration d'un paquet déjà installé (questions du premier install).",
+      "syntaxe": "sudo dpkg-reconfigure <paquet>",
+      "cas_reguliers": [
+        {
+          "cmd": "sudo dpkg-reconfigure openssh-server",
+          "explication": "Régénérer la config SSH (après édition ratée de sshd_config)",
+          "contexte": ""
+        },
+        {
+          "cmd": "sudo dpkg-reconfigure tzdata",
+          "explication": "Changer le fuseau horaire",
+          "contexte": ""
+        },
+        {
+          "cmd": "sudo dpkg-reconfigure -plow locale-gen",
+          "explication": "Mode texte basique si le truc ncurses bug",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** DebConf (Debian Configuration, 1999-2001) — le système de questions paramétrables de Debian, réutilisé par Ubuntu.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "dpkg-reconfigure ne MODIFIE PAS le fichier à la main — c'est le mécanisme officiel Debian (les éditions manuelles peuvent être écrasées).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "debconf-set-selections` permet la même chose en script (sans IHM) pour le provisioning.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Ne fonctionne que sur les paquets DEB (Debian/Ubuntu) — sur Fedora c'est `system-config-*`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ Sur openssh-server : une config fausse après reconfigure peut COUPER l'accès SSH distant — préparer une console physique/VNC avant.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Sauvegarder le fichier de config avant ; jamais à distance sans filet.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** reconfigure via scripts (dnf), systemsettings (GUI)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** dpkg, apt, sshd",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "sudo dpkg-reconfigure openssh-server",
+          "explication": "Régénérer la config SSH (après édition ratée de sshd_config)"
+        },
+        {
+          "cmd": "sudo dpkg-reconfigure tzdata",
+          "explication": "Changer le fuseau horaire"
+        },
+        {
+          "cmd": "sudo dpkg-reconfigure -plow locale-gen",
+          "explication": "Mode texte basique si le truc ncurses bug"
+        },
+        {
+          "cmd": "*Origine :** DebConf (Debian Configuration, 1999-2001) — le système de questions paramétrables de Debian, réutilisé par Ubuntu.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "dpkg-reconfigure ne MODIFIE PAS le fichier à la main — c'est le mécanisme officiel Debian (les éditions manuelles peuvent être écrasées).",
+          "explication": ""
+        },
+        {
+          "cmd": "debconf-set-selections` permet la même chose en script (sans IHM) pour le provisioning.",
+          "explication": ""
+        },
+        {
+          "cmd": "Ne fonctionne que sur les paquets DEB (Debian/Ubuntu) — sur Fedora c'est `system-config-*`.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ Sur openssh-server : une config fausse après reconfigure peut COUPER l'accès SSH distant — préparer une console physique/VNC avant.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Sauvegarder le fichier de config avant ; jamais à distance sans filet.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** reconfigure via scripts (dnf), systemsettings (GUI)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** dpkg, apt, sshd",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ Sur openssh-server : une config fausse après reconfigure peut COUPER l'accès SSH distant — préparer une console physique/VNC avant.",
+      "precautions": "Sauvegarder le fichier de config avant ; jamais à distance sans filet.",
+      "equivalents": [
+        {
+          "note": "reconfigure via scripts (dnf), systemsettings (GUI)"
+        }
+      ],
+      "id": "A-00128",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "nuget",
+      "aliases": [
+        "dotnet add package"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 50,
+      "contextes": [
+        "projets C#/ASP.NET",
+        "Visual Studio",
+        "applications Windows"
+      ],
+      "origine": "Microsoft, 2010 — le npm du .NET, créé pour remplacer le \"DLL hell\" (conflits de versions de DLL).",
+      "subtilites": [
+        "dotnet CLI (moderne) vs nuget.exe (historique) : préférer `dotnet add package` sur les projets .NET Core/5+.",
+        "packages.config (ancien) vs PackageReference dans .csproj (nouveau) : le format dépend de l'ancienneté du projet.",
+        "Références GAC (Global Assembly Cache) = vieux monde .NET Framework — les packages NuGet sont projet-par-projet.",
+        "*Urgences/dangers :** — (non destructif)",
+        "*Précautions :** Commiter le fichier de lock (packages.lock.json si activé) ; vérifier les licences.",
+        "*Équivalents :** npm (JS), pip (Python), maven (Java)",
+        "*Voir aussi :** dotnet, git, visual-studio"
+      ],
+      "voir_aussi": [
+        "dotnet",
+        "git",
+        "visual-studio"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "windows"
+      ],
+      "os_raw": "Windows/Cross",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Installer les bibliothèques .NET dans un projet depuis nuget.org.",
+      "syntaxe": "dotnet add package <nom>` ou `nuget install <nom>",
+      "cas_reguliers": [
+        {
+          "cmd": "dotnet add package Newtonsoft.Json",
+          "explication": "Ajouter une lib au .csproj (le plus courant, façon moderne)",
+          "contexte": ""
+        },
+        {
+          "cmd": "dotnet restore",
+          "explication": "Restaurer toutes les dépendances (après clone)",
+          "contexte": ""
+        },
+        {
+          "cmd": "nuget install packages.config",
+          "explication": "Façon historique (VS ancien)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Microsoft, 2010 — le npm du .NET, créé pour remplacer le \"DLL hell\" (conflits de versions de DLL).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "dotnet CLI (moderne) vs nuget.exe (historique) : préférer `dotnet add package` sur les projets .NET Core/5+.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "packages.config (ancien) vs PackageReference dans .csproj (nouveau) : le format dépend de l'ancienneté du projet.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Références GAC (Global Assembly Cache) = vieux monde .NET Framework — les packages NuGet sont projet-par-projet.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (non destructif)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Commiter le fichier de lock (packages.lock.json si activé) ; vérifier les licences.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** npm (JS), pip (Python), maven (Java)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** dotnet, git, visual-studio",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "dotnet add package Newtonsoft.Json",
+          "explication": "Ajouter une lib au .csproj (le plus courant, façon moderne)"
+        },
+        {
+          "cmd": "dotnet restore",
+          "explication": "Restaurer toutes les dépendances (après clone)"
+        },
+        {
+          "cmd": "nuget install packages.config",
+          "explication": "Façon historique (VS ancien)"
+        },
+        {
+          "cmd": "*Origine :** Microsoft, 2010 — le npm du .NET, créé pour remplacer le \"DLL hell\" (conflits de versions de DLL).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "dotnet CLI (moderne) vs nuget.exe (historique) : préférer `dotnet add package` sur les projets .NET Core/5+.",
+          "explication": ""
+        },
+        {
+          "cmd": "packages.config (ancien) vs PackageReference dans .csproj (nouveau) : le format dépend de l'ancienneté du projet.",
+          "explication": ""
+        },
+        {
+          "cmd": "Références GAC (Global Assembly Cache) = vieux monde .NET Framework — les packages NuGet sont projet-par-projet.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (non destructif)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Commiter le fichier de lock (packages.lock.json si activé) ; vérifier les licences.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** npm (JS), pip (Python), maven (Java)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** dotnet, git, visual-studio",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (non destructif)",
+      "precautions": "Commiter le fichier de lock (packages.lock.json si activé) ; vérifier les licences.",
+      "equivalents": [
+        {
+          "note": "npm (JS), pip (Python), maven (Java)"
+        }
+      ],
+      "id": "A-00129",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "emerge",
+      "aliases": [
+        "portage"
+      ],
+      "niveau": "avance",
+      "popularite": 30,
+      "contextes": [
+        "Gentoo",
+        "compilation sur mesure",
+        "optimisations extrêmes",
+        "apprentissage approfondi de Linux"
+      ],
+      "origine": "Daniel Robbins, 2002 (Gentoo = \"gentle one\") — le portage s'inspire directement des ports BSD ; tout se compile.",
+      "subtilites": [
+        "emerge compile : une mise à jour complète peut prendre des HEURES (vs seconds avec apt) — c'est le choix Gentoo.",
+        "USE flags = personnalisation par feature (ex. `-gnome` pour exclure GNOME) — la vraie puissance du portage.",
+        "`emerge -c` (clean) ≠ `-C` (unmerge) : lire la notice avant de supprimer.",
+        "*Urgences/dangers :** ⚠️ Une mise à jour Gentoo mal suivie (conflicts, config files) peut laisser le système inamorçable — lire les messages de portage.",
+        "*Précautions :** Suivre les news Gentoo (`eselect news read`) ; sauvegarder /etc avant les grosses maj.",
+        "*Équivalents :** apt, pacman, dnf",
+        "*Voir aussi :** linux, apt, pacman, kernel"
+      ],
+      "voir_aussi": [
+        "linux",
+        "apt",
+        "pacman",
+        "kernel"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Compiler et installer les paquets depuis les sources avec des options de compilation personnalisées (USE flags).",
+      "syntaxe": "sudo emerge [-uDN|<paquet>]",
+      "cas_reguliers": [
+        {
+          "cmd": "sudo emerge -uDN @world",
+          "explication": "Mettre à jour tout le système (le plus courant sur Gentoo)",
+          "contexte": ""
+        },
+        {
+          "cmd": "emerge -pv htop",
+          "explication": "Prévisualiser ce qui sera compilé (simulation)",
+          "contexte": ""
+        },
+        {
+          "cmd": "emerge --info",
+          "explication": "Infos sur la configuration du système",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine:** Daniel Robbins, 2002 (Gentoo = \"gentle one\") — le portage s'inspire directement des ports BSD ; tout se compile.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "emerge compile : une mise à jour complète peut prendre des HEURES (vs seconds avec apt) — c'est le choix Gentoo.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "USE flags = personnalisation par feature (ex. `-gnome` pour exclure GNOME) — la vraie puissance du portage.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "emerge -c` (clean) ≠ `-C` (unmerge) : lire la notice avant de supprimer.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ Une mise à jour Gentoo mal suivie (conflicts, config files) peut laisser le système inamorçable — lire les messages de portage.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Suivre les news Gentoo (`eselect news read`) ; sauvegarder /etc avant les grosses maj.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** apt, pacman, dnf",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** linux, apt, pacman, kernel",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "sudo emerge -uDN @world",
+          "explication": "Mettre à jour tout le système (le plus courant sur Gentoo)"
+        },
+        {
+          "cmd": "emerge -pv htop",
+          "explication": "Prévisualiser ce qui sera compilé (simulation)"
+        },
+        {
+          "cmd": "emerge --info",
+          "explication": "Infos sur la configuration du système"
+        },
+        {
+          "cmd": "*Origine:** Daniel Robbins, 2002 (Gentoo = \"gentle one\") — le portage s'inspire directement des ports BSD ; tout se compile.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "emerge compile : une mise à jour complète peut prendre des HEURES (vs seconds avec apt) — c'est le choix Gentoo.",
+          "explication": ""
+        },
+        {
+          "cmd": "USE flags = personnalisation par feature (ex. `-gnome` pour exclure GNOME) — la vraie puissance du portage.",
+          "explication": ""
+        },
+        {
+          "cmd": "emerge -c` (clean) ≠ `-C` (unmerge) : lire la notice avant de supprimer.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ Une mise à jour Gentoo mal suivie (conflicts, config files) peut laisser le système inamorçable — lire les messages de portage.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Suivre les news Gentoo (`eselect news read`) ; sauvegarder /etc avant les grosses maj.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** apt, pacman, dnf",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** linux, apt, pacman, kernel",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ Une mise à jour Gentoo mal suivie (conflicts, config files) peut laisser le système inamorçable — lire les messages de portage.",
+      "precautions": "Suivre les news Gentoo (`eselect news read`) ; sauvegarder /etc avant les grosses maj.",
+      "equivalents": [
+        {
+          "note": "apt, pacman, dnf"
+        }
+      ],
+      "id": "A-00130",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "zypper",
+      "aliases": [],
+      "niveau": "intermediaire",
+      "popularite": 35,
+      "contextes": [
+        "openSUSE Leap/Tumbleweed",
+        "serveurs SUSE Linux Enterprise (SLES)",
+        "poste allemand"
+      ],
+      "origine": "Novell (2006, à l'achat de SuSE) — en remplacement de YaST en mode texte ; YaST reste l'IHM graphique de référence d'openSUSE.",
+      "subtilites": [
+        "zypper vs dnf : commandes quasi identiques (zypper vient de la même génération) — le mot-clé change (install/refresh).",
+        "Tumbleweed = rolling release (mises à jour continues), Leap = versions stables — même zypper, philosophie différente.",
+        "`zypper lu` = lister les mises à jour disponibles sans les appliquer (utile en audit).",
+        "*Urgences/dangers :** — (comme apt : les maj système sur prod restent à planifier)",
+        "*Précautions :** Vérifier avec `zypper lu` avant `zypper update` ; lire le changelog des paquets sensibles.",
+        "*Équivalents :** apt, dnf, pacman",
+        "*Voir aussi :** apt, dnf, rpm, linux"
+      ],
+      "voir_aussi": [
+        "apt",
+        "dnf",
+        "rpm",
+        "linux"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Installer et gérer les paquets .rpm sur openSUSE et SLES.",
+      "syntaxe": "sudo zypper [install|refresh|update|search] <paquet>",
+      "cas_reguliers": [
+        {
+          "cmd": "sudo zypper install nginx",
+          "explication": "Installer un paquet (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "sudo zypper update",
+          "explication": "Mettre à jour le système",
+          "contexte": ""
+        },
+        {
+          "cmd": "zypper search mysql",
+          "explication": "Chercher un paquet",
+          "contexte": ""
+        },
+        {
+          "cmd": "sudo zypper refresh",
+          "explication": "Forcer la mise à jour des métadonnées des dépôts",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine:** Novell (2006, à l'achat de SuSE) — en remplacement de YaST en mode texte ; YaST reste l'IHM graphique de référence d'openSUSE.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "zypper vs dnf : commandes quasi identiques (zypper vient de la même génération) — le mot-clé change (install/refresh).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Tumbleweed = rolling release (mises à jour continues), Leap = versions stables — même zypper, philosophie différente.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "zypper lu` = lister les mises à jour disponibles sans les appliquer (utile en audit).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (comme apt : les maj système sur prod restent à planifier)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Vérifier avec `zypper lu` avant `zypper update` ; lire le changelog des paquets sensibles.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** apt, dnf, pacman",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** apt, dnf, rpm, linux",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "sudo zypper install nginx",
+          "explication": "Installer un paquet (le plus courant)"
+        },
+        {
+          "cmd": "sudo zypper update",
+          "explication": "Mettre à jour le système"
+        },
+        {
+          "cmd": "zypper search mysql",
+          "explication": "Chercher un paquet"
+        },
+        {
+          "cmd": "sudo zypper refresh",
+          "explication": "Forcer la mise à jour des métadonnées des dépôts"
+        },
+        {
+          "cmd": "*Origine:** Novell (2006, à l'achat de SuSE) — en remplacement de YaST en mode texte ; YaST reste l'IHM graphique de référence d'openSUSE.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "zypper vs dnf : commandes quasi identiques (zypper vient de la même génération) — le mot-clé change (install/refresh).",
+          "explication": ""
+        },
+        {
+          "cmd": "Tumbleweed = rolling release (mises à jour continues), Leap = versions stables — même zypper, philosophie différente.",
+          "explication": ""
+        },
+        {
+          "cmd": "zypper lu` = lister les mises à jour disponibles sans les appliquer (utile en audit).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (comme apt : les maj système sur prod restent à planifier)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Vérifier avec `zypper lu` avant `zypper update` ; lire le changelog des paquets sensibles.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** apt, dnf, pacman",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** apt, dnf, rpm, linux",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (comme apt : les maj système sur prod restent à planifier)",
+      "precautions": "Vérifier avec `zypper lu` avant `zypper update` ; lire le changelog des paquets sensibles.",
+      "equivalents": [
+        {
+          "note": "apt, dnf, pacman"
+        }
+      ],
+      "id": "A-00131",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
       "face": "B",
       "type": "sigle",
       "nom": "CPU",
@@ -12173,6 +13501,774 @@
       "precautions": "",
       "equivalents": [],
       "id": "B-00070",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "MongoDB",
+      "aliases": [
+        "MongoDB (de \"humongous\" — énorme)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 76,
+      "contextes": [
+        "catalogues produits",
+        "contenu éditorial",
+        "APIs JSON",
+        "prototypage sans schéma figé"
+      ],
+      "origine": "10gen (devenu MongoDB Inc.), 2009, par le fondateur Dwight Merriman — réponse aux bases relationnelles face au Big Data web 2.0.",
+      "subtilites": [
+        "MongoDB ≠ sans schéma : les validations de schéma existent (JSON Schema) — les ignorer = données incohérentes.",
+        "Le champ _id est obligatoire et auto-généré (ObjectId) — pas un entier auto-incrémenté comme en SQL.",
+        "Requêtes sans index = COLLSCAN (scan de toute la collection) — surveiller avec explain().",
+        "*Exemple :** `db.produits.find({cat: \"informatique\"}).sort({prix: -1}).limit(10)`",
+        "*Voir aussi :** NoSQL, SQL, SGBD, ORM"
+      ],
+      "voir_aussi": [
+        "NoSQL",
+        "SQL",
+        "SGBD",
+        "ORM"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Bases de données"
+      ],
+      "tags": [],
+      "role_fr": "Base NoSQL documentaire : chaque enregistrement est un JSON (BSON) flexible, stocké dans des collections.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "db.produits.insertOne({nom: \"Clavier\", prix: 49})",
+          "explication": "Ajouter un document (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "db.produits.find({prix: {$lt: 50}})",
+          "explication": "Requête filtrée",
+          "contexte": ""
+        },
+        {
+          "cmd": "db.produits.createIndex({nom: 1})",
+          "explication": "Index pour accélérer la recherche (essentiel en prod)",
+          "contexte": ""
+        },
+        {
+          "cmd": "mongodump --db boutique",
+          "explication": "Sauvegarder la base",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** 10gen (devenu MongoDB Inc.), 2009, par le fondateur Dwight Merriman — réponse aux bases relationnelles face au Big Data web 2.0.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "MongoDB ≠ sans schéma : les validations de schéma existent (JSON Schema) — les ignorer = données incohérentes.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Le champ _id est obligatoire et auto-généré (ObjectId) — pas un entier auto-incrémenté comme en SQL.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Requêtes sans index = COLLSCAN (scan de toute la collection) — surveiller avec explain().",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `db.produits.find({cat: \"informatique\"}).sort({prix: -1}).limit(10)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** NoSQL, SQL, SGBD, ORM",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "db.produits.find({cat: \"informatique\"}).sort({prix: -1}).limit(10)",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00071",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "Redis",
+      "aliases": [
+        "Remote Dictionary Server"
+      ],
+      "niveau": "avance",
+      "popularite": 74,
+      "contextes": [
+        "cache de requêtes",
+        "sessions web",
+        "rate limiting",
+        "queues (Celery",
+        "Bull)"
+      ],
+      "origine": "Salvatore Sanfilippo (antirez), 2009 — né du besoin de sortir la session des bases relationnelles ; 100k+ op/s par instance.",
+      "subtilites": [
+        "Redis est en MÉMOIRE : sans réplique + AOF, un redémarrage = perte des données — ne pas y mettre la source de vérité.",
+        "KEYS bloque TOUT le serveur en prod (parcourt toute la base) → utiliser SCAN — cause classique d'incident.",
+        "Redis vs memcached : Redis = multi-structures (listes, sets, TTL) et persistence ; memcached = simple cache volatil.",
+        "*Exemple :** `redis-cli SET session:abc {user} EX 60`",
+        "*Voir aussi :** NoSQL, cache, memcached, PostgreSQL"
+      ],
+      "voir_aussi": [
+        "NoSQL",
+        "cache",
+        "memcached",
+        "PostgreSQL"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Bases de données"
+      ],
+      "tags": [],
+      "role_fr": "Base clé-valeur ultra rapide en mémoire, utilisée pour cache, sessions, files d'attente et compteurs.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "SET session:abc {user} EX 3600",
+          "explication": "Cache avec expiration 1h (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "GET maclé",
+          "explication": "Lire une valeur",
+          "contexte": ""
+        },
+        {
+          "cmd": "SCAN 0 MATCH cache:* COUNT 100",
+          "explication": "Parcourir les clés SANS bloquer (prod)",
+          "contexte": ""
+        },
+        {
+          "cmd": "INCR rate:ip:1.2.3.4",
+          "explication": "Compteur pour rate limiting",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Salvatore Sanfilippo (antirez), 2009 — né du besoin de sortir la session des bases relationnelles ; 100k+ op/s par instance.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Redis est en MÉMOIRE : sans réplique + AOF, un redémarrage = perte des données — ne pas y mettre la source de vérité.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "KEYS bloque TOUT le serveur en prod (parcourt toute la base) → utiliser SCAN — cause classique d'incident.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Redis vs memcached : Redis = multi-structures (listes, sets, TTL) et persistence ; memcached = simple cache volatil.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `redis-cli SET session:abc {user} EX 60",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** NoSQL, cache, memcached, PostgreSQL",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "redis-cli SET session:abc {user} EX 60",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00072",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "PostgreSQL",
+      "aliases": [
+        "PostgreSQL (Postgres — « Post-Ingres », suite du projet Ingres)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 82,
+      "contextes": [
+        "applications métier",
+        "données géospatiales",
+        "JSONB",
+        "startups jusqu'au scale"
+      ],
+      "origine": "UC Berkeley (Michael Stonebraker, POSTGRES 1986), sorti en 1996 — fidèle au modèle relationnel d'origine ; aujourd'hui souvent préféré à MySQL.",
+      "subtilites": [
+        "PostgreSQL vs MySQL : Postgres = standards, types riches, JSONB, géo ; MySQL = plus simple et hébergé partout.",
+        "SERIAL (auto-incrément) vs IDENTITY (standard SQL) : préférer IDENTITY sur les projets neufs.",
+        "Autocommit : chaque requête seule est commitée — transaction OBLIGATOIRE pour plusieurs opérations liées (BEGIN/COMMIT).",
+        "*Exemple :** `SELECT u.nom, count(o.id) FROM users u LEFT JOIN orders o ON o.user_id=u.id GROUP BY u.nom`",
+        "*Voir aussi :** SQL, SGBD, MySQL, ORM"
+      ],
+      "voir_aussi": [
+        "SQL",
+        "SGBD",
+        "MySQL",
+        "ORM"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Bases de données"
+      ],
+      "tags": [],
+      "role_fr": "SGBD relationnel open source réputé pour sa rigueur (ACID), ses types riches et sa conformité SQL.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "CREATE TABLE users (id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, email TEXT UNIQUE)",
+          "explication": "Créer une table (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "SELECT * WHERE data->>'ville' = 'Paris'",
+          "explication": "Requête sur du JSON stocké (JSONB)",
+          "contexte": ""
+        },
+        {
+          "cmd": "pg_dump boutique > backup.sql",
+          "explication": "Sauvegarder en SQL",
+          "contexte": ""
+        },
+        {
+          "cmd": "psql -U postgres -d boutique",
+          "explication": "Se connecter en CLI",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** UC Berkeley (Michael Stonebraker, POSTGRES 1986), sorti en 1996 — fidèle au modèle relationnel d'origine ; aujourd'hui souvent préféré à MySQL.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "PostgreSQL vs MySQL : Postgres = standards, types riches, JSONB, géo ; MySQL = plus simple et hébergé partout.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "SERIAL (auto-incrément) vs IDENTITY (standard SQL) : préférer IDENTITY sur les projets neufs.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Autocommit : chaque requête seule est commitée — transaction OBLIGATOIRE pour plusieurs opérations liées (BEGIN/COMMIT).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `SELECT u.nom, count(o.id) FROM users u LEFT JOIN orders o ON o.user_id=u.id GROUP BY u.nom",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** SQL, SGBD, MySQL, ORM",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "SELECT u.nom, count(o.id) FROM users u LEFT JOIN orders o ON o.user_id=u.id GROUP BY u.nom",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00073",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "MySQL",
+      "aliases": [
+        "MySQL (« My » d'après la fille de Monty Widenius, co-fondateur)"
+      ],
+      "niveau": "debutant",
+      "popularite": 84,
+      "contextes": [
+        "sites web",
+        "blogs WordPress",
+        "applications PHP",
+        "bases d'entraînement"
+      ],
+      "origine": "MySQL AB, 1995 — racheté par Sun (2008) puis Oracle (2010) ; la communauté a forké en MariaDB (2009) par le fondateur originel.",
+      "subtilites": [
+        "MySQL vs MariaDB : forks frères, compatibles mais dérivés (fonctions, moteurs) — les confondre casse des requêtes subtiles.",
+        "MySQL vs PostgreSQL : MySQL = vitesse et simplicité (web classique), Postgres = rigueur standards et fonctionnalités riches.",
+        "utf8 de MySQL est en réalité utf8mb3 (3 octets) → les emojis cassent : utiliser utf8mb4.",
+        "*Exemple :** `SELECT * FROM users WHERE email = ?` — toujours avec requête préparée (anti-injection)",
+        "*Voir aussi :** SQL, PostgreSQL, SGBD, MariaDB"
+      ],
+      "voir_aussi": [
+        "SQL",
+        "PostgreSQL",
+        "SGBD",
+        "MariaDB"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Bases de données"
+      ],
+      "tags": [],
+      "role_fr": "SGBD relationnel open source le plus répandu, moteur des LAMP, de WordPress et de nombreux hébergeurs.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, email VARCHAR(255) UNIQUE)",
+          "explication": "Créer une table (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "mysqldump boutique > backup.sql",
+          "explication": "Sauvegarder en SQL",
+          "contexte": ""
+        },
+        {
+          "cmd": "mysql -u root -p boutique",
+          "explication": "Se connecter en CLI",
+          "contexte": ""
+        },
+        {
+          "cmd": "SHOW TABLES;",
+          "explication": "Lister les tables",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** MySQL AB, 1995 — racheté par Sun (2008) puis Oracle (2010) ; la communauté a forké en MariaDB (2009) par le fondateur originel.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "MySQL vs MariaDB : forks frères, compatibles mais dérivés (fonctions, moteurs) — les confondre casse des requêtes subtiles.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "MySQL vs PostgreSQL : MySQL = vitesse et simplicité (web classique), Postgres = rigueur standards et fonctionnalités riches.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "utf8 de MySQL est en réalité utf8mb3 (3 octets) → les emojis cassent : utiliser utf8mb4.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `SELECT * FROM users WHERE email = ?` — toujours avec requête préparée (anti-injection)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** SQL, PostgreSQL, SGBD, MariaDB",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "SELECT * FROM users WHERE email = ?` — toujours avec requête préparée (anti-injection)",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00074",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "SQLite",
+      "aliases": [
+        "SQLite (SQL en version litote : « lite » = sans serveur)"
+      ],
+      "niveau": "debutant",
+      "popularite": 80,
+      "contextes": [
+        "apps mobiles (Android/iOS)",
+        "navigateurs",
+        "dictionnaire IT offline",
+        "prototypage",
+        "CLI"
+      ],
+      "origine": "D. Richard Hipp, 2000 — pour le dragon embossé de l'hôtel de RDF qui réclamait un SGBD sans admin ; la DB la plus déployée au monde (milliards d'instances : téléphones, navigateurs, systèmes d'exploitation).",
+      "subtilites": [
+        "SQLite n'a PAS de serveur : pas d'accès réseau, pas d'utilisateur — un seul processus écrit à la fois (concurrence limitée).",
+        "SQLite vs MySQL/Postgres : SQLite = embarqué/local ; les autres = serveur réseau — SQLite n'est pas fait pour des milliers d'utilisateurs simultanés.",
+        "Un fichier = toute la base : le sauvegarder suffit (cp dictionnaire.db backup.db).",
+        "*Exemple :** `sqlite3 dico.db \"SELECT COUNT(*) FROM entrees WHERE face='A'\"`",
+        "*Voir aussi :** SQL, SGBD, PostgreSQL, FTS5"
+      ],
+      "voir_aussi": [
+        "SQL",
+        "SGBD",
+        "PostgreSQL",
+        "FTS5"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Bases de données"
+      ],
+      "tags": [],
+      "role_fr": "Moteur SQL complet embarqué dans l'application, stocké dans UN SEUL fichier, sans processus serveur.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "sqlite3 dictionnaire.db \"SELECT * FROM entrees\"",
+          "explication": "Interroger en 1 ligne (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": ".tables` puis `.schema entrees` — Explorer la base dans l'CLI",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "sqlite3 dico.db < migration.sql",
+          "explication": "Appliquer un script SQL",
+          "contexte": ""
+        },
+        {
+          "cmd": "PRAGMA journal_mode=WAL;",
+          "explication": "Mode écriture concurrente (requis pour apps multi-lecteurs)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** D. Richard Hipp, 2000 — pour le dragon embossé de l'hôtel de RDF qui réclamait un SGBD sans admin ; la DB la plus déployée au monde (milliards d'instances : téléphones, navigateurs, systèmes d'exploitation).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "SQLite n'a PAS de serveur : pas d'accès réseau, pas d'utilisateur — un seul processus écrit à la fois (concurrence limitée).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "SQLite vs MySQL/Postgres : SQLite = embarqué/local ; les autres = serveur réseau — SQLite n'est pas fait pour des milliers d'utilisateurs simultanés.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un fichier = toute la base : le sauvegarder suffit (cp dictionnaire.db backup.db).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `sqlite3 dico.db \"SELECT COUNT(*) FROM entrees WHERE face='A'\"",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** SQL, SGBD, PostgreSQL, FTS5",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "sqlite3 dico.db \"SELECT COUNT(*) FROM entrees WHERE face='A'\"",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00075",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "FTS5",
+      "aliases": [
+        "Full-Text Search version 5 (module de SQLite)"
+      ],
+      "niveau": "avance",
+      "popularite": 60,
+      "contextes": [
+        "recherche offline",
+        "applications mobiles",
+        "dictionnaires",
+        "logs",
+        "sans serveur Elasticsearch"
+      ],
+      "origine": "Module intégré à SQLite 3.9 (2015) par D. Richard Hipp — remplace FTS3/FTS4 plus anciens et moins performants.",
+      "subtilites": [
+        "FTS5 vs LIKE '%mot%' : LIKE parcourt TOUTE la table (lent), FTS5 utilise un index inversé (rapide même sur des millions de lignes).",
+        "MATCH n'aime pas les accents/casse mal configurés : prévoir tokenizer (unicode61 remove_diacritics 1) pour un dico FR.",
+        "FTS5 est une table VIRTUELLE : le contenu vit dans l'index — préférer triggers pour rester synchronisé avec la table principale.",
+        "*Exemple :** `CREATE VIRTUAL TABLE fts USING fts5(nom, role_fr, content='entrees', content_rowid='id')`",
+        "*Voir aussi :** SQLite, SQL, recherche, tokenisation"
+      ],
+      "voir_aussi": [
+        "SQLite",
+        "SQL",
+        "recherche",
+        "tokenisation"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Bases de données"
+      ],
+      "tags": [],
+      "role_fr": "Extension SQLite indexant du texte pour des recherches mot-clé RAPIDES avec rangs de pertinence — le cœur de la recherche du Dictionnaire IT.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "CREATE VIRTUAL TABLE fts USING fts5(nom, role, contenu)",
+          "explication": "Créer l'index plein texte (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "SELECT * FROM fts WHERE fts MATCH 'reseau OR tcp'",
+          "explication": "Recherche plein texte avec opérateurs",
+          "contexte": ""
+        },
+        {
+          "cmd": "SELECT *, rank FROM fts WHERE fts MATCH 'grep' ORDER BY rank",
+          "explication": "Résultats triés par pertinence",
+          "contexte": ""
+        },
+        {
+          "cmd": "INSERT INTO fts(nom, role) VALUES (...)",
+          "explication": "Alimenter (ou via trigger sur la table source)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Module intégré à SQLite 3.9 (2015) par D. Richard Hipp — remplace FTS3/FTS4 plus anciens et moins performants.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "FTS5 vs LIKE '%mot%' : LIKE parcourt TOUTE la table (lent), FTS5 utilise un index inversé (rapide même sur des millions de lignes).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "MATCH n'aime pas les accents/casse mal configurés : prévoir tokenizer (unicode61 remove_diacritics 1) pour un dico FR.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "FTS5 est une table VIRTUELLE : le contenu vit dans l'index — préférer triggers pour rester synchronisé avec la table principale.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `CREATE VIRTUAL TABLE fts USING fts5(nom, role_fr, content='entrees', content_rowid='id')",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** SQLite, SQL, recherche, tokenisation",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "CREATE VIRTUAL TABLE fts USING fts5(nom, role_fr, content='entrees', content_rowid='id')",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00076",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "BI",
+      "aliases": [
+        "Business Intelligence (Intelligence d'Affaires)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 68,
+      "contextes": [
+        "reporting direction",
+        "KPIs commerciaux",
+        "data warehouse",
+        "aide à la décision"
+      ],
+      "origine": "Terme popularisé par les analystes IBM (années 1960 « Business Intelligence » relu par Hans Peter Luhn, 1958) ; outils modernes : Tableau (2003), Power BI (2015).",
+      "subtilites": [
+        "BI ≠ data science : BI = DÉCRIRE le passé/présent (tableaux), data science = PRÉDIRE le futur (modèles).",
+        "Une BI sur données sales = décisions fausses — la qualité de l'amont (ETL) prime sur le joli dashboard.",
+        "BI en temps réel vs batch : choisir selon le besoin (Grafana temps réel, reporting mensuel = suffisant).",
+        "*Exemple :** `SELECT mois, SUM(total) FROM commandes GROUP BY mois`",
+        "*Voir aussi :** ETL, data warehouse, dashboard, KPI"
+      ],
+      "voir_aussi": [
+        "ETL",
+        "data warehouse",
+        "dashboard",
+        "KPI"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Data"
+      ],
+      "tags": [],
+      "role_fr": "Collecte et visualisation des données de l'entreprise pour éclairer les décisions (tableaux de bord, rapports).",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Tableau de bord Power BI avec CA par région",
+          "explication": "Suivi mensuel (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Fichier Excel consolidé (exports SQL)",
+          "explication": "La \"BI\" de 90% des PME",
+          "contexte": ""
+        },
+        {
+          "cmd": "Grafana sur metrics serveurs",
+          "explication": "BI d'infrastructure (temps réel)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Terme popularisé par les analystes IBM (années 1960 « Business Intelligence » relu par Hans Peter Luhn, 1958) ; outils modernes : Tableau (2003), Power BI (2015).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "BI ≠ data science : BI = DÉCRIRE le passé/présent (tableaux), data science = PRÉDIRE le futur (modèles).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Une BI sur données sales = décisions fausses — la qualité de l'amont (ETL) prime sur le joli dashboard.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "BI en temps réel vs batch : choisir selon le besoin (Grafana temps réel, reporting mensuel = suffisant).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `SELECT mois, SUM(total) FROM commandes GROUP BY mois",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** ETL, data warehouse, dashboard, KPI",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "SELECT mois, SUM(total) FROM commandes GROUP BY mois",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00077",
       "version": 1,
       "updated_at": "2026-09-29"
     }

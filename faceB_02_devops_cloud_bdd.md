@@ -326,6 +326,132 @@
 **Exemple :** `ssh root@mon-vps -p 22`
 **Voir aussi :** IaaS, cloud, VM, hébergement
 
+## `MongoDB` — Base documentaire JSON [Bases de données]
+**Catégorie :** Bases de données | **Niveau :** intermediaire | **Popularité :** 76
+**Signification :** MongoDB (de "humongous" — énorme)
+**Définition :** Base NoSQL documentaire : chaque enregistrement est un JSON (BSON) flexible, stocké dans des collections.
+**Contextes :** catalogues produits, contenu éditorial, APIs JSON, prototypage sans schéma figé
+**Cas réguliers :**
+- `db.produits.insertOne({nom: "Clavier", prix: 49})` — Ajouter un document (le plus courant)
+- `db.produits.find({prix: {$lt: 50}})` — Requête filtrée
+- `db.produits.createIndex({nom: 1})` — Index pour accélérer la recherche (essentiel en prod)
+- `mongodump --db boutique` — Sauvegarder la base
+**Origine :** 10gen (devenu MongoDB Inc.), 2009, par le fondateur Dwight Merriman — réponse aux bases relationnelles face au Big Data web 2.0.
+**Subtilités/confusions :**
+- MongoDB ≠ sans schéma : les validations de schéma existent (JSON Schema) — les ignorer = données incohérentes.
+- Le champ _id est obligatoire et auto-généré (ObjectId) — pas un entier auto-incrémenté comme en SQL.
+- Requêtes sans index = COLLSCAN (scan de toute la collection) — surveiller avec explain().
+**Exemple :** `db.produits.find({cat: "informatique"}).sort({prix: -1}).limit(10)`
+**Voir aussi :** NoSQL, SQL, SGBD, ORM
+
+## `Redis` — Cache et clé-valeur en mémoire [Bases de données]
+**Catégorie :** Bases de données | **Niveau :** avance | **Popularité :** 74
+**Signification :** Remote Dictionary Server
+**Définition :** Base clé-valeur ultra rapide en mémoire, utilisée pour cache, sessions, files d'attente et compteurs.
+**Contextes :** cache de requêtes, sessions web, rate limiting, queues (Celery, Bull)
+**Cas réguliers :**
+- `SET session:abc {user} EX 3600` — Cache avec expiration 1h (le plus courant)
+- `GET maclé` — Lire une valeur
+- `SCAN 0 MATCH cache:* COUNT 100` — Parcourir les clés SANS bloquer (prod)
+- `INCR rate:ip:1.2.3.4` — Compteur pour rate limiting
+**Origine :** Salvatore Sanfilippo (antirez), 2009 — né du besoin de sortir la session des bases relationnelles ; 100k+ op/s par instance.
+**Subtilités/confusions :**
+- Redis est en MÉMOIRE : sans réplique + AOF, un redémarrage = perte des données — ne pas y mettre la source de vérité.
+- KEYS bloque TOUT le serveur en prod (parcourt toute la base) → utiliser SCAN — cause classique d'incident.
+- Redis vs memcached : Redis = multi-structures (listes, sets, TTL) et persistence ; memcached = simple cache volatil.
+**Exemple :** `redis-cli SET session:abc {user} EX 60`
+**Voir aussi :** NoSQL, cache, memcached, PostgreSQL
+
+## `PostgreSQL` — SGBD relationnel avancé [Bases de données]
+**Catégorie :** Bases de données | **Niveau :** intermediaire | **Popularité :** 82
+**Signification :** PostgreSQL (Postgres — « Post-Ingres », suite du projet Ingres)
+**Définition :** SGBD relationnel open source réputé pour sa rigueur (ACID), ses types riches et sa conformité SQL.
+**Contextes :** applications métier, données géospatiales, JSONB, startups jusqu'au scale
+**Cas réguliers :**
+- `CREATE TABLE users (id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, email TEXT UNIQUE)` — Créer une table (le plus courant)
+- `SELECT * WHERE data->>'ville' = 'Paris'` — Requête sur du JSON stocké (JSONB)
+- `pg_dump boutique > backup.sql` — Sauvegarder en SQL
+- `psql -U postgres -d boutique` — Se connecter en CLI
+**Origine :** UC Berkeley (Michael Stonebraker, POSTGRES 1986), sorti en 1996 — fidèle au modèle relationnel d'origine ; aujourd'hui souvent préféré à MySQL.
+**Subtilités/confusions :**
+- PostgreSQL vs MySQL : Postgres = standards, types riches, JSONB, géo ; MySQL = plus simple et hébergé partout.
+- SERIAL (auto-incrément) vs IDENTITY (standard SQL) : préférer IDENTITY sur les projets neufs.
+- Autocommit : chaque requête seule est commitée — transaction OBLIGATOIRE pour plusieurs opérations liées (BEGIN/COMMIT).
+**Exemple :** `SELECT u.nom, count(o.id) FROM users u LEFT JOIN orders o ON o.user_id=u.id GROUP BY u.nom`
+**Voir aussi :** SQL, SGBD, MySQL, ORM
+
+## `MySQL` — SGBD relationnel le plus déployé [Bases de données]
+**Catégorie :** Bases de données | **Niveau :** debutant | **Popularité :** 84
+**Signification :** MySQL (« My » d'après la fille de Monty Widenius, co-fondateur)
+**Définition :** SGBD relationnel open source le plus répandu, moteur des LAMP, de WordPress et de nombreux hébergeurs.
+**Contextes :** sites web, blogs WordPress, applications PHP, bases d'entraînement
+**Cas réguliers :**
+- `CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, email VARCHAR(255) UNIQUE)` — Créer une table (le plus courant)
+- `mysqldump boutique > backup.sql` — Sauvegarder en SQL
+- `mysql -u root -p boutique` — Se connecter en CLI
+- `SHOW TABLES;` — Lister les tables
+**Origine :** MySQL AB, 1995 — racheté par Sun (2008) puis Oracle (2010) ; la communauté a forké en MariaDB (2009) par le fondateur originel.
+**Subtilités/confusions :**
+- MySQL vs MariaDB : forks frères, compatibles mais dérivés (fonctions, moteurs) — les confondre casse des requêtes subtiles.
+- MySQL vs PostgreSQL : MySQL = vitesse et simplicité (web classique), Postgres = rigueur standards et fonctionnalités riches.
+- utf8 de MySQL est en réalité utf8mb3 (3 octets) → les emojis cassent : utiliser utf8mb4.
+**Exemple :** `SELECT * FROM users WHERE email = ?` — toujours avec requête préparée (anti-injection)
+**Voir aussi :** SQL, PostgreSQL, SGBD, MariaDB
+
+## `SQLite` — Base embarquée en 1 fichier [Bases de données]
+**Catégorie :** Bases de données | **Niveau :** debutant | **Popularité :** 80
+**Signification :** SQLite (SQL en version litote : « lite » = sans serveur)
+**Définition :** Moteur SQL complet embarqué dans l'application, stocké dans UN SEUL fichier, sans processus serveur.
+**Contextes :** apps mobiles (Android/iOS), navigateurs, dictionnaire IT offline, prototypage, CLI
+**Cas réguliers :**
+- `sqlite3 dictionnaire.db "SELECT * FROM entrees"` — Interroger en 1 ligne (le plus courant)
+- `.tables` puis `.schema entrees` — Explorer la base dans l'CLI
+- `sqlite3 dico.db < migration.sql` — Appliquer un script SQL
+- `PRAGMA journal_mode=WAL;` — Mode écriture concurrente (requis pour apps multi-lecteurs)
+**Origine :** D. Richard Hipp, 2000 — pour le dragon embossé de l'hôtel de RDF qui réclamait un SGBD sans admin ; la DB la plus déployée au monde (milliards d'instances : téléphones, navigateurs, systèmes d'exploitation).
+**Subtilités/confusions :**
+- SQLite n'a PAS de serveur : pas d'accès réseau, pas d'utilisateur — un seul processus écrit à la fois (concurrence limitée).
+- SQLite vs MySQL/Postgres : SQLite = embarqué/local ; les autres = serveur réseau — SQLite n'est pas fait pour des milliers d'utilisateurs simultanés.
+- Un fichier = toute la base : le sauvegarder suffit (cp dictionnaire.db backup.db).
+**Exemple :** `sqlite3 dico.db "SELECT COUNT(*) FROM entrees WHERE face='A'"`
+**Voir aussi :** SQL, SGBD, PostgreSQL, FTS5
+
+## `FTS5` — Recherche plein texte SQLite [Bases de données]
+**Catégorie :** Bases de données | **Niveau :** avance | **Popularité :** 60
+**Signification :** Full-Text Search version 5 (module de SQLite)
+**Définition :** Extension SQLite indexant du texte pour des recherches mot-clé RAPIDES avec rangs de pertinence — le cœur de la recherche du Dictionnaire IT.
+**Contextes :** recherche offline, applications mobiles, dictionnaires, logs, sans serveur Elasticsearch
+**Cas réguliers :**
+- `CREATE VIRTUAL TABLE fts USING fts5(nom, role, contenu)` — Créer l'index plein texte (le plus courant)
+- `SELECT * FROM fts WHERE fts MATCH 'reseau OR tcp'` — Recherche plein texte avec opérateurs
+- `SELECT *, rank FROM fts WHERE fts MATCH 'grep' ORDER BY rank` — Résultats triés par pertinence
+- `INSERT INTO fts(nom, role) VALUES (...)` — Alimenter (ou via trigger sur la table source)
+**Origine :** Module intégré à SQLite 3.9 (2015) par D. Richard Hipp — remplace FTS3/FTS4 plus anciens et moins performants.
+**Subtilités/confusions :**
+- FTS5 vs LIKE '%mot%' : LIKE parcourt TOUTE la table (lent), FTS5 utilise un index inversé (rapide même sur des millions de lignes).
+- MATCH n'aime pas les accents/casse mal configurés : prévoir tokenizer (unicode61 remove_diacritics 1) pour un dico FR.
+- FTS5 est une table VIRTUELLE : le contenu vit dans l'index — préférer triggers pour rester synchronisé avec la table principale.
+**Exemple :** `CREATE VIRTUAL TABLE fts USING fts5(nom, role_fr, content='entrees', content_rowid='id')`
+**Voir aussi :** SQLite, SQL, recherche, tokenisation
+
+## `BI` — Intelligence d'affaires [Data]
+**Catégorie :** Data | **Niveau :** intermediaire | **Popularité :** 68
+**Signification :** Business Intelligence (Intelligence d'Affaires)
+**Définition :** Collecte et visualisation des données de l'entreprise pour éclairer les décisions (tableaux de bord, rapports).
+**Contextes :** reporting direction, KPIs commerciaux, data warehouse, aide à la décision
+**Cas réguliers :**
+- `Tableau de bord Power BI avec CA par région` — Suivi mensuel (le plus courant)
+- `Fichier Excel consolidé (exports SQL)` — La "BI" de 90% des PME
+- `Grafana sur metrics serveurs` — BI d'infrastructure (temps réel)
+**Origine :** Terme popularisé par les analystes IBM (années 1960 « Business Intelligence » relu par Hans Peter Luhn, 1958) ; outils modernes : Tableau (2003), Power BI (2015).
+**Subtilités/confusions :**
+- BI ≠ data science : BI = DÉCRIRE le passé/présent (tableaux), data science = PRÉDIRE le futur (modèles).
+- Une BI sur données sales = décisions fausses — la qualité de l'amont (ETL) prime sur le joli dashboard.
+- BI en temps réel vs batch : choisir selon le besoin (Grafana temps réel, reporting mensuel = suffisant).
+**Exemple :** `SELECT mois, SUM(total) FROM commandes GROUP BY mois`
+**Voir aussi :** ETL, data warehouse, dashboard, KPI
+
+
 
 
 

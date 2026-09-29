@@ -7,8 +7,8 @@ A : existant 115 | A06 archives/paquets 40 | A07 aide/shell 40 | A08 git 60 | A0
 B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 entreprise/concepts 90 | B05 compléments 76 = 400.
 
 ## 🔥 En cours (WIP — max 3)
-- [ ] #021 FaceA_06_archives_paquets : 6/40 (tar, gzip, zip, apt, unzip, brew) — reste 34 — LOT ACTUEL
-- [ ] #023b FaceB_02_devops_cloud_bdd : 3/90 (CI, SaaS, NoSQL) — reste 87 — LOT ACTUEL
+- [ ] #021 FaceA_06_archives_paquets : 32/40 (tar, gzip, zip, apt, unzip, brew, gunzip, 7z, dpkg, winget, yum/dnf, pacman, snap, flatpak, rpm, choco, npm, pip, yarn, maven, scoop, AppImage, gradle, make, cargo, composer, conda, gem, dpkg-reconfigure, nuget, emerge, zypper) — reste 8 — LOT ACTUEL
+- [ ] #023b FaceB_02_devops_cloud_bdd : 26/90 (CI, SaaS, NoSQL, CD, DevOps, IaaS, PaaS, SQL, AWS, K8s, IaC, Serverless, VM, S3, IAM, ORM, CDN, ETL, VPS, MongoDB, Redis, PostgreSQL, MySQL, SQLite, FTS5, BI) — reste 64 — LOT ACTUEL
 - [ ] Prochain : #022 FaceA_07_aide_shell (40)
 
 ## ✅ Fait (détail)
@@ -44,10 +44,10 @@ B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 e
 - [ ] #041 Meilisearch synonymes — P3
 - [ ] #042 recherche sémantique IA — P3
 
-## 📊 Compteurs (auto — maj 29/09 session 3)
-- Entités: 163 / 1000 MVP (16.3%) — A 106/600 | B 57/400 | riches v3: 9 | legacy: 154
+## 📊 Compteurs (auto — maj 29/09 session 3 fin)
+- Entités: 208 / 1000 MVP (20.8%) — A 131/600 | B 77/400 | riches v3: 57 | legacy: 151
 - Apps: Web preview OK (offline + fiches riches dépliables) | Android 0% | Desktop 0%
-- Dette: validate ✅ 0 erreur | parse_rich ✅ 9 fiches conformes
+- Dette: validate ✅ 0 erreur | parse_rich ✅ 57 fiches conformes
 
 ## 🧰 Outils anti-perte-de-fil
 1. Ce fichier = Kanban texte, source de vérité (branché à git)

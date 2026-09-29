@@ -469,6 +469,163 @@
 **Équivalents :** cmake, ninja, gradle, npm scripts
 **Voir aussi :** cmake, gcc, ci, git
 
+## `cargo` — Paquets et builds Rust [Cross/Dev]
+**Niveau :** intermediaire | **Popularité :** 68 | **Aliases :** —
+**Contextes :** projets Rust, outils CLI modernes (ripgrep, fd), compilation rapide
+**Rôle :** Créer, compiler et publier les projets Rust en gérant automatiquement les dépendances (crates.io).
+**Syntaxe :** `cargo [new|build|run|test|add] <nom>`
+**Cas réguliers :**
+- `cargo new mon-outil` — Créer un nouveau projet (le plus courant)
+- `cargo run` — Compiler puis exécuter en une commande
+- `cargo add serde` — Ajouter une dépendance à Cargo.toml
+- `cargo build --release` — Build optimisé (binaire rapide, compile plus lentement)
+**Origine:** Mozilla, 2014 (stable 1.0 en 2015) — résout le "problème des dépendances" de Rust ; le nom vient du voilier "cargo".
+**Subtilités/confusions :**
+- cargo vs rustc : cargo = gestionnaire de projet/dépendances, rustc = le compilateur seul (cargo l'appelle).
+- Cargo.toml (manifest) vs Cargo.lock (verrouillage) : le lockfile doit être COMMITÉ pour les applis.
+- target/ = dossier de build de plusieurs Go — jamais commité.
+**Urgences/dangers :** — (pas destructif ; cargo clean supprime target/)
+**Précautions :** Commiter Cargo.lock ; `cargo publish` envoie sur crates.io = public.
+**Équivalents :** npm (JS), pip (Python), maven (Java)
+**Voir aussi :** rust, npm, git
+
+## `composer` — Paquets PHP (dép. + autoload) [Cross/Dev]
+**Niveau :** intermediaire | **Popularité :** 55 | **Aliases :** —
+**Contextes :** sites Symfony/Laravel/WordPress, refonte legacy, hébergement mutualisé
+**Rôle :** Gérer les bibliothèques PHP d'un projet et générer l'autoloading (Packagist).
+**Syntaxe :** `composer [require|install|update] <paquet>`
+**Cas réguliers :**
+- `composer install` — Installer les dépendances de composer.lock (le plus courant)
+- `composer require monolog/monolog` — Ajouter une librairie
+- `composer update` — Recalculer et mettre à jour les dépendances (régénère le lock)
+**Origine:** Nils Adermann et Jordi Boggiano, 2011 — réponse à npm et pip pour l'écosystème PHP ; Packagist = registre central.
+**Subtilités/confusions :**
+- composer install (applique le lock, prod) vs composer update (change les versions, dev) — ne JAMAIS update en prod.
+- composer.json (souhait) vs composer.lock (versions exactes) : le lock fait foi.
+- Autoload : composer dump-autoload régénère après ajout de classe (pas de require manuel).
+**Urgences/dangers :** ⚠️ `composer update` en prod peut faire monter une lib et casser le site — toujours `install` en prod.
+**Précautions :** Commiter composer.lock ; scripts post-install audités.
+**Équivalents :** npm, pip, gem
+**Voir aussi :** php, npm, git
+
+## `conda` — Paquets Python/data + envs [Cross/Dev]
+**Niveau :** intermediaire | **Popularité :** 60 | **Aliases :** Anaconda/Miniconda
+**Contextes :** data science, versions Python multiples, bibliothèques scientifiques (numpy, torch)
+**Rôle :** Créer des environnements isolés avec des versions EXACTES de Python et de bibliothèques scientifiques.
+**Syntaxe :** `conda [create|activate|install|env list] -n nom`
+**Cas réguliers :**
+- `conda create -n ml python=3.11` — Env avec une version Python précise (le plus courant)
+- `conda activate ml` — Activer l'environnement
+- `conda install pandas numpy` — Installer une bibliothèque dans l'env actif
+- `conda env list` — Lister les environnements
+**Origine:** Continuum Analytics (Anaconda Inc.), 2012 — né du chaos des bibliothèques scientifiques compilées (C/Fortran) sur les 3 OS.
+**Subtilités/confusions :**
+- conda vs pip : conda gère TOUT (Python + C libs + versions de Python), pip = packages Python uniquement — souvent utilisés ensemble (conda pour le lourd, pip pour le reste).
+- Anaconda = conda + 250 paquets préinstallés (4 Go), Miniconda = conda seul (~100 Mo) — préférer Miniconda.
+- conda update conda ≠ mise à jour de l'env actif — vérifier avec `conda info`.
+**Urgences/dangers :** — (les envs sont isolés ; `conda env remove -n ml` supprime un env et son contenu)
+**Précautions :** Exporter : `conda env export > environment.yml` ; garder environment.yml en version control.
+**Équivalents :** venv/pip (Python), docker (conteneurs)
+**Voir aussi :** pip, python, venv, docker
+
+## `gem` — Paquets Ruby [Cross/Dev]
+**Niveau :** debutant | **Popularité :** 45 | **Aliases :** —
+**Contextes :** projets Rails, scripts Ruby, outils Vagrant/Jekyll
+**Rôle :** Installer et publier les bibliothèques Ruby depuis RubyGems.org.
+**Syntaxe :** `gem [install|list|update|uninstall] <nom>`
+**Cas réguliers :**
+- `gem install rails` — Installer Rails (le plus courant, avant bundle)
+- `gem list --local` — Lister les gems installées
+- `gem install vagrant` — Installer un outil CLI Ruby
+**Origine:** Chad Fowler, Dave Thomas et Jim Weirich, 2003 — le gestionnaire natif de Ruby ; "gem" = petite pépite de code réutilisable.
+**Subtilités/confusions :**
+- gem install (global) vs Bundler/bundle install (par projet, versions verrouillées avec Gemfile.lock) — en Rails, c'est BUNDLE qui compte.
+- Gemfile (souhait) ≠ Gemfile.lock (versions exactes) — le lockfile fait foi et se commit.
+- sudo gem install = mauvaise pratique (conflits avec rbenv/rvm) — installer en utilisateur.
+**Urgences/dangers :** — (gem uninstall supprime la gem, parfois ses dépendances — lire l'avertissement)
+**Précautions :** Toujours passer par Bundler sur un projet Rails ; commiter Gemfile.lock.
+**Équivalents :** npm, pip, composer
+**Voir aussi :** ruby, rails, git, npm
+
+## `dpkg-reconfigure` — Reconfigurer un paquet Debian [Linux]
+**Niveau :** avance | **Popularité :** 40 | **Aliases :** —
+**Contextes :** changement de clé SSH, bascule de service, serveur Debian post-install
+**Rôle :** Rouvrir l'écran de configuration d'un paquet déjà installé (questions du premier install).
+**Syntaxe :** `sudo dpkg-reconfigure <paquet>`
+**Cas réguliers :**
+- `sudo dpkg-reconfigure openssh-server` — Régénérer la config SSH (après édition ratée de sshd_config)
+- `sudo dpkg-reconfigure tzdata` — Changer le fuseau horaire
+- `sudo dpkg-reconfigure -plow locale-gen` — Mode texte basique si le truc ncurses bug
+**Origine :** DebConf (Debian Configuration, 1999-2001) — le système de questions paramétrables de Debian, réutilisé par Ubuntu.
+**Subtilités/confusions :**
+- dpkg-reconfigure ne MODIFIE PAS le fichier à la main — c'est le mécanisme officiel Debian (les éditions manuelles peuvent être écrasées).
+- `debconf-set-selections` permet la même chose en script (sans IHM) pour le provisioning.
+- Ne fonctionne que sur les paquets DEB (Debian/Ubuntu) — sur Fedora c'est `system-config-*`.
+**Urgences/dangers :** ⚠️ Sur openssh-server : une config fausse après reconfigure peut COUPER l'accès SSH distant — préparer une console physique/VNC avant.
+**Précautions :** Sauvegarder le fichier de config avant ; jamais à distance sans filet.
+**Équivalents :** reconfigure via scripts (dnf), systemsettings (GUI)
+**Voir aussi :** dpkg, apt, sshd
+
+## `nuget` — Paquets .NET [Windows/Cross]
+**Niveau :** intermediaire | **Popularité :** 50 | **Aliases :** dotnet add package
+**Contextes :** projets C#/ASP.NET, Visual Studio, applications Windows
+**Rôle :** Installer les bibliothèques .NET dans un projet depuis nuget.org.
+**Syntaxe :** `dotnet add package <nom>` ou `nuget install <nom>`
+**Cas réguliers :**
+- `dotnet add package Newtonsoft.Json` — Ajouter une lib au .csproj (le plus courant, façon moderne)
+- `dotnet restore` — Restaurer toutes les dépendances (après clone)
+- `nuget install packages.config` — Façon historique (VS ancien)
+**Origine :** Microsoft, 2010 — le npm du .NET, créé pour remplacer le "DLL hell" (conflits de versions de DLL).
+**Subtilités/confusions :**
+- dotnet CLI (moderne) vs nuget.exe (historique) : préférer `dotnet add package` sur les projets .NET Core/5+.
+- packages.config (ancien) vs PackageReference dans .csproj (nouveau) : le format dépend de l'ancienneté du projet.
+- Références GAC (Global Assembly Cache) = vieux monde .NET Framework — les packages NuGet sont projet-par-projet.
+**Urgences/dangers :** — (non destructif)
+**Précautions :** Commiter le fichier de lock (packages.lock.json si activé) ; vérifier les licences.
+**Équivalents :** npm (JS), pip (Python), maven (Java)
+**Voir aussi :** dotnet, git, visual-studio
+
+## `emerge` — Gestionnaire de paquets Gentoo [Linux]
+**Niveau :** avance | **Popularité :** 30 | **Aliases :** portage
+**Contextes :** Gentoo, compilation sur mesure, optimisations extrêmes, apprentissage approfondi de Linux
+**Rôle :** Compiler et installer les paquets depuis les sources avec des options de compilation personnalisées (USE flags).
+**Syntaxe :** `sudo emerge [-uDN|<paquet>]`
+**Cas réguliers :**
+- `sudo emerge -uDN @world` — Mettre à jour tout le système (le plus courant sur Gentoo)
+- `emerge -pv htop` — Prévisualiser ce qui sera compilé (simulation)
+- `emerge --info` — Infos sur la configuration du système
+**Origine:** Daniel Robbins, 2002 (Gentoo = "gentle one") — le portage s'inspire directement des ports BSD ; tout se compile.
+**Subtilités/confusions :**
+- emerge compile : une mise à jour complète peut prendre des HEURES (vs seconds avec apt) — c'est le choix Gentoo.
+- USE flags = personnalisation par feature (ex. `-gnome` pour exclure GNOME) — la vraie puissance du portage.
+- `emerge -c` (clean) ≠ `-C` (unmerge) : lire la notice avant de supprimer.
+**Urgences/dangers :** ⚠️ Une mise à jour Gentoo mal suivie (conflicts, config files) peut laisser le système inamorçable — lire les messages de portage.
+**Précautions :** Suivre les news Gentoo (`eselect news read`) ; sauvegarder /etc avant les grosses maj.
+**Équivalents :** apt, pacman, dnf
+**Voir aussi :** linux, apt, pacman, kernel
+
+## `zypper` — Paquets openSUSE [Linux]
+**Niveau :** intermediaire | **Popularité :** 35 | **Aliases :** —
+**Contextes :** openSUSE Leap/Tumbleweed, serveurs SUSE Linux Enterprise (SLES), poste allemand
+**Rôle :** Installer et gérer les paquets .rpm sur openSUSE et SLES.
+**Syntaxe :** `sudo zypper [install|refresh|update|search] <paquet>`
+**Cas réguliers :**
+- `sudo zypper install nginx` — Installer un paquet (le plus courant)
+- `sudo zypper update` — Mettre à jour le système
+- `zypper search mysql` — Chercher un paquet
+- `sudo zypper refresh` — Forcer la mise à jour des métadonnées des dépôts
+**Origine:** Novell (2006, à l'achat de SuSE) — en remplacement de YaST en mode texte ; YaST reste l'IHM graphique de référence d'openSUSE.
+**Subtilités/confusions :**
+- zypper vs dnf : commandes quasi identiques (zypper vient de la même génération) — le mot-clé change (install/refresh).
+- Tumbleweed = rolling release (mises à jour continues), Leap = versions stables — même zypper, philosophie différente.
+- `zypper lu` = lister les mises à jour disponibles sans les appliquer (utile en audit).
+**Urgences/dangers :** — (comme apt : les maj système sur prod restent à planifier)
+**Précautions :** Vérifier avec `zypper lu` avant `zypper update` ; lire le changelog des paquets sensibles.
+**Équivalents :** apt, dnf, pacman
+**Voir aussi :** apt, dnf, rpm, linux
+
+
+
 
 
 
