@@ -224,5 +224,109 @@
 **Exemple :** `qemu-system-x86_64 -m 2048 -cdro ubuntu.iso`
 **Voir aussi :** Docker, IaaS, hyperviseur, cloud
 
+## `S3` — Stockage objet cloud [Cloud]
+**Catégorie :** Cloud | **Niveau :** intermediaire | **Popularité :** 80
+**Signification :** Simple Storage Service (Service de stockage simple)
+**Définition :** Service de stockage objet d'AWS : fichiers ("objets") dans des buckets accessibles par HTTP, à l'échelle quasi illimitée.
+**Contextes :** backups, images médias, sites statiques, data lake, artefacts de build
+**Cas réguliers :**
+- `aws s3 cp rapport.pdf s3://mon-bucket/` — Uploader un fichier (le plus courant)
+- `aws s3 sync ./dist s3://site-web` — Déployer un site statique complet
+- `Bucket en privé + politique d'accès` — Règle de sécurité n°1 (les scandales de buckets ouverts)
+**Origine :** Amazon, 4 mars 2006 — premier service AWS public (avant EC2), qui a lancé l'ère du cloud moderne.
+**Subtilités/confusions :**
+- S3 ≠ EBS : S3 = objet (HTTP, non montable), EBS = disque dur virtuel (montable, pour VM).
+- "Rendre un bucket public" est la faute de sécurité cloud la plus médiatisée (voir les fuites de données).
+- Versioning activé = protection contre suppressions accidentelles (sinon pas de corbeille sur S3).
+**Exemple :** `aws s3 presign s3://mon-bucket/facture.pdf --expires-in 3600`
+**Voir aussi :** AWS, CDN, cloud, backup
+
+## `IAM` — Gestion des identités et accès [Sécurité/Cloud]
+**Catégorie :** Cloud | **Niveau :** avance | **Popularité :** 75
+**Signification :** Identity and Access Management (Gestion des identités et des accès)
+**Définition :** Système qui décide QUI a le droit de faire QUOI : comptes, rôles, politiques de permissions.
+**Contextes :** cloud multi-projets, rotation des accès, conformité, principe du moindre privilège
+**Cas réguliers :**
+- `Policy JSON : Allow s3:GetObject sur mon-bucket` — Donner un accès précis (le plus courant)
+- `Rôle assumé par un service (EC2 → S3)` — Pas de clé statique pour les machines
+- `Accès revu trimestriellement` — Audit des utilisateurs internes
+**Origine :** Concept issu de la gestion des droits d'accès (années 1970 DAC/MAC), incarné par AWS IAM (2011), Okta, Keycloak ; aujourd'hui standard Zero Trust.
+**Subtilités/confusions :**
+- Permission ≠ authentification : IAM = droits (après la connexion), AuthN (login) = identité (qui tu es).
+- Moindre privilège : donner UNIQUEMENT l'accès nécessaire — "FullAccess" pour tout = faille garantie.
+- Clés d'accès longue durée = risque n°1 volées en public (GitHub) → raccourcir, faire tourner les clés, utiliser des rôles.
+**Exemple :** `aws iam list-users --query "Users[*].UserName"`
+**Voir aussi :** sécurité, Zero Trust, OAuth, cloud
+
+## `ORM` — Couche objet-relationnelle [Bases de données]
+**Catégorie :** Bases de données | **Niveau :** intermediaire | **Popularité :** 70
+**Signification :** Object-Relational Mapping (Mapping Objet-Relationnel)
+**Définition :** Traduire automatiquement entre le code applicatif (objets) et les tables SQL — requêtes écrites en langage de prog, exécutées en SQL.
+**Contextes :** backends web, frameworks (Django, Rails, TypeORM), productivité d'équipe
+**Cas réguliers :**
+- `User.objects.filter(actif=True)` — SELECT en Python au lieu de SQL brut (le plus courant)
+- `user.save()` — INSERT/UPDATE automatique selon la présence de l'id
+- `Migration générée depuis le modèle` — Évolution du schéma versionnée
+**Origine :** Hibernate (Java, 2001) a démocratisé le pattern ; les ORM sont nés du "impedance mismatch" (1990s) entre objets et relations.
+**Subtilités/confusions :**
+- ORM ≠ magie : les requêtes complexes deviennent lentes (N+1) — il faut parfois SQL brut.
+- ORM vs query builder : l'ORM mappe des objets, le builder (Knex, Doctrine Query Builder) construit du SQL manuellement.
+- Les migrations générées peuvent être détruites sur dev (rollback) — jamais en prod.
+**Exemple :** `SELECT u.nom, COUNT(o.id) FROM users u JOIN orders o ... -- équivalent du ORM`
+**Voir aussi :** SQL, SGBD, API REST, NoSQL
+
+## `CDN` — Réseau de diffusion de contenu [Réseau/Web]
+**Catégorie :** Cloud | **Niveau :** intermediaire | **Popularité :** 72
+**Signification :** Content Delivery Network (Réseau de Diffusion de Contenu)
+**Définition :** Réserve de serveurs répartis dans le monde qui servent les fichiers statiques depuis le point le plus proche de l'utilisateur.
+**Contextes :** sites à trafic mondial, images/vidéos, cache de fichiers statiques, réduction de latence
+**Cas réguliers :**
+- `CloudFront devant un site S3` — Le plus courant : site statique rapide partout
+- `Cache-Control: max-age=86400` — Dire au CDN de garder le fichier 24h
+- `Invalider le cache après un déploiement` — Sinon les utilisateurs voient l'ancienne version
+**Origine :** Akamai (1998, né d'une recherche MIT sur le congestement Internet) ; Cloudflare et CloudFront ont démocratisé l'usage.
+**Subtilités/confusions :**
+- CDN ≠ hébergeur : le CDN CACHE, l'hébergeur STOCKE la source originale.
+- Cache périmé = bug n°1 de déploiement : pensez à purger/invalider après chaque release.
+- CDN = couche 7 (HTTP) vs LB (load balancer) = répartition de charge des serveurs d'app — complémentaires.
+**Exemple :** `Cache-Control: public, max-age=31536000, immutable`
+**Voir aussi :** S3, cache, HTTP, cloud
+
+## `ETL` — Extraction-Transformation-Chargement [Data]
+**Catégorie :** Data | **Niveau :** intermediaire | **Popularité :** 65
+**Signification :** Extract, Transform, Load (Extraire, Transformer, Charger)
+**Définition :** Processus qui copie des données de plusieurs sources vers un entrepôt en les nettoyant et les reformattant.
+**Contextes :** reporting d'entreprise, data warehouse, migration de base, synchronisation d'outils
+**Cas réguliers :**
+- `Extraction CRM + facturation → entrepôt analytics` — Rapport consolidé (le plus courant)
+- `Nettoyage : normaliser emails, dédupliquer` — Transformer avant chargement
+- `Chargement nocturne dans le data warehouse` — Batch planifié
+**Origine :** Terme des data warehouses (années 1990, Bill Inmon/Ralph Kimball) ; les ETL traditionnels (Informatica, 1993) ont évolué vers ELT (charger puis transformer dans la base).
+**Subtilités/confusions :**
+- ETL vs ELT : ETL = transformer AVANT (flux contrôlé), ELT = charger PUIS transformer (puissance de la base).
+- ETL vs API sync : ETL = batch (nuit), API sync = temps réel ; souvent complémentaires.
+- Data quality : une entrée pourrie en amont = décision fausse en aval ("garbage in, garbage out").
+**Exemple :** `dbt run --models stg_clients` — chargement puis transformation versionnée en SQL
+**Voir aussi :** data warehouse, BI, SQL, SGBD
+
+## `VPS` — Serveur virtuel loué [Cloud]
+**Catégorie :** Cloud | **Niveau :** debutant | **Popularité :** 75
+**Signification :** Virtual Private Server (Serveur Privé Virtuel)
+**Définition :** Une part d'un serveur physique virtualisée, louée avec ses ressources garanties (CPU, RAM, disque) et un accès root.
+**Contextes :** hébergement de sites, bots, petits services, apprentissage sysadmin, tunneling
+**Cas réguliers :**
+- `Louer un VPS Ubuntu 4 Go pour 5€/mois` — Héberger un site ou un service (le plus courant)
+- `VPS pour un reverse proxy Caddy/nginx` — Centraliser plusieurs services derrière HTTPS
+- `VPS en Alsace/Paris pour la RGPD` — Localisation des données en France
+**Origine :** Concept popularisé par les hébergeurs (Virtuozzo/OpenVZ dès 2001, puis KVM) — entre le shared hosting (partagé) et le serveur dédié.
+**Subtilités/confusions :**
+- VPS vs hébergement mutualisé : VPS = tu es seul sur ta part (root, isolé), mutualisé = partagé sans root.
+- VPS vs cloud (IaaS) : VPS = forfait mensuel fixe, cloud = à l'usage ; pour un petit service le VPS est 3-10x moins cher.
+- "VPS illimité" n'existe pas : les ressources sont partagées avec les voisins (overcommit).
+**Exemple :** `ssh root@mon-vps -p 22`
+**Voir aussi :** IaaS, cloud, VM, hébergement
+
+
+
 
 

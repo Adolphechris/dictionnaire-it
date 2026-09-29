@@ -334,6 +334,143 @@
 **Équivalents :** pip (Python), maven (Java), yarn, pnpm
 **Voir aussi :** node, yarn, pip, git
 
+## `pip` — Gestionnaire de paquets Python [Cross/Dev]
+**Niveau :** debutant | **Popularité :** 85 | **Aliases :** pip3
+**Contextes :** projets Python, data science, scripts d'automatisation, environnements virtuels
+**Rôle :** Installer et gérer les bibliothèques Python depuis PyPI (le plus gros registre de paquets au monde).
+**Syntaxe :** `pip install <paquet> [-r requirements.txt]`
+**Cas réguliers :**
+- `pip install requests` — Ajouter une bibliothèque (le plus courant)
+- `pip install -r requirements.txt` — Installer TOUTES les dépendances d'un projet
+- `pip freeze > requirements.txt` — Sauvegarder l'état des dépendances (avant partage)
+- `pip show requests` — Voir version et emplacement d'un paquet
+**Origine :** Ian Bicking, 2008 (dans virtualenv), repris par PyPA — surnommé "pip acquires packages" ; gère PyPI (2003).
+**Subtilités/confusions :**
+- Toujours utiliser un venv : `python3 -m venv .venv && source .venv/bin/activate` — sinon pip installe en global et casse le système.
+- pip vs pip3 : sur beaucoup de systèmes pip = Python 2 (mort en 2020) — préférer `python3 -m pip`.
+- `pip install` sans version = aléatoire à la prochaine install — freezer les versions dans requirements.txt.
+**Urgences/dangers :** ⚠️ `sudo pip install` en global peut CASSER Python système (des outils système en dépendent) — toujours en venv.
+**Précautions :** venv systématique ; requirements.txt versionné ; pip list --outdated pour l'audit.
+**Équivalents :** npm (JS), gem (Ruby), apt (OS)
+**Voir aussi :** python, venv, npm, virtualenv
+
+## `yarn` — Gestionnaire de paquets JavaScript alternatif [Cross/Dev]
+**Niveau :** intermediaire | **Popularité :** 70 | **Aliases :** Yarn (Yet Another Resource Harness)
+**Contextes :** projets React/Next.js, monorepos, CI avec installs reproductibles
+**Rôle :** Alternative à npm : installer les dépendances JS avec des locks stricts et un cache mondial.
+**Syntaxe :** `yarn [add|install|run] <paquet>`
+**Cas réguliers :**
+- `yarn install` — Installer les dépendances du projet (le plus courant sur les projets React)
+- `yarn add axios` — Ajouter une dépendance
+- `yarn dev` — Lancer le script dev
+**Origine :** Facebook (Meta), 2016 — réponse aux bugs d'install de npm v2 ; aujourd'hui Yarn Berry (v2+) gère les monorepos (Plug'n'Play).
+**Subtilités/confusions :**
+- yarn vs npm : même registre (registry.npmjs.org) ; yarn = lockfile strict, reproductible, plus rapide en cache.
+- yarn.lock ≠ package-lock.json : NE PAS mélanger les deux dans un même projet.
+- Yarn 1 (classic) vs Berry (v2+) : API différente (PnP remplace node_modules) — migration cassante.
+**Urgences/dangers :** — (comme npm : attention au code tiers installé)
+**Précautions :** Un projet = UN gestionnaire ; garder le lockfile en version control.
+**Équivalents :** npm, pnpm
+**Voir aussi :** npm, node, git
+
+## `maven` — Paquets et builds Java [Cross/Dev]
+**Niveau :** avance | **Popularité :** 60 | **Aliases :** mvn
+**Contextes :** projets Java, applications d'entreprise, builds reproductibles, CI
+**Rôle :** Compiler, tester et packaging les projets Java en résolvant les dépendances depuis Maven Central.
+**Syntaxe :** `mvn [clean install|package|compile]`
+**Cas réguliers :**
+- `mvn clean install` — Compiler, tester et installer le .jar (le plus courant)
+- `mvn package` — Produire le .jar/.war exécutable
+- `mvn dependency:tree` — Voir l'arbre des dépendances (debug de conflits de versions)
+**Origine:** Apache Jakarta (ex-Apache), 2002 — inspiré de Ant ; "Maven" signifie "accumulateur de connaissances" en yiddish ; le standard des builds Java avec Gradle.
+**Subtilités/confusions :**
+- Maven vs Gradle : Maven = XML et conventionnel (explicite mais verbeux), Gradle = Groovy/Kotlin DSL et incrémental (plus rapide).
+- ~/.m2/repository = cache local de tous les artefacts (parfois des Go à nettoyer).
+- mvn install place l'artefact dans ~/.m2 pour les autres projets locaux — mvn package non.
+**Urgences/dangers :** — (build uniquement ; mvn clean efface target/ — normal)
+**Précautions :** Verrouiller les versions de dépendances ; `mvn -o` (offline) pour les builds sans réseau.
+**Équivalents :** gradle (Java), npm (JS), pip (Python)
+**Voir aussi :** gradle, java, ci, git
+
+## `scoop` — Installer des outils Windows sans admin [Windows]
+**Niveau :** debutant | **Popularité :** 55 | **Aliases :** —
+**Contextes :** poste Windows pro sans droits admin, outils dev (git, node...), portabilité
+**Rôle :** Installer des logiciels en utilisateur courant, sans UAC, dans des dossiers isolés.
+**Syntaxe :** `scoop [install|update|list] <app>`
+**Cas réguliers :**
+- `scoop install git` — Installer git sans droits admin (le plus courant sur poste d'entreprise)
+- `scoop update` — Mettre à jour scoop et les apps
+- `scoop list` — Lister les apps installées
+**Origine:** Roshan Jain, 2015 — philosophie différente de choco : tout en utilisateur, zéro admin, mises à jour centralisées.
+**Subtilités/confusions :**
+- scoop vs choco : scoop = utilisateur (pas d'UAC, isolé, propre), choco = machine (admin requis).
+- scoop vs winget : winget = officiel Microsoft ; scoop = communauté, focus devs/outils en ligne de commande.
+- Apps dans ~/scoop/apps : les "extras" viennent d'un bucket communautaire à ajouter (`scoop bucket add extras`).
+**Urgences/dangers :** — (utilisateur courant, aucune élévation possible par conception)
+**Précautions :** Ajouter les buckets nécessaires ; `scoop cleanup *` pour libérer les vieilles versions.
+**Équivalents :** choco, winget (Windows), brew (macOS)
+**Voir aussi :** choco, winget, brew
+
+## `AppImage` — Exécutables portables Linux [Linux]
+**Niveau :** debutant | **Popularité :** 45 | **Aliases :** —
+**Contextes :** utilitaires portables, apps sans installation, clé USB multi-postes
+**Rôle :** Un SE fichier exécutable contenant toute l'application — double-clic et ça marche, sans installation.
+**Syntaxe :** `chmod +x appli.AppImage && ./appli.AppImage`
+**Cas réguliers :**
+- `chmod +x Krita.AppImage` — Rendre exécutable (requis après téléchargement)
+- `./Krita.AppImage` — Lancer l'app (le plus courant, aucun sudo)
+- `Intégrer au menu via AppImageLauncher` — Ajouter au menu démarrer (icon, desktop entry)
+**Origine :** Simon Peter, 2016, comme "PortableLinuxApps" — standardisé (AppDir puis AppImage type 2 avec squashfs).
+**Subtilités/confusions :**
+- AppImage vs snap/flatpak : AppImage = 1 fichier, zéro sandbox, zéro daemon ; snap/flatpak = gestionnaire et mises à jour.
+- Le fichier est GROS (200-700 Mo) car tout est inclus — pas de partage entre apps.
+- Mise à jour manuelle : télécharger la nouvelle version, remplacer le fichier.
+**Urgences/dangers :** — (aucune modification système ; vérifier la provenance du fichier exécutable)
+**Précautions :** Télécharger depuis le site officiel du projet uniquement.
+**Équivalents :** .exe portable (Windows), DMG (macOS)
+**Voir aussi :** flatpak, snap, chmod
+
+## `gradle` — Builds et dépendances (Java/Android) [Cross/Dev]
+**Niveau :** avance | **Popularité :** 65 | **Aliases :** —
+**Contextes :** projets Java/Kotlin, apps Android, builds rapides en CI
+**Rôle :** Compiler et packager les projets Java/Kotlin/Android avec un build script Groovy ou Kotlin DSL.
+**Syntaxe :** `gradle [build|assembleDebug|test]` ou `./gradlew <tâche>`
+**Cas réguliers :**
+- `./gradlew assembleDebug` — Construire l'APK Android debug (le plus courant)
+- `./gradlew build` — Compiler + tester + packager
+- `./gradlew clean` — Nettoyer les artefacts de build
+**Origine:** Hans Dockter (Gradleware), 2009 — fusionne la flexibilité d'Ant et la gestion de dépendances de Maven ; standard Android Studio depuis 2013.
+**Subtilités/confusions :**
+- gradle vs mvn : gradle = scripts DSL et build INCRÉMENTAL (plus rapide), maven = XML conventionnel.
+- Toujours utiliser le WRAPPER `./gradlew` : il fournit la bonne version de gradle sans install globale.
+- build/ = cache local lourd (ajouter au .gitignore ; c'est le .gradle/ aussi).
+**Urgences/dangers :** — (build ; gradle clean efface build/ — normal)
+**Précautions :** Versionner gradlew + gradle/wrapper ; ne pas installer gradle globalement.
+**Équivalents :** maven, npm, make
+**Voir aussi :** maven, java, ci, git
+
+## `make` — Automatisation des builds [Cross/Dev]
+**Niveau :** intermediaire | **Popularité :** 70 | **Aliases :** gmake (GNU)
+**Contextes :** projets C/C++, compilation, tâches répétitives historiques, Makefiles hérités
+**Rôle :** Exécuter une suite de commandes définies dans un Makefile, en ne reconstruisant QUE ce qui a changé.
+**Syntaxe :** `make [cible]`
+**Cas réguliers :**
+- `make` — Construit la cible par défaut (le plus courant)
+- `make install` — Installe le logiciel compilé
+- `make clean` — Supprime les fichiers générés
+- `make -j4` — Compilation parallèle sur 4 cœurs (accélère x4)
+**Origine:** Stuart Feldman à Bell Labs, 1976 — l'un des outils les plus anciens encore utilisés (50 ans !) ; déclin face à CMake/Gradle mais présent partout.
+**Subtilités/confusions :**
+- Les TABULATIONS sont obligatoires dans un Makefile (une espace = erreur de syntaxe — piège classique).
+- make ≠ build universel : CMake génère des Makefiles, gradle/maven gèrent d'autres langages.
+- make -j sans limite peut saturer la machine : `make -j$(nproc)` = le nombre de cœurs.
+**Urgences/dangers :** — (les cibles "clean" suppriment les artefacts générés, pas les sources)
+**Précautions :** Ne pas éditer les Makefiles générés (CMake) ; garder les cibles standard (all, clean, install).
+**Équivalents :** cmake, ninja, gradle, npm scripts
+**Voir aussi :** cmake, gcc, ci, git
+
+
+
 
 
 

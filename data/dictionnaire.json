@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "total": 181,
+  "total": 193,
   "entries": [
     {
       "face": "A",
@@ -6950,6 +6950,1167 @@
       "updated_at": "2026-09-29"
     },
     {
+      "nom": "pip",
+      "aliases": [
+        "pip3"
+      ],
+      "niveau": "debutant",
+      "popularite": 85,
+      "contextes": [
+        "projets Python",
+        "data science",
+        "scripts d'automatisation",
+        "environnements virtuels"
+      ],
+      "origine": "Ian Bicking, 2008 (dans virtualenv), repris par PyPA — surnommé \"pip acquires packages\" ; gère PyPI (2003).",
+      "subtilites": [
+        "Toujours utiliser un venv : `python3 -m venv .venv && source .venv/bin/activate` — sinon pip installe en global et casse le système.",
+        "pip vs pip3 : sur beaucoup de systèmes pip = Python 2 (mort en 2020) — préférer `python3 -m pip`.",
+        "`pip install` sans version = aléatoire à la prochaine install — freezer les versions dans requirements.txt.",
+        "*Urgences/dangers :** ⚠️ `sudo pip install` en global peut CASSER Python système (des outils système en dépendent) — toujours en venv.",
+        "*Précautions :** venv systématique ; requirements.txt versionné ; pip list --outdated pour l'audit.",
+        "*Équivalents :** npm (JS), gem (Ruby), apt (OS)",
+        "*Voir aussi :** python, venv, npm, virtualenv"
+      ],
+      "voir_aussi": [
+        "python",
+        "venv",
+        "npm",
+        "virtualenv"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "Cross/Dev",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Installer et gérer les bibliothèques Python depuis PyPI (le plus gros registre de paquets au monde).",
+      "syntaxe": "pip install <paquet> [-r requirements.txt]",
+      "cas_reguliers": [
+        {
+          "cmd": "pip install requests",
+          "explication": "Ajouter une bibliothèque (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "pip install -r requirements.txt",
+          "explication": "Installer TOUTES les dépendances d'un projet",
+          "contexte": ""
+        },
+        {
+          "cmd": "pip freeze > requirements.txt",
+          "explication": "Sauvegarder l'état des dépendances (avant partage)",
+          "contexte": ""
+        },
+        {
+          "cmd": "pip show requests",
+          "explication": "Voir version et emplacement d'un paquet",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Ian Bicking, 2008 (dans virtualenv), repris par PyPA — surnommé \"pip acquires packages\" ; gère PyPI (2003).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Toujours utiliser un venv : `python3 -m venv .venv && source .venv/bin/activate` — sinon pip installe en global et casse le système.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "pip vs pip3 : sur beaucoup de systèmes pip = Python 2 (mort en 2020) — préférer `python3 -m pip`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "pip install` sans version = aléatoire à la prochaine install — freezer les versions dans requirements.txt.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `sudo pip install` en global peut CASSER Python système (des outils système en dépendent) — toujours en venv.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** venv systématique ; requirements.txt versionné ; pip list --outdated pour l'audit.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** npm (JS), gem (Ruby), apt (OS)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** python, venv, npm, virtualenv",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "pip install requests",
+          "explication": "Ajouter une bibliothèque (le plus courant)"
+        },
+        {
+          "cmd": "pip install -r requirements.txt",
+          "explication": "Installer TOUTES les dépendances d'un projet"
+        },
+        {
+          "cmd": "pip freeze > requirements.txt",
+          "explication": "Sauvegarder l'état des dépendances (avant partage)"
+        },
+        {
+          "cmd": "pip show requests",
+          "explication": "Voir version et emplacement d'un paquet"
+        },
+        {
+          "cmd": "*Origine :** Ian Bicking, 2008 (dans virtualenv), repris par PyPA — surnommé \"pip acquires packages\" ; gère PyPI (2003).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "Toujours utiliser un venv : `python3 -m venv .venv && source .venv/bin/activate` — sinon pip installe en global et casse le système.",
+          "explication": ""
+        },
+        {
+          "cmd": "pip vs pip3 : sur beaucoup de systèmes pip = Python 2 (mort en 2020) — préférer `python3 -m pip`.",
+          "explication": ""
+        },
+        {
+          "cmd": "pip install` sans version = aléatoire à la prochaine install — freezer les versions dans requirements.txt.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `sudo pip install` en global peut CASSER Python système (des outils système en dépendent) — toujours en venv.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** venv systématique ; requirements.txt versionné ; pip list --outdated pour l'audit.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** npm (JS), gem (Ruby), apt (OS)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** python, venv, npm, virtualenv",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `sudo pip install` en global peut CASSER Python système (des outils système en dépendent) — toujours en venv.",
+      "precautions": "venv systématique ; requirements.txt versionné ; pip list --outdated pour l'audit.",
+      "equivalents": [
+        {
+          "note": "npm (JS), gem (Ruby), apt (OS)"
+        }
+      ],
+      "id": "A-00117",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "yarn",
+      "aliases": [
+        "Yarn (Yet Another Resource Harness)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 70,
+      "contextes": [
+        "projets React/Next.js",
+        "monorepos",
+        "CI avec installs reproductibles"
+      ],
+      "origine": "Facebook (Meta), 2016 — réponse aux bugs d'install de npm v2 ; aujourd'hui Yarn Berry (v2+) gère les monorepos (Plug'n'Play).",
+      "subtilites": [
+        "yarn vs npm : même registre (registry.npmjs.org) ; yarn = lockfile strict, reproductible, plus rapide en cache.",
+        "yarn.lock ≠ package-lock.json : NE PAS mélanger les deux dans un même projet.",
+        "Yarn 1 (classic) vs Berry (v2+) : API différente (PnP remplace node_modules) — migration cassante.",
+        "*Urgences/dangers :** — (comme npm : attention au code tiers installé)",
+        "*Précautions :** Un projet = UN gestionnaire ; garder le lockfile en version control.",
+        "*Équivalents :** npm, pnpm",
+        "*Voir aussi :** npm, node, git"
+      ],
+      "voir_aussi": [
+        "npm",
+        "node",
+        "git"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "Cross/Dev",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Alternative à npm : installer les dépendances JS avec des locks stricts et un cache mondial.",
+      "syntaxe": "yarn [add|install|run] <paquet>",
+      "cas_reguliers": [
+        {
+          "cmd": "yarn install",
+          "explication": "Installer les dépendances du projet (le plus courant sur les projets React)",
+          "contexte": ""
+        },
+        {
+          "cmd": "yarn add axios",
+          "explication": "Ajouter une dépendance",
+          "contexte": ""
+        },
+        {
+          "cmd": "yarn dev",
+          "explication": "Lancer le script dev",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Facebook (Meta), 2016 — réponse aux bugs d'install de npm v2 ; aujourd'hui Yarn Berry (v2+) gère les monorepos (Plug'n'Play).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "yarn vs npm : même registre (registry.npmjs.org) ; yarn = lockfile strict, reproductible, plus rapide en cache.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "yarn.lock ≠ package-lock.json : NE PAS mélanger les deux dans un même projet.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Yarn 1 (classic) vs Berry (v2+) : API différente (PnP remplace node_modules) — migration cassante.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (comme npm : attention au code tiers installé)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Un projet = UN gestionnaire ; garder le lockfile en version control.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** npm, pnpm",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** npm, node, git",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "yarn install",
+          "explication": "Installer les dépendances du projet (le plus courant sur les projets React)"
+        },
+        {
+          "cmd": "yarn add axios",
+          "explication": "Ajouter une dépendance"
+        },
+        {
+          "cmd": "yarn dev",
+          "explication": "Lancer le script dev"
+        },
+        {
+          "cmd": "*Origine :** Facebook (Meta), 2016 — réponse aux bugs d'install de npm v2 ; aujourd'hui Yarn Berry (v2+) gère les monorepos (Plug'n'Play).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "yarn vs npm : même registre (registry.npmjs.org) ; yarn = lockfile strict, reproductible, plus rapide en cache.",
+          "explication": ""
+        },
+        {
+          "cmd": "yarn.lock ≠ package-lock.json : NE PAS mélanger les deux dans un même projet.",
+          "explication": ""
+        },
+        {
+          "cmd": "Yarn 1 (classic) vs Berry (v2+) : API différente (PnP remplace node_modules) — migration cassante.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (comme npm : attention au code tiers installé)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Un projet = UN gestionnaire ; garder le lockfile en version control.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** npm, pnpm",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** npm, node, git",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (comme npm : attention au code tiers installé)",
+      "precautions": "Un projet = UN gestionnaire ; garder le lockfile en version control.",
+      "equivalents": [
+        {
+          "note": "npm, pnpm"
+        }
+      ],
+      "id": "A-00118",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "maven",
+      "aliases": [
+        "mvn"
+      ],
+      "niveau": "avance",
+      "popularite": 60,
+      "contextes": [
+        "projets Java",
+        "applications d'entreprise",
+        "builds reproductibles",
+        "CI"
+      ],
+      "origine": "Apache Jakarta (ex-Apache), 2002 — inspiré de Ant ; \"Maven\" signifie \"accumulateur de connaissances\" en yiddish ; le standard des builds Java avec Gradle.",
+      "subtilites": [
+        "Maven vs Gradle : Maven = XML et conventionnel (explicite mais verbeux), Gradle = Groovy/Kotlin DSL et incrémental (plus rapide).",
+        "~/.m2/repository = cache local de tous les artefacts (parfois des Go à nettoyer).",
+        "mvn install place l'artefact dans ~/.m2 pour les autres projets locaux — mvn package non.",
+        "*Urgences/dangers :** — (build uniquement ; mvn clean efface target/ — normal)",
+        "*Précautions :** Verrouiller les versions de dépendances ; `mvn -o` (offline) pour les builds sans réseau.",
+        "*Équivalents :** gradle (Java), npm (JS), pip (Python)",
+        "*Voir aussi :** gradle, java, ci, git"
+      ],
+      "voir_aussi": [
+        "gradle",
+        "java",
+        "ci",
+        "git"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "Cross/Dev",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Compiler, tester et packaging les projets Java en résolvant les dépendances depuis Maven Central.",
+      "syntaxe": "mvn [clean install|package|compile]",
+      "cas_reguliers": [
+        {
+          "cmd": "mvn clean install",
+          "explication": "Compiler, tester et installer le .jar (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "mvn package",
+          "explication": "Produire le .jar/.war exécutable",
+          "contexte": ""
+        },
+        {
+          "cmd": "mvn dependency:tree",
+          "explication": "Voir l'arbre des dépendances (debug de conflits de versions)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine:** Apache Jakarta (ex-Apache), 2002 — inspiré de Ant ; \"Maven\" signifie \"accumulateur de connaissances\" en yiddish ; le standard des builds Java avec Gradle.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Maven vs Gradle : Maven = XML et conventionnel (explicite mais verbeux), Gradle = Groovy/Kotlin DSL et incrémental (plus rapide).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "~/.m2/repository = cache local de tous les artefacts (parfois des Go à nettoyer).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "mvn install place l'artefact dans ~/.m2 pour les autres projets locaux — mvn package non.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (build uniquement ; mvn clean efface target/ — normal)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Verrouiller les versions de dépendances ; `mvn -o` (offline) pour les builds sans réseau.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** gradle (Java), npm (JS), pip (Python)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** gradle, java, ci, git",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "mvn clean install",
+          "explication": "Compiler, tester et installer le .jar (le plus courant)"
+        },
+        {
+          "cmd": "mvn package",
+          "explication": "Produire le .jar/.war exécutable"
+        },
+        {
+          "cmd": "mvn dependency:tree",
+          "explication": "Voir l'arbre des dépendances (debug de conflits de versions)"
+        },
+        {
+          "cmd": "*Origine:** Apache Jakarta (ex-Apache), 2002 — inspiré de Ant ; \"Maven\" signifie \"accumulateur de connaissances\" en yiddish ; le standard des builds Java avec Gradle.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "Maven vs Gradle : Maven = XML et conventionnel (explicite mais verbeux), Gradle = Groovy/Kotlin DSL et incrémental (plus rapide).",
+          "explication": ""
+        },
+        {
+          "cmd": "~/.m2/repository = cache local de tous les artefacts (parfois des Go à nettoyer).",
+          "explication": ""
+        },
+        {
+          "cmd": "mvn install place l'artefact dans ~/.m2 pour les autres projets locaux — mvn package non.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (build uniquement ; mvn clean efface target/ — normal)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Verrouiller les versions de dépendances ; `mvn -o` (offline) pour les builds sans réseau.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** gradle (Java), npm (JS), pip (Python)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** gradle, java, ci, git",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (build uniquement ; mvn clean efface target/ — normal)",
+      "precautions": "Verrouiller les versions de dépendances ; `mvn -o` (offline) pour les builds sans réseau.",
+      "equivalents": [
+        {
+          "note": "gradle (Java), npm (JS), pip (Python)"
+        }
+      ],
+      "id": "A-00119",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "scoop",
+      "aliases": [],
+      "niveau": "debutant",
+      "popularite": 55,
+      "contextes": [
+        "poste Windows pro sans droits admin",
+        "outils dev (git",
+        "node...)",
+        "portabilité"
+      ],
+      "origine": "Roshan Jain, 2015 — philosophie différente de choco : tout en utilisateur, zéro admin, mises à jour centralisées.",
+      "subtilites": [
+        "scoop vs choco : scoop = utilisateur (pas d'UAC, isolé, propre), choco = machine (admin requis).",
+        "scoop vs winget : winget = officiel Microsoft ; scoop = communauté, focus devs/outils en ligne de commande.",
+        "Apps dans ~/scoop/apps : les \"extras\" viennent d'un bucket communautaire à ajouter (`scoop bucket add extras`).",
+        "*Urgences/dangers :** — (utilisateur courant, aucune élévation possible par conception)",
+        "*Précautions :** Ajouter les buckets nécessaires ; `scoop cleanup *` pour libérer les vieilles versions.",
+        "*Équivalents :** choco, winget (Windows), brew (macOS)",
+        "*Voir aussi :** choco, winget, brew"
+      ],
+      "voir_aussi": [
+        "choco",
+        "winget",
+        "brew"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "windows"
+      ],
+      "os_raw": "Windows",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Installer des logiciels en utilisateur courant, sans UAC, dans des dossiers isolés.",
+      "syntaxe": "scoop [install|update|list] <app>",
+      "cas_reguliers": [
+        {
+          "cmd": "scoop install git",
+          "explication": "Installer git sans droits admin (le plus courant sur poste d'entreprise)",
+          "contexte": ""
+        },
+        {
+          "cmd": "scoop update",
+          "explication": "Mettre à jour scoop et les apps",
+          "contexte": ""
+        },
+        {
+          "cmd": "scoop list",
+          "explication": "Lister les apps installées",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine:** Roshan Jain, 2015 — philosophie différente de choco : tout en utilisateur, zéro admin, mises à jour centralisées.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "scoop vs choco : scoop = utilisateur (pas d'UAC, isolé, propre), choco = machine (admin requis).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "scoop vs winget : winget = officiel Microsoft ; scoop = communauté, focus devs/outils en ligne de commande.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Apps dans ~/scoop/apps : les \"extras\" viennent d'un bucket communautaire à ajouter (`scoop bucket add extras`).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (utilisateur courant, aucune élévation possible par conception)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Ajouter les buckets nécessaires ; `scoop cleanup *` pour libérer les vieilles versions.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** choco, winget (Windows), brew (macOS)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** choco, winget, brew",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "scoop install git",
+          "explication": "Installer git sans droits admin (le plus courant sur poste d'entreprise)"
+        },
+        {
+          "cmd": "scoop update",
+          "explication": "Mettre à jour scoop et les apps"
+        },
+        {
+          "cmd": "scoop list",
+          "explication": "Lister les apps installées"
+        },
+        {
+          "cmd": "*Origine:** Roshan Jain, 2015 — philosophie différente de choco : tout en utilisateur, zéro admin, mises à jour centralisées.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "scoop vs choco : scoop = utilisateur (pas d'UAC, isolé, propre), choco = machine (admin requis).",
+          "explication": ""
+        },
+        {
+          "cmd": "scoop vs winget : winget = officiel Microsoft ; scoop = communauté, focus devs/outils en ligne de commande.",
+          "explication": ""
+        },
+        {
+          "cmd": "Apps dans ~/scoop/apps : les \"extras\" viennent d'un bucket communautaire à ajouter (`scoop bucket add extras`).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (utilisateur courant, aucune élévation possible par conception)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Ajouter les buckets nécessaires ; `scoop cleanup *` pour libérer les vieilles versions.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** choco, winget (Windows), brew (macOS)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** choco, winget, brew",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (utilisateur courant, aucune élévation possible par conception)",
+      "precautions": "Ajouter les buckets nécessaires ; `scoop cleanup *` pour libérer les vieilles versions.",
+      "equivalents": [
+        {
+          "note": "choco, winget (Windows), brew (macOS)"
+        }
+      ],
+      "id": "A-00120",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "AppImage",
+      "aliases": [],
+      "niveau": "debutant",
+      "popularite": 45,
+      "contextes": [
+        "utilitaires portables",
+        "apps sans installation",
+        "clé USB multi-postes"
+      ],
+      "origine": "Simon Peter, 2016, comme \"PortableLinuxApps\" — standardisé (AppDir puis AppImage type 2 avec squashfs).",
+      "subtilites": [
+        "AppImage vs snap/flatpak : AppImage = 1 fichier, zéro sandbox, zéro daemon ; snap/flatpak = gestionnaire et mises à jour.",
+        "Le fichier est GROS (200-700 Mo) car tout est inclus — pas de partage entre apps.",
+        "Mise à jour manuelle : télécharger la nouvelle version, remplacer le fichier.",
+        "*Urgences/dangers :** — (aucune modification système ; vérifier la provenance du fichier exécutable)",
+        "*Précautions :** Télécharger depuis le site officiel du projet uniquement.",
+        "*Équivalents :** .exe portable (Windows), DMG (macOS)",
+        "*Voir aussi :** flatpak, snap, chmod"
+      ],
+      "voir_aussi": [
+        "flatpak",
+        "snap",
+        "chmod"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Un SE fichier exécutable contenant toute l'application — double-clic et ça marche, sans installation.",
+      "syntaxe": "chmod +x appli.AppImage && ./appli.AppImage",
+      "cas_reguliers": [
+        {
+          "cmd": "chmod +x Krita.AppImage",
+          "explication": "Rendre exécutable (requis après téléchargement)",
+          "contexte": ""
+        },
+        {
+          "cmd": "./Krita.AppImage",
+          "explication": "Lancer l'app (le plus courant, aucun sudo)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Intégrer au menu via AppImageLauncher",
+          "explication": "Ajouter au menu démarrer (icon, desktop entry)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Simon Peter, 2016, comme \"PortableLinuxApps\" — standardisé (AppDir puis AppImage type 2 avec squashfs).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "AppImage vs snap/flatpak : AppImage = 1 fichier, zéro sandbox, zéro daemon ; snap/flatpak = gestionnaire et mises à jour.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Le fichier est GROS (200-700 Mo) car tout est inclus — pas de partage entre apps.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Mise à jour manuelle : télécharger la nouvelle version, remplacer le fichier.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (aucune modification système ; vérifier la provenance du fichier exécutable)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Télécharger depuis le site officiel du projet uniquement.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** .exe portable (Windows), DMG (macOS)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** flatpak, snap, chmod",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "chmod +x Krita.AppImage",
+          "explication": "Rendre exécutable (requis après téléchargement)"
+        },
+        {
+          "cmd": "./Krita.AppImage",
+          "explication": "Lancer l'app (le plus courant, aucun sudo)"
+        },
+        {
+          "cmd": "Intégrer au menu via AppImageLauncher",
+          "explication": "Ajouter au menu démarrer (icon, desktop entry)"
+        },
+        {
+          "cmd": "*Origine :** Simon Peter, 2016, comme \"PortableLinuxApps\" — standardisé (AppDir puis AppImage type 2 avec squashfs).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "AppImage vs snap/flatpak : AppImage = 1 fichier, zéro sandbox, zéro daemon ; snap/flatpak = gestionnaire et mises à jour.",
+          "explication": ""
+        },
+        {
+          "cmd": "Le fichier est GROS (200-700 Mo) car tout est inclus — pas de partage entre apps.",
+          "explication": ""
+        },
+        {
+          "cmd": "Mise à jour manuelle : télécharger la nouvelle version, remplacer le fichier.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (aucune modification système ; vérifier la provenance du fichier exécutable)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Télécharger depuis le site officiel du projet uniquement.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** .exe portable (Windows), DMG (macOS)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** flatpak, snap, chmod",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (aucune modification système ; vérifier la provenance du fichier exécutable)",
+      "precautions": "Télécharger depuis le site officiel du projet uniquement.",
+      "equivalents": [
+        {
+          "note": ".exe portable (Windows), DMG (macOS)"
+        }
+      ],
+      "id": "A-00121",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "gradle",
+      "aliases": [],
+      "niveau": "avance",
+      "popularite": 65,
+      "contextes": [
+        "projets Java/Kotlin",
+        "apps Android",
+        "builds rapides en CI"
+      ],
+      "origine": "Hans Dockter (Gradleware), 2009 — fusionne la flexibilité d'Ant et la gestion de dépendances de Maven ; standard Android Studio depuis 2013.",
+      "subtilites": [
+        "gradle vs mvn : gradle = scripts DSL et build INCRÉMENTAL (plus rapide), maven = XML conventionnel.",
+        "Toujours utiliser le WRAPPER `./gradlew` : il fournit la bonne version de gradle sans install globale.",
+        "build/ = cache local lourd (ajouter au .gitignore ; c'est le .gradle/ aussi).",
+        "*Urgences/dangers :** — (build ; gradle clean efface build/ — normal)",
+        "*Précautions :** Versionner gradlew + gradle/wrapper ; ne pas installer gradle globalement.",
+        "*Équivalents :** maven, npm, make",
+        "*Voir aussi :** maven, java, ci, git"
+      ],
+      "voir_aussi": [
+        "maven",
+        "java",
+        "ci",
+        "git"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "Cross/Dev",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Compiler et packager les projets Java/Kotlin/Android avec un build script Groovy ou Kotlin DSL.",
+      "syntaxe": "gradle [build|assembleDebug|test]` ou `./gradlew <tâche>",
+      "cas_reguliers": [
+        {
+          "cmd": "./gradlew assembleDebug",
+          "explication": "Construire l'APK Android debug (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "./gradlew build",
+          "explication": "Compiler + tester + packager",
+          "contexte": ""
+        },
+        {
+          "cmd": "./gradlew clean",
+          "explication": "Nettoyer les artefacts de build",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine:** Hans Dockter (Gradleware), 2009 — fusionne la flexibilité d'Ant et la gestion de dépendances de Maven ; standard Android Studio depuis 2013.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "gradle vs mvn : gradle = scripts DSL et build INCRÉMENTAL (plus rapide), maven = XML conventionnel.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Toujours utiliser le WRAPPER `./gradlew` : il fournit la bonne version de gradle sans install globale.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "build/ = cache local lourd (ajouter au .gitignore ; c'est le .gradle/ aussi).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (build ; gradle clean efface build/ — normal)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Versionner gradlew + gradle/wrapper ; ne pas installer gradle globalement.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** maven, npm, make",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** maven, java, ci, git",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "./gradlew assembleDebug",
+          "explication": "Construire l'APK Android debug (le plus courant)"
+        },
+        {
+          "cmd": "./gradlew build",
+          "explication": "Compiler + tester + packager"
+        },
+        {
+          "cmd": "./gradlew clean",
+          "explication": "Nettoyer les artefacts de build"
+        },
+        {
+          "cmd": "*Origine:** Hans Dockter (Gradleware), 2009 — fusionne la flexibilité d'Ant et la gestion de dépendances de Maven ; standard Android Studio depuis 2013.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "gradle vs mvn : gradle = scripts DSL et build INCRÉMENTAL (plus rapide), maven = XML conventionnel.",
+          "explication": ""
+        },
+        {
+          "cmd": "Toujours utiliser le WRAPPER `./gradlew` : il fournit la bonne version de gradle sans install globale.",
+          "explication": ""
+        },
+        {
+          "cmd": "build/ = cache local lourd (ajouter au .gitignore ; c'est le .gradle/ aussi).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (build ; gradle clean efface build/ — normal)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Versionner gradlew + gradle/wrapper ; ne pas installer gradle globalement.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** maven, npm, make",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** maven, java, ci, git",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (build ; gradle clean efface build/ — normal)",
+      "precautions": "Versionner gradlew + gradle/wrapper ; ne pas installer gradle globalement.",
+      "equivalents": [
+        {
+          "note": "maven, npm, make"
+        }
+      ],
+      "id": "A-00122",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "make",
+      "aliases": [
+        "gmake (GNU)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 70,
+      "contextes": [
+        "projets C/C++",
+        "compilation",
+        "tâches répétitives historiques",
+        "Makefiles hérités"
+      ],
+      "origine": "Stuart Feldman à Bell Labs, 1976 — l'un des outils les plus anciens encore utilisés (50 ans !) ; déclin face à CMake/Gradle mais présent partout.",
+      "subtilites": [
+        "Les TABULATIONS sont obligatoires dans un Makefile (une espace = erreur de syntaxe — piège classique).",
+        "make ≠ build universel : CMake génère des Makefiles, gradle/maven gèrent d'autres langages.",
+        "make -j sans limite peut saturer la machine : `make -j$(nproc)` = le nombre de cœurs.",
+        "*Urgences/dangers :** — (les cibles \"clean\" suppriment les artefacts générés, pas les sources)",
+        "*Précautions :** Ne pas éditer les Makefiles générés (CMake) ; garder les cibles standard (all, clean, install).",
+        "*Équivalents :** cmake, ninja, gradle, npm scripts",
+        "*Voir aussi :** cmake, gcc, ci, git"
+      ],
+      "voir_aussi": [
+        "cmake",
+        "gcc",
+        "ci",
+        "git"
+      ],
+      "source": "faceA_06_archives_paquets.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "Cross/Dev",
+      "categories": [
+        "archives_paquets"
+      ],
+      "tags": [],
+      "role_fr": "Exécuter une suite de commandes définies dans un Makefile, en ne reconstruisant QUE ce qui a changé.",
+      "syntaxe": "make [cible]",
+      "cas_reguliers": [
+        {
+          "cmd": "make",
+          "explication": "Construit la cible par défaut (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "make install",
+          "explication": "Installe le logiciel compilé",
+          "contexte": ""
+        },
+        {
+          "cmd": "make clean",
+          "explication": "Supprime les fichiers générés",
+          "contexte": ""
+        },
+        {
+          "cmd": "make -j4",
+          "explication": "Compilation parallèle sur 4 cœurs (accélère x4)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine:** Stuart Feldman à Bell Labs, 1976 — l'un des outils les plus anciens encore utilisés (50 ans !) ; déclin face à CMake/Gradle mais présent partout.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Les TABULATIONS sont obligatoires dans un Makefile (une espace = erreur de syntaxe — piège classique).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "make ≠ build universel : CMake génère des Makefiles, gradle/maven gèrent d'autres langages.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "make -j sans limite peut saturer la machine : `make -j$(nproc)` = le nombre de cœurs.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (les cibles \"clean\" suppriment les artefacts générés, pas les sources)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Ne pas éditer les Makefiles générés (CMake) ; garder les cibles standard (all, clean, install).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** cmake, ninja, gradle, npm scripts",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** cmake, gcc, ci, git",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "make",
+          "explication": "Construit la cible par défaut (le plus courant)"
+        },
+        {
+          "cmd": "make install",
+          "explication": "Installe le logiciel compilé"
+        },
+        {
+          "cmd": "make clean",
+          "explication": "Supprime les fichiers générés"
+        },
+        {
+          "cmd": "make -j4",
+          "explication": "Compilation parallèle sur 4 cœurs (accélère x4)"
+        },
+        {
+          "cmd": "*Origine:** Stuart Feldman à Bell Labs, 1976 — l'un des outils les plus anciens encore utilisés (50 ans !) ; déclin face à CMake/Gradle mais présent partout.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "Les TABULATIONS sont obligatoires dans un Makefile (une espace = erreur de syntaxe — piège classique).",
+          "explication": ""
+        },
+        {
+          "cmd": "make ≠ build universel : CMake génère des Makefiles, gradle/maven gèrent d'autres langages.",
+          "explication": ""
+        },
+        {
+          "cmd": "make -j sans limite peut saturer la machine : `make -j$(nproc)` = le nombre de cœurs.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (les cibles \"clean\" suppriment les artefacts générés, pas les sources)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Ne pas éditer les Makefiles générés (CMake) ; garder les cibles standard (all, clean, install).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** cmake, ninja, gradle, npm scripts",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** cmake, gcc, ci, git",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (les cibles \"clean\" suppriment les artefacts générés, pas les sources)",
+      "precautions": "Ne pas éditer les Makefiles générés (CMake) ; garder les cibles standard (all, clean, install).",
+      "equivalents": [
+        {
+          "note": "cmake, ninja, gradle, npm scripts"
+        }
+      ],
+      "id": "A-00123",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
       "face": "B",
       "type": "sigle",
       "nom": "CPU",
@@ -8737,41 +9898,107 @@
       "updated_at": "2026-09-29"
     },
     {
-      "face": "B",
-      "type": "sigle",
       "nom": "ORM",
       "aliases": [
-        "Object Relational Mapping"
+        "Object-Relational Mapping (Mapping Objet-Relationnel)"
       ],
+      "niveau": "intermediaire",
+      "popularite": 70,
+      "contextes": [
+        "backends web",
+        "frameworks (Django",
+        "Rails",
+        "TypeORM)",
+        "productivité d'équipe"
+      ],
+      "origine": "Hibernate (Java, 2001) a démocratisé le pattern ; les ORM sont nés du \"impedance mismatch\" (1990s) entre objets et relations.",
+      "subtilites": [
+        "ORM ≠ magie : les requêtes complexes deviennent lentes (N+1) — il faut parfois SQL brut.",
+        "ORM vs query builder : l'ORM mappe des objets, le builder (Knex, Doctrine Query Builder) construit du SQL manuellement.",
+        "Les migrations générées peuvent être détruites sur dev (rollback) — jamais en prod.",
+        "*Exemple :** `SELECT u.nom, COUNT(o.id) FROM users u JOIN orders o ... -- équivalent du ORM`",
+        "*Voir aussi :** SQL, SGBD, API REST, NoSQL"
+      ],
+      "voir_aussi": [
+        "SQL",
+        "SGBD",
+        "API REST",
+        "NoSQL"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
       "os": [
         "cross"
       ],
       "os_raw": "cross",
       "categories": [
-        "Programmation"
+        "Bases de données"
       ],
       "tags": [],
-      "niveau": "debutant",
-      "popularite": 50,
-      "role_fr": "Pont entre objets code et tables SQL",
+      "role_fr": "Traduire automatiquement entre le code applicatif (objets) et les tables SQL — requêtes écrites en langage de prog, exécutées en SQL.",
       "syntaxe": "",
-      "contextes": [],
-      "cas_reguliers": [],
+      "cas_reguliers": [
+        {
+          "cmd": "User.objects.filter(actif=True)",
+          "explication": "SELECT en Python au lieu de SQL brut (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "user.save()",
+          "explication": "INSERT/UPDATE automatique selon la présence de l'id",
+          "contexte": ""
+        },
+        {
+          "cmd": "Migration générée depuis le modèle",
+          "explication": "Évolution du schéma versionnée",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Hibernate (Java, 2001) a démocratisé le pattern ; les ORM sont nés du \"impedance mismatch\" (1990s) entre objets et relations.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "ORM ≠ magie : les requêtes complexes deviennent lentes (N+1) — il faut parfois SQL brut.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "ORM vs query builder : l'ORM mappe des objets, le builder (Knex, Doctrine Query Builder) construit du SQL manuellement.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Les migrations générées peuvent être détruites sur dev (rollback) — jamais en prod.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `SELECT u.nom, COUNT(o.id) FROM users u JOIN orders o ... -- équivalent du ORM",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** SQL, SGBD, API REST, NoSQL",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
       "exemples": [
         {
-          "cmd": "Prisma, SQLAlchemy",
+          "cmd": "SELECT u.nom, COUNT(o.id) FROM users u JOIN orders o ... -- équivalent du ORM",
           "explication": ""
         }
       ],
-      "origine": "",
-      "subtilites": [],
       "urgences_dangers": "",
       "precautions": "",
       "equivalents": [],
-      "voir_aussi": [
-        "SQL"
-      ],
-      "source": "faceB_01_abreviations.md",
       "id": "B-00042",
       "version": 1,
       "updated_at": "2026-09-29"
@@ -10419,6 +11646,533 @@
       "precautions": "",
       "equivalents": [],
       "id": "B-00065",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "S3",
+      "aliases": [
+        "Simple Storage Service (Service de stockage simple)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 80,
+      "contextes": [
+        "backups",
+        "images médias",
+        "sites statiques",
+        "data lake",
+        "artefacts de build"
+      ],
+      "origine": "Amazon, 4 mars 2006 — premier service AWS public (avant EC2), qui a lancé l'ère du cloud moderne.",
+      "subtilites": [
+        "S3 ≠ EBS : S3 = objet (HTTP, non montable), EBS = disque dur virtuel (montable, pour VM).",
+        "\"Rendre un bucket public\" est la faute de sécurité cloud la plus médiatisée (voir les fuites de données).",
+        "Versioning activé = protection contre suppressions accidentelles (sinon pas de corbeille sur S3).",
+        "*Exemple :** `aws s3 presign s3://mon-bucket/facture.pdf --expires-in 3600`",
+        "*Voir aussi :** AWS, CDN, cloud, backup"
+      ],
+      "voir_aussi": [
+        "AWS",
+        "CDN",
+        "cloud",
+        "backup"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Cloud"
+      ],
+      "tags": [],
+      "role_fr": "Service de stockage objet d'AWS : fichiers (\"objets\") dans des buckets accessibles par HTTP, à l'échelle quasi illimitée.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "aws s3 cp rapport.pdf s3://mon-bucket/",
+          "explication": "Uploader un fichier (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "aws s3 sync ./dist s3://site-web",
+          "explication": "Déployer un site statique complet",
+          "contexte": ""
+        },
+        {
+          "cmd": "Bucket en privé + politique d'accès",
+          "explication": "Règle de sécurité n°1 (les scandales de buckets ouverts)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Amazon, 4 mars 2006 — premier service AWS public (avant EC2), qui a lancé l'ère du cloud moderne.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "S3 ≠ EBS : S3 = objet (HTTP, non montable), EBS = disque dur virtuel (montable, pour VM).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "\"Rendre un bucket public\" est la faute de sécurité cloud la plus médiatisée (voir les fuites de données).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Versioning activé = protection contre suppressions accidentelles (sinon pas de corbeille sur S3).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `aws s3 presign s3://mon-bucket/facture.pdf --expires-in 3600",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** AWS, CDN, cloud, backup",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "aws s3 presign s3://mon-bucket/facture.pdf --expires-in 3600",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00066",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "IAM",
+      "aliases": [
+        "Identity and Access Management (Gestion des identités et des accès)"
+      ],
+      "niveau": "avance",
+      "popularite": 75,
+      "contextes": [
+        "cloud multi-projets",
+        "rotation des accès",
+        "conformité",
+        "principe du moindre privilège"
+      ],
+      "origine": "Concept issu de la gestion des droits d'accès (années 1970 DAC/MAC), incarné par AWS IAM (2011), Okta, Keycloak ; aujourd'hui standard Zero Trust.",
+      "subtilites": [
+        "Permission ≠ authentification : IAM = droits (après la connexion), AuthN (login) = identité (qui tu es).",
+        "Moindre privilège : donner UNIQUEMENT l'accès nécessaire — \"FullAccess\" pour tout = faille garantie.",
+        "Clés d'accès longue durée = risque n°1 volées en public (GitHub) → raccourcir, faire tourner les clés, utiliser des rôles.",
+        "*Exemple :** `aws iam list-users --query \"Users[*].UserName\"`",
+        "*Voir aussi :** sécurité, Zero Trust, OAuth, cloud"
+      ],
+      "voir_aussi": [
+        "sécurité",
+        "Zero Trust",
+        "OAuth",
+        "cloud"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Cloud"
+      ],
+      "tags": [],
+      "role_fr": "Système qui décide QUI a le droit de faire QUOI : comptes, rôles, politiques de permissions.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Policy JSON : Allow s3:GetObject sur mon-bucket",
+          "explication": "Donner un accès précis (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Rôle assumé par un service (EC2 → S3)",
+          "explication": "Pas de clé statique pour les machines",
+          "contexte": ""
+        },
+        {
+          "cmd": "Accès revu trimestriellement",
+          "explication": "Audit des utilisateurs internes",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Concept issu de la gestion des droits d'accès (années 1970 DAC/MAC), incarné par AWS IAM (2011), Okta, Keycloak ; aujourd'hui standard Zero Trust.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Permission ≠ authentification : IAM = droits (après la connexion), AuthN (login) = identité (qui tu es).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Moindre privilège : donner UNIQUEMENT l'accès nécessaire — \"FullAccess\" pour tout = faille garantie.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Clés d'accès longue durée = risque n°1 volées en public (GitHub) → raccourcir, faire tourner les clés, utiliser des rôles.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `aws iam list-users --query \"Users[*].UserName\"",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** sécurité, Zero Trust, OAuth, cloud",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "aws iam list-users --query \"Users[*].UserName\"",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00067",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "CDN",
+      "aliases": [
+        "Content Delivery Network (Réseau de Diffusion de Contenu)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 72,
+      "contextes": [
+        "sites à trafic mondial",
+        "images/vidéos",
+        "cache de fichiers statiques",
+        "réduction de latence"
+      ],
+      "origine": "Akamai (1998, né d'une recherche MIT sur le congestement Internet) ; Cloudflare et CloudFront ont démocratisé l'usage.",
+      "subtilites": [
+        "CDN ≠ hébergeur : le CDN CACHE, l'hébergeur STOCKE la source originale.",
+        "Cache périmé = bug n°1 de déploiement : pensez à purger/invalider après chaque release.",
+        "CDN = couche 7 (HTTP) vs LB (load balancer) = répartition de charge des serveurs d'app — complémentaires.",
+        "*Exemple :** `Cache-Control: public, max-age=31536000, immutable`",
+        "*Voir aussi :** S3, cache, HTTP, cloud"
+      ],
+      "voir_aussi": [
+        "S3",
+        "cache",
+        "HTTP",
+        "cloud"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Cloud"
+      ],
+      "tags": [],
+      "role_fr": "Réserve de serveurs répartis dans le monde qui servent les fichiers statiques depuis le point le plus proche de l'utilisateur.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "CloudFront devant un site S3",
+          "explication": "Le plus courant : site statique rapide partout",
+          "contexte": ""
+        },
+        {
+          "cmd": "Cache-Control: max-age=86400",
+          "explication": "Dire au CDN de garder le fichier 24h",
+          "contexte": ""
+        },
+        {
+          "cmd": "Invalider le cache après un déploiement",
+          "explication": "Sinon les utilisateurs voient l'ancienne version",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Akamai (1998, né d'une recherche MIT sur le congestement Internet) ; Cloudflare et CloudFront ont démocratisé l'usage.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "CDN ≠ hébergeur : le CDN CACHE, l'hébergeur STOCKE la source originale.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Cache périmé = bug n°1 de déploiement : pensez à purger/invalider après chaque release.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "CDN = couche 7 (HTTP) vs LB (load balancer) = répartition de charge des serveurs d'app — complémentaires.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `Cache-Control: public, max-age=31536000, immutable",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** S3, cache, HTTP, cloud",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "Cache-Control: public, max-age=31536000, immutable",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00068",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "ETL",
+      "aliases": [
+        "Extract, Transform, Load (Extraire, Transformer, Charger)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 65,
+      "contextes": [
+        "reporting d'entreprise",
+        "data warehouse",
+        "migration de base",
+        "synchronisation d'outils"
+      ],
+      "origine": "Terme des data warehouses (années 1990, Bill Inmon/Ralph Kimball) ; les ETL traditionnels (Informatica, 1993) ont évolué vers ELT (charger puis transformer dans la base).",
+      "subtilites": [
+        "ETL vs ELT : ETL = transformer AVANT (flux contrôlé), ELT = charger PUIS transformer (puissance de la base).",
+        "ETL vs API sync : ETL = batch (nuit), API sync = temps réel ; souvent complémentaires.",
+        "Data quality : une entrée pourrie en amont = décision fausse en aval (\"garbage in, garbage out\").",
+        "*Exemple :** `dbt run --models stg_clients` — chargement puis transformation versionnée en SQL",
+        "*Voir aussi :** data warehouse, BI, SQL, SGBD"
+      ],
+      "voir_aussi": [
+        "data warehouse",
+        "BI",
+        "SQL",
+        "SGBD"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Data"
+      ],
+      "tags": [],
+      "role_fr": "Processus qui copie des données de plusieurs sources vers un entrepôt en les nettoyant et les reformattant.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Extraction CRM + facturation → entrepôt analytics",
+          "explication": "Rapport consolidé (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Nettoyage : normaliser emails, dédupliquer",
+          "explication": "Transformer avant chargement",
+          "contexte": ""
+        },
+        {
+          "cmd": "Chargement nocturne dans le data warehouse",
+          "explication": "Batch planifié",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Terme des data warehouses (années 1990, Bill Inmon/Ralph Kimball) ; les ETL traditionnels (Informatica, 1993) ont évolué vers ELT (charger puis transformer dans la base).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "ETL vs ELT : ETL = transformer AVANT (flux contrôlé), ELT = charger PUIS transformer (puissance de la base).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "ETL vs API sync : ETL = batch (nuit), API sync = temps réel ; souvent complémentaires.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Data quality : une entrée pourrie en amont = décision fausse en aval (\"garbage in, garbage out\").",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `dbt run --models stg_clients` — chargement puis transformation versionnée en SQL",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** data warehouse, BI, SQL, SGBD",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "dbt run --models stg_clients` — chargement puis transformation versionnée en SQL",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00069",
+      "version": 1,
+      "updated_at": "2026-09-29"
+    },
+    {
+      "nom": "VPS",
+      "aliases": [
+        "Virtual Private Server (Serveur Privé Virtuel)"
+      ],
+      "niveau": "debutant",
+      "popularite": 75,
+      "contextes": [
+        "hébergement de sites",
+        "bots",
+        "petits services",
+        "apprentissage sysadmin",
+        "tunneling"
+      ],
+      "origine": "Concept popularisé par les hébergeurs (Virtuozzo/OpenVZ dès 2001, puis KVM) — entre le shared hosting (partagé) et le serveur dédié.",
+      "subtilites": [
+        "VPS vs hébergement mutualisé : VPS = tu es seul sur ta part (root, isolé), mutualisé = partagé sans root.",
+        "VPS vs cloud (IaaS) : VPS = forfait mensuel fixe, cloud = à l'usage ; pour un petit service le VPS est 3-10x moins cher.",
+        "\"VPS illimité\" n'existe pas : les ressources sont partagées avec les voisins (overcommit).",
+        "*Exemple :** `ssh root@mon-vps -p 22`",
+        "*Voir aussi :** IaaS, cloud, VM, hébergement"
+      ],
+      "voir_aussi": [
+        "IaaS",
+        "cloud",
+        "VM",
+        "hébergement"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Cloud"
+      ],
+      "tags": [],
+      "role_fr": "Une part d'un serveur physique virtualisée, louée avec ses ressources garanties (CPU, RAM, disque) et un accès root.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Louer un VPS Ubuntu 4 Go pour 5€/mois",
+          "explication": "Héberger un site ou un service (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "VPS pour un reverse proxy Caddy/nginx",
+          "explication": "Centraliser plusieurs services derrière HTTPS",
+          "contexte": ""
+        },
+        {
+          "cmd": "VPS en Alsace/Paris pour la RGPD",
+          "explication": "Localisation des données en France",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Concept popularisé par les hébergeurs (Virtuozzo/OpenVZ dès 2001, puis KVM) — entre le shared hosting (partagé) et le serveur dédié.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "VPS vs hébergement mutualisé : VPS = tu es seul sur ta part (root, isolé), mutualisé = partagé sans root.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "VPS vs cloud (IaaS) : VPS = forfait mensuel fixe, cloud = à l'usage ; pour un petit service le VPS est 3-10x moins cher.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "\"VPS illimité\" n'existe pas : les ressources sont partagées avec les voisins (overcommit).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `ssh root@mon-vps -p 22",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** IaaS, cloud, VM, hébergement",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "ssh root@mon-vps -p 22",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00070",
       "version": 1,
       "updated_at": "2026-09-29"
     }
