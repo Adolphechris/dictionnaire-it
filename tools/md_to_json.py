@@ -57,6 +57,28 @@ for f in sorted(glob.glob(str(ROOT / "face*.md"))):
                     "source": p.name
                 })
             break
+        if l.strip().startswith("| sigle"):
+            for j in range(i+2, len(lignes)):
+                dl = lignes[j].strip()
+                if not dl.startswith("|"): break
+                cols = split_row(dl)
+                if len(cols) < 6: continue
+                sigle, signification, categorie, description, exemple, voir = cols[:6]
+                compteurs["B"] = compteurs.get("B", 0) + 1
+                eid = f"B-{compteurs['B']:05d}"
+                entries.append({
+                    "id": eid, "face": "B", "type": "sigle", "nom": sigle,
+                    "aliases": [signification], "os": ["cross"],
+                    "os_raw": "cross", "categories": [categorie],
+                    "tags": [], "niveau": "debutant",
+                    "role_fr": description, "syntaxe": "",
+                    "exemples": [{"cmd": exemple.strip().strip("`"), "explication": ""}],
+                    "precautions": "",
+                    "equivalents": [],
+                    "voir_aussi": [] if voir.strip() in ("—", "-", "") else [v.strip() for v in voir.split(",")],
+                    "source": p.name
+                })
+            break
 
 OUT.parent.mkdir(exist_ok=True)
 OUT.write_text(json.dumps({"version": 1, "total": len(entries), "entries": entries}, ensure_ascii=False, indent=2), encoding="utf-8")

@@ -27,6 +27,8 @@ if not fichiers:
 
 for f in fichiers:
     nom = Path(f).name
+    mface = re.search(r"face([A-F])_", nom)
+    face = mface.group(1) if mface else "?"
     lignes = Path(f).read_text(encoding="utf-8").splitlines()
     # trouve header tableau
     for i, l in enumerate(lignes):
@@ -43,11 +45,11 @@ for f in fichiers:
                 if len(cols) != ncols:
                     erreurs.append(f"{nom}:L{j+1} {len(cols)} cols au lieu de {ncols} → {dl[:80]}")
                     continue
-                cmd = cols[0].lower()
-                if cmd in seen:
-                    avertissements.append(f"{nom}:L{j+1} doublon '{cols[0]}' (déjà dans {seen[cmd]})")
+                key = f"{face}:{cols[0].lower()}"
+                if key in seen:
+                    avertissements.append(f"{nom}:L{j+1} doublon '{cols[0]}' (déjà dans {seen[key]})")
                 else:
-                    seen[cmd] = f"{nom}:L{j+1}"
+                    seen[key] = f"{nom}:L{j+1}"
                 # vérifie OS (col 2) si face A
                 if "commande" in lignes[i].lower():
                     osv = cols[1].lower()

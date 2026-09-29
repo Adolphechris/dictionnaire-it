@@ -3,9 +3,16 @@
 > Comment l'utiliser : cocher `[x]`, ajouter date + initiales. Ne jamais supprimer une ligne, barrer si abandonné. `npm run stats` ou `python tools/stats.py` met à jour les compteurs.
 
 ## 🔥 En cours (WIP — max 3)
-- [ ] #001 git init + nettoyage (Phase 0) — assigné: AI — échéance: 29/09
-- [ ] #002 corriger 3 erreurs factuelles (tail, hostname, free) — assigné: AI
-- [ ] #003 valider ce plan avec Adolphe (choix Flutter vs Web simple ?)
+- [x] 2026-09-29 — #001 git init + nettoyage (Phase 0) — AI
+- [x] 2026-09-29 — #002 corriger erreurs factuelles (tail, hostname, free, mv, head) — AI
+- [x] 2026-09-29 — #003 valider plan avec Adolphe → OK Phase 0 lancée — AI+Adolphe
+- [x] 2026-09-29 — #010 créer `tools/validate.py` (split_row anti-pipe, clés Face:nom) — AI
+- [x] 2026-09-29 — #011 créer `data/dictionnaire.json` (154 entrées) — AI
+- [x] 2026-09-29 — #012 créer `web_preview/index.html` démo recherche — AI
+- [x] 2026-09-29 — #020 FaceA_05_reseau (15 cmds) — AI
+- [ ] #021 FaceA_06_archives_paquets (25 cmds) — prochain
+- [ ] #022 FaceA_07_git_docker_base (30 cmds)
+- [ ] #023 FaceB_01 vague 1/4 faite (54/200 : matériel, réseau, web, prog, sécu, concept) — reste 146
 
 ## 📋 Backlog trié par priorité
 ### P0 — Bloquant
@@ -36,11 +43,11 @@
 - [x] 2026-09-29 — 4 fichiers FaceA créés (85 entrées) — Adolphe
 - [x] 2026-09-29 — Vision v2 + Architecture + DataModel + Plan — AI
 
-## 📊 Compteurs (auto)
-- Entités: 85 / 500 MVP (17%) / 5000 P2 (1.7%)
-- Faces: A 40% | B 0% | C 0% | D 0% | E 0% | F 0%
-- Apps: Web 0% | Android 0% | iOS 0% | Desktop 0%
-- Dette: 3 erreurs factuelles, 4 doublons, 0 tests, 0 git
+## 📊 Compteurs (auto — maj 29/09 10h40)
+- Entités: 154 / 500 MVP (30.8%) / 5000 P2 (3.1%)
+- Faces: A 100 cmds (5 fichiers) | B 54 sigles (vague 1/4) | C 0% | D 0% | E 0% | F 0%
+- Apps: Web preview OK (offline, filtres OS) | Android 0% | iOS 0% | Desktop 0%
+- Dette: 0 erreur validate ✅ | 0 doublon intra-face ✅ | reste à fusionner cp/cp-r, kill/-9 (volontaire, #025)
 
 ## 🧰 Outils anti-perte-de-fil
 1. Ce fichier = tableau Kanban texte (branché à git)

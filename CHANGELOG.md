@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-09-29 10h40 — Lot 1 contenu (par Muse Spark)
+- FaceA_05_reseau.md : 15 cmds (ping, curl, wget, ssh, scp, sftp, ip, dig, nslookup, ss, netstat...)
+- FaceB_01_abreviations.md vague 1/4 : 54 sigles (matériel, réseau, web, prog, sécu, concept)
+- Fix validate.py : split ignore | dans backticks + clés Face:nom (IP/SSH existent en A et B légitimement)
+- md_to_json.py : support Face B (sigle→nom, signification→alias, catégorie, description→role_fr)
+- CONVENTIONS.md : schéma Face B 6 colonnes + catégories fermées
+- Résultat : 85 → 154 entrées (30.8% MVP), validate ✅ 0 erreur
+
 ## 2026-09-29 — Phase 0 (par Muse Spark)
 - git init + .gitignore + dossiers data/tools/web_preview/.logs
 - Corrections : tail -f.log→-f app.log, head/tail OS Linux/macOS, mv typo, hostname -I→Linux seul, free→Linux seul + alternatives macOS

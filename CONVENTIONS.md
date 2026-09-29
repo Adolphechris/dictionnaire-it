@@ -9,6 +9,11 @@ Jamais d'espaces, minuscules, underscores.
 Séparateur exemples : `·` (Alt+183). Pas de `,` ambiguë.
 OS vocab fermé : `Linux` `macOS` `Windows (CMD)` `PowerShell` `Linux/macOS` `Linux/macOS/Windows` — tout autre → erreur validate.py.
 
+## Tableau Face B (6 colonnes fixes)
+`| sigle | signification | catégorie | description | exemple | voir_aussi |`
+Catégories fermées : `Matériel` `Stockage` `Système` `Réseau` `Web` `Programmation` `Sécurité` `DevOps` `Concept` `Bureautique`.
+`voir_aussi` : sigles séparés par `,` ou `—` si aucun. Ne jamais mettre de `|` dans une cellule (ni backticks déséquilibrés).
+
 ## Style rédactionnel
 - rôle : verbe infinitif FR, ≤80 car. Ex: "Copier un fichier" pas "ça copie".
 - syntaxe : backticks + `<obligatoire>` `[optionnel]`.

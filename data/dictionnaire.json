@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "total": 85,
+  "total": 154,
   "entries": [
     {
       "id": "A-00001",
@@ -2778,6 +2778,2317 @@
       "precautions": "`-` charge le profil de l'utilisateur",
       "equivalents": [],
       "source": "faceA_04_processus_systeme.md"
+    },
+    {
+      "id": "A-00086",
+      "face": "A",
+      "type": "commande",
+      "nom": "ping",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "reseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Tester la connectivité vers un hôte",
+      "syntaxe": "ping [options] <hôte>",
+      "exemples": [
+        {
+          "cmd": "ping google.com",
+          "explication": ""
+        },
+        {
+          "cmd": "ping -c 4 8.8.8.8",
+          "explication": ""
+        },
+        {
+          "cmd": "ping -t serveur` (Windows, continu)",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-c` compte sur Linux/macOS, continu par défaut sur Windows",
+      "equivalents": [
+        {
+          "note": "Test-Connection (PowerShell)"
+        }
+      ],
+      "source": "faceA_05_reseau.md"
+    },
+    {
+      "id": "A-00087",
+      "face": "A",
+      "type": "commande",
+      "nom": "curl",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "reseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Transférer des données via URL",
+      "syntaxe": "curl [options] <url>",
+      "exemples": [
+        {
+          "cmd": "curl https://api.site.fr",
+          "explication": ""
+        },
+        {
+          "cmd": "curl -o fichier.zip https://site.fr/f.zip",
+          "explication": ""
+        },
+        {
+          "cmd": "curl -I https://site.fr` (headers)",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-o` écrit sur disque ; sans option affiche dans le terminal",
+      "equivalents": [
+        {
+          "note": "Invoke-WebRequest (PowerShell)"
+        }
+      ],
+      "source": "faceA_05_reseau.md"
+    },
+    {
+      "id": "A-00088",
+      "face": "A",
+      "type": "commande",
+      "nom": "wget",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "reseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Télécharger des fichiers via HTTP/FTP",
+      "syntaxe": "wget [options] <url>",
+      "exemples": [
+        {
+          "cmd": "wget https://site.fr/f.zip",
+          "explication": ""
+        },
+        {
+          "cmd": "wget -r https://site.fr/docs/` (récursif)",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-r` peut aspirer un site entier",
+      "equivalents": [
+        {
+          "note": "curl"
+        }
+      ],
+      "source": "faceA_05_reseau.md"
+    },
+    {
+      "id": "A-00089",
+      "face": "A",
+      "type": "commande",
+      "nom": "ssh",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "reseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Se connecter à un shell distant chiffré",
+      "syntaxe": "ssh [options] <user>@<hôte>",
+      "exemples": [
+        {
+          "cmd": "ssh ada@serveur.fr",
+          "explication": ""
+        },
+        {
+          "cmd": "ssh -p 2222 ada@serveur.fr",
+          "explication": ""
+        },
+        {
+          "cmd": "ssh -i cle.pem ada@serveur.fr",
+          "explication": ""
+        }
+      ],
+      "precautions": "Vérifier l'empreinte du serveur au premier contact",
+      "equivalents": [],
+      "source": "faceA_05_reseau.md"
+    },
+    {
+      "id": "A-00090",
+      "face": "A",
+      "type": "commande",
+      "nom": "scp",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "reseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Copier des fichiers via SSH",
+      "syntaxe": "scp [options] <source> <cible>",
+      "exemples": [
+        {
+          "cmd": "scp a.txt ada@srv:/tmp/",
+          "explication": ""
+        },
+        {
+          "cmd": "scp -r dossier/ ada@srv:/tmp/",
+          "explication": ""
+        }
+      ],
+      "precautions": "`-r` requis pour les dossiers",
+      "equivalents": [
+        {
+          "note": "rsync, sftp"
+        }
+      ],
+      "source": "faceA_05_reseau.md"
+    },
+    {
+      "id": "A-00091",
+      "face": "A",
+      "type": "commande",
+      "nom": "sftp",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "reseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Transférer des fichiers en interactif via SSH",
+      "syntaxe": "sftp <user>@<hôte>",
+      "exemples": [
+        {
+          "cmd": "sftp ada@serveur.fr",
+          "explication": ""
+        },
+        {
+          "cmd": "put a.txt",
+          "explication": ""
+        },
+        {
+          "cmd": "get b.txt` (dans le shell sftp)",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "scp, FTP (non chiffré)"
+        }
+      ],
+      "source": "faceA_05_reseau.md"
+    },
+    {
+      "id": "A-00092",
+      "face": "A",
+      "type": "commande",
+      "nom": "ip",
+      "aliases": [],
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "reseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Afficher et configurer le réseau (iproute2)",
+      "syntaxe": "ip [objet] [commande]",
+      "exemples": [
+        {
+          "cmd": "ip addr",
+          "explication": ""
+        },
+        {
+          "cmd": "ip route",
+          "explication": ""
+        },
+        {
+          "cmd": "ip link",
+          "explication": ""
+        }
+      ],
+      "precautions": "Remplace `ifconfig` et `route` obsolètes",
+      "equivalents": [
+        {
+          "note": "ifconfig, Get-NetIPAddress (PowerShell)"
+        }
+      ],
+      "source": "faceA_05_reseau.md"
+    },
+    {
+      "id": "A-00093",
+      "face": "A",
+      "type": "commande",
+      "nom": "ip addr",
+      "aliases": [],
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "reseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Afficher les adresses IP des interfaces",
+      "syntaxe": "ip addr [show <iface>]",
+      "exemples": [
+        {
+          "cmd": "ip addr",
+          "explication": ""
+        },
+        {
+          "cmd": "ip addr show eth0",
+          "explication": ""
+        },
+        {
+          "cmd": "ip -brief addr",
+          "explication": ""
+        }
+      ],
+      "precautions": "Lecture seule, sans risque",
+      "equivalents": [
+        {
+          "note": "ifconfig, ipconfig (Windows)"
+        }
+      ],
+      "source": "faceA_05_reseau.md"
+    },
+    {
+      "id": "A-00094",
+      "face": "A",
+      "type": "commande",
+      "nom": "ip route",
+      "aliases": [],
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "reseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Afficher et gérer la table de routage",
+      "syntaxe": "ip route [show|add|del]",
+      "exemples": [
+        {
+          "cmd": "ip route",
+          "explication": ""
+        },
+        {
+          "cmd": "ip route add 10.0.0.0/24 via 192.168.1.1",
+          "explication": ""
+        }
+      ],
+      "precautions": "⚠️ Une mauvaise route coupe le réseau",
+      "equivalents": [
+        {
+          "note": "route"
+        }
+      ],
+      "source": "faceA_05_reseau.md"
+    },
+    {
+      "id": "A-00095",
+      "face": "A",
+      "type": "commande",
+      "nom": "ifconfig",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "reseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Afficher les interfaces réseau (ancien)",
+      "syntaxe": "ifconfig [interface]",
+      "exemples": [
+        {
+          "cmd": "ifconfig",
+          "explication": ""
+        },
+        {
+          "cmd": "ifconfig eth0",
+          "explication": ""
+        }
+      ],
+      "precautions": "Obsolète sur Linux, préférer `ip addr`",
+      "equivalents": [
+        {
+          "note": "ip addr"
+        }
+      ],
+      "source": "faceA_05_reseau.md"
+    },
+    {
+      "id": "A-00096",
+      "face": "A",
+      "type": "commande",
+      "nom": "netstat",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "reseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Afficher connexions et ports en écoute",
+      "syntaxe": "netstat [options]",
+      "exemples": [
+        {
+          "cmd": "netstat -tulpn",
+          "explication": ""
+        },
+        {
+          "cmd": "netstat -an",
+          "explication": ""
+        },
+        {
+          "cmd": "netstat -r` (routes)",
+          "explication": ""
+        }
+      ],
+      "precautions": "Obsolète sur Linux, préférer `ss`",
+      "equivalents": [
+        {
+          "note": "ss (Linux)"
+        }
+      ],
+      "source": "faceA_05_reseau.md"
+    },
+    {
+      "id": "A-00097",
+      "face": "A",
+      "type": "commande",
+      "nom": "ss",
+      "aliases": [],
+      "os": [
+        "linux"
+      ],
+      "os_raw": "Linux",
+      "categories": [
+        "reseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Afficher sockets et ports (remplace netstat)",
+      "syntaxe": "ss [options]",
+      "exemples": [
+        {
+          "cmd": "ss -tulpn",
+          "explication": ""
+        },
+        {
+          "cmd": "ss -s` (résumé)",
+          "explication": ""
+        },
+        {
+          "cmd": "ss -t state established",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "netstat"
+        }
+      ],
+      "source": "faceA_05_reseau.md"
+    },
+    {
+      "id": "A-00098",
+      "face": "A",
+      "type": "commande",
+      "nom": "dig",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "reseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Interroger les serveurs DNS",
+      "syntaxe": "dig [@serveur] <nom> [type]",
+      "exemples": [
+        {
+          "cmd": "dig example.com",
+          "explication": ""
+        },
+        {
+          "cmd": "dig @8.8.8.8 example.com MX",
+          "explication": ""
+        },
+        {
+          "cmd": "dig +short example.com",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "nslookup, host"
+        }
+      ],
+      "source": "faceA_05_reseau.md"
+    },
+    {
+      "id": "A-00099",
+      "face": "A",
+      "type": "commande",
+      "nom": "nslookup",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "reseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Interroger le DNS en interactif ou direct",
+      "syntaxe": "nslookup <nom> [serveur]",
+      "exemples": [
+        {
+          "cmd": "nslookup example.com",
+          "explication": ""
+        },
+        {
+          "cmd": "nslookup example.com 8.8.8.8",
+          "explication": ""
+        }
+      ],
+      "precautions": "Outil en mode déprécié, préférer `dig` sur Linux",
+      "equivalents": [
+        {
+          "note": "dig, host"
+        }
+      ],
+      "source": "faceA_05_reseau.md"
+    },
+    {
+      "id": "A-00100",
+      "face": "A",
+      "type": "commande",
+      "nom": "host",
+      "aliases": [],
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS",
+      "categories": [
+        "reseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Résoudre un nom en adresse IP",
+      "syntaxe": "host <nom>",
+      "exemples": [
+        {
+          "cmd": "host example.com",
+          "explication": ""
+        },
+        {
+          "cmd": "host 8.8.8.8` (reverse)",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [
+        {
+          "note": "dig, nslookup"
+        }
+      ],
+      "source": "faceA_05_reseau.md"
+    },
+    {
+      "id": "B-00001",
+      "face": "B",
+      "type": "sigle",
+      "nom": "CPU",
+      "aliases": [
+        "Central Processing Unit"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Matériel"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Processeur, exécute les instructions des programmes",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Intel Core i7, AMD Ryzen 7",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "GPU",
+        "RAM"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00002",
+      "face": "B",
+      "type": "sigle",
+      "nom": "RAM",
+      "aliases": [
+        "Random Access Memory"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Matériel"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Mémoire vive de travail, effacée à l'arrêt",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "16 Go de RAM DDR4",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "ROM",
+        "SSD"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00003",
+      "face": "B",
+      "type": "sigle",
+      "nom": "ROM",
+      "aliases": [
+        "Read Only Memory"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Matériel"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Mémoire non volatile, non modifiable en usage normal",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "BIOS stocké en ROM",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "RAM",
+        "BIOS"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00004",
+      "face": "B",
+      "type": "sigle",
+      "nom": "GPU",
+      "aliases": [
+        "Graphics Processing Unit"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Matériel"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Processeur graphique, calcul parallèle et IA",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "NVIDIA RTX 4060",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "CPU"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00005",
+      "face": "B",
+      "type": "sigle",
+      "nom": "SSD",
+      "aliases": [
+        "Solid State Drive"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Stockage"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Disque à mémoire flash, rapide et silencieux",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "SSD NVMe 1 To",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "HDD"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00006",
+      "face": "B",
+      "type": "sigle",
+      "nom": "HDD",
+      "aliases": [
+        "Hard Disk Drive"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Stockage"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Disque magnétique rotatif, grande capacité pas chère",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "HDD 2 To 7200 tr/min",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "SSD"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00007",
+      "face": "B",
+      "type": "sigle",
+      "nom": "USB",
+      "aliases": [
+        "Universal Serial Bus"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Matériel"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Connectique universelle pour périphériques",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Clé USB 3.0",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00008",
+      "face": "B",
+      "type": "sigle",
+      "nom": "HDMI",
+      "aliases": [
+        "High Definition Multimedia Interface"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Matériel"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Connectique audio-vidéo haute définition",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Câble HDMI 2.1",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00009",
+      "face": "B",
+      "type": "sigle",
+      "nom": "OS",
+      "aliases": [
+        "Operating System"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Système"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Système d'exploitation qui pilote le matériel",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Linux, Windows 11, macOS",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "BIOS",
+        "CLI"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00010",
+      "face": "B",
+      "type": "sigle",
+      "nom": "BIOS",
+      "aliases": [
+        "Basic Input Output System"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Système"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Firmware historique de démarrage du PC",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Accéder au BIOS avec F2",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "UEFI"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00011",
+      "face": "B",
+      "type": "sigle",
+      "nom": "UEFI",
+      "aliases": [
+        "Unified Extensible Firmware Interface"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Système"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Successeur moderne du BIOS avec Secure Boot",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Boot UEFI, Secure Boot",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "BIOS"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00012",
+      "face": "B",
+      "type": "sigle",
+      "nom": "VM",
+      "aliases": [
+        "Virtual Machine"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Système"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Machine virtuelle émulant un ordinateur complet",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "VM Ubuntu sous VirtualBox",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "OS"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00013",
+      "face": "B",
+      "type": "sigle",
+      "nom": "CLI",
+      "aliases": [
+        "Command Line Interface"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Système"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Interface en ligne de commande au clavier",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Terminal, PowerShell",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "GUI"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00014",
+      "face": "B",
+      "type": "sigle",
+      "nom": "GUI",
+      "aliases": [
+        "Graphical User Interface"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Système"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Interface graphique avec fenêtres et souris",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Windows, GNOME",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "CLI"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00015",
+      "face": "B",
+      "type": "sigle",
+      "nom": "IP",
+      "aliases": [
+        "Internet Protocol"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Réseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Protocole d'adressage des machines en réseau",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "192.168.1.1 et IPv6 ::1",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "DNS",
+        "TCP"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00016",
+      "face": "B",
+      "type": "sigle",
+      "nom": "DNS",
+      "aliases": [
+        "Domain Name System"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Réseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Annuaire qui traduit les noms en adresses IP",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "google.com vers 142.250.x.x",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "IP",
+        "DHCP"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00017",
+      "face": "B",
+      "type": "sigle",
+      "nom": "DHCP",
+      "aliases": [
+        "Dynamic Host Configuration Protocol"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Réseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Attribution automatique des adresses IP",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "La box distribue les IP en DHCP",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "DNS",
+        "IP"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00018",
+      "face": "B",
+      "type": "sigle",
+      "nom": "TCP",
+      "aliases": [
+        "Transmission Control Protocol"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Réseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Transport fiable en mode connecté",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "HTTP sur TCP port 80",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "UDP",
+        "IP"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00019",
+      "face": "B",
+      "type": "sigle",
+      "nom": "UDP",
+      "aliases": [
+        "User Datagram Protocol"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Réseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Transport rapide sans connexion ni garantie",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "DNS et streaming sur UDP",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "TCP"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00020",
+      "face": "B",
+      "type": "sigle",
+      "nom": "LAN",
+      "aliases": [
+        "Local Area Network"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Réseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Réseau local d'un bâtiment ou domicile",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "LAN 192.168.1.0/24",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "WAN"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00021",
+      "face": "B",
+      "type": "sigle",
+      "nom": "WAN",
+      "aliases": [
+        "Wide Area Network"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Réseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Réseau étendu sur de longues distances",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Internet est un WAN",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "LAN"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00022",
+      "face": "B",
+      "type": "sigle",
+      "nom": "WiFi",
+      "aliases": [
+        "Wireless Fidelity (usage)"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Réseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Réseau local sans fil normalisé IEEE 802.11",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "WiFi 6 avec WPA3",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "LAN"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00023",
+      "face": "B",
+      "type": "sigle",
+      "nom": "FTP",
+      "aliases": [
+        "File Transfer Protocol"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Réseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Transfert de fichiers, non chiffré",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "ftp serveur.fr port 21",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "SSH"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00024",
+      "face": "B",
+      "type": "sigle",
+      "nom": "SSH",
+      "aliases": [
+        "Secure SHell"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Réseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Shell distant chiffré et transfert sécurisé",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "ssh ada@serveur.fr",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "FTP",
+        "VPN"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00025",
+      "face": "B",
+      "type": "sigle",
+      "nom": "VPN",
+      "aliases": [
+        "Virtual Private Network"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Réseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Tunnel chiffré vers un réseau distant",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "WireGuard, OpenVPN",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "SSH"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00026",
+      "face": "B",
+      "type": "sigle",
+      "nom": "HTTP",
+      "aliases": [
+        "HyperText Transfer Protocol"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Web"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Protocole du Web non chiffré port 80",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "http://example.com",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "HTTPS"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00027",
+      "face": "B",
+      "type": "sigle",
+      "nom": "HTTPS",
+      "aliases": [
+        "HTTP Secure"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Web"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "HTTP chiffré par TLS port 443",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "https://banque.fr",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "HTTP",
+        "SSL"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00028",
+      "face": "B",
+      "type": "sigle",
+      "nom": "URL",
+      "aliases": [
+        "Uniform Resource Locator"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Web"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Adresse complète d'une ressource",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "https://site.fr/page?id=1",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "URI",
+        "DNS"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00029",
+      "face": "B",
+      "type": "sigle",
+      "nom": "URI",
+      "aliases": [
+        "Uniform Resource Identifier"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Web"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Identifiant de ressource, sur-ensemble d'URL",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "mailto:contact@site.fr",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "URL"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00030",
+      "face": "B",
+      "type": "sigle",
+      "nom": "HTML",
+      "aliases": [
+        "HyperText Markup Language"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Web"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Langage de structure des pages Web",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "<h1>Titre</h1>",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "CSS",
+        "JS"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00031",
+      "face": "B",
+      "type": "sigle",
+      "nom": "CSS",
+      "aliases": [
+        "Cascading Style Sheets"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Web"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Feuilles de style pour la présentation",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "body { color: red; }",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "HTML"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00032",
+      "face": "B",
+      "type": "sigle",
+      "nom": "JS",
+      "aliases": [
+        "JavaScript"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Programmation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Langage du Web interactif côté client et serveur",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "console.log('bonjour')",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "TS",
+        "HTML"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00033",
+      "face": "B",
+      "type": "sigle",
+      "nom": "TS",
+      "aliases": [
+        "TypeScript"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Programmation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "JavaScript typé compilé par Microsoft",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "const x: number = 1",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "JS"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00034",
+      "face": "B",
+      "type": "sigle",
+      "nom": "JSON",
+      "aliases": [
+        "JavaScript Object Notation"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Programmation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Format d'échange léger clé-valeur",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "{\"nom\": \"Ada\"}",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "XML",
+        "YAML"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00035",
+      "face": "B",
+      "type": "sigle",
+      "nom": "XML",
+      "aliases": [
+        "eXtensible Markup Language"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Programmation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Format balisé extensible et verbeux",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "<nom>Ada</nom>",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "JSON"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00036",
+      "face": "B",
+      "type": "sigle",
+      "nom": "YAML",
+      "aliases": [
+        "YAML Ain't Markup Language"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Programmation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Format lisible pour la configuration",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "nom: Ada",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "JSON"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00037",
+      "face": "B",
+      "type": "sigle",
+      "nom": "API",
+      "aliases": [
+        "Application Programming Interface"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Programmation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Interface pour faire dialoguer des logiciels",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "GET /api/users",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "SDK",
+        "REST"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00038",
+      "face": "B",
+      "type": "sigle",
+      "nom": "SDK",
+      "aliases": [
+        "Software Development Kit"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Programmation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Kit de développement pour une plateforme",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Android SDK",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "API"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00039",
+      "face": "B",
+      "type": "sigle",
+      "nom": "IDE",
+      "aliases": [
+        "Integrated Development Environment"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Programmation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Environnement de développement complet",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "VS Code, IntelliJ",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "CLI"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00040",
+      "face": "B",
+      "type": "sigle",
+      "nom": "SQL",
+      "aliases": [
+        "Structured Query Language"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Programmation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Langage des bases de données relationnelles",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "SELECT * FROM users",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "SGBD"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00041",
+      "face": "B",
+      "type": "sigle",
+      "nom": "SGBD",
+      "aliases": [
+        "Système de Gestion de Base de Données"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Programmation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Logiciel qui gère les bases de données",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "PostgreSQL, MySQL",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "SQL"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00042",
+      "face": "B",
+      "type": "sigle",
+      "nom": "ORM",
+      "aliases": [
+        "Object Relational Mapping"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Programmation"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Pont entre objets code et tables SQL",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Prisma, SQLAlchemy",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "SQL"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00043",
+      "face": "B",
+      "type": "sigle",
+      "nom": "REST",
+      "aliases": [
+        "REpresentational State Transfer"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Web"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Style d'API HTTP avec verbes et ressources",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "GET POST PUT DELETE",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "API"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00044",
+      "face": "B",
+      "type": "sigle",
+      "nom": "SMTP",
+      "aliases": [
+        "Simple Mail Transfer Protocol"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Réseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Envoi des e-mails port 25",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Serveur SMTP smtp.site.fr",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "IMAP"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00045",
+      "face": "B",
+      "type": "sigle",
+      "nom": "IMAP",
+      "aliases": [
+        "Internet Message Access Protocol"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Réseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Lecture des e-mails conservés sur serveur",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Port 993 en TLS",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "SMTP",
+        "POP3"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00046",
+      "face": "B",
+      "type": "sigle",
+      "nom": "POP3",
+      "aliases": [
+        "Post Office Protocol v3"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Réseau"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Téléchargement des e-mails port 110",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Récupérer les mails en POP",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "IMAP"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00047",
+      "face": "B",
+      "type": "sigle",
+      "nom": "SSL",
+      "aliases": [
+        "Secure Sockets Layer"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Sécurité"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Ancien protocole de chiffrement, remplacé par TLS",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Ne plus utiliser SSL",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "TLS",
+        "HTTPS"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00048",
+      "face": "B",
+      "type": "sigle",
+      "nom": "TLS",
+      "aliases": [
+        "Transport Layer Security"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Sécurité"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Chiffrement moderne des échanges",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "TLS 1.3 sur HTTPS",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "SSL"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00049",
+      "face": "B",
+      "type": "sigle",
+      "nom": "MFA",
+      "aliases": [
+        "Multi Factor Authentication"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Sécurité"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Double preuve d'identité pour se connecter",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Mot de passe + code SMS",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "2FA"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00050",
+      "face": "B",
+      "type": "sigle",
+      "nom": "2FA",
+      "aliases": [
+        "Two Factor Authentication"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Sécurité"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Cas particulier de MFA avec deux facteurs",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Code TOTP à 6 chiffres",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "MFA"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00051",
+      "face": "B",
+      "type": "sigle",
+      "nom": "DDoS",
+      "aliases": [
+        "Distributed Denial of Service"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Sécurité"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Attaque par saturation depuis un botnet",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Attaque DDoS 1 Tbps",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "VPN",
+        "Firewall"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00052",
+      "face": "B",
+      "type": "sigle",
+      "nom": "IA",
+      "aliases": [
+        "Intelligence Artificielle"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Concept"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Systèmes simulant des capacités cognitives",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "LLM comme Muse",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "ML"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00053",
+      "face": "B",
+      "type": "sigle",
+      "nom": "ML",
+      "aliases": [
+        "Machine Learning"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Concept"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Apprentissage automatique à partir de données",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "Régression, clustering",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "IA",
+        "DL"
+      ],
+      "source": "faceB_01_abreviations.md"
+    },
+    {
+      "id": "B-00054",
+      "face": "B",
+      "type": "sigle",
+      "nom": "DL",
+      "aliases": [
+        "Deep Learning"
+      ],
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Concept"
+      ],
+      "tags": [],
+      "niveau": "debutant",
+      "role_fr": "Réseaux de neurones profonds",
+      "syntaxe": "",
+      "exemples": [
+        {
+          "cmd": "CNN pour la vision",
+          "explication": ""
+        }
+      ],
+      "precautions": "",
+      "equivalents": [],
+      "voir_aussi": [
+        "ML"
+      ],
+      "source": "faceB_01_abreviations.md"
     }
   ]
 }
