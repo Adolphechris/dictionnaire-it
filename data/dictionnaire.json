@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "total": 262,
+  "total": 280,
   "entries": [
     {
       "face": "A",
@@ -20533,6 +20533,1961 @@
       "precautions": "",
       "equivalents": [],
       "id": "B-00123",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "GitLab",
+      "aliases": [
+        "GitLab (« l'abri des git » — dépôt Git + outils)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 79,
+      "contextes": [
+        "entreprise auto-hébergée (CE)",
+        "pipeline .gitlab-ci.yml",
+        "cycle produit complet"
+      ],
+      "origine": "Dmitriy Zaporozhets et Valery Sizov, 2011 (Ukraine) — version communautaire CE puis GitLab Inc. (2014) ; le SIEM DevSecOps plus large que GitHub historiquement.",
+      "subtilites": [
+        "GitLab.com (SaaS) vs instance CE/EE auto-hébergée : même produit, hébergement différent — souvent exigé en entreprise.",
+        "GitLab CI vs Jenkins : CI intégrée au forfait (moins de plugins à maintenir) vs serveur séparé extensible.",
+        "`.gitlab-ci.yml` ≠ GitHub Actions YAML : syntaxes voisines mais distinctes.",
+        "*Exemple :** `stages: [build, test, deploy] — job deploy: only: main`",
+        "*Voir aussi :** GitHub, CI, GitOps, merge request"
+      ],
+      "voir_aussi": [
+        "GitHub",
+        "CI",
+        "GitOps",
+        "merge request"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Plateforme complète : hébergement Git, CI/CD intégrée, gestion de projet et registre d'images — l'alternative open source à GitHub.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Pipeline dans .gitlab-ci.yml versionné",
+          "explication": "CI native du dépôt (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Merge request avec review + pipeline obligatoire",
+          "explication": "Porte de qualité",
+          "contexte": ""
+        },
+        {
+          "cmd": "Container Registry intégré",
+          "explication": "Images hébergées avec le code",
+          "contexte": ""
+        },
+        {
+          "cmd": "Auto-deploy sur environment review",
+          "explication": "Aperçu par branche",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Dmitriy Zaporozhets et Valery Sizov, 2011 (Ukraine) — version communautaire CE puis GitLab Inc. (2014) ; le SIEM DevSecOps plus large que GitHub historiquement.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "GitLab.com (SaaS) vs instance CE/EE auto-hébergée : même produit, hébergement différent — souvent exigé en entreprise.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "GitLab CI vs Jenkins : CI intégrée au forfait (moins de plugins à maintenir) vs serveur séparé extensible.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": ".gitlab-ci.yml` ≠ GitHub Actions YAML : syntaxes voisines mais distinctes.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `stages: [build, test, deploy] — job deploy: only: main",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** GitHub, CI, GitOps, merge request",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "stages: [build, test, deploy] — job deploy: only: main",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00124",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "GitHub Actions",
+      "aliases": [
+        "GitHub Actions (Actions GitHub)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 83,
+      "contextes": [
+        "projets open source",
+        "CI sans serveur à maintenir",
+        "bots de release",
+        "marketplace d'actions"
+      ],
+      "origine": "GitHub, 2019 (GA) — réponse à GitLab CI et à la dépendance aux CI tiers (Travis) ; hébergé, facturé au temps de build, gratuit pour les publics.",
+      "subtilites": [
+        "Actions ≠ GitHub : Actions = exécution de workflows, le reste (issues, PR) est le produit historique.",
+        "Facturation : les repos PRIVÉS consomment des minutes (2000/mois en gratuit) — les publics sont illimités.",
+        "Une action tierce `uses: quelquun/action@main` = code exécuté sur ta CI → verrouiller par SHA en prod.",
+        "*Exemple :** `name: CI — on: [push] — jobs: test: runs-on: ubuntu-latest`",
+        "*Voir aussi :** GitLab, CI, workflow, marketplace"
+      ],
+      "voir_aussi": [
+        "GitLab",
+        "CI",
+        "workflow",
+        "marketplace"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Moteur d'automatisation intégré à GitHub : CI/CD, tâches planifiées et réactions d'événements décrites en YAML dans le dépôt.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "on: push → jobs: build (ubuntu-latest)",
+          "explication": "Pipeline à chaque push (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "on: schedule: cron \"0 2 * * *\"",
+          "explication": "Tâche planifiée (refresh de données...)",
+          "contexte": ""
+        },
+        {
+          "cmd": "uses: actions/checkout@v4",
+          "explication": "Réutiliser une action de la marketplace",
+          "contexte": ""
+        },
+        {
+          "cmd": "Release auto quand un tag est poussé",
+          "explication": "Publication automatisée",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** GitHub, 2019 (GA) — réponse à GitLab CI et à la dépendance aux CI tiers (Travis) ; hébergé, facturé au temps de build, gratuit pour les publics.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Actions ≠ GitHub : Actions = exécution de workflows, le reste (issues, PR) est le produit historique.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Facturation : les repos PRIVÉS consomment des minutes (2000/mois en gratuit) — les publics sont illimités.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Une action tierce `uses: quelquun/action@main` = code exécuté sur ta CI → verrouiller par SHA en prod.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `name: CI — on: [push] — jobs: test: runs-on: ubuntu-latest",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** GitLab, CI, workflow, marketplace",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "name: CI — on: [push] — jobs: test: runs-on: ubuntu-latest",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00125",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "SSO",
+      "aliases": [
+        "Single Sign-On (Authentification Unique)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 76,
+      "contextes": [
+        "entreprise (annuaire central)",
+        "suite SaaS",
+        "réduction des mots de passe",
+        "expérience user"
+      ],
+      "origine": "Concepts de fédération d'identité (années 1990-2000, SAML 2005), démocratisés par les suites Google Workspace et Microsoft 365 ; aujourd'hui standard d'entreprise (Okta, Entra ID, Keycloak).",
+      "subtilites": [
+        "SSO ≠ MFA : SSO = un seul login pour N apps, MFA = N facteurs pour UN login — souvent combinés, jamais interchangeables.",
+        "Le SSO devient la clé de voûte : le compromettre = toutes les apps compromises → MFA obligatoire dessus.",
+        "Protocoles : SAML (XML, ancien, entreprise), OIDC (JSON moderne, web/mobile) — choisir OIDC pour le neuf.",
+        "*Exemple :** `App → redirect auth.exemple.fr → retour avec token OIDC`",
+        "*Voir aussi :** OAuth, MFA, IAM, Entra ID"
+      ],
+      "voir_aussi": [
+        "OAuth",
+        "MFA",
+        "IAM",
+        "Entra ID"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Sécurité"
+      ],
+      "tags": [],
+      "role_fr": "Un SEUL login central donne accès à plusieurs applications — plus de mot de passe par outil.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Login \"Continuer avec Google/Microsoft\" sur 20 apps",
+          "explication": "Le plus courant",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un seul compte, révocation centralisée",
+          "explication": "Départ employé = tout coupé",
+          "contexte": ""
+        },
+        {
+          "cmd": "MFA imposé une fois au niveau SSO",
+          "explication": "Sécurité renforcée partout",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Concepts de fédération d'identité (années 1990-2000, SAML 2005), démocratisés par les suites Google Workspace et Microsoft 365 ; aujourd'hui standard d'entreprise (Okta, Entra ID, Keycloak).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "SSO ≠ MFA : SSO = un seul login pour N apps, MFA = N facteurs pour UN login — souvent combinés, jamais interchangeables.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Le SSO devient la clé de voûte : le compromettre = toutes les apps compromises → MFA obligatoire dessus.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Protocoles : SAML (XML, ancien, entreprise), OIDC (JSON moderne, web/mobile) — choisir OIDC pour le neuf.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `App → redirect auth.exemple.fr → retour avec token OIDC",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** OAuth, MFA, IAM, Entra ID",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "App → redirect auth.exemple.fr → retour avec token OIDC",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00126",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Rollback",
+      "aliases": [
+        "Rollback (« rembobinage »)"
+      ],
+      "niveau": "debutant",
+      "popularite": 78,
+      "contextes": [
+        "incident de release",
+        "feature cassée",
+        "mise à jour ratée",
+        "checklist de déploiement"
+      ],
+      "origine": "Gestion de version et « undo » des systèmes critiques (aviation, télécom) ; rendu structurel par les déploiements continus où la vitesse du retour compte autant que celle de l'aller.",
+      "subtilites": [
+        "Rollback ≠ fix forward : rollback = reprendre l'ancienne version, fix = corriger et repartir vers l'avant — le 2e est choisi quand la bdd est déjà migrée.",
+        "Un rollback sans mécanisme de REVERS de base de données (expand/contract) casse à moitié → penser migrations rétro-compatibles.",
+        "Impossible de rollback ce qui n'est pas versionné : artefacts tagués et migrations versionnées = prérequis.",
+        "*Exemple :** `Déploiement OK mais taux d'erreur +5% → rollback immédiat < 2 min`",
+        "*Voir aussi :** CD, blue/green, canary, versioning"
+      ],
+      "voir_aussi": [
+        "CD",
+        "blue/green",
+        "canary",
+        "versioning"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Revenir à la version précédente d'une application quand la nouvelle version pose problème — la manœuvre de sécurité de tout déploiement.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "helm rollback monapp 2",
+          "explication": "K8s : revenir à la révision 2 (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Redéployer le tag précédent en CI",
+          "explication": "Déploiement d'hier relu à l'identique",
+          "contexte": ""
+        },
+        {
+          "cmd": "DB migration cassée → restore + rollback app",
+          "explication": "Cas le plus délicat (données)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Gestion de version et « undo » des systèmes critiques (aviation, télécom) ; rendu structurel par les déploiements continus où la vitesse du retour compte autant que celle de l'aller.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Rollback ≠ fix forward : rollback = reprendre l'ancienne version, fix = corriger et repartir vers l'avant — le 2e est choisi quand la bdd est déjà migrée.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un rollback sans mécanisme de REVERS de base de données (expand/contract) casse à moitié → penser migrations rétro-compatibles.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Impossible de rollback ce qui n'est pas versionné : artefacts tagués et migrations versionnées = prérequis.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `Déploiement OK mais taux d'erreur +5% → rollback immédiat < 2 min",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** CD, blue/green, canary, versioning",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "Déploiement OK mais taux d'erreur +5% → rollback immédiat < 2 min",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00127",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Monitoring",
+      "aliases": [
+        "Monitoring (Surveillance)"
+      ],
+      "niveau": "debutant",
+      "popularite": 80,
+      "contextes": [
+        "dashboards d'infra",
+        "alertes d'astreinte",
+        "capacité",
+        "disponibilité"
+      ],
+      "origine": "Supervision mainframe (années 1960, Nagios dès 1999) ; la vague cloud a imposé le monitoring managé (CloudWatch, 2009) puis Prometheus (2012).",
+      "subtilites": [
+        "Monitoring vs observabilité : monitoring = suivi de CE QU'ON SAIT (seuils, dashboards connus), observabilité = investigation de l'inconnu.",
+        "Surveiller ce que l'utilisateur VIT (latence, erreurs) avant les métriques machine (CPU) — un CPU à 20% peut servir une page en erreur.",
+        "Chaque alerte doit être ACTIONNABLE : sinon c'est du bruit qui anesthésie l'astreinte (alert fatigue).",
+        "*Exemple :** `Uptime 99,9% sur 30j — 8 alertes, 2 actions → 6 alertes à affiner`",
+        "*Voir aussi :** Prometheus, Grafana, SRE, observability"
+      ],
+      "voir_aussi": [
+        "Prometheus",
+        "Grafana",
+        "SRE",
+        "observability"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Collecter en continu l'état d'un système (CPU, latence, erreurs) pour le savoir AVANT que les users ne se plaignent.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "CPU/RAM/disque sur tous les serveurs",
+          "explication": "Le socle (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Latence P95 et taux d'erreur par service",
+          "explication": "Santé applicative",
+          "contexte": ""
+        },
+        {
+          "cmd": "Seuils d'alerte : disque > 90% → notification",
+          "explication": "Alerte proactive",
+          "contexte": ""
+        },
+        {
+          "cmd": "Historique 30 jours pour le dimensionnement",
+          "explication": "Anticiper la capacité",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Supervision mainframe (années 1960, Nagios dès 1999) ; la vague cloud a imposé le monitoring managé (CloudWatch, 2009) puis Prometheus (2012).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Monitoring vs observabilité : monitoring = suivi de CE QU'ON SAIT (seuils, dashboards connus), observabilité = investigation de l'inconnu.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Surveiller ce que l'utilisateur VIT (latence, erreurs) avant les métriques machine (CPU) — un CPU à 20% peut servir une page en erreur.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Chaque alerte doit être ACTIONNABLE : sinon c'est du bruit qui anesthésie l'astreinte (alert fatigue).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `Uptime 99,9% sur 30j — 8 alertes, 2 actions → 6 alertes à affiner",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** Prometheus, Grafana, SRE, observability",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "Uptime 99,9% sur 30j — 8 alertes, 2 actions → 6 alertes à affiner",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00128",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Backup",
+      "aliases": [
+        "Backup (Sauvegarde — de « back up », « remonter »)"
+      ],
+      "niveau": "debutant",
+      "popularite": 82,
+      "contextes": [
+        "bases de données",
+        "fichiers critiques",
+        "conformité",
+        "reprise après sinistre"
+      ],
+      "origine": "Bandes magnétiques des mainframes (années 1960) — la règle 3-2-1 vient des pros des sauvegardes ; les ransomwares (2010s+) ont remis les backups immuables au centre de la sécurité.",
+      "subtilites": [
+        "Backup ≠ HA : le backup protège CONTRE LA PERTE des données, la HA empêche l'INTERRUPTION du service.",
+        "Un backup jamais restauré n'existe pas : tester la restauration est LA métrique du backup.",
+        "Snapshots seuls ≠ backup (même disque = même panne) : dupliquer hors infrastructure d'origine.",
+        "*Exemple :** `Taux de restauration réussi en drill = 100% exigé`",
+        "*Voir aussi :** HA, snapshot, pg_dump, disaster recovery"
+      ],
+      "voir_aussi": [
+        "HA",
+        "snapshot",
+        "pg_dump",
+        "disaster recovery"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Sécurité"
+      ],
+      "tags": [],
+      "role_fr": "Copie des données dans un emplacement séparé, TESTÉE en restauration, pour survivre à une perte (panne, ransomware, erreur humaine).",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "pg_dump quotidien vers stockage distant",
+          "explication": "Sauvegarde planifiée (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Restauration testée chaque trimestre",
+          "explication": "Le seul backup qui compte (3-2-1)",
+          "contexte": ""
+        },
+        {
+          "cmd": "3-2-1 : 3 copies, 2 supports, 1 hors site",
+          "explication": "La règle d'or",
+          "contexte": ""
+        },
+        {
+          "cmd": "Rétention 30 jours + snapshots immuables",
+          "explication": "Survivre au ransomware",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Bandes magnétiques des mainframes (années 1960) — la règle 3-2-1 vient des pros des sauvegardes ; les ransomwares (2010s+) ont remis les backups immuables au centre de la sécurité.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Backup ≠ HA : le backup protège CONTRE LA PERTE des données, la HA empêche l'INTERRUPTION du service.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un backup jamais restauré n'existe pas : tester la restauration est LA métrique du backup.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Snapshots seuls ≠ backup (même disque = même panne) : dupliquer hors infrastructure d'origine.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `Taux de restauration réussi en drill = 100% exigé",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** HA, snapshot, pg_dump, disaster recovery",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "Taux de restauration réussi en drill = 100% exigé",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00129",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "On-call",
+      "aliases": [
+        "On-call (« en appel » — d'astreinte)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 69,
+      "contextes": [
+        "services critiques",
+        "rotatives d'équipe",
+        "compensation d'astreinte",
+        "escalade"
+      ],
+      "origine": "Télécom et datacenters (années 1980-90, pager/radiophare) ; formalisé par le SRE de Google avec la règle du confort d'astreinte (2016).",
+      "subtilites": [
+        "On-call ≠ être connecté en permanence : c'est être JOIGNABLE avec un délai contractuel d'acquittement.",
+        "Astreinte non compensée ou non tournée = turnover ops rapide — la rotation et la paye font partie du design.",
+        "Une astreinte qui sonne toutes les nuits est un PROBLÈME système, pas une fatalité (d'où le MTTR/alertes).",
+        "*Exemple :** `Règle SRE : si l'astreinte dégrade la vie, on n'ajoute pas de gens, on corrige les causes`",
+        "*Voir aussi :** SRE, runbook, alerting, escalation"
+      ],
+      "voir_aussi": [
+        "SRE",
+        "runbook",
+        "alerting",
+        "escalation"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Personne désignée, de garde 24/7, joignable par l'alerting pour traiter les incidents hors heures ouvrables.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Rotation hebdo : Alice cette semaine, Bob la suivante",
+          "explication": "Astreinte partagée (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Alerte → PagerDuty → l'astreinté intervient",
+          "explication": "Chaîne d'escalade",
+          "contexte": ""
+        },
+        {
+          "cmd": "Escalade auto après 15 min sans ack",
+          "explication": "Sécurité contre l'oubli",
+          "contexte": ""
+        },
+        {
+          "cmd": "Post-mortem de l'astreinte mensuel",
+          "explication": "Amélioration du confort de garde",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Télécom et datacenters (années 1980-90, pager/radiophare) ; formalisé par le SRE de Google avec la règle du confort d'astreinte (2016).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "On-call ≠ être connecté en permanence : c'est être JOIGNABLE avec un délai contractuel d'acquittement.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Astreinte non compensée ou non tournée = turnover ops rapide — la rotation et la paye font partie du design.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Une astreinte qui sonne toutes les nuits est un PROBLÈME système, pas une fatalité (d'où le MTTR/alertes).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `Règle SRE : si l'astreinte dégrade la vie, on n'ajoute pas de gens, on corrige les causes",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** SRE, runbook, alerting, escalation",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "Règle SRE : si l'astreinte dégrade la vie, on n'ajoute pas de gens, on corrige les causes",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00130",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Artifact",
+      "aliases": [
+        "Artifact (Artefact — livrable de construction)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 66,
+      "contextes": [
+        "CI/CD",
+        "déploiements reproductibles",
+        "promotion dev→staging→prod",
+        "registres"
+      ],
+      "origine": "Gestion de configuration des années 1990 (dépôts d'artefacts type Artifactory, 2006 ; Nexus, 2008) — réponse au \"ça marche sur ma machine\" : un artefact unique, immuable, promu entre environnements.",
+      "subtilites": [
+        "Artefact ≠ source : l'artefact EST le build du code, jamais modifié après coup (immuable).",
+        "\"Build once, deploy many\" : rebuild en staging = bugs différents des tests → le même binaire partout.",
+        "Artefact non taggé/nettoyé = dépôt qui explose : rétention et archivage à définir.",
+        "*Exemple :** `registry/app:1.4.2 déployé en staging ET prod — hash identique vérifié`",
+        "*Voir aussi :** CI, Registry, versioning, pipeline"
+      ],
+      "voir_aussi": [
+        "CI",
+        "Registry",
+        "versioning",
+        "pipeline"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Fichier produit par une build (JAR, APK, image, binaire) stocké et versionné pour être déployé tel quel en prod.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Build une fois, déployer PARTOUT le même artefact",
+          "explication": "Règle d'or (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Version : 1.4.2+build.583",
+          "explication": "Traçabilité build → déploiement",
+          "contexte": ""
+        },
+        {
+          "cmd": "Cache d'artefacts accélère les builds",
+          "explication": "Réutilisation des dépendances",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Gestion de configuration des années 1990 (dépôts d'artefacts type Artifactory, 2006 ; Nexus, 2008) — réponse au \"ça marche sur ma machine\" : un artefact unique, immuable, promu entre environnements.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Artefact ≠ source : l'artefact EST le build du code, jamais modifié après coup (immuable).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "\"Build once, deploy many\" : rebuild en staging = bugs différents des tests → le même binaire partout.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Artefact non taggé/nettoyé = dépôt qui explose : rétention et archivage à définir.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `registry/app:1.4.2 déployé en staging ET prod — hash identique vérifié",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** CI, Registry, versioning, pipeline",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "registry/app:1.4.2 déployé en staging ET prod — hash identique vérifié",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00131",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Pipeline",
+      "aliases": [
+        "Pipeline (Tuyau — chaîne d'étapes enfilées)"
+      ],
+      "niveau": "debutant",
+      "popularite": 84,
+      "contextes": [
+        "CI/CD",
+        "qualité automatique",
+        "déploiements",
+        "définition-as-code"
+      ],
+      "origine": "Métaphore industrielle appliquée au logiciel avec CruiseControl (2001) et la généralisation de la CI (Jenkins/Hudson, 2004-2011) ; les pipelines modernes sont du code versionné.",
+      "subtilites": [
+        "Pipeline ≠ serveur CI : le pipeline est la CHAÎNE d'étapes, le serveur (Jenkins, Actions) est ce qui l'exécute.",
+        "Pipeline lent = développeurs qui commitent moins → garder build < 10 min (cache, parallélisme).",
+        "Tests de bout en bout ralentissants : les séparer (staging) du rapide feedback (unit tests).",
+        "*Exemple :** `stages: [build, test, security-scan, deploy] — chaque stage conditionne le suivant`",
+        "*Voir aussi :** CI, CD, Jenkins, GitHub Actions"
+      ],
+      "voir_aussi": [
+        "CI",
+        "CD",
+        "Jenkins",
+        "GitHub Actions"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Séquence d'étapes automatisées (build → test → scan → déploiement) exécutées dans l'ordre, s'arrêtant à la première erreur.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Commit → build → tests → deploy staging",
+          "explication": "Chaîne classique (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Étape échouée = stop, rien n'est déployé",
+          "explication": "Porte de qualité",
+          "contexte": ""
+        },
+        {
+          "cmd": "Pipeline déclaré dans le dépôt",
+          "explication": "Versionné avec le code",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Métaphore industrielle appliquée au logiciel avec CruiseControl (2001) et la généralisation de la CI (Jenkins/Hudson, 2004-2011) ; les pipelines modernes sont du code versionné.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Pipeline ≠ serveur CI : le pipeline est la CHAÎNE d'étapes, le serveur (Jenkins, Actions) est ce qui l'exécute.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Pipeline lent = développeurs qui commitent moins → garder build < 10 min (cache, parallélisme).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Tests de bout en bout ralentissants : les séparer (staging) du rapide feedback (unit tests).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `stages: [build, test, security-scan, deploy] — chaque stage conditionne le suivant",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** CI, CD, Jenkins, GitHub Actions",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "stages: [build, test, security-scan, deploy] — chaque stage conditionne le suivant",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00132",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Snowflake",
+      "aliases": [
+        "Snowflake (« flocon » — chaque client une structure distincte)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 67,
+      "contextes": [
+        "entrepôt analytique d'entreprise",
+        "partage de données",
+        "concurrence de requêtes",
+        "pay-per-use"
+      ],
+      "origine": "Benoit Dageville et Thierry Cruanes (ex-Oracle), 2012, IPO 2020 — premier data warehouse strictement séparant compute et stockage, devenu référence du cloud data.",
+      "subtilites": [
+        "Snowflake ≠ IaaS : c'est du SaaS data — aucun serveur à gérer, mais tout reste facturé à l'usage (crédits).",
+        "Les crédits s'épuisent vite avec des warehouses laissés ON : auto-suspend obligatoire.",
+        "Snowflake vs BigQuery : même idée (serverless SQL massif) ; facturation à la seconde (Snowflake) vs téraoctet analysé (BigQuery).",
+        "*Exemple :** `ALTER WAREHOUSE wh SET AUTO_SUSPEND = 60;` — éviter les crédits gaspillés",
+        "*Voir aussi :** data warehouse, OLAP, BigQuery, ELT"
+      ],
+      "voir_aussi": [
+        "data warehouse",
+        "OLAP",
+        "BigQuery",
+        "ELT"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Bases de données"
+      ],
+      "tags": [],
+      "role_fr": "Data warehouse cloud managé : compute et stockage séparés et élastiques, SQL standard, sans serveur à dimensionner.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Warehouse X-SMALL pour l'équipe marketing",
+          "explication": "Dimensionner le compute à l'usage (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Sécuriser l'accès avec des rôles et des vues sécurisées",
+          "explication": "Gouvernance fine",
+          "contexte": ""
+        },
+        {
+          "cmd": "Zero-Copy Cloning pour un environnement de test",
+          "explication": "Cloner des données sans les dupliquer",
+          "contexte": ""
+        },
+        {
+          "cmd": "Stream + Task pour les flux en quasi temps réel",
+          "explication": "Micro-batch",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Benoit Dageville et Thierry Cruanes (ex-Oracle), 2012, IPO 2020 — premier data warehouse strictement séparant compute et stockage, devenu référence du cloud data.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Snowflake ≠ IaaS : c'est du SaaS data — aucun serveur à gérer, mais tout reste facturé à l'usage (crédits).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Les crédits s'épuisent vite avec des warehouses laissés ON : auto-suspend obligatoire.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Snowflake vs BigQuery : même idée (serverless SQL massif) ; facturation à la seconde (Snowflake) vs téraoctet analysé (BigQuery).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `ALTER WAREHOUSE wh SET AUTO_SUSPEND = 60;` — éviter les crédits gaspillés",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** data warehouse, OLAP, BigQuery, ELT",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "ALTER WAREHOUSE wh SET AUTO_SUSPEND = 60;` — éviter les crédits gaspillés",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00133",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "BigQuery",
+      "aliases": [
+        "BigQuery (« grande requête »)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 71,
+      "contextes": [
+        "analytics web (GA4)",
+        "data lakehouse",
+        "requêtes ad hoc sur des volumes énormes"
+      ],
+      "origine": "Google, 2011 (interne, \"Dremel\"), ouvert au public en 2012 — le moteur qui sous-tend Search réutilisé pour l'analyse.",
+      "subtilites": [
+        "BigQuery facture les OCTETS SCANNÉS : `SELECT *` sur une table partitionnée en scanant tout = facture inutile → toujours filtrer la partition.",
+        "BigQuery ≠ OLTP : pas d'index, pas de transactions — c'est un moteur columnaire analytique.",
+        "Le \"SQL\" BigQuery a des subtilités (UNNEST pour les arrays, dialecte legacy désactivé par défaut).",
+        "*Exemple :** `SELECT * FROM events WHERE _PARTITIONDATE = '2026-09-29'` — ne scanner que la partition utile",
+        "*Voir aussi :** Snowflake, data warehouse, OLAP, GCP"
+      ],
+      "voir_aussi": [
+        "Snowflake",
+        "data warehouse",
+        "OLAP",
+        "GCP"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Bases de données"
+      ],
+      "tags": [],
+      "role_fr": "Data warehouse serverless de Google : SQL massif sur des pétaoctets, sans cluster à gérer, facturé à l'analyse.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "SELECT count(*) FROM events WHERE date = '2026-09-29'",
+          "explication": "SQL sur milliards de lignes (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Partition par date, cluster par user_id",
+          "explication": "Réduire le coût et la latence",
+          "contexte": ""
+        },
+        {
+          "cmd": "Modeler en SQL (dbt-like)",
+          "explication": "Transformation versionnée en SQL",
+          "contexte": ""
+        },
+        {
+          "cmd": "External Query sur Google Sheets",
+          "explication": "Croiser BI et sheets",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Google, 2011 (interne, \"Dremel\"), ouvert au public en 2012 — le moteur qui sous-tend Search réutilisé pour l'analyse.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "BigQuery facture les OCTETS SCANNÉS : `SELECT *` sur une table partitionnée en scanant tout = facture inutile → toujours filtrer la partition.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "BigQuery ≠ OLTP : pas d'index, pas de transactions — c'est un moteur columnaire analytique.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Le \"SQL\" BigQuery a des subtilités (UNNEST pour les arrays, dialecte legacy désactivé par défaut).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `SELECT * FROM events WHERE _PARTITIONDATE = '2026-09-29'` — ne scanner que la partition utile",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** Snowflake, data warehouse, OLAP, GCP",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "SELECT * FROM events WHERE _PARTITIONDATE = '2026-09-29'` — ne scanner que la partition utile",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00134",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "dbt",
+      "aliases": [
+        "dbt (data build tool)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 66,
+      "contextes": [
+        "pipelines ELT",
+        "modélisation analytique",
+        "tests de données",
+        "documentation auto"
+      ],
+      "origine": "Taylor Murphy et Drew Banin (Fishtown Analytics), 2016 — a rendu accessible la pratique du modélisation analytique (bâti sur les idées de Kimball) ; racheté par Databricks (2023, ~4 Md$).",
+      "subtilites": [
+        "dbt ne CHARGE PAS : il TRANSFORME après que l'ELT a chargé — pas un ETL complet.",
+        "dbt test ≠ tests unitaires applicatifs : ce sont des assertions sur les DONNÉES (nullité, cardinalité...).",
+        "Un modèle dbt non testé = confiance aveugle — les tests sont la moindre des choses en prod data.",
+        "*Exemple :** `dbt build --select +marts_customers+` — modèle et ses dépendances amont/aval",
+        "*Voir aussi :** ETL, ELT, data warehouse, SQL"
+      ],
+      "voir_aussi": [
+        "ETL",
+        "ELT",
+        "data warehouse",
+        "SQL"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Data"
+      ],
+      "tags": [],
+      "role_fr": "Outil qui transforme des données brutes en modèles SQL versionnés, testés et documentés, exécutés dans le warehouse existant.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "dbt run — exécute les modèles SQL dans l'ordre dépendances",
+          "explication": "Le cœur (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "dbt test — tests sur chaque colonne (not_null, unique)",
+          "explication": "Qualité intégrée",
+          "contexte": ""
+        },
+        {
+          "cmd": "Modèle stg → int → marts",
+          "explication": "Couches structurées (staging, intermediate, marts)",
+          "contexte": ""
+        },
+        {
+          "cmd": "dbt docs",
+          "explication": "Documentation générée depuis les fichiers",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Taylor Murphy et Drew Banin (Fishtown Analytics), 2016 — a rendu accessible la pratique du modélisation analytique (bâti sur les idées de Kimball) ; racheté par Databricks (2023, ~4 Md$).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "dbt ne CHARGE PAS : il TRANSFORME après que l'ELT a chargé — pas un ETL complet.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "dbt test ≠ tests unitaires applicatifs : ce sont des assertions sur les DONNÉES (nullité, cardinalité...).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un modèle dbt non testé = confiance aveugle — les tests sont la moindre des choses en prod data.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `dbt build --select +marts_customers+` — modèle et ses dépendances amont/aval",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** ETL, ELT, data warehouse, SQL",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "dbt build --select +marts_customers+` — modèle et ses dépendances amont/aval",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00135",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Oracle",
+      "aliases": [
+        "Oracle (d'après le « Oracle of Delphi » — Larry Ellison inspiré par un article sur la base d'Aloha)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 65,
+      "contextes": [
+        "banque",
+        "assurance",
+        "administration",
+        "ERP (SAP)",
+        "systèmes legacy critiques"
+      ],
+      "origine": "Larry Ellison, Bob Miner et Ed Oates, 1977 — première base à implémenter SQL largement (après System R d'IBM), IPO 1986 ; leader des bases d'entreprise pendant 30 ans.",
+      "subtilites": [
+        "Oracle vs PostgreSQL/MySQL : Oracle = propriétaire (licence par cœur/processus), ultra-complet, verrouillage fort ; les open source ont rattrapé le gap sur 90% des usages.",
+        "La licence Oracle se compte mal : optionnel activé = redressement possible — audit license obligatoire.",
+        "`rownum`/`FETCH FIRST` : le SQL d'Oracle a ses spécificités (limitation de lignes historique).",
+        "*Exemple :** `SELECT * FROM t FETCH FIRST 10 ROWS ONLY` — limitation moderne",
+        "*Voir aussi :** SQL, PostgreSQL, SGBD, PL/SQL"
+      ],
+      "voir_aussi": [
+        "SQL",
+        "PostgreSQL",
+        "SGBD",
+        "PL/SQL"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Bases de données"
+      ],
+      "tags": [],
+      "role_fr": "SGBD relationnel propriétaire le plus utilisé en grande entreprise — robustesse, PL/SQL, licences coûteuses.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "SELECT * FROM clients WHERE id = :bind",
+          "explication": "Requêtes avec variables de liaison (anti-injection natif)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Expdp/Impdp pour les exports",
+          "explication": "Sauvegarde et restauration d'exports (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "PL/SQL : procédures stockées complexes",
+          "explication": "Logique métier embarquée",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Larry Ellison, Bob Miner et Ed Oates, 1977 — première base à implémenter SQL largement (après System R d'IBM), IPO 1986 ; leader des bases d'entreprise pendant 30 ans.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Oracle vs PostgreSQL/MySQL : Oracle = propriétaire (licence par cœur/processus), ultra-complet, verrouillage fort ; les open source ont rattrapé le gap sur 90% des usages.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "La licence Oracle se compte mal : optionnel activé = redressement possible — audit license obligatoire.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "rownum`/`FETCH FIRST` : le SQL d'Oracle a ses spécificités (limitation de lignes historique).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `SELECT * FROM t FETCH FIRST 10 ROWS ONLY` — limitation moderne",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** SQL, PostgreSQL, SGBD, PL/SQL",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "SELECT * FROM t FETCH FIRST 10 ROWS ONLY` — limitation moderne",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00136",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Supabase",
+      "aliases": [
+        "Supabase (« super base » — le Firebase open source)"
+      ],
+      "niveau": "debutant",
+      "popularite": 74,
+      "contextes": [
+        "startups rapides",
+        "apps sans backend dédié",
+        "prototypes",
+        "projets open source"
+      ],
+      "origine": "Ant Wilson et Paul Copplestone, 2020 — réponse open source à Firebase (Google) en s'appuyant sur PostgreSQL ; croissance explosive auprès des indépendants et startups.",
+      "subtilites": [
+        "Supabase ≠ Firebase : Supabase = vraie PostgreSQL (SQL, jointures, exit le lock-in NoSQL) ; Firebase = Firestore propriétaire.",
+        "RLS (Row Level Security) : si désactivée, TOUT le monde lit tout — la sécurité par défaut repose sur les policies.",
+        "L'API auto-générée est pratique mais doit être restreinte (views, grants) — sinon la base est exposée telle quelle.",
+        "*Exemple :** `create policy \"user read own\" on profiles for select using (auth.uid() = id)`",
+        "*Voir aussi :** PostgreSQL, Firebase, RLS, BaaS"
+      ],
+      "voir_aussi": [
+        "PostgreSQL",
+        "Firebase",
+        "RLS",
+        "BaaS"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Bases de données"
+      ],
+      "tags": [],
+      "role_fr": "Plateforme BaaS ouverte : PostgreSQL managé + API REST/temps réel générées + auth + storage, hébergée ou en auto-hébergé.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Table SQL → API REST automatique (PostgREST)",
+          "explication": "CRUD sans coder de backend (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Auth + RLS : chaque user ne voit que SES lignes",
+          "explication": "Sécurité au niveau base",
+          "contexte": ""
+        },
+        {
+          "cmd": "Realtime : abonnement aux changements de table",
+          "explication": "Mises à jour push",
+          "contexte": ""
+        },
+        {
+          "cmd": "Storage pour les fichiers (S3-like)",
+          "explication": "Images et documents",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Ant Wilson et Paul Copplestone, 2020 — réponse open source à Firebase (Google) en s'appuyant sur PostgreSQL ; croissance explosive auprès des indépendants et startups.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Supabase ≠ Firebase : Supabase = vraie PostgreSQL (SQL, jointures, exit le lock-in NoSQL) ; Firebase = Firestore propriétaire.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "RLS (Row Level Security) : si désactivée, TOUT le monde lit tout — la sécurité par défaut repose sur les policies.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "L'API auto-générée est pratique mais doit être restreinte (views, grants) — sinon la base est exposée telle quelle.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `create policy \"user read own\" on profiles for select using (auth.uid() = id)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** PostgreSQL, Firebase, RLS, BaaS",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "create policy \"user read own\" on profiles for select using (auth.uid() = id)",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00137",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Firestore",
+      "aliases": [
+        "Cloud Firestore (« base de données de Cloud »)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 72,
+      "contextes": [
+        "apps mobiles",
+        "realtime (chat",
+        "collaboration)",
+        "projets Firebase",
+        "offline-first"
+      ],
+      "origine": "Google, 2017 (remplace l'ancienne Firebase DB en RTDB) — Firebase racheté par Google en 2014 ; le standard des apps mobiles temps réel côté Google.",
+      "subtilites": [
+        "Firestore vs Realtime Database : Firestore = documents structurés + requêtes + offline ; RTDB = arbre JSON simple (l'ancien).",
+        "Pas de JOIN : les données sont dupliquées/denormalisées volontairement — lire plusieurs fois = plusieurs lectures PAYÉES.",
+        "Les règles de sécurité sont le VRAI périmètre : mal écrites = base mondiale lisible (incident classique).",
+        "*Exemple :** `db.collection(\"users\").doc(uid).collection(\"orders\").where(\"total\", \">\", 100)`",
+        "*Voir aussi :** NoSQL, MongoDB, Firebase, realtime"
+      ],
+      "voir_aussi": [
+        "NoSQL",
+        "MongoDB",
+        "Firebase",
+        "realtime"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Bases de données"
+      ],
+      "tags": [],
+      "role_fr": "Base documentaire Google Firebase : lecture/écriture temps réel, offline-first, règles de sécurité déclaratives.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "OnSnapshot : listener sur une collection",
+          "explication": "Mise à jour temps réel (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Règles : allow read: if request.auth != null",
+          "explication": "Sécurité déclarative (aussi symétrique)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Cache offline intégré aux SDK mobiles",
+          "explication": "Fonctionne sans réseau puis resynchronise",
+          "contexte": ""
+        },
+        {
+          "cmd": "Subcollections plutôt que jointures",
+          "explication": "Modèle documentaire",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Google, 2017 (remplace l'ancienne Firebase DB en RTDB) — Firebase racheté par Google en 2014 ; le standard des apps mobiles temps réel côté Google.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Firestore vs Realtime Database : Firestore = documents structurés + requêtes + offline ; RTDB = arbre JSON simple (l'ancien).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Pas de JOIN : les données sont dupliquées/denormalisées volontairement — lire plusieurs fois = plusieurs lectures PAYÉES.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Les règles de sécurité sont le VRAI périmètre : mal écrites = base mondiale lisible (incident classique).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `db.collection(\"users\").doc(uid).collection(\"orders\").where(\"total\", \">\", 100)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** NoSQL, MongoDB, Firebase, realtime",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "db.collection(\"users\").doc(uid).collection(\"orders\").where(\"total\", \">\", 100)",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00138",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "SQL Server",
+      "aliases": [
+        "Microsoft SQL Server (serveur SQL de Microsoft)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 68,
+      "contextes": [
+        "applications .NET/ASP.NET",
+        "entrepônes Microsoft",
+        "logiciels métiers Windows",
+        "Power BI"
+      ],
+      "origine": "Sybase SQL Server (1988, partenariat Microsoft/Sybase), code repris et indépendantisé par Microsoft (1996) — devenu le SGBD standard des maisons Microsoft ; versions Linux depuis 2017.",
+      "subtilites": [
+        "SQL Server vs MySQL : homonymes trompeurs — SQL Server = Microsoft (propriétaire, T-SQL), MySQL = Oracle/open (MySQL AB).",
+        "Express (gratuit, limites 10 Go) vs Standard vs Enterprise : les limites de taille/coûts changent tout.",
+        "T-SQL ≠ SQL standard : TOP, ISNULL, variables @ — la portabilité avec PostgreSQL est à vérifier.",
+        "*Exemple :** `SELECT TOP 10 nom FROM clients ORDER BY nom`",
+        "*Voir aussi :** SQL, PostgreSQL, MySQL, T-SQL"
+      ],
+      "voir_aussi": [
+        "SQL",
+        "PostgreSQL",
+        "MySQL",
+        "T-SQL"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Bases de données"
+      ],
+      "tags": [],
+      "role_fr": "SGBD relationnel propriétaire de Microsoft : intégration native à l'écosystème Windows/.NET, T-SQL, Reporting Services.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "SELECT TOP 10 * FROM clients",
+          "explication": "Limitation de lignes T-SQL (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "SSMS : interface graphique d'administration",
+          "explication": "L'IHM de référence",
+          "contexte": ""
+        },
+        {
+          "cmd": "Sauvegarde FULL + différentiels + logs de transaction",
+          "explication": "Plan de backup granulaire",
+          "contexte": ""
+        },
+        {
+          "cmd": "Windows Authentification intégrée",
+          "explication": "SSO avec Active Directory",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Sybase SQL Server (1988, partenariat Microsoft/Sybase), code repris et indépendantisé par Microsoft (1996) — devenu le SGBD standard des maisons Microsoft ; versions Linux depuis 2017.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "SQL Server vs MySQL : homonymes trompeurs — SQL Server = Microsoft (propriétaire, T-SQL), MySQL = Oracle/open (MySQL AB).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Express (gratuit, limites 10 Go) vs Standard vs Enterprise : les limites de taille/coûts changent tout.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "T-SQL ≠ SQL standard : TOP, ISNULL, variables @ — la portabilité avec PostgreSQL est à vérifier.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `SELECT TOP 10 nom FROM clients ORDER BY nom",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** SQL, PostgreSQL, MySQL, T-SQL",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "SELECT TOP 10 nom FROM clients ORDER BY nom",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00139",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Airflow",
+      "aliases": [
+        "Apache Airflow (« flux d'air » — orchestration légère)"
+      ],
+      "niveau": "avance",
+      "popularite": 64,
+      "contextes": [
+        "jobs ETL planifiés",
+        "dépendances entre tâches",
+        "retries automatiques",
+        "monitoring de workflows data"
+      ],
+      "origine": "Airbnb (Maxime Beauchemin), 2014, gradué Apache (2016) — le code comme interface d'orchestration a remplacé les IHM d'ETL historiques (Informatica, Talend GUI).",
+      "subtilites": [
+        "Airflow ORCHESTRE, il ne TRANSFORME pas : les données passent par d'autres outils (Spark, SQL, dbt).",
+        "Un DAG Python = exécution de code au parsing : garder les DAGs simples et déterministes.",
+        "Airflow vs Dagster/Prefect : Airflow = historique et écosystème massif ; les plus jeunes misent sur le typage et le data lineage.",
+        "*Exemple :** `with DAG(\"daily_etl\", schedule=\"0 2 * * *\") as dag:` — planification en cron",
+        "*Voir aussi :** ETL, dbt, pipeline, cron"
+      ],
+      "voir_aussi": [
+        "ETL",
+        "dbt",
+        "pipeline",
+        "cron"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Data"
+      ],
+      "tags": [],
+      "role_fr": "Plateforme qui définit, ordonne et monitor des pipelines de données (DAGs) en code Python — les tâches data deviennent du code versionné.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "DAG : extract → transform → load avec dépendances",
+          "explication": "Ordonnancement (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Retry automatique 3x avec backoff",
+          "explication": "Résilience des jobs",
+          "contexte": ""
+        },
+        {
+          "cmd": "Backfill : rejouer les 30 derniers jours",
+          "explication": "Rattrapage après incident",
+          "contexte": ""
+        },
+        {
+          "cmd": "SLA par tâche + alerte email",
+          "explication": "Surveiller les jobs data",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Airbnb (Maxime Beauchemin), 2014, gradué Apache (2016) — le code comme interface d'orchestration a remplacé les IHM d'ETL historiques (Informatica, Talend GUI).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Airflow ORCHESTRE, il ne TRANSFORME pas : les données passent par d'autres outils (Spark, SQL, dbt).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un DAG Python = exécution de code au parsing : garder les DAGs simples et déterministes.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Airflow vs Dagster/Prefect : Airflow = historique et écosystème massif ; les plus jeunes misent sur le typage et le data lineage.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `with DAG(\"daily_etl\", schedule=\"0 2 * * *\") as dag:` — planification en cron",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** ETL, dbt, pipeline, cron",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "with DAG(\"daily_etl\", schedule=\"0 2 * * *\") as dag:` — planification en cron",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00140",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Scalability",
+      "aliases": [
+        "Scalability (Évolutivité / Montée en charge)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 75,
+      "contextes": [
+        "croissance d'usage",
+        "pics de trafic",
+        "dimensionnement",
+        "choix d'architecture"
+      ],
+      "origine": "Systèmes distribués (années 1980-90) et lois de Amdahl/Gustafson sur le parallélisme ; devenu un critère central avec le web à très fort trafic (années 2000).",
+      "subtilites": [
+        "Scale VERTICAL (plus gros) vs HORIZONTAL (plus nombreux) : le vertical a un plafond matériel, l'horizontal est illimité mais demande du stateless.",
+        "Scalability ≠ performance : un système rapide à 10 users peut être lent à 10000 — les 2 se mesurent séparément.",
+        "Optimiser AVANT d'avoir le problème = waste ; scaler AVANT d'avoir le plan = incident — dimensionner avec des métriques.",
+        "*Exemple :** `Horizontale : 1×8 cœurs vs 8×1 cœurs — le 2e survit à la panne d'un nœud`",
+        "*Voir aussi :** HA, Load Balancer, cache, stateless"
+      ],
+      "voir_aussi": [
+        "HA",
+        "Load Balancer",
+        "cache",
+        "stateless"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Capacité d'un système à absorber une charge croissante en ajoutant des ressources (ou en écrivant mieux), sans refonte.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Scale horizontal : +2 serveurs derrière le LB",
+          "explication": "Le plus courant et le plus robuste",
+          "contexte": ""
+        },
+        {
+          "cmd": "Scale vertical : passer de 4 à 8 Go de RAM",
+          "explication": "Simple mais plafonné",
+          "contexte": ""
+        },
+        {
+          "cmd": "Cache devant les lectures répétées",
+          "explication": "Éviter de servir la même requête 1000x",
+          "contexte": ""
+        },
+        {
+          "cmd": "File d'attente pour absorber les pics",
+          "explication": "Lisser la charge",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Systèmes distribués (années 1980-90) et lois de Amdahl/Gustafson sur le parallélisme ; devenu un critère central avec le web à très fort trafic (années 2000).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Scale VERTICAL (plus gros) vs HORIZONTAL (plus nombreux) : le vertical a un plafond matériel, l'horizontal est illimité mais demande du stateless.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Scalability ≠ performance : un système rapide à 10 users peut être lent à 10000 — les 2 se mesurent séparément.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Optimiser AVANT d'avoir le problème = waste ; scaler AVANT d'avoir le plan = incident — dimensionner avec des métriques.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `Horizontale : 1×8 cœurs vs 8×1 cœurs — le 2e survit à la panne d'un nœud",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** HA, Load Balancer, cache, stateless",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "Horizontale : 1×8 cœurs vs 8×1 cœurs — le 2e survit à la panne d'un nœud",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00141",
       "version": 1,
       "updated_at": "2026-09-30"
     }

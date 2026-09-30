@@ -1250,6 +1250,330 @@
 **Exemple :** `Inventaire : ticket "dette: refactor auth" — coût estimé 3j — criticité haute`
 **Voir aussi :** refactoring, clean code, code legacy, sprint technique
 
+## `GitLab` — Plateforme DevOps tout-en-un [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 79
+**Signification :** GitLab (« l'abri des git » — dépôt Git + outils)
+**Définition :** Plateforme complète : hébergement Git, CI/CD intégrée, gestion de projet et registre d'images — l'alternative open source à GitHub.
+**Contextes :** entreprise auto-hébergée (CE), pipeline .gitlab-ci.yml, cycle produit complet
+**Cas réguliers :**
+- `Pipeline dans .gitlab-ci.yml versionné` — CI native du dépôt (le plus courant)
+- `Merge request avec review + pipeline obligatoire` — Porte de qualité
+- `Container Registry intégré` — Images hébergées avec le code
+- `Auto-deploy sur environment review` — Aperçu par branche
+**Origine :** Dmitriy Zaporozhets et Valery Sizov, 2011 (Ukraine) — version communautaire CE puis GitLab Inc. (2014) ; le SIEM DevSecOps plus large que GitHub historiquement.
+**Subtilités/confusions :**
+- GitLab.com (SaaS) vs instance CE/EE auto-hébergée : même produit, hébergement différent — souvent exigé en entreprise.
+- GitLab CI vs Jenkins : CI intégrée au forfait (moins de plugins à maintenir) vs serveur séparé extensible.
+- `.gitlab-ci.yml` ≠ GitHub Actions YAML : syntaxes voisines mais distinctes.
+**Exemple :** `stages: [build, test, deploy] — job deploy: only: main`
+**Voir aussi :** GitHub, CI, GitOps, merge request
+
+## `GitHub Actions` — Automatisations hébergées chez GitHub [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 83
+**Signification :** GitHub Actions (Actions GitHub)
+**Définition :** Moteur d'automatisation intégré à GitHub : CI/CD, tâches planifiées et réactions d'événements décrites en YAML dans le dépôt.
+**Contextes :** projets open source, CI sans serveur à maintenir, bots de release, marketplace d'actions
+**Cas réguliers :**
+- `on: push → jobs: build (ubuntu-latest)` — Pipeline à chaque push (le plus courant)
+- `on: schedule: cron "0 2 * * *"` — Tâche planifiée (refresh de données...)
+- `uses: actions/checkout@v4` — Réutiliser une action de la marketplace
+- `Release auto quand un tag est poussé` — Publication automatisée
+**Origine :** GitHub, 2019 (GA) — réponse à GitLab CI et à la dépendance aux CI tiers (Travis) ; hébergé, facturé au temps de build, gratuit pour les publics.
+**Subtilités/confusions :**
+- Actions ≠ GitHub : Actions = exécution de workflows, le reste (issues, PR) est le produit historique.
+- Facturation : les repos PRIVÉS consomment des minutes (2000/mois en gratuit) — les publics sont illimités.
+- Une action tierce `uses: quelquun/action@main` = code exécuté sur ta CI → verrouiller par SHA en prod.
+**Exemple :** `name: CI — on: [push] — jobs: test: runs-on: ubuntu-latest`
+**Voir aussi :** GitLab, CI, workflow, marketplace
+
+## `SSO` — Authentification unique [Sécurité]
+**Catégorie :** Sécurité | **Niveau :** intermediaire | **Popularité :** 76
+**Signification :** Single Sign-On (Authentification Unique)
+**Définition :** Un SEUL login central donne accès à plusieurs applications — plus de mot de passe par outil.
+**Contextes :** entreprise (annuaire central), suite SaaS, réduction des mots de passe, expérience user
+**Cas réguliers :**
+- `Login "Continuer avec Google/Microsoft" sur 20 apps` — Le plus courant
+- `Un seul compte, révocation centralisée` — Départ employé = tout coupé
+- `MFA imposé une fois au niveau SSO` — Sécurité renforcée partout
+**Origine :** Concepts de fédération d'identité (années 1990-2000, SAML 2005), démocratisés par les suites Google Workspace et Microsoft 365 ; aujourd'hui standard d'entreprise (Okta, Entra ID, Keycloak).
+**Subtilités/confusions :**
+- SSO ≠ MFA : SSO = un seul login pour N apps, MFA = N facteurs pour UN login — souvent combinés, jamais interchangeables.
+- Le SSO devient la clé de voûte : le compromettre = toutes les apps compromises → MFA obligatoire dessus.
+- Protocoles : SAML (XML, ancien, entreprise), OIDC (JSON moderne, web/mobile) — choisir OIDC pour le neuf.
+**Exemple :** `App → redirect auth.exemple.fr → retour avec token OIDC`
+**Voir aussi :** OAuth, MFA, IAM, Entra ID
+
+## `Rollback` — Retour à une version antérieure [DevOps]
+**Catégorie :** DevOps | **Niveau :** debutant | **Popularité :** 78
+**Signification :** Rollback (« rembobinage »)
+**Définition :** Revenir à la version précédente d'une application quand la nouvelle version pose problème — la manœuvre de sécurité de tout déploiement.
+**Contextes :** incident de release, feature cassée, mise à jour ratée, checklist de déploiement
+**Cas réguliers :**
+- `helm rollback monapp 2` — K8s : revenir à la révision 2 (le plus courant)
+- `Redéployer le tag précédent en CI` — Déploiement d'hier relu à l'identique
+- `DB migration cassée → restore + rollback app` — Cas le plus délicat (données)
+**Origine :** Gestion de version et « undo » des systèmes critiques (aviation, télécom) ; rendu structurel par les déploiements continus où la vitesse du retour compte autant que celle de l'aller.
+**Subtilités/confusions :**
+- Rollback ≠ fix forward : rollback = reprendre l'ancienne version, fix = corriger et repartir vers l'avant — le 2e est choisi quand la bdd est déjà migrée.
+- Un rollback sans mécanisme de REVERS de base de données (expand/contract) casse à moitié → penser migrations rétro-compatibles.
+- Impossible de rollback ce qui n'est pas versionné : artefacts tagués et migrations versionnées = prérequis.
+**Exemple :** `Déploiement OK mais taux d'erreur +5% → rollback immédiat < 2 min`
+**Voir aussi :** CD, blue/green, canary, versioning
+
+## `Monitoring` — Surveillance d'un système en fonctionnement [DevOps]
+**Catégorie :** DevOps | **Niveau :** debutant | **Popularité :** 80
+**Signification :** Monitoring (Surveillance)
+**Définition :** Collecter en continu l'état d'un système (CPU, latence, erreurs) pour le savoir AVANT que les users ne se plaignent.
+**Contextes :** dashboards d'infra, alertes d'astreinte, capacité, disponibilité
+**Cas réguliers :**
+- `CPU/RAM/disque sur tous les serveurs` — Le socle (le plus courant)
+- `Latence P95 et taux d'erreur par service` — Santé applicative
+- `Seuils d'alerte : disque > 90% → notification` — Alerte proactive
+- `Historique 30 jours pour le dimensionnement` — Anticiper la capacité
+**Origine :** Supervision mainframe (années 1960, Nagios dès 1999) ; la vague cloud a imposé le monitoring managé (CloudWatch, 2009) puis Prometheus (2012).
+**Subtilités/confusions :**
+- Monitoring vs observabilité : monitoring = suivi de CE QU'ON SAIT (seuils, dashboards connus), observabilité = investigation de l'inconnu.
+- Surveiller ce que l'utilisateur VIT (latence, erreurs) avant les métriques machine (CPU) — un CPU à 20% peut servir une page en erreur.
+- Chaque alerte doit être ACTIONNABLE : sinon c'est du bruit qui anesthésie l'astreinte (alert fatigue).
+**Exemple :** `Uptime 99,9% sur 30j — 8 alertes, 2 actions → 6 alertes à affiner`
+**Voir aussi :** Prometheus, Grafana, SRE, observability
+
+## `Backup` — Sauvegarde et restauration des données [Sécurité]
+**Catégorie :** Sécurité | **Niveau :** debutant | **Popularité :** 82
+**Signification :** Backup (Sauvegarde — de « back up », « remonter »)
+**Définition :** Copie des données dans un emplacement séparé, TESTÉE en restauration, pour survivre à une perte (panne, ransomware, erreur humaine).
+**Contextes :** bases de données, fichiers critiques, conformité, reprise après sinistre
+**Cas réguliers :**
+- `pg_dump quotidien vers stockage distant` — Sauvegarde planifiée (le plus courant)
+- `Restauration testée chaque trimestre` — Le seul backup qui compte (3-2-1)
+- `3-2-1 : 3 copies, 2 supports, 1 hors site` — La règle d'or
+- `Rétention 30 jours + snapshots immuables` — Survivre au ransomware
+**Origine :** Bandes magnétiques des mainframes (années 1960) — la règle 3-2-1 vient des pros des sauvegardes ; les ransomwares (2010s+) ont remis les backups immuables au centre de la sécurité.
+**Subtilités/confusions :**
+- Backup ≠ HA : le backup protège CONTRE LA PERTE des données, la HA empêche l'INTERRUPTION du service.
+- Un backup jamais restauré n'existe pas : tester la restauration est LA métrique du backup.
+- Snapshots seuls ≠ backup (même disque = même panne) : dupliquer hors infrastructure d'origine.
+**Exemple :** `Taux de restauration réussi en drill = 100% exigé`
+**Voir aussi :** HA, snapshot, pg_dump, disaster recovery
+
+## `On-call` — Astreinte humaine du système [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 69
+**Signification :** On-call (« en appel » — d'astreinte)
+**Définition :** Personne désignée, de garde 24/7, joignable par l'alerting pour traiter les incidents hors heures ouvrables.
+**Contextes :** services critiques, rotatives d'équipe, compensation d'astreinte, escalade
+**Cas réguliers :**
+- `Rotation hebdo : Alice cette semaine, Bob la suivante` — Astreinte partagée (le plus courant)
+- `Alerte → PagerDuty → l'astreinté intervient` — Chaîne d'escalade
+- `Escalade auto après 15 min sans ack` — Sécurité contre l'oubli
+- `Post-mortem de l'astreinte mensuel` — Amélioration du confort de garde
+**Origine :** Télécom et datacenters (années 1980-90, pager/radiophare) ; formalisé par le SRE de Google avec la règle du confort d'astreinte (2016).
+**Subtilités/confusions :**
+- On-call ≠ être connecté en permanence : c'est être JOIGNABLE avec un délai contractuel d'acquittement.
+- Astreinte non compensée ou non tournée = turnover ops rapide — la rotation et la paye font partie du design.
+- Une astreinte qui sonne toutes les nuits est un PROBLÈME système, pas une fatalité (d'où le MTTR/alertes).
+**Exemple :** `Règle SRE : si l'astreinte dégrade la vie, on n'ajoute pas de gens, on corrige les causes`
+**Voir aussi :** SRE, runbook, alerting, escalation
+
+## `Artifact` — Livrable de build versionné [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 66
+**Signification :** Artifact (Artefact — livrable de construction)
+**Définition :** Fichier produit par une build (JAR, APK, image, binaire) stocké et versionné pour être déployé tel quel en prod.
+**Contextes :** CI/CD, déploiements reproductibles, promotion dev→staging→prod, registres
+**Cas réguliers :**
+- `Build une fois, déployer PARTOUT le même artefact` — Règle d'or (le plus courant)
+- `Version : 1.4.2+build.583` — Traçabilité build → déploiement
+- `Cache d'artefacts accélère les builds` — Réutilisation des dépendances
+**Origine :** Gestion de configuration des années 1990 (dépôts d'artefacts type Artifactory, 2006 ; Nexus, 2008) — réponse au "ça marche sur ma machine" : un artefact unique, immuable, promu entre environnements.
+**Subtilités/confusions :**
+- Artefact ≠ source : l'artefact EST le build du code, jamais modifié après coup (immuable).
+- "Build once, deploy many" : rebuild en staging = bugs différents des tests → le même binaire partout.
+- Artefact non taggé/nettoyé = dépôt qui explose : rétention et archivage à définir.
+**Exemple :** `registry/app:1.4.2 déployé en staging ET prod — hash identique vérifié`
+**Voir aussi :** CI, Registry, versioning, pipeline
+
+## `Pipeline` — Chaîne automatisée de livraison [DevOps]
+**Catégorie :** DevOps | **Niveau :** debutant | **Popularité :** 84
+**Signification :** Pipeline (Tuyau — chaîne d'étapes enfilées)
+**Définition :** Séquence d'étapes automatisées (build → test → scan → déploiement) exécutées dans l'ordre, s'arrêtant à la première erreur.
+**Contextes :** CI/CD, qualité automatique, déploiements, définition-as-code
+**Cas réguliers :**
+- `Commit → build → tests → deploy staging` — Chaîne classique (le plus courant)
+- `Étape échouée = stop, rien n'est déployé` — Porte de qualité
+- `Pipeline déclaré dans le dépôt` — Versionné avec le code
+**Origine :** Métaphore industrielle appliquée au logiciel avec CruiseControl (2001) et la généralisation de la CI (Jenkins/Hudson, 2004-2011) ; les pipelines modernes sont du code versionné.
+**Subtilités/confusions :**
+- Pipeline ≠ serveur CI : le pipeline est la CHAÎNE d'étapes, le serveur (Jenkins, Actions) est ce qui l'exécute.
+- Pipeline lent = développeurs qui commitent moins → garder build < 10 min (cache, parallélisme).
+- Tests de bout en bout ralentissants : les séparer (staging) du rapide feedback (unit tests).
+**Exemple :** `stages: [build, test, security-scan, deploy] — chaque stage conditionne le suivant`
+**Voir aussi :** CI, CD, Jenkins, GitHub Actions
+
+## `Snowflake` — Data cloud sans serveur [Bases de données]
+**Catégorie :** Bases de données | **Niveau :** intermediaire | **Popularité :** 67
+**Signification :** Snowflake (« flocon » — chaque client une structure distincte)
+**Définition :** Data warehouse cloud managé : compute et stockage séparés et élastiques, SQL standard, sans serveur à dimensionner.
+**Contextes :** entrepôt analytique d'entreprise, partage de données, concurrence de requêtes, pay-per-use
+**Cas réguliers :**
+- `Warehouse X-SMALL pour l'équipe marketing` — Dimensionner le compute à l'usage (le plus courant)
+- `Sécuriser l'accès avec des rôles et des vues sécurisées` — Gouvernance fine
+- `Zero-Copy Cloning pour un environnement de test` — Cloner des données sans les dupliquer
+- `Stream + Task pour les flux en quasi temps réel` — Micro-batch
+**Origine :** Benoit Dageville et Thierry Cruanes (ex-Oracle), 2012, IPO 2020 — premier data warehouse strictement séparant compute et stockage, devenu référence du cloud data.
+**Subtilités/confusions :**
+- Snowflake ≠ IaaS : c'est du SaaS data — aucun serveur à gérer, mais tout reste facturé à l'usage (crédits).
+- Les crédits s'épuisent vite avec des warehouses laissés ON : auto-suspend obligatoire.
+- Snowflake vs BigQuery : même idée (serverless SQL massif) ; facturation à la seconde (Snowflake) vs téraoctet analysé (BigQuery).
+**Exemple :** `ALTER WAREHOUSE wh SET AUTO_SUSPEND = 60;` — éviter les crédits gaspillés
+**Voir aussi :** data warehouse, OLAP, BigQuery, ELT
+
+## `BigQuery` — SQL analytique serverless de Google [Bases de données]
+**Catégorie :** Bases de données | **Niveau :** intermediaire | **Popularité :** 71
+**Signification :** BigQuery (« grande requête »)
+**Définition :** Data warehouse serverless de Google : SQL massif sur des pétaoctets, sans cluster à gérer, facturé à l'analyse.
+**Contextes :** analytics web (GA4), data lakehouse, requêtes ad hoc sur des volumes énormes
+**Cas réguliers :**
+- `SELECT count(*) FROM events WHERE date = '2026-09-29'` — SQL sur milliards de lignes (le plus courant)
+- `Partition par date, cluster par user_id` — Réduire le coût et la latence
+- `Modeler en SQL (dbt-like)` — Transformation versionnée en SQL
+- `External Query sur Google Sheets` — Croiser BI et sheets
+**Origine :** Google, 2011 (interne, "Dremel"), ouvert au public en 2012 — le moteur qui sous-tend Search réutilisé pour l'analyse.
+**Subtilités/confusions :**
+- BigQuery facture les OCTETS SCANNÉS : `SELECT *` sur une table partitionnée en scanant tout = facture inutile → toujours filtrer la partition.
+- BigQuery ≠ OLTP : pas d'index, pas de transactions — c'est un moteur columnaire analytique.
+- Le "SQL" BigQuery a des subtilités (UNNEST pour les arrays, dialecte legacy désactivé par défaut).
+**Exemple :** `SELECT * FROM events WHERE _PARTITIONDATE = '2026-09-29'` — ne scanner que la partition utile
+**Voir aussi :** Snowflake, data warehouse, OLAP, GCP
+
+## `dbt` — Transformations de données en SQL versionné [Data]
+**Catégorie :** Data | **Niveau :** intermediaire | **Popularité :** 66
+**Signification :** dbt (data build tool)
+**Définition :** Outil qui transforme des données brutes en modèles SQL versionnés, testés et documentés, exécutés dans le warehouse existant.
+**Contextes :** pipelines ELT, modélisation analytique, tests de données, documentation auto
+**Cas réguliers :**
+- `dbt run — exécute les modèles SQL dans l'ordre dépendances` — Le cœur (le plus courant)
+- `dbt test — tests sur chaque colonne (not_null, unique)` — Qualité intégrée
+- `Modèle stg → int → marts` — Couches structurées (staging, intermediate, marts)
+- `dbt docs` — Documentation générée depuis les fichiers
+**Origine :** Taylor Murphy et Drew Banin (Fishtown Analytics), 2016 — a rendu accessible la pratique du modélisation analytique (bâti sur les idées de Kimball) ; racheté par Databricks (2023, ~4 Md$).
+**Subtilités/confusions :**
+- dbt ne CHARGE PAS : il TRANSFORME après que l'ELT a chargé — pas un ETL complet.
+- dbt test ≠ tests unitaires applicatifs : ce sont des assertions sur les DONNÉES (nullité, cardinalité...).
+- Un modèle dbt non testé = confiance aveugle — les tests sont la moindre des choses en prod data.
+**Exemple :** `dbt build --select +marts_customers+` — modèle et ses dépendances amont/aval
+**Voir aussi :** ETL, ELT, data warehouse, SQL
+
+## `Oracle` — SGBD relationnel d'entreprise historique [Bases de données]
+**Catégorie :** Bases de données | **Niveau :** intermediaire | **Popularité :** 65
+**Signification :** Oracle (d'après le « Oracle of Delphi » — Larry Ellison inspiré par un article sur la base d'Aloha)
+**Définition :** SGBD relationnel propriétaire le plus utilisé en grande entreprise — robustesse, PL/SQL, licences coûteuses.
+**Contextes :** banque, assurance, administration, ERP (SAP), systèmes legacy critiques
+**Cas réguliers :**
+- `SELECT * FROM clients WHERE id = :bind` — Requêtes avec variables de liaison (anti-injection natif)
+- `Expdp/Impdp pour les exports` — Sauvegarde et restauration d'exports (le plus courant)
+- `PL/SQL : procédures stockées complexes` — Logique métier embarquée
+**Origine :** Larry Ellison, Bob Miner et Ed Oates, 1977 — première base à implémenter SQL largement (après System R d'IBM), IPO 1986 ; leader des bases d'entreprise pendant 30 ans.
+**Subtilités/confusions :**
+- Oracle vs PostgreSQL/MySQL : Oracle = propriétaire (licence par cœur/processus), ultra-complet, verrouillage fort ; les open source ont rattrapé le gap sur 90% des usages.
+- La licence Oracle se compte mal : optionnel activé = redressement possible — audit license obligatoire.
+- `rownum`/`FETCH FIRST` : le SQL d'Oracle a ses spécificités (limitation de lignes historique).
+**Exemple :** `SELECT * FROM t FETCH FIRST 10 ROWS ONLY` — limitation moderne
+**Voir aussi :** SQL, PostgreSQL, SGBD, PL/SQL
+
+## `Supabase` — Backend open source type Firebase [Bases de données]
+**Catégorie :** Bases de données | **Niveau :** debutant | **Popularité :** 74
+**Signification :** Supabase (« super base » — le Firebase open source)
+**Définition :** Plateforme BaaS ouverte : PostgreSQL managé + API REST/temps réel générées + auth + storage, hébergée ou en auto-hébergé.
+**Contextes :** startups rapides, apps sans backend dédié, prototypes, projets open source
+**Cas réguliers :**
+- `Table SQL → API REST automatique (PostgREST)` — CRUD sans coder de backend (le plus courant)
+- `Auth + RLS : chaque user ne voit que SES lignes` — Sécurité au niveau base
+- `Realtime : abonnement aux changements de table` — Mises à jour push
+- `Storage pour les fichiers (S3-like)` — Images et documents
+**Origine :** Ant Wilson et Paul Copplestone, 2020 — réponse open source à Firebase (Google) en s'appuyant sur PostgreSQL ; croissance explosive auprès des indépendants et startups.
+**Subtilités/confusions :**
+- Supabase ≠ Firebase : Supabase = vraie PostgreSQL (SQL, jointures, exit le lock-in NoSQL) ; Firebase = Firestore propriétaire.
+- RLS (Row Level Security) : si désactivée, TOUT le monde lit tout — la sécurité par défaut repose sur les policies.
+- L'API auto-générée est pratique mais doit être restreinte (views, grants) — sinon la base est exposée telle quelle.
+**Exemple :** `create policy "user read own" on profiles for select using (auth.uid() = id)`
+**Voir aussi :** PostgreSQL, Firebase, RLS, BaaS
+
+## `Firestore` — Base NoSQL temps réel de Google [Bases de données]
+**Catégorie :** Bases de données | **Niveau :** intermediaire | **Popularité :** 72
+**Signification :** Cloud Firestore (« base de données de Cloud »)
+**Définition :** Base documentaire Google Firebase : lecture/écriture temps réel, offline-first, règles de sécurité déclaratives.
+**Contextes :** apps mobiles, realtime (chat, collaboration), projets Firebase, offline-first
+**Cas réguliers :**
+- `OnSnapshot : listener sur une collection` — Mise à jour temps réel (le plus courant)
+- `Règles : allow read: if request.auth != null` — Sécurité déclarative (aussi symétrique)
+- `Cache offline intégré aux SDK mobiles` — Fonctionne sans réseau puis resynchronise
+- `Subcollections plutôt que jointures` — Modèle documentaire
+**Origine :** Google, 2017 (remplace l'ancienne Firebase DB en RTDB) — Firebase racheté par Google en 2014 ; le standard des apps mobiles temps réel côté Google.
+**Subtilités/confusions :**
+- Firestore vs Realtime Database : Firestore = documents structurés + requêtes + offline ; RTDB = arbre JSON simple (l'ancien).
+- Pas de JOIN : les données sont dupliquées/denormalisées volontairement — lire plusieurs fois = plusieurs lectures PAYÉES.
+- Les règles de sécurité sont le VRAI périmètre : mal écrites = base mondiale lisible (incident classique).
+**Exemple :** `db.collection("users").doc(uid).collection("orders").where("total", ">", 100)`
+**Voir aussi :** NoSQL, MongoDB, Firebase, realtime
+
+## `SQL Server` — SGBD relationnel Microsoft [Bases de données]
+**Catégorie :** Bases de données | **Niveau :** intermediaire | **Popularité :** 68
+**Signification :** Microsoft SQL Server (serveur SQL de Microsoft)
+**Définition :** SGBD relationnel propriétaire de Microsoft : intégration native à l'écosystème Windows/.NET, T-SQL, Reporting Services.
+**Contextes :** applications .NET/ASP.NET, entrepônes Microsoft, logiciels métiers Windows, Power BI
+**Cas réguliers :**
+- `SELECT TOP 10 * FROM clients` — Limitation de lignes T-SQL (le plus courant)
+- `SSMS : interface graphique d'administration` — L'IHM de référence
+- `Sauvegarde FULL + différentiels + logs de transaction` — Plan de backup granulaire
+- `Windows Authentification intégrée` — SSO avec Active Directory
+**Origine :** Sybase SQL Server (1988, partenariat Microsoft/Sybase), code repris et indépendantisé par Microsoft (1996) — devenu le SGBD standard des maisons Microsoft ; versions Linux depuis 2017.
+**Subtilités/confusions :**
+- SQL Server vs MySQL : homonymes trompeurs — SQL Server = Microsoft (propriétaire, T-SQL), MySQL = Oracle/open (MySQL AB).
+- Express (gratuit, limites 10 Go) vs Standard vs Enterprise : les limites de taille/coûts changent tout.
+- T-SQL ≠ SQL standard : TOP, ISNULL, variables @ — la portabilité avec PostgreSQL est à vérifier.
+**Exemple :** `SELECT TOP 10 nom FROM clients ORDER BY nom` 
+**Voir aussi :** SQL, PostgreSQL, MySQL, T-SQL
+
+## `Airflow` — Ordonnancement de pipelines de données [Data]
+**Catégorie :** Data | **Niveau :** avance | **Popularité :** 64
+**Signification :** Apache Airflow (« flux d'air » — orchestration légère)
+**Définition :** Plateforme qui définit, ordonne et monitor des pipelines de données (DAGs) en code Python — les tâches data deviennent du code versionné.
+**Contextes :** jobs ETL planifiés, dépendances entre tâches, retries automatiques, monitoring de workflows data
+**Cas réguliers :**
+- `DAG : extract → transform → load avec dépendances` — Ordonnancement (le plus courant)
+- `Retry automatique 3x avec backoff` — Résilience des jobs
+- `Backfill : rejouer les 30 derniers jours` — Rattrapage après incident
+- `SLA par tâche + alerte email` — Surveiller les jobs data
+**Origine :** Airbnb (Maxime Beauchemin), 2014, gradué Apache (2016) — le code comme interface d'orchestration a remplacé les IHM d'ETL historiques (Informatica, Talend GUI).
+**Subtilités/confusions :**
+- Airflow ORCHESTRE, il ne TRANSFORME pas : les données passent par d'autres outils (Spark, SQL, dbt).
+- Un DAG Python = exécution de code au parsing : garder les DAGs simples et déterministes.
+- Airflow vs Dagster/Prefect : Airflow = historique et écosystème massif ; les plus jeunes misent sur le typage et le data lineage.
+**Exemple :** `with DAG("daily_etl", schedule="0 2 * * *") as dag:` — planification en cron
+**Voir aussi :** ETL, dbt, pipeline, cron
+
+## `Scalability` — Capacité à monter en charge [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 75
+**Signification :** Scalability (Évolutivité / Montée en charge)
+**Définition :** Capacité d'un système à absorber une charge croissante en ajoutant des ressources (ou en écrivant mieux), sans refonte.
+**Contextes :** croissance d'usage, pics de trafic, dimensionnement, choix d'architecture
+**Cas réguliers :**
+- `Scale horizontal : +2 serveurs derrière le LB` — Le plus courant et le plus robuste
+- `Scale vertical : passer de 4 à 8 Go de RAM` — Simple mais plafonné
+- `Cache devant les lectures répétées` — Éviter de servir la même requête 1000x
+- `File d'attente pour absorber les pics` — Lisser la charge
+**Origine :** Systèmes distribués (années 1980-90) et lois de Amdahl/Gustafson sur le parallélisme ; devenu un critère central avec le web à très fort trafic (années 2000).
+**Subtilités/confusions :**
+- Scale VERTICAL (plus gros) vs HORIZONTAL (plus nombreux) : le vertical a un plafond matériel, l'horizontal est illimité mais demande du stateless.
+- Scalability ≠ performance : un système rapide à 10 users peut être lent à 10000 — les 2 se mesurent séparément.
+- Optimiser AVANT d'avoir le problème = waste ; scaler AVANT d'avoir le plan = incident — dimensionner avec des métriques.
+**Exemple :** `Horizontale : 1×8 cœurs vs 8×1 cœurs — le 2e survit à la panne d'un nœud`
+**Voir aussi :** HA, Load Balancer, cache, stateless
+
+
+
+
+
+
 
 
 

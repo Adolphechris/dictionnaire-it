@@ -7,9 +7,9 @@ A : existant 115 | A06 archives/paquets 40 | A07 aide/shell 40 | A08 git 60 | A0
 B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 entreprise/concepts 90 | B05 compléments 76 = 400.
 
 ## 🔥 En cours (WIP — max 3)
-- [x] #021 FaceA_06_archives_paquets : **40/40 ✅ FAIT** (tar, gzip, zip, apt, unzip, brew, gunzip, 7z, dpkg, winget, yum/dnf, pacman, snap, flatpak, rpm, choco, npm, pip, yarn, maven, scoop, AppImage, gradle, make, cargo, composer, conda, gem, dpkg-reconfigure, nuget, emerge, zypper, bzip2, xz, zstd, pipx, uv, nvm, mas, add-apt-repository)
-- [ ] #023b FaceB_02_devops_cloud_bdd : 26/90 — reste 64 — LOT ACTUEL
-- [ ] Prochain : #022 FaceA_07_aide_shell (40)
+- [x] #021 FaceA_06_archives_paquets : **40/40 ✅ FAIT** (tar…add-apt-repository)
+- [x] #023b FaceB_02_devops_cloud_bdd : **90/90 ✅ FAIT** (CI…Scalability)
+- [ ] Prochain : #022 FaceA_07_aide_shell (40 fiches)
 
 ## ✅ Fait (détail)
 - 2026-09-29 #001 git init + nettoyage — AI
@@ -45,9 +45,10 @@ B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 e
 - [ ] #042 recherche sémantique IA — P3
 
 ## 📊 Compteurs (auto — maj 29/09 session 3 fin)
-- Entités: 208 / 1000 MVP (20.8%) — A 131/600 | B 77/400 | riches v3: 57 | legacy: 151
+- Entités: 280 / 1000 MVP (28.0%) — A 139/600 | B 141/400 | riches v3: 129 | legacy: 151
+- Lots terminés: #021 FaceA_06 ✅ 40/40 | #023b FaceB_02 ✅ 90/90
 - Apps: Web preview OK (offline + fiches riches dépliables) | Android 0% | Desktop 0%
-- Dette: validate ✅ 0 erreur | parse_rich ✅ 57 fiches conformes
+- Dette: validate ✅ 0 erreur | parse_rich ✅ 129 fiches conformes
 
 ## 🧰 Outils anti-perte-de-fil
 1. Ce fichier = Kanban texte, source de vérité (branché à git)

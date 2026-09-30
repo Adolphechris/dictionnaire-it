@@ -21,3 +21,13 @@
 - FaceA_06 : 32/40 (gestionnaires multi-OS + builds : tar…zypper)
 - FaceB_02 : 26/90 (DevOps/Cloud/BDD : CI…BI)
 - TOTAL : 208 entités / 1000 (20.8%) — 57 fiches riches conformes — validate 0 erreur
+
+## Session 3 (suite) — 29/09/2026 : #021 et #023b TERMINE (280 entites)
+- #021 FaceA_06 : 40/40 OK — dernier lot : bzip2, xz, zstd, pipx, uv, nvm, mas, add-apt-repository
+- #023b FaceB_02 : 90/90 OK — dernier lot : On-call, Artifact, Pipeline, Snowflake, BigQuery, dbt, Oracle, Supabase, Firestore, SQL Server, Airflow, Scalability
+- TOTAL : 280 entites / 1000 (28
+
+## Session 3 (suite) — 29/09/2026 : #021 et #023b TERMINE (280 entites)
+- #021 FaceA_06 : 40/40 OK — dernier lot : bzip2, xz, zstd, pipx, uv, nvm, mas, add-apt-repository
+- #023b FaceB_02 : 90/90 OK — dernier lot : On-call, Artifact, Pipeline, Snowflake, BigQuery, dbt, Oracle, Supabase, Firestore, SQL Server, Airflow, Scalability
+- TOTAL : 280 entites / 1000 (28%) — 129 fiches riches conformes — validate 0 erreur
