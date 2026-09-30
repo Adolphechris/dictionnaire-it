@@ -9,7 +9,7 @@ B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 e
 ## 🔥 En cours (WIP — max 3)
 - [x] #021 FaceA_06_archives_paquets : **40/40 ✅ FAIT** (tar…add-apt-repository)
 - [x] #023b FaceB_02_devops_cloud_bdd : **90/90 ✅ FAIT** (CI…Scalability)
-- [ ] Prochain : #022 FaceA_07_aide_shell (40 fiches)
+- [x] #022 FaceA_07_aide_shell : **40/40 ✅ FAIT** (man, --help, which, type, history, alias, export, env, echo, printf, clear, whatis, apropos, info, whereis, command, source, set, unset, eval, test/[, expr, bc, date, watch, timeout, seq, sleep, read, getopts, trap, exec, ulimit, jobs, nohup, fg, bg, disown, time, wait, yes)
 
 ## ✅ Fait (détail)
 - 2026-09-29 #001 git init + nettoyage — AI
@@ -21,12 +21,10 @@ B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 e
 - 2026-09-29 #050 parse_rich.py fiche v3 + validation 10 rubriques + stats MVP1000 + app web enrichie — AI
 - 2026-09-29 #023b FaceB_02 lot 1 (3 fiches riches) — AI
 - 2026-09-29 #021 FaceA_06 lot 1 (6 fiches riches) — AI
+- 2026-09-30 #022 FaceA_07_aide_shell : 40/40 fiches v3 (32 ajoutées cette session) — AI
 
 ## 📋 Backlog MVP 1000 (P1 = contenu, dans l'ordre)
-- [ ] #021 FaceA_06 archives/paquets : +34 fiches (gunzip, 7z, dpkg, rpm, yum, dnf, pacman, snap, flatpak, winget, choco, npm, pip, maven...)
-- [ ] #023b FaceB_02 : +87 fiches (DevOps, Cloud, BDD)
-- [ ] #022 FaceA_07_aide_shell (40) : man, --help, which, history, alias, export, env, echo...
-- [ ] #024 FaceA_08_git (60)
+- [ ] #024 FaceA_08_git (60) ← PROCHAIN LOT
 - [ ] #026 FaceA_09_docker_k8s (50)
 - [ ] #027 FaceA_10_sysadmin (60)
 - [ ] #028 FaceA_11_paquets_multiOS (50)
@@ -44,11 +42,11 @@ B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 e
 - [ ] #041 Meilisearch synonymes — P3
 - [ ] #042 recherche sémantique IA — P3
 
-## 📊 Compteurs (auto — maj 29/09 session 3 fin)
-- Entités: 280 / 1000 MVP (28.0%) — A 139/600 | B 141/400 | riches v3: 129 | legacy: 151
-- Lots terminés: #021 FaceA_06 ✅ 40/40 | #023b FaceB_02 ✅ 90/90
+## 📊 Compteurs (auto — maj 30/09 session 4 fin)
+- Entités: 320 / 1000 MVP (32.0%) — A 179/600 | B 141/400 | riches v3: 169 | legacy: 151
+- Lots terminés: #021 FaceA_06 ✅ 40/40 | #023b FaceB_02 ✅ 90/90 | #022 FaceA_07 ✅ 40/40
 - Apps: Web preview OK (offline + fiches riches dépliables) | Android 0% | Desktop 0%
-- Dette: validate ✅ 0 erreur | parse_rich ✅ 129 fiches conformes
+- Dette: validate ✅ 0 erreur | parse_rich ✅ 169 fiches conformes | 3 fusions riche→legacy en attente (SQL, VM, ORM)
 
 ## 🧰 Outils anti-perte-de-fil
 1. Ce fichier = Kanban texte, source de vérité (branché à git)

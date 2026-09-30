@@ -25,9 +25,12 @@
 ## Session 3 (suite) — 29/09/2026 : #021 et #023b TERMINE (280 entites)
 - #021 FaceA_06 : 40/40 OK — dernier lot : bzip2, xz, zstd, pipx, uv, nvm, mas, add-apt-repository
 - #023b FaceB_02 : 90/90 OK — dernier lot : On-call, Artifact, Pipeline, Snowflake, BigQuery, dbt, Oracle, Supabase, Firestore, SQL Server, Airflow, Scalability
-- TOTAL : 280 entites / 1000 (28
-
-## Session 3 (suite) — 29/09/2026 : #021 et #023b TERMINE (280 entites)
-- #021 FaceA_06 : 40/40 OK — dernier lot : bzip2, xz, zstd, pipx, uv, nvm, mas, add-apt-repository
-- #023b FaceB_02 : 90/90 OK — dernier lot : On-call, Artifact, Pipeline, Snowflake, BigQuery, dbt, Oracle, Supabase, Firestore, SQL Server, Airflow, Scalability
 - TOTAL : 280 entites / 1000 (28%) — 129 fiches riches conformes — validate 0 erreur
+
+
+## Session 4 — 30/09/2026 : #022 FaceA_07_termine (320 entites, 32%)
+- #022 FaceA_07_aide_shell : **40/40 fiches v3** — 32 fiches ajoutees cette session (source, set, unset, eval, test/[, expr, bc, date, watch, timeout, seq, sleep, read, getopts, trap, exec, ulimit, jobs, nohup, fg, bg, disown, time, wait, yes...)
+- Chaque fiche tient les 10 rubriques v3 (Niveau/Popularite/Contextes/Role/Syntaxe/Cas reguliers/Origine/Subtilites/Urgences/Precautions/Equivalents/Voir aussi) — validate 0 erreur
+- Relecture : typos corrigees et attributions douteuses retirees (timeout, bc, fg)
+- TOTAL : **320 entites / 1000 (32%)** — A 179/600 | B 141/400 — 169 fiches riches v3, 151 legacy
+- Prochain lot : #024 FaceA_08_git (60 fiches)
