@@ -747,6 +747,184 @@
 **Exemple :** `SELECT r.region, SUM(f.montant) FROM fait_vente f JOIN dim_region r ...`
 **Voir aussi :** ETL, BI, data lake, OLAP
 
+## `RabbitMQ` — File de messages légère [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 70
+**Signification :** RabbitMQ (« lapin messager » — protocole AMQP)
+**Définition :** Broker de messages open source : producteurs publient dans des files/échanges, consommateurs récupèrent — messages supprimés après traitement.
+**Contextes :** découplage de services, tâches asynchrones (facturation, emails), files de travaux
+**Cas réguliers :**
+- `File de tâches : worker traite les emails un par un` — Asynchrone (le plus courant)
+- `Exchange fanout → plusieurs services notifiés` — Diffusion à N abonnés
+- `Message rejeté → re-queue avec TTL` — Gestion d'échecs sans perte
+**Origine :** Rabbit Technologies, 2007 — implémentation open source du protocole AMQP (2003, financé par JP Morgan) ; aujourd'hui VMware/Broadcom.
+**Subtilités/confusions :**
+- RabbitMQ vs Kafka : RabbitMQ = file classique (supprime après lecture, point-à-point), Kafka = journal durable (relecture possible).
+- Un message non acké remet en file si le worker MEURT — prévoir idempotence côté consommateur.
+- Management UI sur le port 15672 : indispensable pour voir les files bloquées.
+**Exemple :** `rabbitmqctl list_queues name messages` — voir la profondeur des files
+**Voir aussi :** Kafka, microservices, event-driven, queue
+
+## `API Gateway` — Point d'entrée unique des APIs [Web/Cloud]
+**Catégorie :** Cloud | **Niveau :** intermediaire | **Popularité :** 74
+**Signification :** API Gateway (Passerelle d'API)
+**Définition :** Service unique qui reçoit toutes les requêtes API puis les route vers les bons services, avec auth, rate limit et cache.
+**Contextes :** microservices, APIs multi-clients, agrégation, sécurité centralisée
+**Cas réguliers :**
+- `Client → Gateway → service panier / service users` — Routage (le plus courant)
+- `Clé API validée à la frontière` — Auth centralisée, services internes non exposés
+- `100 req/min par clé` — Rate limiting sans le coder dans chaque service
+- `Agrégation : 1 appel externe = 3 appels services internes` — BFF pour mobile
+**Origine :** Concept des EAI (années 1990) renouvelé par le cloud : API Gateway d'AWS (2015), Kong (2015 sur NGINX), Apigee (Google, 2016).
+**Subtilités/confusions :**
+- API Gateway vs reverse proxy (nginx) : le proxy streame du HTTP, le gateway COMPREND l'API (auth, quotas).
+- Ne PAS mettre de logique métier dans le gateway — il devient le monolithe qu'on fuyait.
+- Point de défaillance unique → le déployer en HA derrière un load balancer.
+**Exemple :** `Host: api.exemple.fr → routes /v1/users → service-users:8080`
+**Voir aussi :** microservices, Load Balancer, API REST, cloud
+
+## `GraphQL` — Langage d'interrogation d'API flexible [Web]
+**Catégorie :** Web | **Niveau :** intermediaire | **Popularité :** 75
+**Signification :** Graph Query Language (Langage de Requête Graphique)
+**Définition :** Alternative à REST : le client DEMANDE exactement les champs voulus, le serveur répond en un seul point d'entrée.
+**Contextes :** apps mobiles à données hétérogènes, BFF, APIs multi-clients, évolution sans breaking change
+**Cas réguliers :**
+- `query { user(id:1) { nom, posts { titre } } }` — Exactement les champs nécessaires (le plus courant)
+- `mutation { createUser(nom:"Ada") { id } }` — Écritures
+- `Champ déprécié annoncé dans le schéma` — Évolution en douceur des clients
+**Origine :** Facebook (Lee Byron et Petter Skoldberg), créé en 2012, open-sourcé en 2015 — pour le flux mobile à bandwidth limité ; aujourd'hui à la CNCF.
+**Subtilités/confusions :**
+- GraphQL ≠ base de données : c'est un LANGAGE d'API qui se branche sur tes sources existantes.
+- REST = multiples endpoints (/users, /users/1/posts), GraphQL = UN endpoint avec requêtes structurées.
+- Requêtes coûteuses (imbriquages profonds) → limiter la profondeur et la complexité côté serveur.
+**Exemple :** `curl -X POST /graphql -d '{"query":"{ users { id nom } }"}'`
+**Voir aussi :** API REST, API Gateway, gRPC, web
+
+## `Data Lake` — Lac de données brut [Data]
+**Catégorie :** Data | **Niveau :** intermediaire | **Popularité :** 64
+**Signification :** Data Lake (Lac de Données)
+**Définition :** Stockage massif de données BRUTES dans leur format d'origine (JSON, logs, images, CSV) — on structure à la lecture, pas à l'écriture.
+**Contextes :** données hétérogènes, machine learning, logs massifs, explorations futures inconnues
+**Cas réguliers :**
+- `Raw zone : dumps JSON + logs + CSV au même endroit` — Tout atterrir d'abord (le plus courant)
+- `Schema-on-read : structurer quand on consomme` — Contrairement au warehouse
+- `Zones : raw / curated / mart` — Empêcher le "swamp"
+**Origine :** Terme popularisé par la communauté Big Data (2010-2011, articles James Dixon/Pentaho) — réponse à la rigidité des entrepôts face aux données non prévues.
+**Subtilités/confusions :**
+- Data lake vs data warehouse : lake = brut et cheap (exploration), warehouse = structuré et fiable (reporting).
+- Sans gouvernance, le lake devient un SWAMP : données inutilisables, personne ne sait ce qu'elles valent.
+- JAMAIS de données confidentielles non classifiées — un lake ouvert = fuite massive.
+**Exemple :** `s3://datalake/raw/2026/09/logs/... → spark job → curated/events.parquet`
+**Voir aussi :** data warehouse, ETL, BI, S3
+
+## `OLAP` — Analyse multidimensionnelle [Data]
+**Catégorie :** Data | **Niveau :** avance | **Popularité :** 60
+**Signification :** Online Analytical Processing (Traitements Analytiques En Ligne)
+**Définition :** Techniques de requêtes sur données agrégées en hypercubes (ventes × temps × région) pour le reporting instantané.
+**Contextes :** rapports croisés, analyse de tendances, BI, cube de décision
+**Cas réguliers :**
+- `CA par région ET par mois ET par produit` — Découpage en tous sens (le plus courant)
+- `Roll-up : remonter du jour au trimestre` — Agrégation hiérarchique
+- `Drill-down : zoomer de la région au client` — Descendre dans la granularité
+**Origine :** Concept formalisé par Edgar Codd (1993 — le même qui a inventé le relationnel), puis incarné par les OLAP servers (Essbase 1993, Microsoft SSAS) ; cousin de l'OLTP.
+**Subtilités/confusions :**
+- OLAP vs OLTP : OLTP = transactionnel (écrire vite, une ligne), OLAP = analytique (lire des millions de lignes agrégées).
+- L'hypercube est pré-agrégé : répond en ms mais ne se met pas à jour en temps réel (rafraîchi par batch).
+- Snowflake vs étoile : deux modèles dimensionnels — l'étoile est le plus répandu.
+**Exemple :** `SELECT region, annee, SUM(ca) ... GROUP BY ROLLUP(region, annee)`
+**Voir aussi :** data warehouse, BI, ETL, SQL
+
+## `gRPC` — RPC haute performance [Web]
+**Catégorie :** Web | **Niveau :** avance | **Popularité :** 62
+**Signification :** gRPC (Google Remote Procedure Call)
+**Définition :** Framework d'appels RPC binaires : appeler une fonction comme si elle était locale, sur le réseau, avec Protobuf et HTTP/2.
+**Contextes :** communication inter-services à haut débit, microservices, streams binaires
+**Cas réguliers :**
+- `Service A appelle ServiceB.getUser()` — RPC typé (le plus courant)
+- `Multiplexing HTTP/2 : 100 appels sur 1 connexion` — Beaucoup plus rapide que REST/JSON
+- `Bidirectional streaming : les deux côtés envoient en continu` — Temps réel
+**Origine :** Google (à partir de RPC/Stubby interne), open-sourcé en 2015, gradué CNCF — le Protobuf (2001) en est le format de sérialisation.
+**Subtilités/confusions :**
+- gRPC vs REST : gRPC = binaire + HTTP/2 (rapide, inter-services), REST = texte JSON (lisible, public, navigateur).
+- Le navigateur ne gère pas nativement le gRPC : à la frontière client, REST/GraphQL reste nécessaire (ou grpc-web).
+- Protobuf = contrat .proto versionné — c'est LUI qui génère les clients (codegen), pas la main.
+**Exemple :** `service Greeter { rpc SayHello (HelloRequest) returns (HelloReply); }`
+**Voir aussi :** API REST, GraphQL, microservices, protobuf
+
+## `ELT` — Charger puis transformer [Data]
+**Catégorie :** Data | **Niveau :** intermediaire | **Popularité :** 63
+**Signification :** Extract, Load, Transform (Extraire, Charger, Transformer)
+**Définition :** Variante moderne de l'ETL : charger les données BRUTES dans la base cible PUIS les transformer avec la puissance de cette base.
+**Contextes :** pipelines cloud, Lakehouse, transformations versionnées en SQL (dbt), données brutes conservées
+**Cas réguliers :**
+- `Raw → warehouse → dbt transform en SQL versionné` — La chaîne ELT moderne (le plus courant)
+- `Toutes les colonnes chargées d'abord` — Conserver le brut permet de re-transformer
+- `Tests de données après transformation` — Qualité vérifiée dans la base
+**Origine :** Popularisé avec les entrepôts cloud puissants et bon marché (Snowflake 2015, dbt 2016) — le T déplacé dans la base coûte moins cher qu'un ETL dédié.
+**Subtilités/confusions :**
+- ELT vs ETL : ETL = transformer AVANT (flux contrôlé), ELT = charger PUIS transformer (brut conservé).
+- ELT exige une base cible PUISSANTE : sur un petit moteur, l'ETL dédié est plus rapide.
+- Le brut doit rester reproductible : si la transformation rate, on repart du brut sans re-extraire.
+**Exemple :** `dbt run --models stg_clients` — transformations versionnées dans la base
+**Voir aussi :** ETL, data warehouse, dbt, BI
+
+## `ArgoCD` — Déploiements GitOps pour Kubernetes [DevOps]
+**Catégorie :** DevOps | **Niveau :** avance | **Popularité :** 64
+**Signification :** ArgoCD (Argo = le navire des Argonautes, Continuous Delivery)
+**Définition :** Déployeur GitOps pour K8s : surveille un dépôt Git et applique automatiquement les changements au cluster.
+**Contextes :** clusters K8s, équipes plateforme, déploiements reproductibles, audit des changements
+**Cas réguliers :**
+- `argocd app sync monapp` — Synchroniser Git → cluster (le plus courant)
+- `Sync automatique + self-heal` — Le drift est corrigé tout seul
+- `UI : comparaison live vs Git` — Voir exactement ce qui diffère
+- `argocd app rollback` — Retour à une révision Git précédente
+**Origine :** Intuit puis gradué CNCF (Argoproj), 2018 — a défini le pattern GitOps applicatif tel qu'on le connaît aujourd'hui.
+**Subtilités/confusions :**
+- ArgoCD ne BUILD pas : c'est un déploiement (le build reste dans la CI) — CD au sens strict.
+- Sync waves : plusieurs applications (base puis app) se déploient dans un ORDRE — sinon crashloop.
+- Self-heal : la valeur du repo Git prime TOUJOURS sur une modif manuelle kubectl.
+**Exemple :** `argocd app set monapp --sync-policy auto` — auto-synchronisation
+**Voir aussi :** GitOps, Kubernetes, Helm, CD
+
+## `DevSecOps` — Sécurité intégrée à la chaîne DevOps [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 71
+**Signification :** Development + Security + Operations
+**Définition :** Intégrer la sécurité À CHAQUE étape du cycle (build, test, déploiement) au lieu de la réserver à une fin de projet.
+**Contextes :** audits sécurité, conformité, gestion des vulnérabilités, shift left
+**Cas réguliers :**
+- `Scan d'image Docker à chaque build (Trivy)` — Blocage si CVE critique (le plus courant)
+- `SAST sur chaque pull request` — Analyse du code source pendant la revue
+- `Secrets scannés dans le repo (gitleaks)` — Empêcher les clés commitées
+- `SBOM de chaque livraison` — Liste des composants logiciels livrés
+**Origine :** Réponse au DevOps sans sécurité (années 2010, Zero Trust, « Shift Left ») ; encadré aujourd'hui par les frameworks SLSA et NIST SSDF.
+**Subtilités/confusions :**
+- DevSecOps ≠ "auditeur en fin de projet" : la sécurité devient un pipeline, pas une étape finale.
+- Le shift left fait GAGNER de l'argent : corriger une faille en prod coûte ~30x plus cher qu'en build.
+- Trop de scans = alert fatigue → blocker sur le critique, signaler le reste.
+**Exemple :** `trivy image monapp:latest` — avant push au registre
+**Voir aussi :** CI, sécurité, SAST, supply chain
+
+## `Load Balancer` — Répartition de charge entre serveurs [Réseau]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 78
+**Signification :** Load Balancer (Équilibreur de Charge)
+**Définition :** Point d'entrée qui distribue les requêtes entre plusieurs serveurs selon une stratégie (round-robin, charge, session).
+**Contextes :** HA multi-serveurs, scale horizontal, maintenance sans interruption, terminaison TLS
+**Cas réguliers :**
+- `Requêtes réparties sur 4 serveurs app` — Le plus courant (round-robin)
+- `least-connections, IP hash` — Autres stratégies classiques
+- `Health checks : serveur mort = retiré automatiquement` — Auto-réparation
+- `TLS terminaison sur le LB` — HTTPS déchiffré une fois, pas sur chaque serveur
+**Origine :** Équilibreurs matériels des réseques (années 1990, F5, Cisco) ; délogés par le logiciel : NGINX (2004), HAProxy (2006), puis les LB managés cloud (ALB, Cloud Load Balancing).
+**Subtilités/confusions :**
+- LB L7 (HTTP, comprend l'URL) vs L4 (TCP brut, plus rapide) : choisir selon le besoin.
+- Round-robin aveugle vs least-connections : le premier peut écraser un serveur déjà en charge.
+- Le LB devient SPOF s'il n'est pas lui-même en HA — les LB cloud sont managés multi-AZ.
+**Exemple :** `upstream backend { server app1; server app2; }` (nginx)
+**Voir aussi :** reverse proxy, HA, nginx, cloud
+
+
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "total": 233,
+  "total": 243,
   "entries": [
     {
       "face": "A",
@@ -17444,6 +17444,1075 @@
       "precautions": "",
       "equivalents": [],
       "id": "B-00094",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "RabbitMQ",
+      "aliases": [
+        "RabbitMQ (« lapin messager » — protocole AMQP)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 70,
+      "contextes": [
+        "découplage de services",
+        "tâches asynchrones (facturation",
+        "emails)",
+        "files de travaux"
+      ],
+      "origine": "Rabbit Technologies, 2007 — implémentation open source du protocole AMQP (2003, financé par JP Morgan) ; aujourd'hui VMware/Broadcom.",
+      "subtilites": [
+        "RabbitMQ vs Kafka : RabbitMQ = file classique (supprime après lecture, point-à-point), Kafka = journal durable (relecture possible).",
+        "Un message non acké remet en file si le worker MEURT — prévoir idempotence côté consommateur.",
+        "Management UI sur le port 15672 : indispensable pour voir les files bloquées.",
+        "*Exemple :** `rabbitmqctl list_queues name messages` — voir la profondeur des files",
+        "*Voir aussi :** Kafka, microservices, event-driven, queue"
+      ],
+      "voir_aussi": [
+        "Kafka",
+        "microservices",
+        "event-driven",
+        "queue"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Broker de messages open source : producteurs publient dans des files/échanges, consommateurs récupèrent — messages supprimés après traitement.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "File de tâches : worker traite les emails un par un",
+          "explication": "Asynchrone (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Exchange fanout → plusieurs services notifiés",
+          "explication": "Diffusion à N abonnés",
+          "contexte": ""
+        },
+        {
+          "cmd": "Message rejeté → re-queue avec TTL",
+          "explication": "Gestion d'échecs sans perte",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Rabbit Technologies, 2007 — implémentation open source du protocole AMQP (2003, financé par JP Morgan) ; aujourd'hui VMware/Broadcom.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "RabbitMQ vs Kafka : RabbitMQ = file classique (supprime après lecture, point-à-point), Kafka = journal durable (relecture possible).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un message non acké remet en file si le worker MEURT — prévoir idempotence côté consommateur.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Management UI sur le port 15672 : indispensable pour voir les files bloquées.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `rabbitmqctl list_queues name messages` — voir la profondeur des files",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** Kafka, microservices, event-driven, queue",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "rabbitmqctl list_queues name messages` — voir la profondeur des files",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00095",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "API Gateway",
+      "aliases": [
+        "API Gateway (Passerelle d'API)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 74,
+      "contextes": [
+        "microservices",
+        "APIs multi-clients",
+        "agrégation",
+        "sécurité centralisée"
+      ],
+      "origine": "Concept des EAI (années 1990) renouvelé par le cloud : API Gateway d'AWS (2015), Kong (2015 sur NGINX), Apigee (Google, 2016).",
+      "subtilites": [
+        "API Gateway vs reverse proxy (nginx) : le proxy streame du HTTP, le gateway COMPREND l'API (auth, quotas).",
+        "Ne PAS mettre de logique métier dans le gateway — il devient le monolithe qu'on fuyait.",
+        "Point de défaillance unique → le déployer en HA derrière un load balancer.",
+        "*Exemple :** `Host: api.exemple.fr → routes /v1/users → service-users:8080`",
+        "*Voir aussi :** microservices, Load Balancer, API REST, cloud"
+      ],
+      "voir_aussi": [
+        "microservices",
+        "Load Balancer",
+        "API REST",
+        "cloud"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Cloud"
+      ],
+      "tags": [],
+      "role_fr": "Service unique qui reçoit toutes les requêtes API puis les route vers les bons services, avec auth, rate limit et cache.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Client → Gateway → service panier / service users",
+          "explication": "Routage (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Clé API validée à la frontière",
+          "explication": "Auth centralisée, services internes non exposés",
+          "contexte": ""
+        },
+        {
+          "cmd": "100 req/min par clé",
+          "explication": "Rate limiting sans le coder dans chaque service",
+          "contexte": ""
+        },
+        {
+          "cmd": "Agrégation : 1 appel externe = 3 appels services internes",
+          "explication": "BFF pour mobile",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Concept des EAI (années 1990) renouvelé par le cloud : API Gateway d'AWS (2015), Kong (2015 sur NGINX), Apigee (Google, 2016).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "API Gateway vs reverse proxy (nginx) : le proxy streame du HTTP, le gateway COMPREND l'API (auth, quotas).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Ne PAS mettre de logique métier dans le gateway — il devient le monolithe qu'on fuyait.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Point de défaillance unique → le déployer en HA derrière un load balancer.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `Host: api.exemple.fr → routes /v1/users → service-users:8080",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** microservices, Load Balancer, API REST, cloud",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "Host: api.exemple.fr → routes /v1/users → service-users:8080",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00096",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "GraphQL",
+      "aliases": [
+        "Graph Query Language (Langage de Requête Graphique)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 75,
+      "contextes": [
+        "apps mobiles à données hétérogènes",
+        "BFF",
+        "APIs multi-clients",
+        "évolution sans breaking change"
+      ],
+      "origine": "Facebook (Lee Byron et Petter Skoldberg), créé en 2012, open-sourcé en 2015 — pour le flux mobile à bandwidth limité ; aujourd'hui à la CNCF.",
+      "subtilites": [
+        "GraphQL ≠ base de données : c'est un LANGAGE d'API qui se branche sur tes sources existantes.",
+        "REST = multiples endpoints (/users, /users/1/posts), GraphQL = UN endpoint avec requêtes structurées.",
+        "Requêtes coûteuses (imbriquages profonds) → limiter la profondeur et la complexité côté serveur.",
+        "*Exemple :** `curl -X POST /graphql -d '{\"query\":\"{ users { id nom } }\"}'`",
+        "*Voir aussi :** API REST, API Gateway, gRPC, web"
+      ],
+      "voir_aussi": [
+        "API REST",
+        "API Gateway",
+        "gRPC",
+        "web"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Web"
+      ],
+      "tags": [],
+      "role_fr": "Alternative à REST : le client DEMANDE exactement les champs voulus, le serveur répond en un seul point d'entrée.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "query { user(id:1) { nom, posts { titre } } }",
+          "explication": "Exactement les champs nécessaires (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "mutation { createUser(nom:\"Ada\") { id } }",
+          "explication": "Écritures",
+          "contexte": ""
+        },
+        {
+          "cmd": "Champ déprécié annoncé dans le schéma",
+          "explication": "Évolution en douceur des clients",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Facebook (Lee Byron et Petter Skoldberg), créé en 2012, open-sourcé en 2015 — pour le flux mobile à bandwidth limité ; aujourd'hui à la CNCF.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "GraphQL ≠ base de données : c'est un LANGAGE d'API qui se branche sur tes sources existantes.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "REST = multiples endpoints (/users, /users/1/posts), GraphQL = UN endpoint avec requêtes structurées.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Requêtes coûteuses (imbriquages profonds) → limiter la profondeur et la complexité côté serveur.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `curl -X POST /graphql -d '{\"query\":\"{ users { id nom } }\"}'",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** API REST, API Gateway, gRPC, web",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "curl -X POST /graphql -d '{\"query\":\"{ users { id nom } }\"}'",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00097",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Data Lake",
+      "aliases": [
+        "Data Lake (Lac de Données)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 64,
+      "contextes": [
+        "données hétérogènes",
+        "machine learning",
+        "logs massifs",
+        "explorations futures inconnues"
+      ],
+      "origine": "Terme popularisé par la communauté Big Data (2010-2011, articles James Dixon/Pentaho) — réponse à la rigidité des entrepôts face aux données non prévues.",
+      "subtilites": [
+        "Data lake vs data warehouse : lake = brut et cheap (exploration), warehouse = structuré et fiable (reporting).",
+        "Sans gouvernance, le lake devient un SWAMP : données inutilisables, personne ne sait ce qu'elles valent.",
+        "JAMAIS de données confidentielles non classifiées — un lake ouvert = fuite massive.",
+        "*Exemple :** `s3://datalake/raw/2026/09/logs/... → spark job → curated/events.parquet`",
+        "*Voir aussi :** data warehouse, ETL, BI, S3"
+      ],
+      "voir_aussi": [
+        "data warehouse",
+        "ETL",
+        "BI",
+        "S3"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Data"
+      ],
+      "tags": [],
+      "role_fr": "Stockage massif de données BRUTES dans leur format d'origine (JSON, logs, images, CSV) — on structure à la lecture, pas à l'écriture.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Raw zone : dumps JSON + logs + CSV au même endroit",
+          "explication": "Tout atterrir d'abord (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Schema-on-read : structurer quand on consomme",
+          "explication": "Contrairement au warehouse",
+          "contexte": ""
+        },
+        {
+          "cmd": "Zones : raw / curated / mart",
+          "explication": "Empêcher le \"swamp\"",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Terme popularisé par la communauté Big Data (2010-2011, articles James Dixon/Pentaho) — réponse à la rigidité des entrepôts face aux données non prévues.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Data lake vs data warehouse : lake = brut et cheap (exploration), warehouse = structuré et fiable (reporting).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Sans gouvernance, le lake devient un SWAMP : données inutilisables, personne ne sait ce qu'elles valent.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "JAMAIS de données confidentielles non classifiées — un lake ouvert = fuite massive.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `s3://datalake/raw/2026/09/logs/... → spark job → curated/events.parquet",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** data warehouse, ETL, BI, S3",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "s3://datalake/raw/2026/09/logs/... → spark job → curated/events.parquet",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00098",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "OLAP",
+      "aliases": [
+        "Online Analytical Processing (Traitements Analytiques En Ligne)"
+      ],
+      "niveau": "avance",
+      "popularite": 60,
+      "contextes": [
+        "rapports croisés",
+        "analyse de tendances",
+        "BI",
+        "cube de décision"
+      ],
+      "origine": "Concept formalisé par Edgar Codd (1993 — le même qui a inventé le relationnel), puis incarné par les OLAP servers (Essbase 1993, Microsoft SSAS) ; cousin de l'OLTP.",
+      "subtilites": [
+        "OLAP vs OLTP : OLTP = transactionnel (écrire vite, une ligne), OLAP = analytique (lire des millions de lignes agrégées).",
+        "L'hypercube est pré-agrégé : répond en ms mais ne se met pas à jour en temps réel (rafraîchi par batch).",
+        "Snowflake vs étoile : deux modèles dimensionnels — l'étoile est le plus répandu.",
+        "*Exemple :** `SELECT region, annee, SUM(ca) ... GROUP BY ROLLUP(region, annee)`",
+        "*Voir aussi :** data warehouse, BI, ETL, SQL"
+      ],
+      "voir_aussi": [
+        "data warehouse",
+        "BI",
+        "ETL",
+        "SQL"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Data"
+      ],
+      "tags": [],
+      "role_fr": "Techniques de requêtes sur données agrégées en hypercubes (ventes × temps × région) pour le reporting instantané.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "CA par région ET par mois ET par produit",
+          "explication": "Découpage en tous sens (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Roll-up : remonter du jour au trimestre",
+          "explication": "Agrégation hiérarchique",
+          "contexte": ""
+        },
+        {
+          "cmd": "Drill-down : zoomer de la région au client",
+          "explication": "Descendre dans la granularité",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Concept formalisé par Edgar Codd (1993 — le même qui a inventé le relationnel), puis incarné par les OLAP servers (Essbase 1993, Microsoft SSAS) ; cousin de l'OLTP.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "OLAP vs OLTP : OLTP = transactionnel (écrire vite, une ligne), OLAP = analytique (lire des millions de lignes agrégées).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "L'hypercube est pré-agrégé : répond en ms mais ne se met pas à jour en temps réel (rafraîchi par batch).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Snowflake vs étoile : deux modèles dimensionnels — l'étoile est le plus répandu.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `SELECT region, annee, SUM(ca) ... GROUP BY ROLLUP(region, annee)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** data warehouse, BI, ETL, SQL",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "SELECT region, annee, SUM(ca) ... GROUP BY ROLLUP(region, annee)",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00099",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "gRPC",
+      "aliases": [
+        "gRPC (Google Remote Procedure Call)"
+      ],
+      "niveau": "avance",
+      "popularite": 62,
+      "contextes": [
+        "communication inter-services à haut débit",
+        "microservices",
+        "streams binaires"
+      ],
+      "origine": "Google (à partir de RPC/Stubby interne), open-sourcé en 2015, gradué CNCF — le Protobuf (2001) en est le format de sérialisation.",
+      "subtilites": [
+        "gRPC vs REST : gRPC = binaire + HTTP/2 (rapide, inter-services), REST = texte JSON (lisible, public, navigateur).",
+        "Le navigateur ne gère pas nativement le gRPC : à la frontière client, REST/GraphQL reste nécessaire (ou grpc-web).",
+        "Protobuf = contrat .proto versionné — c'est LUI qui génère les clients (codegen), pas la main.",
+        "*Exemple :** `service Greeter { rpc SayHello (HelloRequest) returns (HelloReply); }`",
+        "*Voir aussi :** API REST, GraphQL, microservices, protobuf"
+      ],
+      "voir_aussi": [
+        "API REST",
+        "GraphQL",
+        "microservices",
+        "protobuf"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Web"
+      ],
+      "tags": [],
+      "role_fr": "Framework d'appels RPC binaires : appeler une fonction comme si elle était locale, sur le réseau, avec Protobuf et HTTP/2.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Service A appelle ServiceB.getUser()",
+          "explication": "RPC typé (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Multiplexing HTTP/2 : 100 appels sur 1 connexion",
+          "explication": "Beaucoup plus rapide que REST/JSON",
+          "contexte": ""
+        },
+        {
+          "cmd": "Bidirectional streaming : les deux côtés envoient en continu",
+          "explication": "Temps réel",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Google (à partir de RPC/Stubby interne), open-sourcé en 2015, gradué CNCF — le Protobuf (2001) en est le format de sérialisation.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "gRPC vs REST : gRPC = binaire + HTTP/2 (rapide, inter-services), REST = texte JSON (lisible, public, navigateur).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Le navigateur ne gère pas nativement le gRPC : à la frontière client, REST/GraphQL reste nécessaire (ou grpc-web).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Protobuf = contrat .proto versionné — c'est LUI qui génère les clients (codegen), pas la main.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `service Greeter { rpc SayHello (HelloRequest) returns (HelloReply); }",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** API REST, GraphQL, microservices, protobuf",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "service Greeter { rpc SayHello (HelloRequest) returns (HelloReply); }",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00100",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "ELT",
+      "aliases": [
+        "Extract, Load, Transform (Extraire, Charger, Transformer)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 63,
+      "contextes": [
+        "pipelines cloud",
+        "Lakehouse",
+        "transformations versionnées en SQL (dbt)",
+        "données brutes conservées"
+      ],
+      "origine": "Popularisé avec les entrepôts cloud puissants et bon marché (Snowflake 2015, dbt 2016) — le T déplacé dans la base coûte moins cher qu'un ETL dédié.",
+      "subtilites": [
+        "ELT vs ETL : ETL = transformer AVANT (flux contrôlé), ELT = charger PUIS transformer (brut conservé).",
+        "ELT exige une base cible PUISSANTE : sur un petit moteur, l'ETL dédié est plus rapide.",
+        "Le brut doit rester reproductible : si la transformation rate, on repart du brut sans re-extraire.",
+        "*Exemple :** `dbt run --models stg_clients` — transformations versionnées dans la base",
+        "*Voir aussi :** ETL, data warehouse, dbt, BI"
+      ],
+      "voir_aussi": [
+        "ETL",
+        "data warehouse",
+        "dbt",
+        "BI"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Data"
+      ],
+      "tags": [],
+      "role_fr": "Variante moderne de l'ETL : charger les données BRUTES dans la base cible PUIS les transformer avec la puissance de cette base.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Raw → warehouse → dbt transform en SQL versionné",
+          "explication": "La chaîne ELT moderne (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Toutes les colonnes chargées d'abord",
+          "explication": "Conserver le brut permet de re-transformer",
+          "contexte": ""
+        },
+        {
+          "cmd": "Tests de données après transformation",
+          "explication": "Qualité vérifiée dans la base",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Popularisé avec les entrepôts cloud puissants et bon marché (Snowflake 2015, dbt 2016) — le T déplacé dans la base coûte moins cher qu'un ETL dédié.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "ELT vs ETL : ETL = transformer AVANT (flux contrôlé), ELT = charger PUIS transformer (brut conservé).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "ELT exige une base cible PUISSANTE : sur un petit moteur, l'ETL dédié est plus rapide.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Le brut doit rester reproductible : si la transformation rate, on repart du brut sans re-extraire.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `dbt run --models stg_clients` — transformations versionnées dans la base",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** ETL, data warehouse, dbt, BI",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "dbt run --models stg_clients` — transformations versionnées dans la base",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00101",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "ArgoCD",
+      "aliases": [
+        "ArgoCD (Argo = le navire des Argonautes, Continuous Delivery)"
+      ],
+      "niveau": "avance",
+      "popularite": 64,
+      "contextes": [
+        "clusters K8s",
+        "équipes plateforme",
+        "déploiements reproductibles",
+        "audit des changements"
+      ],
+      "origine": "Intuit puis gradué CNCF (Argoproj), 2018 — a défini le pattern GitOps applicatif tel qu'on le connaît aujourd'hui.",
+      "subtilites": [
+        "ArgoCD ne BUILD pas : c'est un déploiement (le build reste dans la CI) — CD au sens strict.",
+        "Sync waves : plusieurs applications (base puis app) se déploient dans un ORDRE — sinon crashloop.",
+        "Self-heal : la valeur du repo Git prime TOUJOURS sur une modif manuelle kubectl.",
+        "*Exemple :** `argocd app set monapp --sync-policy auto` — auto-synchronisation",
+        "*Voir aussi :** GitOps, Kubernetes, Helm, CD"
+      ],
+      "voir_aussi": [
+        "GitOps",
+        "Kubernetes",
+        "Helm",
+        "CD"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Déployeur GitOps pour K8s : surveille un dépôt Git et applique automatiquement les changements au cluster.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "argocd app sync monapp",
+          "explication": "Synchroniser Git → cluster (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Sync automatique + self-heal",
+          "explication": "Le drift est corrigé tout seul",
+          "contexte": ""
+        },
+        {
+          "cmd": "UI : comparaison live vs Git",
+          "explication": "Voir exactement ce qui diffère",
+          "contexte": ""
+        },
+        {
+          "cmd": "argocd app rollback",
+          "explication": "Retour à une révision Git précédente",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Intuit puis gradué CNCF (Argoproj), 2018 — a défini le pattern GitOps applicatif tel qu'on le connaît aujourd'hui.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "ArgoCD ne BUILD pas : c'est un déploiement (le build reste dans la CI) — CD au sens strict.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Sync waves : plusieurs applications (base puis app) se déploient dans un ORDRE — sinon crashloop.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Self-heal : la valeur du repo Git prime TOUJOURS sur une modif manuelle kubectl.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `argocd app set monapp --sync-policy auto` — auto-synchronisation",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** GitOps, Kubernetes, Helm, CD",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "argocd app set monapp --sync-policy auto` — auto-synchronisation",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00102",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "DevSecOps",
+      "aliases": [
+        "Development + Security + Operations"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 71,
+      "contextes": [
+        "audits sécurité",
+        "conformité",
+        "gestion des vulnérabilités",
+        "shift left"
+      ],
+      "origine": "Réponse au DevOps sans sécurité (années 2010, Zero Trust, « Shift Left ») ; encadré aujourd'hui par les frameworks SLSA et NIST SSDF.",
+      "subtilites": [
+        "DevSecOps ≠ \"auditeur en fin de projet\" : la sécurité devient un pipeline, pas une étape finale.",
+        "Le shift left fait GAGNER de l'argent : corriger une faille en prod coûte ~30x plus cher qu'en build.",
+        "Trop de scans = alert fatigue → blocker sur le critique, signaler le reste.",
+        "*Exemple :** `trivy image monapp:latest` — avant push au registre",
+        "*Voir aussi :** CI, sécurité, SAST, supply chain"
+      ],
+      "voir_aussi": [
+        "CI",
+        "sécurité",
+        "SAST",
+        "supply chain"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Intégrer la sécurité À CHAQUE étape du cycle (build, test, déploiement) au lieu de la réserver à une fin de projet.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Scan d'image Docker à chaque build (Trivy)",
+          "explication": "Blocage si CVE critique (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "SAST sur chaque pull request",
+          "explication": "Analyse du code source pendant la revue",
+          "contexte": ""
+        },
+        {
+          "cmd": "Secrets scannés dans le repo (gitleaks)",
+          "explication": "Empêcher les clés commitées",
+          "contexte": ""
+        },
+        {
+          "cmd": "SBOM de chaque livraison",
+          "explication": "Liste des composants logiciels livrés",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Réponse au DevOps sans sécurité (années 2010, Zero Trust, « Shift Left ») ; encadré aujourd'hui par les frameworks SLSA et NIST SSDF.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "DevSecOps ≠ \"auditeur en fin de projet\" : la sécurité devient un pipeline, pas une étape finale.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Le shift left fait GAGNER de l'argent : corriger une faille en prod coûte ~30x plus cher qu'en build.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Trop de scans = alert fatigue → blocker sur le critique, signaler le reste.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `trivy image monapp:latest` — avant push au registre",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** CI, sécurité, SAST, supply chain",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "trivy image monapp:latest` — avant push au registre",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00103",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Load Balancer",
+      "aliases": [
+        "Load Balancer (Équilibreur de Charge)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 78,
+      "contextes": [
+        "HA multi-serveurs",
+        "scale horizontal",
+        "maintenance sans interruption",
+        "terminaison TLS"
+      ],
+      "origine": "Équilibreurs matériels des réseques (années 1990, F5, Cisco) ; délogés par le logiciel : NGINX (2004), HAProxy (2006), puis les LB managés cloud (ALB, Cloud Load Balancing).",
+      "subtilites": [
+        "LB L7 (HTTP, comprend l'URL) vs L4 (TCP brut, plus rapide) : choisir selon le besoin.",
+        "Round-robin aveugle vs least-connections : le premier peut écraser un serveur déjà en charge.",
+        "Le LB devient SPOF s'il n'est pas lui-même en HA — les LB cloud sont managés multi-AZ.",
+        "*Exemple :** `upstream backend { server app1; server app2; }` (nginx)",
+        "*Voir aussi :** reverse proxy, HA, nginx, cloud"
+      ],
+      "voir_aussi": [
+        "reverse proxy",
+        "HA",
+        "nginx",
+        "cloud"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Point d'entrée qui distribue les requêtes entre plusieurs serveurs selon une stratégie (round-robin, charge, session).",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Requêtes réparties sur 4 serveurs app",
+          "explication": "Le plus courant (round-robin)",
+          "contexte": ""
+        },
+        {
+          "cmd": "least-connections, IP hash",
+          "explication": "Autres stratégies classiques",
+          "contexte": ""
+        },
+        {
+          "cmd": "Health checks : serveur mort = retiré automatiquement",
+          "explication": "Auto-réparation",
+          "contexte": ""
+        },
+        {
+          "cmd": "TLS terminaison sur le LB",
+          "explication": "HTTPS déchiffré une fois, pas sur chaque serveur",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Équilibreurs matériels des réseques (années 1990, F5, Cisco) ; délogés par le logiciel : NGINX (2004), HAProxy (2006), puis les LB managés cloud (ALB, Cloud Load Balancing).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "LB L7 (HTTP, comprend l'URL) vs L4 (TCP brut, plus rapide) : choisir selon le besoin.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Round-robin aveugle vs least-connections : le premier peut écraser un serveur déjà en charge.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Le LB devient SPOF s'il n'est pas lui-même en HA — les LB cloud sont managés multi-AZ.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `upstream backend { server app1; server app2; }` (nginx)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** reverse proxy, HA, nginx, cloud",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "upstream backend { server app1; server app2; }` (nginx)",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00104",
       "version": 1,
       "updated_at": "2026-09-30"
     }
