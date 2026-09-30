@@ -451,6 +451,308 @@
 **Exemple :** `SELECT mois, SUM(total) FROM commandes GROUP BY mois`
 **Voir aussi :** ETL, data warehouse, dashboard, KPI
 
+## `Docker` — Conteneurs d'application [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 90
+**Signification :** Docker (la « baleine » qui porte les conteneurs — logo de la baleine)
+**Définition :** Plateforme qui empaquette une application avec TOUTES ses dépendances dans un conteneur léger, reproduisible partout.
+**Contextes :** environnements identiques dev/prod, microservices, déploiements reproductibles, isolation
+**Cas réguliers :**
+- `docker build -t monapp .` — Créer une image depuis un Dockerfile (le plus courant)
+- `docker run -p 8080:80 monapp` — Lancer un conteneur (port hôte:conteneur)
+- `docker ps` — Voir les conteneurs en cours (ajouter -a pour tous)
+- `docker compose up -d` — Monter l'ensemble (app + base + cache) en arrière-plan
+**Origine :** Solomon Hykes, présentation Lightning Talk à PyCon chez dotCloud, 2013 — a rendu accessibles les conteneurs Linux (namespaces/cgroups existaient depuis 2002-2008).
+**Subtilités/confusions :**
+- Docker ≠ VM : conteneur partage le noyau de l'hôte (léger) vs VM avec son propre OS (lourd).
+- Le .dockerignore est aussi important que .gitignore : sans lui, node_modules part dans l'image (gigaoctets).
+- `docker rmi` supprime une IMAGE, `docker rm` un CONTENEUR — confusion de raccourcis très fréquente.
+**Exemple :** `docker logs -f <conteneur>` — suivre les logs (réflexe debug n°1)
+**Voir aussi :** Kubernetes, Docker Compose, container, image
+
+## `Terraform` — Infrastructure as Code déclaratif [DevOps]
+**Catégorie :** DevOps | **Niveau :** avance | **Popularité :** 76
+**Signification :** Terraform (« former la terre » — l'infra façonnée comme un paysage)
+**Définition :** Outil open source qui crée et modifie l'infrastructure (VM, réseaux, bases) à partir de fichiers de configuration déclaratifs.
+**Contextes :** cloud multi-fournisseur, environnements reproductibles, revue de code sur l'infra
+**Cas réguliers :**
+- `terraform init` — Initialiser le projet (télécharge les providers — le plus courant)
+- `terraform plan` — Aperçu du changement SANS l'appliquer (toujours avant apply)
+- `terraform apply` — Créer/modifier l'infra décrite dans main.tf
+- `terraform destroy` — Tout supprimer (⚠️ vérifier le plan avant !)
+**Origine :** HashiCorp (Mitchell Hashimoto et Armon Dadgar), 2014 — premier outil majeur multi-cloud de l'IaC ; le state devient le miroir de l'infra réelle.
+**Subtilités/confusions :**
+- Terraform vs Ansible : Terraform CRÉE les ressources (déclaratif, state) ; Ansible configure ce qui tourne (impératif, sans state).
+- Le state (terraform.tfstate) = sacré : le perdre ou le dupliquer en équipe = drift → toujours un backend distant partagé.
+- `apply` sans `plan` en prod = mauvaise pratique — le plan est la revue de sécurité.
+**Exemple :** `terraform state list` — savoir ce que Terraform gère
+**Voir aussi :** IaC, Ansible, DevOps, GitOps
+
+## `Ansible` — Configuration automatisée sans agent [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 72
+**Signification :** Ansible (le « messager interstellaire » d'Asimov — orchestration sans agent)
+**Définition :** Outil qui configure et déploie sur des serveurs en SSH avec des playbooks YAML, sans agent à installer.
+**Contextes :** configuration de flotte de serveurs, déploiements d'apps, tâches répétitives multi-hôtes
+**Cas réguliers :**
+- `ansible-playbook -i inventaire site.yml` — Exécuter un playbook (le plus courant)
+- `ansible all -m ping -i inventaire` — Tester la connexion SSH de tous les hôtes
+- `ansible-playbook --check site.yml` — Mode simulation (rien n'est modifié)
+**Origine :** Michael DeHaan (aussi co-créateur de Puppet), 2012 — le nom vient d'Asimov ; racheté par Red Hat (2015).
+**Subtilités/confusions :**
+- Ansible vs Terraform : Ansible CONFIGURE (OS, services, fichiers), Terraform CRÉE les ressources cloud.
+- Sans agent = SSH requis sur chaque cible — pas d'agent à maintenir, mais la connexion doit exister.
+- Un playbook doit être idempotent (état voulu) — toujours `--check` avant l'exécution en prod.
+**Exemple :** `ansible-playbook site.yml --limit web1` — n'agir que sur un hôte
+**Voir aussi :** IaC, Terraform, DevOps, YAML
+
+## `Azure` — Cloud Microsoft [Cloud]
+**Catégorie :** Cloud | **Niveau :** debutant | **Popularité :** 85
+**Signification :** Azure (« horizon bleu » — autrefois Windows Azure, 2010)
+**Définition :** Suite cloud de Microsoft : VMs, Azure AD, SQL Database, App Service, intégration native à Windows et Microsoft 365.
+**Contextes :** entreprises Microsoft (Active Directory, .NET), environnements hybrides Windows/Linux, données en France
+**Cas réguliers :**
+- `Azure AD Connect avec le domaine local` — SSO entre annuaire local et cloud (le plus courant en entreprise)
+- `App Service pour héberger une webapp .NET` — PaaS Microsoft
+- `Blob Storage pour les backups` — Équivalent S3 d'Azure
+- `az group create` — Gérer en CLI (az = équivalent aws)
+**Origine :** Microsoft, 2010 (Windows Azure), renommé Microsoft Azure en 2014 — 2e part mondiale derrière AWS, 1er auprès des entreprises déjà installées Microsoft.
+**Subtilités/confusions :**
+- Azure AD (identités) ≠ Azure (infra) : deux produits au même endroit — aujourd'hui renommé Microsoft Entra ID.
+- Azure vs AWS : même gamme de services, noms différents (Blob vs S3, VM vs EC2) — les concepts transitent.
+- Régions France Central / France South disponibles pour la RGPD — vérifier la région des ressources sensibles.
+**Exemple :** `az vm list-ip-addresses --output table`
+**Voir aussi :** AWS, GCP, cloud, Entra ID
+
+## `GCP` — Google Cloud Platform [Cloud]
+**Catégorie :** Cloud | **Niveau :** intermediaire | **Popularité :** 75
+**Signification :** Google Cloud Platform (Google Cloud)
+**Définition :** Suite cloud de Google : Compute Engine, BigQuery, Cloud Run, Kubernetes managé (GKE) — réputée pour la data.
+**Contextes :** data engineering, machine learning, startups, analytics, Google Workspace
+**Cas réguliers :**
+- `BigQuery pour analyser des milliards de lignes` — SQL sur lac de données (le plus courant)
+- `Cloud Run pour déployer un conteneur sans cluster` — Serverless conteneurisé
+- `GKE pour Kubernetes managé` — Le K8s d'origine, géré par ses créateurs
+- `gcloud auth login` — S'authentifier en CLI
+**Origine :** Google, 2008 (App Engine) — le réseau mondial de Google (le même que Search) en ossature ; a créé Kubernetes puis l'a confié à la CNCF.
+**Subtilités/confusions :**
+- GCP vs Google Workspace : GCP = cloud IT (serveurs, data), Workspace = bureautique (Gmail, Docs) — abonnements distincts.
+- BigQuery vs SQL classique : même syntaxe mais facturé au téraoctet analysé — un SELECT * mal écrit coûte cher.
+- BigQuery ≠ base OLTP : c'est de l'analytique, pas des écritures transactionnelles.
+**Exemple :** `bq query --use_legacy_sql=false 'SELECT count(*) FROM dataset.table'`
+**Voir aussi :** AWS, Azure, BigQuery, cloud
+
+## `GitOps` — L'infra pilotée par Git [DevOps]
+**Catégorie :** DevOps | **Niveau :** avance | **Popularité :** 65
+**Signification :** Git Operations (Opérations par Git)
+**Définition :** Git = source de vérité UNIQUE de l'infrastructure : une modification = un commit, un agent applique automatiquement la différence.
+**Contextes :** déploiements Kubernetes, infra reviewable en pull request, reproductibilité totale
+**Cas réguliers :**
+- `Pull request sur le repo d'infra → ArgoCD applique` — Changement validé puis appliqué (le plus courant)
+- `Drift détecté : l'agent resynchronise` — La prod revient à l'état de Git (auto-réparation)
+- `Rollback = git revert` — Retour arrière tracé et daté
+**Origine :** Concept formalisé par Alexis Richardson (Weaveworks), popularisé par ArgoCD (2018) ; s'appuie sur les pratiques CI/CD.
+**Subtilités/confusions :**
+- GitOps ≠ CI/CD : la CI/CD POUSSED les changements, le GitOps fait PULLE depuis Git (l'agent réconcilie).
+- Un commit dans le repo d'infra = une modification RÉELLE en prod : branch rules du repo = critique.
+- Le drift (prod modifiée à la main) est détecté et écrasé — toute modification manuelle en prod est perdue.
+**Exemple :** `argocd app diff monapp` — voir l'écart entre Git et la prod
+**Voir aussi :** CI, ArgoCD, DevOps, IaC
+
+## `SRE` — Site Reliability Engineering [DevOps]
+**Catégorie :** DevOps | **Niveau :** avance | **Popularité :** 70
+**Signification :** Site Reliability Engineering (Ingénierie de Fiabilité des Sites)
+**Définition :** Discipline née chez Google : appliquer le génie logiciel à l'exploitation, avec des objectifs de fiabilité CHIFFRÉS (SLO) et un budget d'erreur.
+**Contextes :** services à haute dispo, astreintes structurées, gros trafic, réduction des incidents
+**Cas réguliers :**
+- `SLO : 99,9% de requêtes < 300ms` — Objectif mesuré en continu (le plus courant)
+- `Budget d'erreur consommé → gèle des features` — La fiabilité devient un budget d'équipe
+- `Post-mortem sans blâme après incident` — On blame le système, pas la personne
+**Origine :** Google, livre "Site Reliability Engineering" (2016, libre) — écrit par l'équipe qui opère Search ; premier ingénieur "Site Reliability" : Ben Treynor (2003).
+**Subtilités/confusions :**
+- SRE vs DevOps : SRE = une IMPLÉMENTATION précise du DevOps avec métriques ; DevOps = la culture globale.
+- SLA vs SLO vs SLI : SLI = mesure brute (latence), SLO = cible interne (99,9%), SLA = engagement CONTRACTUEL client (pénalités).
+- L'astreinte ne peut pas prendre 100% du temps dev : la règle 50/50 ops/dev de Google sert de base.
+**Exemple :** `erreur_budget = SLO - disponibilité réelle sur 30j`
+**Voir aussi :** DevOps, SLA, monitoring, post-mortem
+
+## `Jenkins` — Serveur d'intégration continue [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 68
+**Signification :** Jenkins (majordome — logo du majordome)
+**Définition :** Serveur open source qui exécute automatiquement les builds/tests/déploiements à chaque commit (CI/CD).
+**Contextes :** pipelines d'entreprise, projets hérités, déploiements Jenkinsfile versionnés
+**Cas réguliers :**
+- `Pipeline Jenkinsfile dans le repo` — Le pipeline est du code versionné (le plus courant)
+- `Build déclenché à chaque push` — Feedback en quelques minutes
+- `Paramètres de build (branche, env)` — Exécution manuelle paramétrée
+- `Credential store pour les secrets` — Clés stockées chiffrées, pas dans le Jenkinsfile
+**Origine :** Kohsuke Kawaguchi chez Sun, 2004 (Hudson) — scission en Jenkins en 2011 après conflit avec Oracle ; leader historique du CI, concurrencé par GitHub Actions/GitLab CI.
+**Subtilités/confusions :**
+- Jenkins vs GitLab CI/GitHub Actions : Jenkins = serveur auto-hébergé très extensible (plugins), les autres = intégrés au forfait git.
+- Les 1800+ plugins sont sa force ET sa faiblesse (cassures après upgrade).
+- "Jenkins passe mais prod casse" : le pipeline ne remplace pas les tests ni la revue.
+**Exemple :** `pipeline { stages { stage('Test') { steps { sh 'pytest' } } } }`
+**Voir aussi :** CI, CD, GitLab, GitHub Actions
+
+## `Lambda` — Fonctions serverless AWS [Cloud]
+**Catégorie :** Cloud | **Niveau :** intermediaire | **Popularité :** 77
+**Signification :** AWS Lambda (λ — la fonction mathématique)
+**Définition :** Exécuter du code réactionnel sans serveur : la fonction tourne à la demande, facturée à la milliseconde d'exécution.
+**Contextes :** traitements d'événements, APIs légères, automatismes sans maintenance, coûts à l'usage
+**Cas réguliers :**
+- `Lambda déclenché par un upload S3` — Traitement automatique de fichier (le plus courant)
+- `Lambda derrière API Gateway` — API payée à l'usage réel
+- `Cron EventBridge toutes les heures` — Tâche planifiée sans serveur
+- `Lambda@Edge` — Fonction exécutée au point de présence CDN le plus proche
+**Origine :** AWS, 2014 — premier grand service serverless public ; a créé toute une génération d'architectures événementielles.
+**Subtilités/confusions :**
+- Cold start : première exécution = latence (100ms-1s) — à compenser si l'API est temps réel.
+- 15 minutes MAX par exécution : un traitement plus long doit être découpé (ou utiliser ECS/Batch).
+- Le code doit démarrer vite et sans état (stateless) — sinon la fonction est mal adaptée.
+**Exemple :** `aws lambda invoke --function-name resize --payload '{"key":"img.png"}' out.json`
+**Voir aussi :** Serverless, AWS, API Gateway, PaaS
+
+## `Helm` — Gestionnaire de paquets Kubernetes [DevOps]
+**Catégorie :** DevOps | **Niveau :** avance | **Popularité :** 66
+**Signification :** Helm (le gouvernail — K8s = bateau, Helm = gouvernail)
+**Définition :** « apt de Kubernetes » : des charts (templates paramétrés) pour installer des applications K8s en 1 commande.
+**Contextes :** déploiements K8s réutilisables, environnements dev/stag/prod, apps tierces sur cluster
+**Cas réguliers :**
+- `helm install monapp ./chart -f prod.yaml` — Déployer avec valeurs d'env (le plus courant)
+- `helm upgrade --install monapp bitnami/postgresql` — Mettre à jour sans downtime
+- `helm list` — Voir les releases du cluster
+- `helm rollback monapp 2` — Revenir à la version précédente en 1 ligne
+**Origine :** Deis puis CNCF/Google, 2015 — a introduit le packaging pour K8s quand les YAML bruts devenaient ingérables.
+**Subtilités/confusions :**
+- Helm ≠ Kubernetes : Helm GÉRE des déploiements K8s, il ne remplace pas le moteur.
+- `--install` rend la commande idempotente : créer OU mettre à jour selon l'existant — réflexe moderne.
+- Un chart tiers = YAML exécuté sur ton cluster : auditer (bitnami officiel vs repo perso).
+**Exemple :** `helm template monapp ./chart | kubectl apply -f -` — prévisualiser sans installer
+**Voir aussi :** Kubernetes, kubectl, DevOps, YAML
+
+## `SLA` — Engagements de service contractuels [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 74
+**Signification :** Service Level Agreement (Accord de Niveau de Service)
+**Définition :** Contrat qui engage un fournisseur sur des mesures de service (disponibilité, latence) avec des sanctions en cas de manquement.
+**Contextes :** contrats hébergeur/cloud, SaaS d'entreprise, engagements clients, pénalités financières
+**Cas réguliers :**
+- `SLA 99,9% de dispo = 8h47 d'arrêt max/an` — Le plus courant (3 nines)
+- `Crédit de remboursement si manquement` — La sanction classique du cloud
+- `Mesures définies en SLI puis cibles en SLO` — La chaîne complète SLI→SLO→SLA
+**Origine :** Contrats de télécom des années 1980 (AT&T), généralisés par le cloud (AWS ECP, 2009) ; formalisés avec les SLO par le SRE de Google.
+**Subtilités/confusions :**
+- SLA vs SLO vs SLI : SLI = ce qu'on mesure, SLO = la cible interne, SLA = le contrat client (souvent MOINS strict que le SLO pour laisser de la marge).
+- Un SLA à 99,9% = ~4 min/semaine d'arrêt acceptable — personne ne promet 100%.
+- Les pénalités sont généralement des CRÉDITS (remboursement partiels), pas des indemnités — lire la clause.
+**Exemple :** `99,95% sur 30j = 21 min 54 s d'arrêt maximum`
+**Voir aussi :** SRE, monitoring, uptime, cloud
+
+## `Webhook` — Notification par appel automatique [Web/DevOps]
+**Catégorie :** DevOps | **Niveau :** debutant | **Popularité :** 72
+**Signification :** Web Hook (« crochet web »)
+**Définition :** Quand un événement arrive, un système APPELE automatiquement ton URL avec les données — push inversé d'une API.
+**Contextes :** notifications GitHub/Slack, paiement Stripe, sync entre outils, CI déclenchée
+**Cas réguliers :**
+- `GitHub → POST sur ton URL à chaque push` — Déclencher une CI ou un bot (le plus courant)
+- `Stripe notifie ta plateforme d'un paiement` — Événement critique temps réel
+- `Slack Incoming Webhook pour une alerte` — Pousser un message dans un canal
+**Origine :** Terme popularisé par les API publiques (PayPal, eBay, GitHub) vers 2009-2012 — résout le polling inutile ("et si on t'appelait ?").
+**Subtilités/confusions :**
+- Webhook vs API : l'API c'est TOI qui demandes (pull), le webhook c'est EUX qui notifient (push).
+- Le webhook doit répondre 200 vite sinon le sender RETENTE (potentiellement en boucle) — idempotence requise.
+- URL de callback = secret : la divulguer permet d'injecter de faux événements → signer les payloads.
+**Exemple :** `Content-Type: application/json + header X-Signature: sha256=...`
+**Voir aussi :** API REST, CI, polling, event-driven
+
+## `Microservices` — Architecture en services découpés [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 76
+**Signification :** Microservices (Petits Services)
+**Définition :** Découper une application en petits services indépendants (équipes, déploiements, bases séparés) communiquant par API.
+**Contextes :** équipes multiples, scaling ciblé, Codebase gigantesque, projets à longue vie
+**Cas réguliers :**
+- `Service panier déployé sans toucher au catalogue` — Déploiements indépendants (le plus courant)
+- `Chaque service = sa base de données` — Isolation forte (mais plus de JOIN inter-services)
+- `Communication par API REST/gRPC ou messages` — Frontière de service = contrat d'API
+**Origine :** Terme forgé par les architectes de ThoughtWorks (Fred George, 2008-2011) et popularisé par Netflix (2012) en remplacement du monolithe.
+**Subtilités/confusions :**
+- Microservices ≠ SOA redécoupée : la SOA avait un bus central (ESB), les microservices parlent directement.
+- Pas de "petits services" par défaut : chaque découpe ajoute réseau, latence, défaillance — le monolithe bien fait bat des 50 microservices mal gérés.
+- Base de données par service = cohérence finale (sagas) au lieu de transactions ACID globales.
+**Exemple :** `Temps de réponse total = somme des services appelés → limiter la profondeur de chaîne`
+**Voir aussi :** Docker, Kubernetes, API REST, DevOps
+
+## `Prometheus` — Métriques et alertes de monitoring [DevOps]
+**Catégorie :** DevOps | **Niveau :** avance | **Popularité :** 68
+**Signification :** Prometheus (le Titan qui vola le feu aux dieux — le dieu de la surveillance)
+**Définition :** Système open source qui collecte des métriques (pull), les stocke en séries temporelles et déclenche des alertes (PromQL).
+**Contextes :** monitoring infra/apps, alerting d'astreinte, dashboards Grafana, Kubernetes
+**Cas réguliers :**
+- `alerte : taux d'erreur HTTP > 5% pendant 5 min` — Règle d'alerting (le plus courant)
+- `rate(http_requests_total[5m])` — Requête PromQL classique
+- `Scrape /metrics toutes les 15s` — Chaque service expose ses métriques
+**Origine :** SoundCloud, 2012 — inspiré par le monitoring de Borg chez Google ; gradué CNCF (2016), standard de facto du monitoring cloud-native.
+**Subtilités/confusions :**
+- Prometheus PULL (il va chercher les /metrics) vs agents push (StatsD) — le modèle pull domine en K8s.
+- Les métriques avec cardinalité énorme (user_id en label) explosent la mémoire — labels à cardinalité contrôlée.
+- Prometheus = données & alertes, Grafana = VISUALISATION : ils vont ensemble mais sont distincts.
+**Exemple :** `histogram_quantile(0.95, rate(latency_bucket[5m]))` — latence P95
+**Voir aussi :** Grafana, monitoring, alerting, SRE
+
+## `Grafana` — Dashboards de visualisation [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 73
+**Signification :** Grafana (l'astronome graphique — visuels et étoiles)
+**Définition :** Plateforme open source qui transforme des données (Prometheus, SQL, logs) en dashboards et alertes partagés.
+**Contextes :** supervision infra, tableaux de bord métier, alertes visuelles, revues d'équipe
+**Cas réguliers :**
+- `Dashboard : CPU, RAM, requêtes/s en direct` — Vue unifiée multi-sources (le plus courant)
+- `Panneau annotations à chaque déploiement` — Corréler incidents et releases
+- `Alerte Grafana envoyée sur Slack/Teams` — Notification quand un seuil tombe
+**Origine :** Torkel Ödegaard (Released), 2014 — fork de Kibana d'abord, devenu l'IHM de supervision standard ; racheté par la société Grafana Labs (2019).
+**Subtilités/confusions :**
+- Grafana ≠ Prometheus : Grafana AFFICHE, Prometheus COLLECTE — même écosystème, rôles distincts.
+- Grafana est multi-sources : un même dashboard peut mélanger Postgres + Prometheus + CloudWatch.
+- Variables de dashboard (par région, par service) = éviter 50 dashboards quasi identiques.
+**Exemple :** `Grafana → Add data source → Prometheus (http://prom:9090)`
+**Voir aussi :** Prometheus, monitoring, dashboard, SRE
+
+## `Kafka` — Flux d'événements distribués [Data/DevOps]
+**Catégorie :** Data | **Niveau :** avance | **Popularité :** 72
+**Signification :** Apache Kafka (du nom de Franz Kafka — flux et messages comme prédestination)
+**Définition :** Plateforme de flux d'événements distribués : publier/consommer des messages durables à très haut débit, ordonnés par partition.
+**Contextes :** pipelines de données temps réel, microservices événementiels, ingestion de logs, event sourcing
+**Cas réguliers :**
+- `Producer publie dans un topic, consumers en groupes` — Découplage à haut débit (le plus courant)
+- `Event stream → entrepôt analytics` — Alimentation data platform
+- `Rejeu des messages après incident` — Les offsets autorisent la relecture
+**Origine :** Né chez LinkedIn (Jay Kreps, Neha Narkhede, Jun Rao), 2011, open-sourcé en 2012 sous Apache — devenu l'épine dorsale d'un très grand nombre de plateformes data.
+**Subtilités/confusions :**
+- Kafka ≠ file d'attente type RabbitMQ : Kafka conserve les messages (durée configurable) et permet le rejeu — RabbitMQ supprime après consommation.
+- Un consommateur PULL des batchs : la progression est stockée en offsets (d'où le rejeu possible).
+- Cardinalité des topics : créer un topic par utilisateur = explosion (préférer partition/clé).
+**Exemple :** `kafka-console-producer --topic commandes --bootstrap-server localhost:9092`
+**Voir aussi :** RabbitMQ, event-driven, microservices, data streaming
+
+## `Data Warehouse` — Entrepôt analytique [Data]
+**Catégorie :** Data | **Niveau :** intermediaire | **Popularité :** 66
+**Signification :** Data Warehouse (Entrepôt de Données)
+**Définition :** Base centralisée OPTIMISÉE pour l'analyse : données historisées de multiples sources, structurées en étoile pour le reporting.
+**Contextes :** reporting d'entreprise, historisation longue, BI, analyse croisée
+**Cas réguliers :**
+- `Fait_vente liée à Dimensions (temps, produit, région)` — Schéma en étoile (le plus courant)
+- `Chargement nocturne depuis les sources opérationnelles` — Séparation OLTP/OLAP
+- `Historisation type 2 (valid_from/valid_to)` — Garder toutes les versions d'un produit
+**Origine :** Bill Inmon (« père du data warehouse », 1990) et Ralph Kimball (dimensionnel, 1996) — leurs deux approches structurent encore tous les projets data.
+**Subtilités/confusions :**
+- Data warehouse vs data lake : entrepôt = données STRUCTURÉES et nettoyées (SQL), lac = brut de tout format (cheap, mais à gouverner).
+- OLTP (production, écritures) ≠ OLAP (analyse, lectures) : ne pas greffer le reporting sur la base de prod.
+- Le schéma en étoile dénormalisé est VOLONTAIRE : plus rapide pour les jointures de rapports.
+**Exemple :** `SELECT r.region, SUM(f.montant) FROM fait_vente f JOIN dim_region r ...`
+**Voir aussi :** ETL, BI, data lake, OLAP
+
+
+
+
+
+
+
 
 
 

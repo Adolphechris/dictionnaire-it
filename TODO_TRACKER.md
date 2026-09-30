@@ -7,8 +7,8 @@ A : existant 115 | A06 archives/paquets 40 | A07 aide/shell 40 | A08 git 60 | A0
 B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 entreprise/concepts 90 | B05 compléments 76 = 400.
 
 ## 🔥 En cours (WIP — max 3)
-- [ ] #021 FaceA_06_archives_paquets : 32/40 (tar, gzip, zip, apt, unzip, brew, gunzip, 7z, dpkg, winget, yum/dnf, pacman, snap, flatpak, rpm, choco, npm, pip, yarn, maven, scoop, AppImage, gradle, make, cargo, composer, conda, gem, dpkg-reconfigure, nuget, emerge, zypper) — reste 8 — LOT ACTUEL
-- [ ] #023b FaceB_02_devops_cloud_bdd : 26/90 (CI, SaaS, NoSQL, CD, DevOps, IaaS, PaaS, SQL, AWS, K8s, IaC, Serverless, VM, S3, IAM, ORM, CDN, ETL, VPS, MongoDB, Redis, PostgreSQL, MySQL, SQLite, FTS5, BI) — reste 64 — LOT ACTUEL
+- [x] #021 FaceA_06_archives_paquets : **40/40 ✅ FAIT** (tar, gzip, zip, apt, unzip, brew, gunzip, 7z, dpkg, winget, yum/dnf, pacman, snap, flatpak, rpm, choco, npm, pip, yarn, maven, scoop, AppImage, gradle, make, cargo, composer, conda, gem, dpkg-reconfigure, nuget, emerge, zypper, bzip2, xz, zstd, pipx, uv, nvm, mas, add-apt-repository)
+- [ ] #023b FaceB_02_devops_cloud_bdd : 26/90 — reste 64 — LOT ACTUEL
 - [ ] Prochain : #022 FaceA_07_aide_shell (40)
 
 ## ✅ Fait (détail)

@@ -624,6 +624,165 @@
 **Équivalents :** apt, dnf, pacman
 **Voir aussi :** apt, dnf, rpm, linux
 
+## `bzip2` — Compression lente mais efficace [Linux/macOS]
+**Niveau :** debutant | **Popularité :** 45 | **Aliases :** bunzip2 (décompression)
+**Contextes :** archives de sources Linux, paquets .tar.bz2, fichiers où la taille prime sur le temps
+**Rôle :** Compresser un fichier en .bz2 avec l'algorithme Burrows-Wheeler (meilleure compression que gzip, plus lent).
+**Syntaxe :** `bzip2 [options] <fichier>`
+**Cas réguliers :**
+- `bzip2 gros.tar` — Compresser (le fichier devient gros.tar.bz2, l'original disparaît — le plus courant)
+- `bunzip2 gros.tar.bz2` — Décompresser
+- `tar -xjf archive.tar.bz2` — Extraire une archive .tar.bz2 (j = bzip2)
+- `bzip2 -k -9 gros.log` — Compresser au max en gardant le fichier (-k = keep)
+**Origine :** Julian Seward, 1996 — même auteur que zlib ; "bzip" = Burrows-Wheeler transform + bz.
+**Subtilités/confusions :**
+- bzip2 ne gère PAS les dossiers ni .tar : c'est un compresseur de fichier SEUL (comme gzip).
+- gzip vs bzip2 vs xz : gzip = rapide (défaut), bzip2 = mieux mais 3-5x plus lent, xz = le max mais très lent.
+- Comme gzip, l'original est SUPPRIMÉ par défaut → `-k` pour le garder.
+**Urgences/dangers :** — (réversible ; l'original supprimé par défaut est la seule surprise — voir -v avant)
+**Précautions :** Utiliser `-k` quand l'original compte ; privilégier tar -cjf pour les dossiers.
+**Équivalents :** gzip (rapide), xz (max), zstd (moderne)
+**Voir aussi :** gzip, xz, tar
+
+## `xz` — Compression maximale [Linux/macOS]
+**Niveau :** intermediaire | **Popularité :** 50 | **Aliases :** lzma
+**Contextes :** noyaux Linux (.tar.xz), paquets Debian modernes, archives où chaque octet compte
+**Rôle :** Compresser en .xz avec LZMA2 — le meilleur taux de compression des compresseurs classiques.
+**Syntaxe :** `xz [options] <fichier>`
+**Cas réguliers :**
+- `xz noyau.tar` — Compresser au max (le plus courant pour les sources Linux)
+- `unxz fichier.xz` — Décompresser
+- `tar -xJf archive.tar.xz` — Extraire une archive .tar.xz (J majuscule = xz)
+- `xz -T0 -k gros.log` — Compression multithread (T0 = tous les cœurs !)
+**Origine :** Lasse Collin, 2009 — implémentation libre du LZMA d'Igor Pavlov (7-Zip, 1998) ; standard des paquets Debian/Kernel.
+**Subtilités/confusions :**
+- `J` (xz) vs `j` (bzip2) dans tar : la casse est TRÈS importante — se tromper = erreur de format.
+- xz est LENT et gourmand en RAM (jusqu'à 6 Go en décompression max) — `-T0` accélère la compression.
+- Comme gzip : l'original est supprimé par défaut → `-k`.
+**Urgences/dangers :** — (réversible ; décompression très gourmande en RAM sur vieille machine)
+**Précautions :** Réserver xz aux archives déjà lourdes ; `xz -9e` = encore plus lent, rarement utile.
+**Équivalents :** gzip (rapide), bzip2 (milieu), zstd (moderne)
+**Voir aussi :** bzip2, gzip, tar
+
+## `zstd` — Compression moderne rapide [Linux/macOS]
+**Niveau :** intermediaire | **Popularité :** 55 | **Aliases :** zstd -d
+**Contextes :** paquets modernes (Arch, Debian), sauvegardes, remplacement de gzip en nouveau standard
+**Rôle :** Compresser/décompresser en .zst — meilleur compromis vitesse/taille, niveau réglable 1-19.
+**Syntaxe :** `zstd [options] <fichier>`
+**Cas réguliers :**
+- `zstd -19 gros.tar` — Compression maximale (lent mais énorme)
+- `zstd -d archive.zst` — Décompresser (-d = decompress)
+- `zstd -19 -T0 gros.tar` — Max + multithread (le plus courant sur backup)
+- `tar --zstd -cf backup.tar.zst dossier/` — Archive tar compressée zstd
+**Origine :** Yann Collet (co-auteur de zlib et xxHash), Facebook/Meta, 2016 — conçu pour le stockage interne de Meta ; adopté par Linux (2019+), Debian, Arch.
+**Subtilités/confusions :**
+- zstd vs gzip : à niveau égal, zstd est 3-5x plus rapide ET meilleur — gzip reste par habitude.
+- Niveaux : `-1` = ultra rapide (réseau), `-19` = max (backup) — le défaut (3) est un bon milieu.
+- `.zst` vs `.zstd` : les deux extensions circulent ; l'outil lit les deux.
+**Urgences/dangers :** — (comme gzip : original supprimé par défaut, utiliser -k si besoin)
+**Précautions :** `-k` pour garder l'original ; vérifier l'intégrité avec `-t` avant suppression.
+**Équivalents :** gzip, bzip2, xz, lz4 (encore plus rapide)
+**Voir aussi :** gzip, xz, tar
+
+## `pipx` — Installer des outils Python isolés [Cross/Dev]
+**Niveau :** intermediaire | **Popularité :** 55 | **Aliases :** —
+**Contextes :** outils CLI Python (black, httpie, poetry), environnements propres, conflits de versions
+**Rôle :** Installer un outil Python avec SES propres dépendances dans un venv isolé — zéro conflit entre outils.
+**Syntaxe :** `pipx [install|list|upgrade] <outil>`
+**Cas réguliers :**
+- `pipx install black` — Installer black isolément (le plus courant)
+- `pipx list` — Voir les outils installés
+- `pipx upgrade black` — Mettre à jour l'outil
+- `pipx install poetry` — Poetry, ruff, httpie : tous isolés comme ça
+**Origine :** Chuck Tonhoz puis maintenu par la communauté PyPA, 2018 — réponse au problème "black veut requests 2.28, httpie veut 2.31" quand tout est en global.
+**Subtilités/confusions :**
+- pipx vs pip : pip = bibliothèques POUR un projet (import), pipx = exécutables CLI (commande).
+- pipx vs venv manuel : pipx EST un venv automatique par outil, sans activation manuelle.
+- `pipx install --force` réinstalle proprement après un upgrade cassé.
+**Urgences/dangers :** — (tout est isolé, rien de global n'est touché)
+**Précautions :** pipx pour les outils globaux, pip+venv pour les dépendances de projet.
+**Équivalents :** npx (Node), brew install (outils CLI), cargo install (Rust)
+**Voir aussi :** pip, venv, conda, python
+
+## `uv` — Gestionnaire Python ultra-rapide [Cross/Dev]
+**Niveau :** intermediaire | **Popularité :** 60 | **Aliases :** —
+**Contextes :** projets Python modernes, CI à accélérer, remplacement de pip/venv/pip-tools
+**Rôle :** Installer dépendances et gérer les venvs Python en Rust — 10-100x plus rapide que pip.
+**Syntaxe :** `uv [pip install|venv|add|run] <paquet>`
+**Cas réguliers :**
+- `uv venv && uv pip install -r requirements.txt` — Env + install éclair (le plus courant)
+- `uv init && uv add requests` — Nouveau projet avec pyproject.toml géré par uv
+- `uv run script.py` — Exécuter dans l'env du projet sans activation
+- `uv python install 3.12` — Télécharger une version Python sans pyenv
+**Origine :** Astral (Ruff, 2024) — écrit en Rust sur le modèle de Cargo ; est devenu en 2025 le standard de fait des nouveaux projets Python.
+**Subtilités/confusions :**
+- uv vs pip : uv fait pip + venv + pyenv + pip-tools en UN outil — pip reste le réflexe historique.
+- `uv pip` = compatibilité pip (commandes identiques), `uv add` = façon native (pyproject.toml).
+- Le cache uv est global et dédupliqué : il remplace vite les venvs épars.
+**Urgences/dangers :** — (les commandes uv pip sont aussi sûres que pip ; uv python ne touche pas au Python système)
+**Précautions :** Basculer un projet existant progressivement ; garder requirements.txt généré si l'équipe n'est pas encore en pyproject.
+**Équivalents :** pip, poetry, pipenv, cargo (Rust)
+**Voir aussi :** pip, python, venv, poetry
+
+## `nvm` — Gérer les versions de Node.js [Cross/Dev]
+**Niveau :** debutant | **Popularité :** 78 | **Aliases :** Node Version Manager
+**Contextes :** projets Node sur versions différentes, LTS vs latest, machine de dev partagée
+**Rôle :** Installer et basculer entre plusieurs versions de Node.js sur le même poste.
+**Syntaxe :** `nvm [install|use|list-remote] <version>`
+**Cas réguliers :**
+- `nvm install --lts` — Installer la version LTS (le plus courant)
+- `nvm use 20` — Basculer sur Node 20 pour le projet courant
+- `nvm ls` — Lister les versions installées
+- `echo "20" > .nvmrc` — Figer la version du projet (puis `nvm use`)
+**Origine :** Tim Caswell (creationix), 2014 — shell script inspiré de rvm (Ruby) ; aujourd'hui l'alternatif fnm est plus rapide mais nvm reste le standard.
+**Subtilités/confusions :**
+- nvm vs npm : nvm gère NODE (l'exécutable), npm gère les paquets — noms voisins, rôles distincts.
+- La version change par SHELL : chaque terminal nouveau doit re-faire nvm use (ou .nvmrc + dire à l'équipe).
+- Windows n'a pas nvm : utiliser nvm-windows (projet séparé, incompatible avec le nvm Unix).
+**Urgences/dangers :** — (les versions coexistent, aucune destruction)
+**Précautions :** Toujours commiter un .nvmrc ; ne pas installer Node global à côté (conflits de PATH).
+**Voir aussi :** npm, node, volta, fnm
+
+## `mas` — Mac App Store en terminal [macOS]
+**Niveau :** debutant | **Popularité :** 40 | **Aliases :** Mac App Store CLI
+**Contextes :** post-macOS remis à zéro, scripts de provisioning, installation d'apps sans GUI
+**Rôle :** Installer et mettre à jour les apps du Mac App Store depuis la ligne de commande.
+**Syntaxe :** `mas [install|list|upgrade|search] <id|nom>`
+**Cas réguliers :**
+- `mas install 497799835` — Installer Pages par son ID (le plus courant)
+- `mas list` — Lister les apps App Store installées
+- `mas upgrade` — Mettre à jour toutes les apps du Store
+- `mas search Xcode` — Chercher une app et récupérer son ID
+**Origine :** Mattt Thompson (Mantano), 2013 — lui-même créé pour provisionner des machines de dev Apple sans cliquer 50 fois.
+**Subtilités/confusions :**
+- mas ne gère QUE le Mac App Store : les .dmg et brew cask sont d'autres mondes (complémentaires).
+- Un ID fixe (497799835) est plus fiable qu'un nom dans les scripts.
+- macOS doit être connecté au même Apple ID que le Store — sinon "Not signed in".
+**Urgences/dangers :** — (les apps sont isolées dans /Applications, désinstallation standard)
+**Précautions :** Lister l'ID avant ; garder la liste exportée (`mas list > apps.txt`) pour le re-setup.
+**Équivalents :** brew install --cask, winget (Windows), apt (Linux)
+**Voir aussi :** brew, macos, scoop
+
+## `add-apt-repository` — Ajouter un dépôt Debian/Ubuntu [Linux]
+**Niveau :** intermediaire | **Popularité :** 55 | **Aliases :** apt-add-repository
+**Contextes :** logiciels absents des dépôts officiels (Docker, Chrome, Node), versions plus récentes
+**Rôle :** Ajouter/supprimer un dépôt tiers (PPA ou repo) avec sa clé GPG en une commande.
+**Syntaxe :** `sudo add-apt-repository ppa:<auteur>/<nom> && sudo apt update`
+**Cas réguliers :**
+- `sudo add-apt-repository ppa:deadsnakes/ppa` — Versions récentes de Python (le plus courant)
+- `sudo add-apt-repository ppa:graphics-drivers/ppa` — Drivers graphiques à jour
+- `sudo add-apt-repository --remove ppa:...` — Retirer un dépôt
+**Origine :** Canonical (Launchpad), 2008 — les PPA (Personal Package Archives) sont le mécanisme Ubuntu de dépôts tiers signés.
+**Subtilités/confusions :**
+- Toujours `apt update` APRÈS l'ajout, sinon "paquet introuvable".
+- PPA = Ubuntu uniquement (pas Debian) : sur Debian, ajouter le .list à la main dans /etc/apt/sources.list.d/.
+- Un dépôt tiers = code signé mais pas officiel : chaque PPA ajouté élargit la surface de confiance.
+**Urgences/dangers :** ⚠️ Un PPA abandonné peut héberger un paquet compromis — lister les dépôts régulièrement (`ls /etc/apt/sources.list.d/`).
+**Précautions :** Ajouter les dépôts minimum ; retirer avec --remove quand l'usage est fini.
+**Équivalents :** dnf config-manager (Fedora), brew tap (macOS)
+**Voir aussi :** apt, dpkg, apt-key
+
+
 
 
 
