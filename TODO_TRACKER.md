@@ -7,6 +7,7 @@ A : existant 115 | A06 archives/paquets 40 | A07 aide/shell 40 | A08 git 60 | A0
 B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 entreprise/concepts 90 | B05 compléments 76 = 400.
 
 ## 🔥 En cours (WIP — max 3)
+- [x] #028 FaceA_11_paquets_multiOS : **50/50 ✅ FAIT** (apt-get... n)
 - [x] #027 FaceA_10_sysadmin : **60/60 ✅ FAIT** (chmod, chown, useradd... apparmor_status)
 - [x] #026 FaceA_09_docker_k8s : **50/50 ✅ FAIT** (docker run... crictl)
 - [x] #024 FaceA_08_git : **60/60 ✅ FAIT** (git... git-filter-repo)
@@ -29,10 +30,10 @@ B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 e
 - 2026-09-30 #024 FaceA_08_git : 60/60 fiches v3 — AI
 - 2026-09-30 #026 FaceA_09_docker_k8s : 50/50 fiches v3 — AI
 - 2026-09-30 #027 FaceA_10_sysadmin : 60/60 fiches v3 — AI
+- 2026-09-30 #028 FaceA_11_paquets_multiOS : 50/50 fiches v3 — AI
 
 ## 📋 Backlog MVP 1000 (P1 = contenu, dans l'ordre)
-- [ ] #028 FaceA_11_paquets_multiOS (50) ⏳ **Prochain lot**
-- [ ] #029 FaceA_12_reseau2_secu (60)
+- [ ] #029 FaceA_12_reseau2_secu (60) ⏳ **Prochain lot**
 - [ ] #033 FaceA_13_dev_outils (60) + #034 FaceA_14 compléments (60)
 - [ ] #035 FaceB_03 (90) + #036 FaceB_04 (90) + #037 FaceB_05 (76)
 - [ ] #025 enrichir les 154 legacy vers v3 (progressif, non bloquant)
