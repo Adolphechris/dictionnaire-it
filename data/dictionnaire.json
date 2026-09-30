@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "total": 320,
+  "total": 334,
   "entries": [
     {
       "face": "A",
@@ -17649,6 +17649,2422 @@
         }
       ],
       "id": "A-00179",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git",
+      "aliases": [],
+      "niveau": "intermediaire",
+      "popularite": 98,
+      "contextes": [
+        "tout projet de code",
+        "travail en équipe",
+        "historique de versions",
+        "retour arrière"
+      ],
+      "origine": "Linus Torvalds (2005), pour développer le noyau Linux après le retrait de BitKeeper — distribué par conception : chaque clone contient tout l'historique.",
+      "subtilites": [
+        "Git ne stocke pas des différences mais des INSTANTANÉS (snapshots) complets du projet à chaque commit.",
+        "« Distribué » : `git log`, `git diff`, `git blame` fonctionnent SANS réseau — le `push` n'est jamais obligatoire.",
+        "Comprendre trois mots débloque tout le reste : index (zone de préparation), HEAD (position courante), objet SHA.",
+        "*Urgences/dangers :** ⚠️ `git push --force` sur une branche partagée écrase le travail des autres — ne jamais le faire sans `--force-with-lease`.",
+        "*Précautions :** Travailler sur des branches, commiter souvent ; `git reflog` reste le filet de secours des erreurs courantes.",
+        "*Équivalents :** SVN, Mercurial, Perforce (contrôle de version)",
+        "*Voir aussi :** git init, git clone, git commit, git push, git rebase"
+      ],
+      "voir_aussi": [
+        "git init",
+        "git clone",
+        "git commit",
+        "git push",
+        "git rebase"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Enregistrer l'histoire complète d'un projet (fichiers, auteurs, dates) et permettre de revenir à n'importe quel état antérieur.",
+      "syntaxe": "git <sous-commande> [options] [args]",
+      "cas_reguliers": [
+        {
+          "cmd": "git status",
+          "explication": "Où j'en suis (la commande réflexe, le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git log --oneline --graph",
+          "explication": "Voir l'histoire en une ligne par commit",
+          "contexte": ""
+        },
+        {
+          "cmd": "git config --global user.email \"toi@mail.fr\"",
+          "explication": "S'identifier une bonne fois",
+          "contexte": ""
+        },
+        {
+          "cmd": "git help <cmd>",
+          "explication": "Le manuel intégré de n'importe quelle sous-commande",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Linus Torvalds (2005), pour développer le noyau Linux après le retrait de BitKeeper — distribué par conception : chaque clone contient tout l'historique.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Git ne stocke pas des différences mais des INSTANTANÉS (snapshots) complets du projet à chaque commit.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "« Distribué » : `git log`, `git diff`, `git blame` fonctionnent SANS réseau — le `push` n'est jamais obligatoire.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Comprendre trois mots débloque tout le reste : index (zone de préparation), HEAD (position courante), objet SHA.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `git push --force` sur une branche partagée écrase le travail des autres — ne jamais le faire sans `--force-with-lease`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Travailler sur des branches, commiter souvent ; `git reflog` reste le filet de secours des erreurs courantes.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** SVN, Mercurial, Perforce (contrôle de version)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git init, git clone, git commit, git push, git rebase",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git status",
+          "explication": "Où j'en suis (la commande réflexe, le plus courant)"
+        },
+        {
+          "cmd": "git log --oneline --graph",
+          "explication": "Voir l'histoire en une ligne par commit"
+        },
+        {
+          "cmd": "git config --global user.email \"toi@mail.fr\"",
+          "explication": "S'identifier une bonne fois"
+        },
+        {
+          "cmd": "git help <cmd>",
+          "explication": "Le manuel intégré de n'importe quelle sous-commande"
+        },
+        {
+          "cmd": "*Origine :** Linus Torvalds (2005), pour développer le noyau Linux après le retrait de BitKeeper — distribué par conception : chaque clone contient tout l'historique.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "Git ne stocke pas des différences mais des INSTANTANÉS (snapshots) complets du projet à chaque commit.",
+          "explication": ""
+        },
+        {
+          "cmd": "« Distribué » : `git log`, `git diff`, `git blame` fonctionnent SANS réseau — le `push` n'est jamais obligatoire.",
+          "explication": ""
+        },
+        {
+          "cmd": "Comprendre trois mots débloque tout le reste : index (zone de préparation), HEAD (position courante), objet SHA.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `git push --force` sur une branche partagée écrase le travail des autres — ne jamais le faire sans `--force-with-lease`.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Travailler sur des branches, commiter souvent ; `git reflog` reste le filet de secours des erreurs courantes.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** SVN, Mercurial, Perforce (contrôle de version)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git init, git clone, git commit, git push, git rebase",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `git push --force` sur une branche partagée écrase le travail des autres — ne jamais le faire sans `--force-with-lease`.",
+      "precautions": "Travailler sur des branches, commiter souvent ; `git reflog` reste le filet de secours des erreurs courantes.",
+      "equivalents": [
+        {
+          "note": "SVN, Mercurial, Perforce (contrôle de version)"
+        }
+      ],
+      "id": "A-00180",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git init",
+      "aliases": [],
+      "niveau": "debutant",
+      "popularite": 80,
+      "contextes": [
+        "démarrer un projet",
+        "versionner un dossier existant",
+        "créer un dépôt local de test"
+      ],
+      "origine": "Git 1.0 (2005) — `init` crée le système d'objets ; `--bare` vient de l'usage serveur où aucun fichier de travail n'a de sens.",
+      "subtilites": [
+        "`git init` dans un SOUS-dossier d'un dépôt existant crée un dépôt imbriqué (piège fréquent) : vérifier avec `git rev-parse --show-toplevel`.",
+        "`.git` contient TOUT : le supprimer efface l'historique tout en laissant les fichiers de travail.",
+        "Un dépôt `--bare` ne s'édite pas : on y `push` depuis un dépôt de travail.",
+        "*Urgences/dangers :** ⚠️ `git init` dans son dossier personnel (home) est très pénible à annuler : le `.git` parasite tous les sous-dossiers.",
+        "*Précautions :** Écrire `.gitignore` AVANT le premier commit ; ne jamais versionner de secret (`.env`, clés privées).",
+        "*Équivalents :** svnadmin create, hg init",
+        "*Voir aussi :** git clone, git status, git add, .gitignore"
+      ],
+      "voir_aussi": [
+        "git clone",
+        "git status",
+        "git add",
+        ".gitignore"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Transformer un dossier en dépôt Git en créant le répertoire caché `.git` qui contiendra tout l'historique.",
+      "syntaxe": "git init [dossier]",
+      "cas_reguliers": [
+        {
+          "cmd": "git init",
+          "explication": "Versionner le dossier courant (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git init -b main",
+          "explication": "Branche principale nommée main d'office (git 2.28+)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git init --bare repo.git",
+          "explication": "Dépôt SANS dossier de travail, pour servir de serveur partagé",
+          "contexte": ""
+        },
+        {
+          "cmd": "Rédiger `.gitignore` avant le premier commit — Exclure node_modules et .env dès le départ",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — `init` crée le système d'objets ; `--bare` vient de l'usage serveur où aucun fichier de travail n'a de sens.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "git init` dans un SOUS-dossier d'un dépôt existant crée un dépôt imbriqué (piège fréquent) : vérifier avec `git rev-parse --show-toplevel`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": ".git` contient TOUT : le supprimer efface l'historique tout en laissant les fichiers de travail.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un dépôt `--bare` ne s'édite pas : on y `push` depuis un dépôt de travail.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `git init` dans son dossier personnel (home) est très pénible à annuler : le `.git` parasite tous les sous-dossiers.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Écrire `.gitignore` AVANT le premier commit ; ne jamais versionner de secret (`.env`, clés privées).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** svnadmin create, hg init",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git clone, git status, git add, .gitignore",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git init",
+          "explication": "Versionner le dossier courant (le plus courant)"
+        },
+        {
+          "cmd": "git init -b main",
+          "explication": "Branche principale nommée main d'office (git 2.28+)"
+        },
+        {
+          "cmd": "git init --bare repo.git",
+          "explication": "Dépôt SANS dossier de travail, pour servir de serveur partagé"
+        },
+        {
+          "cmd": "Rédiger `.gitignore` avant le premier commit — Exclure node_modules et .env dès le départ",
+          "explication": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — `init` crée le système d'objets ; `--bare` vient de l'usage serveur où aucun fichier de travail n'a de sens.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "git init` dans un SOUS-dossier d'un dépôt existant crée un dépôt imbriqué (piège fréquent) : vérifier avec `git rev-parse --show-toplevel`.",
+          "explication": ""
+        },
+        {
+          "cmd": ".git` contient TOUT : le supprimer efface l'historique tout en laissant les fichiers de travail.",
+          "explication": ""
+        },
+        {
+          "cmd": "Un dépôt `--bare` ne s'édite pas : on y `push` depuis un dépôt de travail.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `git init` dans son dossier personnel (home) est très pénible à annuler : le `.git` parasite tous les sous-dossiers.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Écrire `.gitignore` AVANT le premier commit ; ne jamais versionner de secret (`.env`, clés privées).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** svnadmin create, hg init",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git clone, git status, git add, .gitignore",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `git init` dans son dossier personnel (home) est très pénible à annuler : le `.git` parasite tous les sous-dossiers.",
+      "precautions": "Écrire `.gitignore` AVANT le premier commit ; ne jamais versionner de secret (`.env`, clés privées).",
+      "equivalents": [
+        {
+          "note": "svnadmin create, hg init"
+        }
+      ],
+      "id": "A-00181",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git clone",
+      "aliases": [],
+      "niveau": "debutant",
+      "popularite": 92,
+      "contextes": [
+        "récupérer un projet",
+        "participer à un dépôt distant",
+        "créer une copie de travail rapide"
+      ],
+      "origine": "Git 1.0 (2005) — l'équivalent d'un checkout complet : contrairement à SVN, `clone` rapporte l'intégralité des commits, pas seulement la dernière version.",
+      "subtilites": [
+        "Un clone contient le distant `origin` : `git log origin/main` marche immédiatement, mais cet historique ne s'actualise qu'avec `git fetch`.",
+        "`--depth 1` (shallow) casse `git blame`, les logs profonds et souvent les tags : réservé à la CI.",
+        "SSH (`git@github.com:...`) demande une clé ; HTTPS demande un JETON depuis que le mot de passe est refusé.",
+        "*Urgences/dangers :** ⚠️ Cloner un dépôt inconnu puis exécuter ses scripts = exécuter du code arbitraire : relire avant tout `npm install` ou `make`.",
+        "*Précautions :** Vérifier l'URL du dépôt (typosquatting) ; `git remote -v` pour contrôler ce qu'on a réellement cloné.",
+        "*Équivalents :** svn checkout, hg clone",
+        "*Voir aussi :** git init, git remote, git fetch, git pull"
+      ],
+      "voir_aussi": [
+        "git init",
+        "git remote",
+        "git fetch",
+        "git pull"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Télécharger un dépôt et TOUT son historique, puis créer un dépôt de travail prêt à l'emploi.",
+      "syntaxe": "git clone <url> [dossier]",
+      "cas_reguliers": [
+        {
+          "cmd": "git clone https://github.com/org/projet.git",
+          "explication": "Le réflexe (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git clone --depth 1 <url>",
+          "explication": "Une seule version : rapide pour un build CI",
+          "contexte": ""
+        },
+        {
+          "cmd": "git clone -b dev <url>",
+          "explication": "Cloner directement sur une branche donnée",
+          "contexte": ""
+        },
+        {
+          "cmd": "git clone /chemin/local/depot",
+          "explication": "Copie locale (test, sauvegarde d'un dépôt)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — l'équivalent d'un checkout complet : contrairement à SVN, `clone` rapporte l'intégralité des commits, pas seulement la dernière version.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un clone contient le distant `origin` : `git log origin/main` marche immédiatement, mais cet historique ne s'actualise qu'avec `git fetch`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "--depth 1` (shallow) casse `git blame`, les logs profonds et souvent les tags : réservé à la CI.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "SSH (`git@github.com:...`) demande une clé ; HTTPS demande un JETON depuis que le mot de passe est refusé.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ Cloner un dépôt inconnu puis exécuter ses scripts = exécuter du code arbitraire : relire avant tout `npm install` ou `make`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Vérifier l'URL du dépôt (typosquatting) ; `git remote -v` pour contrôler ce qu'on a réellement cloné.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn checkout, hg clone",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git init, git remote, git fetch, git pull",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git clone https://github.com/org/projet.git",
+          "explication": "Le réflexe (le plus courant)"
+        },
+        {
+          "cmd": "git clone --depth 1 <url>",
+          "explication": "Une seule version : rapide pour un build CI"
+        },
+        {
+          "cmd": "git clone -b dev <url>",
+          "explication": "Cloner directement sur une branche donnée"
+        },
+        {
+          "cmd": "git clone /chemin/local/depot",
+          "explication": "Copie locale (test, sauvegarde d'un dépôt)"
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — l'équivalent d'un checkout complet : contrairement à SVN, `clone` rapporte l'intégralité des commits, pas seulement la dernière version.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "Un clone contient le distant `origin` : `git log origin/main` marche immédiatement, mais cet historique ne s'actualise qu'avec `git fetch`.",
+          "explication": ""
+        },
+        {
+          "cmd": "--depth 1` (shallow) casse `git blame`, les logs profonds et souvent les tags : réservé à la CI.",
+          "explication": ""
+        },
+        {
+          "cmd": "SSH (`git@github.com:...`) demande une clé ; HTTPS demande un JETON depuis que le mot de passe est refusé.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ Cloner un dépôt inconnu puis exécuter ses scripts = exécuter du code arbitraire : relire avant tout `npm install` ou `make`.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Vérifier l'URL du dépôt (typosquatting) ; `git remote -v` pour contrôler ce qu'on a réellement cloné.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn checkout, hg clone",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git init, git remote, git fetch, git pull",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ Cloner un dépôt inconnu puis exécuter ses scripts = exécuter du code arbitraire : relire avant tout `npm install` ou `make`.",
+      "precautions": "Vérifier l'URL du dépôt (typosquatting) ; `git remote -v` pour contrôler ce qu'on a réellement cloné.",
+      "equivalents": [
+        {
+          "note": "svn checkout, hg clone"
+        }
+      ],
+      "id": "A-00182",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git status",
+      "aliases": [
+        "git st (alias courant)"
+      ],
+      "niveau": "debutant",
+      "popularite": 97,
+      "contextes": [
+        "avant chaque commit",
+        "comprendre ce qui a changé",
+        "reprendre un travail interrompu"
+      ],
+      "origine": "Git 1.0 (2005) — `status` compare les trois états internes : dossier de travail, index, dernier commit (HEAD).",
+      "subtilites": [
+        "Trois listes, trois sens : *untracked* (jamais ajoutés) ≠ *modified* (pas dans l'index) ≠ *staged* (prêts à commiter).",
+        "« Your branch is ahead of 'origin/main' by 3 commits » veut dire : à pousser — ce n'est PAS une erreur.",
+        "Un fichier « modified » sans `git diff` visible = fins de ligne CRLF/LF ou droits (`chmod +x`) qui ont bougé.",
+        "*Urgences/dangers :** — (lecture seule : `git status` ne modifie jamais le dépôt)",
+        "*Précautions :** Toujours `git status` avant un `git add .` : c'est ce qui évite de commiter un `.env` ou un binaire de 200 Mo.",
+        "*Équivalents :** svn status, hg status",
+        "*Voir aussi :** git add, git diff, git commit, .gitignore"
+      ],
+      "voir_aussi": [
+        "git add",
+        "git diff",
+        "git commit",
+        ".gitignore"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Afficher les fichiers modifiés, préparés (index) ou non suivis, et la position de la branche par rapport au distant.",
+      "syntaxe": "git status [options]",
+      "cas_reguliers": [
+        {
+          "cmd": "git status",
+          "explication": "Le bilan complet (le plus courant, à faire en premier systématiquement)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git status -s",
+          "explication": "Format court, une ligne par fichier (idéal en script)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git status -sb",
+          "explication": "Court + position de la branche vs `origin/main`",
+          "contexte": ""
+        },
+        {
+          "cmd": "git status --ignored",
+          "explication": "Voir ce que `.gitignore` exclut (debug d'exclusion)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — `status` compare les trois états internes : dossier de travail, index, dernier commit (HEAD).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Trois listes, trois sens : *untracked* (jamais ajoutés) ≠ *modified* (pas dans l'index) ≠ *staged* (prêts à commiter).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "« Your branch is ahead of 'origin/main' by 3 commits » veut dire : à pousser — ce n'est PAS une erreur.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un fichier « modified » sans `git diff` visible = fins de ligne CRLF/LF ou droits (`chmod +x`) qui ont bougé.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (lecture seule : `git status` ne modifie jamais le dépôt)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Toujours `git status` avant un `git add .` : c'est ce qui évite de commiter un `.env` ou un binaire de 200 Mo.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn status, hg status",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git add, git diff, git commit, .gitignore",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git status",
+          "explication": "Le bilan complet (le plus courant, à faire en premier systématiquement)"
+        },
+        {
+          "cmd": "git status -s",
+          "explication": "Format court, une ligne par fichier (idéal en script)"
+        },
+        {
+          "cmd": "git status -sb",
+          "explication": "Court + position de la branche vs `origin/main`"
+        },
+        {
+          "cmd": "git status --ignored",
+          "explication": "Voir ce que `.gitignore` exclut (debug d'exclusion)"
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — `status` compare les trois états internes : dossier de travail, index, dernier commit (HEAD).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "Trois listes, trois sens : *untracked* (jamais ajoutés) ≠ *modified* (pas dans l'index) ≠ *staged* (prêts à commiter).",
+          "explication": ""
+        },
+        {
+          "cmd": "« Your branch is ahead of 'origin/main' by 3 commits » veut dire : à pousser — ce n'est PAS une erreur.",
+          "explication": ""
+        },
+        {
+          "cmd": "Un fichier « modified » sans `git diff` visible = fins de ligne CRLF/LF ou droits (`chmod +x`) qui ont bougé.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (lecture seule : `git status` ne modifie jamais le dépôt)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Toujours `git status` avant un `git add .` : c'est ce qui évite de commiter un `.env` ou un binaire de 200 Mo.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn status, hg status",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git add, git diff, git commit, .gitignore",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (lecture seule : `git status` ne modifie jamais le dépôt)",
+      "precautions": "Toujours `git status` avant un `git add .` : c'est ce qui évite de commiter un `.env` ou un binaire de 200 Mo.",
+      "equivalents": [
+        {
+          "note": "svn status, hg status"
+        }
+      ],
+      "id": "A-00183",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git add",
+      "aliases": [
+        "git stage (synonyme officiel)"
+      ],
+      "niveau": "debutant",
+      "popularite": 96,
+      "contextes": [
+        "sélectionner ce qui entre dans le prochain commit",
+        "ajouter de nouveaux fichiers",
+        "construire un commit propre"
+      ],
+      "origine": "Git 1.0 (2005) — l'index est l'idée la plus déroutante de Git : c'est une MAQUETTE du prochain commit, pas un simple « file tracking ».",
+      "subtilites": [
+        "`git add` n'envoie RIEN sur le réseau : il prépare uniquement. Le réseau, c'est `push`.",
+        "Après un `git add` puis une nouvelle modification du même fichier : il faut re-`add` (sinon le commit garde la version ajoutée).",
+        "`git add -A` (tout, partout) vs `git add .` (dossier courant) : le premier peut traverser tout l'arbre.",
+        "*Urgences/dangers :** ⚠️ `git add .` sur un dépôt sans `.gitignore` publié `.env`, `id_rsa`, `node_modules` — un secret commité doit être considéré COMPROMIS (rotation obligatoire).",
+        "*Précautions :** `git add -p` par défaut sur du code partagé ; vérifier `git diff --cached` avant de commiter.",
+        "*Équivalents :** svn add (sans notion d'index), hg add",
+        "*Voir aussi :** git status, git commit, git diff, .gitignore"
+      ],
+      "voir_aussi": [
+        "git status",
+        "git commit",
+        "git diff",
+        ".gitignore"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Copier l'état des fichiers dans l'INDEX (la zone de préparation) : tout ce qui est ajouté sera inclus dans le prochain commit.",
+      "syntaxe": "git add [options] <fichiers>",
+      "cas_reguliers": [
+        {
+          "cmd": "git add src/main.py",
+          "explication": "Ajouter un fichier précis (le plus courant, la bonne habitude)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git add -p",
+          "explication": "Ajouter PAR MORCEAUX, écran par écran (commit propre garanti)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git add .",
+          "explication": "Tout le dossier courant (à n'utiliser qu'après un `git status`)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git add -u",
+          "explication": "Seulement les fichiers DÉJÀ suivis (jamais les nouveaux)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — l'index est l'idée la plus déroutante de Git : c'est une MAQUETTE du prochain commit, pas un simple « file tracking ».",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "git add` n'envoie RIEN sur le réseau : il prépare uniquement. Le réseau, c'est `push`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Après un `git add` puis une nouvelle modification du même fichier : il faut re-`add` (sinon le commit garde la version ajoutée).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "git add -A` (tout, partout) vs `git add .` (dossier courant) : le premier peut traverser tout l'arbre.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `git add .` sur un dépôt sans `.gitignore` publié `.env`, `id_rsa`, `node_modules` — un secret commité doit être considéré COMPROMIS (rotation obligatoire).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** `git add -p` par défaut sur du code partagé ; vérifier `git diff --cached` avant de commiter.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn add (sans notion d'index), hg add",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git status, git commit, git diff, .gitignore",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git add src/main.py",
+          "explication": "Ajouter un fichier précis (le plus courant, la bonne habitude)"
+        },
+        {
+          "cmd": "git add -p",
+          "explication": "Ajouter PAR MORCEAUX, écran par écran (commit propre garanti)"
+        },
+        {
+          "cmd": "git add .",
+          "explication": "Tout le dossier courant (à n'utiliser qu'après un `git status`)"
+        },
+        {
+          "cmd": "git add -u",
+          "explication": "Seulement les fichiers DÉJÀ suivis (jamais les nouveaux)"
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — l'index est l'idée la plus déroutante de Git : c'est une MAQUETTE du prochain commit, pas un simple « file tracking ».",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "git add` n'envoie RIEN sur le réseau : il prépare uniquement. Le réseau, c'est `push`.",
+          "explication": ""
+        },
+        {
+          "cmd": "Après un `git add` puis une nouvelle modification du même fichier : il faut re-`add` (sinon le commit garde la version ajoutée).",
+          "explication": ""
+        },
+        {
+          "cmd": "git add -A` (tout, partout) vs `git add .` (dossier courant) : le premier peut traverser tout l'arbre.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `git add .` sur un dépôt sans `.gitignore` publié `.env`, `id_rsa`, `node_modules` — un secret commité doit être considéré COMPROMIS (rotation obligatoire).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** `git add -p` par défaut sur du code partagé ; vérifier `git diff --cached` avant de commiter.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn add (sans notion d'index), hg add",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git status, git commit, git diff, .gitignore",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `git add .` sur un dépôt sans `.gitignore` publié `.env`, `id_rsa`, `node_modules` — un secret commité doit être considéré COMPROMIS (rotation obligatoire).",
+      "precautions": "`git add -p` par défaut sur du code partagé ; vérifier `git diff --cached` avant de commiter.",
+      "equivalents": [
+        {
+          "note": "svn add (sans notion d'index), hg add"
+        }
+      ],
+      "id": "A-00184",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git commit",
+      "aliases": [],
+      "niveau": "debutant",
+      "popularite": 97,
+      "contextes": [
+        "valider une étape de travail",
+        "documenter une décision",
+        "sceller un changement réversible"
+      ],
+      "origine": "Git 1.0 (2005) — un commit est un nœud immuable pointant vers son parent : c'est ce qui rend l'histoire infalsifiable et l'écrasement possible uniquement en réécrivant la suite.",
+      "subtilites": [
+        "`commit -a` OMET les nouveaux fichiers non suivis : le piège du « mon fichier n'est pas dans le commit ».",
+        "Un commit local n'est PAS partagé : tant qu'il n'est pas poussé, `--amend` est sans danger ; après `push`, réécrire l'histoire dérange l'équipe.",
+        "Message impératif (« corrige X » et non « corrigé ») : convention héritée de Torvalds, lisible dans `git log`.",
+        "*Urgences/dangers :** ⚠️ Committer un SECRET (token, clé privée) = exposition durable même après suppression : il faut purger l'historique (`filter-repo`) ET révoquer le secret.",
+        "*Précautions :** Un commit = une idée ; relire `git diff --cached` ; message qui explique le POURQUOI, pas le QUOI.",
+        "*Équivalents :** svn commit (qui pousse directement), hg commit",
+        "*Voir aussi :** git add, git log, git reset, git revert"
+      ],
+      "voir_aussi": [
+        "git add",
+        "git log",
+        "git reset",
+        "git revert"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Créer un commit : instantané de l'index + message + auteur + empreinte SHA immuable.",
+      "syntaxe": "git commit [options] [-m \"message\"]",
+      "cas_reguliers": [
+        {
+          "cmd": "git commit -m \"corrige le timeout de connexion\"",
+          "explication": "Le réflexe (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git commit",
+          "explication": "Ouvre l'éditeur pour un message long (corps explicatif)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git commit -a -m \"hotfix\"",
+          "explication": "Commet les fichiers DÉJÀ suivis modifiés, sans `add`",
+          "contexte": ""
+        },
+        {
+          "cmd": "git commit --amend --no-edit",
+          "explication": "Corriger le dernier commit (message ou oubli local)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — un commit est un nœud immuable pointant vers son parent : c'est ce qui rend l'histoire infalsifiable et l'écrasement possible uniquement en réécrivant la suite.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "commit -a` OMET les nouveaux fichiers non suivis : le piège du « mon fichier n'est pas dans le commit ».",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un commit local n'est PAS partagé : tant qu'il n'est pas poussé, `--amend` est sans danger ; après `push`, réécrire l'histoire dérange l'équipe.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Message impératif (« corrige X » et non « corrigé ») : convention héritée de Torvalds, lisible dans `git log`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ Committer un SECRET (token, clé privée) = exposition durable même après suppression : il faut purger l'historique (`filter-repo`) ET révoquer le secret.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Un commit = une idée ; relire `git diff --cached` ; message qui explique le POURQUOI, pas le QUOI.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn commit (qui pousse directement), hg commit",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git add, git log, git reset, git revert",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git commit -m \"corrige le timeout de connexion\"",
+          "explication": "Le réflexe (le plus courant)"
+        },
+        {
+          "cmd": "git commit",
+          "explication": "Ouvre l'éditeur pour un message long (corps explicatif)"
+        },
+        {
+          "cmd": "git commit -a -m \"hotfix\"",
+          "explication": "Commet les fichiers DÉJÀ suivis modifiés, sans `add`"
+        },
+        {
+          "cmd": "git commit --amend --no-edit",
+          "explication": "Corriger le dernier commit (message ou oubli local)"
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — un commit est un nœud immuable pointant vers son parent : c'est ce qui rend l'histoire infalsifiable et l'écrasement possible uniquement en réécrivant la suite.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "commit -a` OMET les nouveaux fichiers non suivis : le piège du « mon fichier n'est pas dans le commit ».",
+          "explication": ""
+        },
+        {
+          "cmd": "Un commit local n'est PAS partagé : tant qu'il n'est pas poussé, `--amend` est sans danger ; après `push`, réécrire l'histoire dérange l'équipe.",
+          "explication": ""
+        },
+        {
+          "cmd": "Message impératif (« corrige X » et non « corrigé ») : convention héritée de Torvalds, lisible dans `git log`.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ Committer un SECRET (token, clé privée) = exposition durable même après suppression : il faut purger l'historique (`filter-repo`) ET révoquer le secret.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Un commit = une idée ; relire `git diff --cached` ; message qui explique le POURQUOI, pas le QUOI.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn commit (qui pousse directement), hg commit",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git add, git log, git reset, git revert",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ Committer un SECRET (token, clé privée) = exposition durable même après suppression : il faut purger l'historique (`filter-repo`) ET révoquer le secret.",
+      "precautions": "Un commit = une idée ; relire `git diff --cached` ; message qui explique le POURQUOI, pas le QUOI.",
+      "equivalents": [
+        {
+          "note": "svn commit (qui pousse directement), hg commit"
+        }
+      ],
+      "id": "A-00185",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git diff",
+      "aliases": [],
+      "niveau": "debutant",
+      "popularite": 90,
+      "contextes": [
+        "relecture avant commit",
+        "comparaison de branches",
+        "compréhension d'un changement inconnu"
+      ],
+      "origine": "Git 1.0 (2005) — `diff` est le wrapper Git du format unifié (1979, Unix) ; Git le recalcule à la demande, il ne le stocke pas.",
+      "subtilites": [
+        "`git diff A B` (avec ESPACE) compare deux objets ; `git diff A..B` compare aussi mais `A...B` (3 points) compare depuis leur ancêtre commun : distinction capitale dans les pull requests.",
+        "`git diff` seul ne montre PAS les fichiers non suivis : il faut `git diff --stat` + `git status` pour tout voir.",
+        "Sortie colorée et paginée par `less` : `q` pour sortir, `/mot` pour chercher, `--no-pager` pour enchaîner dans un script.",
+        "*Urgences/dangers :** — (lecture seule)",
+        "*Précautions :** Activer `diff.color.ui=auto` ; pour les binaires, `git diff --stat` ne montre qu'un nombre de lignes : utiliser un outil dédié.",
+        "*Équivalents :** diff -u (Unix), svn diff, WinMerge (GUI)",
+        "*Voir aussi :** git status, git add, git log, git show"
+      ],
+      "voir_aussi": [
+        "git status",
+        "git add",
+        "git log",
+        "git show"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Afficher les écarts ligne à ligne entre deux états du projet (dossier de travail, index, commit, branche).",
+      "syntaxe": "git diff [cible] [fichiers]",
+      "cas_reguliers": [
+        {
+          "cmd": "git diff",
+          "explication": "Ce qui a changé depuis le dernier `add` (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git diff --cached",
+          "explication": "Ce qui EST PRÉPARÉ pour le commit (à lire avant chaque commit)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git diff main..ma-branche",
+          "explication": "L'écart complet avec la branche principale",
+          "contexte": ""
+        },
+        {
+          "cmd": "git diff HEAD~3 src/",
+          "explication": "Ce qui a bougé sur 3 commits dans un dossier",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — `diff` est le wrapper Git du format unifié (1979, Unix) ; Git le recalcule à la demande, il ne le stocke pas.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "git diff A B` (avec ESPACE) compare deux objets ; `git diff A..B` compare aussi mais `A...B` (3 points) compare depuis leur ancêtre commun : distinction capitale dans les pull requests.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "git diff` seul ne montre PAS les fichiers non suivis : il faut `git diff --stat` + `git status` pour tout voir.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Sortie colorée et paginée par `less` : `q` pour sortir, `/mot` pour chercher, `--no-pager` pour enchaîner dans un script.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (lecture seule)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Activer `diff.color.ui=auto` ; pour les binaires, `git diff --stat` ne montre qu'un nombre de lignes : utiliser un outil dédié.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** diff -u (Unix), svn diff, WinMerge (GUI)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git status, git add, git log, git show",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git diff",
+          "explication": "Ce qui a changé depuis le dernier `add` (le plus courant)"
+        },
+        {
+          "cmd": "git diff --cached",
+          "explication": "Ce qui EST PRÉPARÉ pour le commit (à lire avant chaque commit)"
+        },
+        {
+          "cmd": "git diff main..ma-branche",
+          "explication": "L'écart complet avec la branche principale"
+        },
+        {
+          "cmd": "git diff HEAD~3 src/",
+          "explication": "Ce qui a bougé sur 3 commits dans un dossier"
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — `diff` est le wrapper Git du format unifié (1979, Unix) ; Git le recalcule à la demande, il ne le stocke pas.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "git diff A B` (avec ESPACE) compare deux objets ; `git diff A..B` compare aussi mais `A...B` (3 points) compare depuis leur ancêtre commun : distinction capitale dans les pull requests.",
+          "explication": ""
+        },
+        {
+          "cmd": "git diff` seul ne montre PAS les fichiers non suivis : il faut `git diff --stat` + `git status` pour tout voir.",
+          "explication": ""
+        },
+        {
+          "cmd": "Sortie colorée et paginée par `less` : `q` pour sortir, `/mot` pour chercher, `--no-pager` pour enchaîner dans un script.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (lecture seule)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Activer `diff.color.ui=auto` ; pour les binaires, `git diff --stat` ne montre qu'un nombre de lignes : utiliser un outil dédié.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** diff -u (Unix), svn diff, WinMerge (GUI)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git status, git add, git log, git show",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (lecture seule)",
+      "precautions": "Activer `diff.color.ui=auto` ; pour les binaires, `git diff --stat` ne montre qu'un nombre de lignes : utiliser un outil dédié.",
+      "equivalents": [
+        {
+          "note": "diff -u (Unix), svn diff, WinMerge (GUI)"
+        }
+      ],
+      "id": "A-00186",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git push",
+      "aliases": [],
+      "niveau": "intermediaire",
+      "popularite": 95,
+      "contextes": [
+        "partager du travail",
+        "alimenter une pull request",
+        "sauvegarder une branche sur le serveur"
+      ],
+      "origine": "Git 1.0 (2005) — le `push` est ce qui distingue Git de SVN : chacun publie depuis son propre dépôt, modèle dont est née la pull request.",
+      "subtilites": [
+        "Un commit non poussé n'existe PAS pour l'équipe : il ne vit que sur ta machine (panne = perte).",
+        "`push` refuse un historique divergent : c'est une protection, pas un bug — il faut d'abord `pull --rebase`.",
+        "`--force` écrase sans regarder ; `--force-with-lease` refuse si quelqu'un a poussé entre-temps.",
+        "*Urgences/dangers :** ⚠️ `git push --force` sur `main` peut détruire le travail des collègues et casser les environnements — réservé aux branches personnelles.",
+        "*Précautions :** Relire `git log origin/main..HEAD --oneline` avant de pousser ; protéger les branches clés côté serveur.",
+        "*Équivalents :** svn commit (pousse directement), hg push",
+        "*Voir aussi :** git pull, git fetch, git remote, git rebase"
+      ],
+      "voir_aussi": [
+        "git pull",
+        "git fetch",
+        "git remote",
+        "git rebase"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Envoyer ses commits locaux vers une branche distante pour les partager avec l'équipe.",
+      "syntaxe": "git push [remote] [branche]",
+      "cas_reguliers": [
+        {
+          "cmd": "git push",
+          "explication": "Pousser la branche suivie (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git push -u origin feature-x",
+          "explication": "Premier push : crée la branche et lie le suivi",
+          "contexte": ""
+        },
+        {
+          "cmd": "git push --force-with-lease",
+          "explication": "Réécrire prudemment après un rebase personnel",
+          "contexte": ""
+        },
+        {
+          "cmd": "git push --delete origin branche-morte",
+          "explication": "Supprimer une branche fusionnée côté serveur",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — le `push` est ce qui distingue Git de SVN : chacun publie depuis son propre dépôt, modèle dont est née la pull request.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un commit non poussé n'existe PAS pour l'équipe : il ne vit que sur ta machine (panne = perte).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "push` refuse un historique divergent : c'est une protection, pas un bug — il faut d'abord `pull --rebase`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "--force` écrase sans regarder ; `--force-with-lease` refuse si quelqu'un a poussé entre-temps.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `git push --force` sur `main` peut détruire le travail des collègues et casser les environnements — réservé aux branches personnelles.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Relire `git log origin/main..HEAD --oneline` avant de pousser ; protéger les branches clés côté serveur.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn commit (pousse directement), hg push",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git pull, git fetch, git remote, git rebase",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git push",
+          "explication": "Pousser la branche suivie (le plus courant)"
+        },
+        {
+          "cmd": "git push -u origin feature-x",
+          "explication": "Premier push : crée la branche et lie le suivi"
+        },
+        {
+          "cmd": "git push --force-with-lease",
+          "explication": "Réécrire prudemment après un rebase personnel"
+        },
+        {
+          "cmd": "git push --delete origin branche-morte",
+          "explication": "Supprimer une branche fusionnée côté serveur"
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — le `push` est ce qui distingue Git de SVN : chacun publie depuis son propre dépôt, modèle dont est née la pull request.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "Un commit non poussé n'existe PAS pour l'équipe : il ne vit que sur ta machine (panne = perte).",
+          "explication": ""
+        },
+        {
+          "cmd": "push` refuse un historique divergent : c'est une protection, pas un bug — il faut d'abord `pull --rebase`.",
+          "explication": ""
+        },
+        {
+          "cmd": "--force` écrase sans regarder ; `--force-with-lease` refuse si quelqu'un a poussé entre-temps.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `git push --force` sur `main` peut détruire le travail des collègues et casser les environnements — réservé aux branches personnelles.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Relire `git log origin/main..HEAD --oneline` avant de pousser ; protéger les branches clés côté serveur.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn commit (pousse directement), hg push",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git pull, git fetch, git remote, git rebase",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `git push --force` sur `main` peut détruire le travail des collègues et casser les environnements — réservé aux branches personnelles.",
+      "precautions": "Relire `git log origin/main..HEAD --oneline` avant de pousser ; protéger les branches clés côté serveur.",
+      "equivalents": [
+        {
+          "note": "svn commit (pousse directement), hg push"
+        }
+      ],
+      "id": "A-00187",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git pull",
+      "aliases": [],
+      "niveau": "debutant",
+      "popularite": 93,
+      "contextes": [
+        "démarrer la journée",
+        "synchroniser avant de travailler",
+        "mettre à jour un serveur"
+      ],
+      "origine": "Git 1.0 (2005) — `pull` = fetch + merge par défaut ; depuis Git 2.27, Git avertit et recommande de choisir explicitement merge ou rebase.",
+      "subtilites": [
+        "`pull` peut créer un COMMIT DE FUSION parasite sans demander : `--ff-only` ou `--rebase` l'évitent.",
+        "`git fetch` seul est TOUJOURS sans danger : il ne touche pas ton travail, il actualise seulement `origin/...`.",
+        "`git config --global pull.rebase true` (ou `false`) fixe l'habitude d'équipe et supprime l'avertissement.",
+        "*Urgences/dangers :** ⚠️ `git pull` avec un travail non committé peut refuser ou créer un conflit pénible : `git stash` ou commit d'abord.",
+        "*Précautions :** `git fetch` puis `git log HEAD..origin/main` pour voir ce qui arrive avant d'intégrer.",
+        "*Équivalents :** svn update, hg pull",
+        "*Voir aussi :** git fetch, git merge, git rebase, git stash"
+      ],
+      "voir_aussi": [
+        "git fetch",
+        "git merge",
+        "git rebase",
+        "git stash"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Combinaison de `git fetch` (télécharger) puis `git merge` (intégrer) depuis la branche suivie.",
+      "syntaxe": "git pull [remote] [branche]",
+      "cas_reguliers": [
+        {
+          "cmd": "git pull",
+          "explication": "Se mettre à jour sur la branche courante (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git pull --rebase",
+          "explication": "Rejouer tes commits PAR-DESSUS le distant (historique linéaire)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git pull --ff-only",
+          "explication": "Refuser si ce n'est pas une avance simple : le plus sûr en équipe",
+          "contexte": ""
+        },
+        {
+          "cmd": "git pull origin main",
+          "explication": "Amener `main` dans la branche courante avant une PR",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — `pull` = fetch + merge par défaut ; depuis Git 2.27, Git avertit et recommande de choisir explicitement merge ou rebase.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "pull` peut créer un COMMIT DE FUSION parasite sans demander : `--ff-only` ou `--rebase` l'évitent.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "git fetch` seul est TOUJOURS sans danger : il ne touche pas ton travail, il actualise seulement `origin/...`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "git config --global pull.rebase true` (ou `false`) fixe l'habitude d'équipe et supprime l'avertissement.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `git pull` avec un travail non committé peut refuser ou créer un conflit pénible : `git stash` ou commit d'abord.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** `git fetch` puis `git log HEAD..origin/main` pour voir ce qui arrive avant d'intégrer.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn update, hg pull",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git fetch, git merge, git rebase, git stash",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git pull",
+          "explication": "Se mettre à jour sur la branche courante (le plus courant)"
+        },
+        {
+          "cmd": "git pull --rebase",
+          "explication": "Rejouer tes commits PAR-DESSUS le distant (historique linéaire)"
+        },
+        {
+          "cmd": "git pull --ff-only",
+          "explication": "Refuser si ce n'est pas une avance simple : le plus sûr en équipe"
+        },
+        {
+          "cmd": "git pull origin main",
+          "explication": "Amener `main` dans la branche courante avant une PR"
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — `pull` = fetch + merge par défaut ; depuis Git 2.27, Git avertit et recommande de choisir explicitement merge ou rebase.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "pull` peut créer un COMMIT DE FUSION parasite sans demander : `--ff-only` ou `--rebase` l'évitent.",
+          "explication": ""
+        },
+        {
+          "cmd": "git fetch` seul est TOUJOURS sans danger : il ne touche pas ton travail, il actualise seulement `origin/...`.",
+          "explication": ""
+        },
+        {
+          "cmd": "git config --global pull.rebase true` (ou `false`) fixe l'habitude d'équipe et supprime l'avertissement.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `git pull` avec un travail non committé peut refuser ou créer un conflit pénible : `git stash` ou commit d'abord.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** `git fetch` puis `git log HEAD..origin/main` pour voir ce qui arrive avant d'intégrer.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn update, hg pull",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git fetch, git merge, git rebase, git stash",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `git pull` avec un travail non committé peut refuser ou créer un conflit pénible : `git stash` ou commit d'abord.",
+      "precautions": "`git fetch` puis `git log HEAD..origin/main` pour voir ce qui arrive avant d'intégrer.",
+      "equivalents": [
+        {
+          "note": "svn update, hg pull"
+        }
+      ],
+      "id": "A-00188",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git log",
+      "aliases": [
+        "git lg (alias courant)"
+      ],
+      "niveau": "debutant",
+      "popularite": 92,
+      "contextes": [
+        "comprendre qui a changé quoi",
+        "retrouver l'origine d'un bug",
+        "préparer des notes de version"
+      ],
+      "origine": "Git 1.0 (2005) — l'histoire est un graphe orienté acyclique : Git le reconstruit à la demande, d'où la visualisation multi-branches.",
+      "subtilites": [
+        "`git log` ne montre que la branche COURANTE : pour tout voir, ajouter `--all`.",
+        "`-S \"texte\"` (apparition du texte) ≠ `-G \"regex\"` (ligne de diff correspondante) : l'un retrouve le bug, l'autre passe à côté.",
+        "`HEAD~1` = un commit avant ; `HEAD^` = le parent — les deux diffèrent sur un commit de fusion.",
+        "*Urgences/dangers :** — (lecture seule)",
+        "*Précautions :** Sortir du pager avec `q` ; dans un script, ajouter `--no-pager` et `--pretty=format:`.",
+        "*Équivalents :** svn log, hg log, gitk (graphique)",
+        "*Voir aussi :** git diff, git blame, git show, git reflog"
+      ],
+      "voir_aussi": [
+        "git diff",
+        "git blame",
+        "git show",
+        "git reflog"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Lister les commits avec auteur, date et message, filtrables par fichier, auteur, période ou contenu.",
+      "syntaxe": "git log [options] [chemins]",
+      "cas_reguliers": [
+        {
+          "cmd": "git log --oneline --graph --decorate -20",
+          "explication": "La vue compacte de l'arbre (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git log -p src/api.py",
+          "explication": "Les diffs successifs d'un fichier",
+          "contexte": ""
+        },
+        {
+          "cmd": "git log --author=adolphe --since=\"2 weeks ago\"",
+          "explication": "Filtrer par auteur et période",
+          "contexte": ""
+        },
+        {
+          "cmd": "git log -S \"token_cache\" --oneline",
+          "explication": "Quel commit a INTRODUIT ou supprimé ce texte",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — l'histoire est un graphe orienté acyclique : Git le reconstruit à la demande, d'où la visualisation multi-branches.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "git log` ne montre que la branche COURANTE : pour tout voir, ajouter `--all`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "-S \"texte\"` (apparition du texte) ≠ `-G \"regex\"` (ligne de diff correspondante) : l'un retrouve le bug, l'autre passe à côté.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "HEAD~1` = un commit avant ; `HEAD^` = le parent — les deux diffèrent sur un commit de fusion.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (lecture seule)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Sortir du pager avec `q` ; dans un script, ajouter `--no-pager` et `--pretty=format:`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn log, hg log, gitk (graphique)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git diff, git blame, git show, git reflog",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git log --oneline --graph --decorate -20",
+          "explication": "La vue compacte de l'arbre (le plus courant)"
+        },
+        {
+          "cmd": "git log -p src/api.py",
+          "explication": "Les diffs successifs d'un fichier"
+        },
+        {
+          "cmd": "git log --author=adolphe --since=\"2 weeks ago\"",
+          "explication": "Filtrer par auteur et période"
+        },
+        {
+          "cmd": "git log -S \"token_cache\" --oneline",
+          "explication": "Quel commit a INTRODUIT ou supprimé ce texte"
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — l'histoire est un graphe orienté acyclique : Git le reconstruit à la demande, d'où la visualisation multi-branches.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "git log` ne montre que la branche COURANTE : pour tout voir, ajouter `--all`.",
+          "explication": ""
+        },
+        {
+          "cmd": "-S \"texte\"` (apparition du texte) ≠ `-G \"regex\"` (ligne de diff correspondante) : l'un retrouve le bug, l'autre passe à côté.",
+          "explication": ""
+        },
+        {
+          "cmd": "HEAD~1` = un commit avant ; `HEAD^` = le parent — les deux diffèrent sur un commit de fusion.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (lecture seule)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Sortir du pager avec `q` ; dans un script, ajouter `--no-pager` et `--pretty=format:`.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn log, hg log, gitk (graphique)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git diff, git blame, git show, git reflog",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (lecture seule)",
+      "precautions": "Sortir du pager avec `q` ; dans un script, ajouter `--no-pager` et `--pretty=format:`.",
+      "equivalents": [
+        {
+          "note": "svn log, hg log, gitk (graphique)"
+        }
+      ],
+      "id": "A-00189",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git branch",
+      "aliases": [],
+      "niveau": "intermediaire",
+      "popularite": 88,
+      "contextes": [
+        "isoler une fonctionnalité",
+        "préparer un correctif d'urgence",
+        "ranger les branches mortes"
+      ],
+      "origine": "Git 1.0 (2005) — une branche n'est qu'un CURSEUR de 41 octets vers un commit : créer et changer de branche coûte quasi nul, contrairement à SVN où la branche est une copie.",
+      "subtilites": [
+        "`-d` refuse si la branche n'est pas fusionnée ; `-D` force et peut perdre des commits.",
+        "Supprimer une branche LOCALE ne touche pas la DISTANTE : il faut `git push --delete origin nom`.",
+        "`git branch -a` révèle les branches distantes mourantes : `git remote prune origin` les nettoie.",
+        "*Urgences/dangers :** ⚠️ `git branch -D` sur une branche non fusionnée perd son travail : relire `git log nom-branche` avant.",
+        "*Précautions :** Nommer les branches par intention (`fix-timeout`, pas `test2`) ; nettoyer régulièrement.",
+        "*Équivalents :** svn branch (copie coûteuse), hg branch",
+        "*Voir aussi :** git switch, git checkout, git merge, git worktree"
+      ],
+      "voir_aussi": [
+        "git switch",
+        "git checkout",
+        "git merge",
+        "git worktree"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Gérer les branches : les lister, en créer une pointant sur un commit, en supprimer une fusionnée.",
+      "syntaxe": "git branch [options] [nom] [commit]",
+      "cas_reguliers": [
+        {
+          "cmd": "git branch",
+          "explication": "Lister les branches locales (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git branch feature-x",
+          "explication": "Créer SANS y aller (puis `git switch feature-x`)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git branch -d feature-x",
+          "explication": "Supprimer seulement si DÉJÀ fusionnée (sécurisé)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git branch -v",
+          "explication": "Voir le dernier commit de chaque branche avant de nettoyer",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — une branche n'est qu'un CURSEUR de 41 octets vers un commit : créer et changer de branche coûte quasi nul, contrairement à SVN où la branche est une copie.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "-d` refuse si la branche n'est pas fusionnée ; `-D` force et peut perdre des commits.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Supprimer une branche LOCALE ne touche pas la DISTANTE : il faut `git push --delete origin nom`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "git branch -a` révèle les branches distantes mourantes : `git remote prune origin` les nettoie.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `git branch -D` sur une branche non fusionnée perd son travail : relire `git log nom-branche` avant.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Nommer les branches par intention (`fix-timeout`, pas `test2`) ; nettoyer régulièrement.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn branch (copie coûteuse), hg branch",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git switch, git checkout, git merge, git worktree",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git branch",
+          "explication": "Lister les branches locales (le plus courant)"
+        },
+        {
+          "cmd": "git branch feature-x",
+          "explication": "Créer SANS y aller (puis `git switch feature-x`)"
+        },
+        {
+          "cmd": "git branch -d feature-x",
+          "explication": "Supprimer seulement si DÉJÀ fusionnée (sécurisé)"
+        },
+        {
+          "cmd": "git branch -v",
+          "explication": "Voir le dernier commit de chaque branche avant de nettoyer"
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — une branche n'est qu'un CURSEUR de 41 octets vers un commit : créer et changer de branche coûte quasi nul, contrairement à SVN où la branche est une copie.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "-d` refuse si la branche n'est pas fusionnée ; `-D` force et peut perdre des commits.",
+          "explication": ""
+        },
+        {
+          "cmd": "Supprimer une branche LOCALE ne touche pas la DISTANTE : il faut `git push --delete origin nom`.",
+          "explication": ""
+        },
+        {
+          "cmd": "git branch -a` révèle les branches distantes mourantes : `git remote prune origin` les nettoie.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `git branch -D` sur une branche non fusionnée perd son travail : relire `git log nom-branche` avant.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Nommer les branches par intention (`fix-timeout`, pas `test2`) ; nettoyer régulièrement.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn branch (copie coûteuse), hg branch",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git switch, git checkout, git merge, git worktree",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `git branch -D` sur une branche non fusionnée perd son travail : relire `git log nom-branche` avant.",
+      "precautions": "Nommer les branches par intention (`fix-timeout`, pas `test2`) ; nettoyer régulièrement.",
+      "equivalents": [
+        {
+          "note": "svn branch (copie coûteuse), hg branch"
+        }
+      ],
+      "id": "A-00190",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git switch",
+      "aliases": [],
+      "niveau": "intermediaire",
+      "popularite": 78,
+      "contextes": [
+        "passer d'une fonctionnalité à l'autre",
+        "revenir sur main",
+        "créer une branche en un pas"
+      ],
+      "origine": "Git 2.23 (2019) — `checkout` faisait TROP de choses (branchage + restauration de fichiers) ; la communauté a demandé deux commandes distinctes : `switch` et `restore`.",
+      "subtilites": [
+        "`git checkout` reste valide partout, mais sur Git récent `switch`/`restore` lèvent l'ambiguïté à la lecture.",
+        "Git refuse le switch si tes modifications non committées seraient ÉCRASÉES : committer ou `stash` d'abord.",
+        "`--detach` = HEAD pointe sur un commit sans branche : tout commit fait là est orphelin (récupérable via `reflog`).",
+        "*Urgences/dangers :** ⚠️ En HEAD détaché, un `git switch main` fait disparaître les commits créés entre deux (visuellement) — créer une branche avant de travailler.",
+        "*Précautions :** `git status` avant de changer de branche ; vérifier `git branch --show-current` après.",
+        "*Équivalents :** svn switch, hg update",
+        "*Voir aussi :** git checkout, git branch, git restore, git stash"
+      ],
+      "voir_aussi": [
+        "git checkout",
+        "git branch",
+        "git restore",
+        "git stash"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Changer la branche courante du dossier de travail — spécialisation lisible de l'ancienne commande `git checkout`.",
+      "syntaxe": "git switch [options] [branche]",
+      "cas_reguliers": [
+        {
+          "cmd": "git switch main",
+          "explication": "Revenir sur la branche principale (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git switch -c feature-x",
+          "explication": "Créer ET basculer (remplace `checkout -b`)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git switch -",
+          "explication": "Retourner à la branche précédente (comme `cd -`)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git switch --detach HEAD~5",
+          "explication": "Explorer un état passé sans modifier de branche",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 2.23 (2019) — `checkout` faisait TROP de choses (branchage + restauration de fichiers) ; la communauté a demandé deux commandes distinctes : `switch` et `restore`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "git checkout` reste valide partout, mais sur Git récent `switch`/`restore` lèvent l'ambiguïté à la lecture.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Git refuse le switch si tes modifications non committées seraient ÉCRASÉES : committer ou `stash` d'abord.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "--detach` = HEAD pointe sur un commit sans branche : tout commit fait là est orphelin (récupérable via `reflog`).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ En HEAD détaché, un `git switch main` fait disparaître les commits créés entre deux (visuellement) — créer une branche avant de travailler.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** `git status` avant de changer de branche ; vérifier `git branch --show-current` après.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn switch, hg update",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git checkout, git branch, git restore, git stash",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git switch main",
+          "explication": "Revenir sur la branche principale (le plus courant)"
+        },
+        {
+          "cmd": "git switch -c feature-x",
+          "explication": "Créer ET basculer (remplace `checkout -b`)"
+        },
+        {
+          "cmd": "git switch -",
+          "explication": "Retourner à la branche précédente (comme `cd -`)"
+        },
+        {
+          "cmd": "git switch --detach HEAD~5",
+          "explication": "Explorer un état passé sans modifier de branche"
+        },
+        {
+          "cmd": "*Origine :** Git 2.23 (2019) — `checkout` faisait TROP de choses (branchage + restauration de fichiers) ; la communauté a demandé deux commandes distinctes : `switch` et `restore`.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "git checkout` reste valide partout, mais sur Git récent `switch`/`restore` lèvent l'ambiguïté à la lecture.",
+          "explication": ""
+        },
+        {
+          "cmd": "Git refuse le switch si tes modifications non committées seraient ÉCRASÉES : committer ou `stash` d'abord.",
+          "explication": ""
+        },
+        {
+          "cmd": "--detach` = HEAD pointe sur un commit sans branche : tout commit fait là est orphelin (récupérable via `reflog`).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ En HEAD détaché, un `git switch main` fait disparaître les commits créés entre deux (visuellement) — créer une branche avant de travailler.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** `git status` avant de changer de branche ; vérifier `git branch --show-current` après.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn switch, hg update",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git checkout, git branch, git restore, git stash",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ En HEAD détaché, un `git switch main` fait disparaître les commits créés entre deux (visuellement) — créer une branche avant de travailler.",
+      "precautions": "`git status` avant de changer de branche ; vérifier `git branch --show-current` après.",
+      "equivalents": [
+        {
+          "note": "svn switch, hg update"
+        }
+      ],
+      "id": "A-00191",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git checkout",
+      "aliases": [],
+      "niveau": "intermediaire",
+      "popularite": 89,
+      "contextes": [
+        "revenir sur une version antérieure",
+        "restaurer un fichier abîmé",
+        "explorer un tag"
+      ],
+      "origine": "Git 1.0 (2005) — le couteau suisse originel ; sa surcharge de sens est la raison de la scission en `switch` + `restore` (Git 2.23).",
+      "subtilites": [
+        "`git checkout X` et `git checkout -- X` n'ont RIEN à voir : le premier navigue, le second DETRUIT tes changements. Toujours vérifier le `--`.",
+        "En Git ancien, `git checkout B` avec un travail en cours peut emporter les modifications non commitées sur l'autre branche : déstabilisant.",
+        "Un checkout de commit met en HEAD détaché : les nouveaux commits ne sont sur aucune branche.",
+        "*Urgences/dangers :** ⚠️ `git checkout -- .` efface TOUTES les modifications non commitées du dépôt, sans corbeille ni confirmation.",
+        "*Précautions :** Préférer `git switch` et `git restore` (plus sûrs à relire) ; sur un fichier précieux, faire une copie avant.",
+        "*Équivalents :** svn switch, svn revert, hg update",
+        "*Voir aussi :** git switch, git restore, git branch, git stash"
+      ],
+      "voir_aussi": [
+        "git switch",
+        "git restore",
+        "git branch",
+        "git stash"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Multi-usage historique : changer de branche, restaurer un fichier depuis un commit, ou détacher HEAD sur un commit donné.",
+      "syntaxe": "git checkout <branche|commit|-- fichier>",
+      "cas_reguliers": [
+        {
+          "cmd": "git checkout main",
+          "explication": "Changer de branche (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git checkout -- src/app.py",
+          "explication": "JETER les modifications locales de ce fichier",
+          "contexte": ""
+        },
+        {
+          "cmd": "git checkout v1.2.0",
+          "explication": "Explorer le code tel que livré en v1.2.0",
+          "contexte": ""
+        },
+        {
+          "cmd": "git checkout -b hotfix",
+          "explication": "Créer et basculer sur une nouvelle branche",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — le couteau suisse originel ; sa surcharge de sens est la raison de la scission en `switch` + `restore` (Git 2.23).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "git checkout X` et `git checkout -- X` n'ont RIEN à voir : le premier navigue, le second DETRUIT tes changements. Toujours vérifier le `--`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "En Git ancien, `git checkout B` avec un travail en cours peut emporter les modifications non commitées sur l'autre branche : déstabilisant.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un checkout de commit met en HEAD détaché : les nouveaux commits ne sont sur aucune branche.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `git checkout -- .` efface TOUTES les modifications non commitées du dépôt, sans corbeille ni confirmation.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Préférer `git switch` et `git restore` (plus sûrs à relire) ; sur un fichier précieux, faire une copie avant.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn switch, svn revert, hg update",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git switch, git restore, git branch, git stash",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git checkout main",
+          "explication": "Changer de branche (le plus courant)"
+        },
+        {
+          "cmd": "git checkout -- src/app.py",
+          "explication": "JETER les modifications locales de ce fichier"
+        },
+        {
+          "cmd": "git checkout v1.2.0",
+          "explication": "Explorer le code tel que livré en v1.2.0"
+        },
+        {
+          "cmd": "git checkout -b hotfix",
+          "explication": "Créer et basculer sur une nouvelle branche"
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — le couteau suisse originel ; sa surcharge de sens est la raison de la scission en `switch` + `restore` (Git 2.23).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "git checkout X` et `git checkout -- X` n'ont RIEN à voir : le premier navigue, le second DETRUIT tes changements. Toujours vérifier le `--`.",
+          "explication": ""
+        },
+        {
+          "cmd": "En Git ancien, `git checkout B` avec un travail en cours peut emporter les modifications non commitées sur l'autre branche : déstabilisant.",
+          "explication": ""
+        },
+        {
+          "cmd": "Un checkout de commit met en HEAD détaché : les nouveaux commits ne sont sur aucune branche.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `git checkout -- .` efface TOUTES les modifications non commitées du dépôt, sans corbeille ni confirmation.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Préférer `git switch` et `git restore` (plus sûrs à relire) ; sur un fichier précieux, faire une copie avant.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn switch, svn revert, hg update",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git switch, git restore, git branch, git stash",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `git checkout -- .` efface TOUTES les modifications non commitées du dépôt, sans corbeille ni confirmation.",
+      "precautions": "Préférer `git switch` et `git restore` (plus sûrs à relire) ; sur un fichier précieux, faire une copie avant.",
+      "equivalents": [
+        {
+          "note": "svn switch, svn revert, hg update"
+        }
+      ],
+      "id": "A-00192",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git fetch",
+      "aliases": [],
+      "niveau": "intermediaire",
+      "popularite": 84,
+      "contextes": [
+        "regarder ce qui a changé avant de décider",
+        "alimenter un tableau de bord CI",
+        "préparer un rebase"
+      ],
+      "origine": "Git 1.0 (2005) — la séparation fetch/merge est le cœur du modèle distribué : on peut examiner le travail d'autrui AVANT de l'accepter.",
+      "subtilites": [
+        "Après `fetch`, tes fichiers ne bougent PAS : `origin/main` est une copie, pas ton dossier de travail.",
+        "`git fetch` ne supprime pas par défaut les branches effacées côté serveur : `--prune` le fait.",
+        "`git pull` = `fetch` + intégration : préférer fetch puis décider (`merge` ou `rebase`).",
+        "*Urgences/dangers :** — (aucun effet sur le dossier de travail, jamais destructif)",
+        "*Précautions :** `fetch` avant toute décision de réécriture d'historique pour éviter d'écraser du travail récent.",
+        "*Équivalents :** svn status -u (sans télécharger l'historique), hg fetch",
+        "*Voir aussi :** git pull, git push, git remote, git rebase"
+      ],
+      "voir_aussi": [
+        "git pull",
+        "git push",
+        "git remote",
+        "git rebase"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Récupérer les commits et références du dépôt distant dans `origin/...` SANS modifier ton travail.",
+      "syntaxe": "git fetch [remote] [options]",
+      "cas_reguliers": [
+        {
+          "cmd": "git fetch origin",
+          "explication": "Mettre à jour les références distantes (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git fetch --all --prune",
+          "explication": "Tous les distants + nettoyage des branches supprimées",
+          "contexte": ""
+        },
+        {
+          "cmd": "git log HEAD..origin/main --oneline",
+          "explication": "Ce que les autres ont ajouté",
+          "contexte": ""
+        },
+        {
+          "cmd": "git diff origin/main -- src/",
+          "explication": "Comparer son travail au distant, sans fusionner",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — la séparation fetch/merge est le cœur du modèle distribué : on peut examiner le travail d'autrui AVANT de l'accepter.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Après `fetch`, tes fichiers ne bougent PAS : `origin/main` est une copie, pas ton dossier de travail.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "git fetch` ne supprime pas par défaut les branches effacées côté serveur : `--prune` le fait.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "git pull` = `fetch` + intégration : préférer fetch puis décider (`merge` ou `rebase`).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (aucun effet sur le dossier de travail, jamais destructif)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** `fetch` avant toute décision de réécriture d'historique pour éviter d'écraser du travail récent.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn status -u (sans télécharger l'historique), hg fetch",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git pull, git push, git remote, git rebase",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git fetch origin",
+          "explication": "Mettre à jour les références distantes (le plus courant)"
+        },
+        {
+          "cmd": "git fetch --all --prune",
+          "explication": "Tous les distants + nettoyage des branches supprimées"
+        },
+        {
+          "cmd": "git log HEAD..origin/main --oneline",
+          "explication": "Ce que les autres ont ajouté"
+        },
+        {
+          "cmd": "git diff origin/main -- src/",
+          "explication": "Comparer son travail au distant, sans fusionner"
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — la séparation fetch/merge est le cœur du modèle distribué : on peut examiner le travail d'autrui AVANT de l'accepter.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "Après `fetch`, tes fichiers ne bougent PAS : `origin/main` est une copie, pas ton dossier de travail.",
+          "explication": ""
+        },
+        {
+          "cmd": "git fetch` ne supprime pas par défaut les branches effacées côté serveur : `--prune` le fait.",
+          "explication": ""
+        },
+        {
+          "cmd": "git pull` = `fetch` + intégration : préférer fetch puis décider (`merge` ou `rebase`).",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** — (aucun effet sur le dossier de travail, jamais destructif)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** `fetch` avant toute décision de réécriture d'historique pour éviter d'écraser du travail récent.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn status -u (sans télécharger l'historique), hg fetch",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git pull, git push, git remote, git rebase",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "— (aucun effet sur le dossier de travail, jamais destructif)",
+      "precautions": "`fetch` avant toute décision de réécriture d'historique pour éviter d'écraser du travail récent.",
+      "equivalents": [
+        {
+          "note": "svn status -u (sans télécharger l'historique), hg fetch"
+        }
+      ],
+      "id": "A-00193",
       "version": 1,
       "updated_at": "2026-09-30"
     },

@@ -34,3 +34,11 @@
 - Relecture : typos corrigees et attributions douteuses retirees (timeout, bc, fg)
 - TOTAL : **320 entites / 1000 (32%)** — A 179/600 | B 141/400 — 169 fiches riches v3, 151 legacy
 - Prochain lot : #024 FaceA_08_git (60 fiches)
+
+## Session 5 — 30/09/2026 : README vitrine + ouverture #024 FaceA_08_git (334 entites, 33.4%)
+- **README.md repris de bout en bout** (12 lignes → 220) : en-tete + badges, probleme/solution, anatomie d'une fiche v3 (extrait reel de `tar`), tableau d'etat du projet, schema d'architecture, table des decisions (Flutter/Firebase/FTS5/fiche v3), demarrage rapide, role des 4 outils, arborescence commentee, guide de contribution + motifs de refus machine, gouvernance (5 docs), roadmap 10 phases, licence
+- **Verification en conditions reelles** : `parse_rich` + `validate` + `stats` relances, apercu web servi et teste (`HTTP 200` sur la page et le JSON) — correction du README : l'apercu demande un serveur HTTP local (`python3 -m http.server`), pas une ouverture en `file://`
+- **Licence** : pas de fichier LICENSE → mention honnete « a trancher » au lieu d'afficher une licence inventee (a decider, a noter dans DECISIONS.md)
+- **#024 FaceA_08_git — bloc 1 : 14/60** : git, init, clone, status, add, commit, diff, push, pull, log, branch, switch, checkout, fetch — 10 rubriques chacune
+- Contenu verifie sur des pieges reels : `checkout --` destructeur vs `switch`, `--force-with-lease`, secret commité = compromis, index vs working tree, `A...B` vs `A..B`
+- TOTAL : **334 entites / 1000 (33.4%)** — A 193/600 | B 141/400 — 183 fiches riches v3, 151 legacy — validate 0 erreur
