@@ -1094,6 +1094,165 @@
 **Exemple :** `SELECT VERSION();` → "11.4.2-MariaDB" par exemple
 **Voir aussi :** MySQL, SQL, SGBD, PostgreSQL
 
+## `Istio` — Maillage de services (service mesh) [DevOps]
+**Catégorie :** DevOps | **Niveau :** avance | **Popularité :** 60
+**Signification :** Istio (grec : « voile » — le navire avance au voile)
+**Définition :** Couche réseau qui ajoute sécurité (mTLS), observabilité et routage ENTRE les conteneurs, sans changer le code applicatif.
+**Contextes :** microservices K8s multiples, mTLS obligatoire, canary au niveau trafic, circuit breaking
+**Cas réguliers :**
+- `mTLS activé entre tous les services` — Chiffrement interne automatique (le plus courant)
+- `Routage : 10% du trafic vers v2` — Canary géré par le mesh, pas dans le code
+- `Retry/timeout/circuit breaker par défaut` — Résilience imposée au service
+**Origine :** Lyft (2017) puis Google et IBM — le service mesh naît du besoin d'observabilité inter-services quand toutes les équipes ne peuvent pas instrumenter leur code.
+**Subtilités/confusions :**
+- Istio vs Kubernetes : K8s ORCHESTRE les pods, Istio gère le TRAFIC entre pods — complémentaires, surcharge ~1-2% de latence.
+- Sidecar (envoy par pod) = cœur du mesh : plus de pods = plus d'envoys à gérer (coût mémoire).
+- Complexité majeure : souvent surdimensionné pour une petite équipe — à activer progressivement.
+**Exemple :** `istioctl proxy-status` — état des sidecars du mesh
+**Voir aussi :** Kubernetes, microservices, mTLS, observability
+
+## `Vault` — Gestion centralisée des secrets [Sécurité/DevOps]
+**Catégorie :** DevOps | **Niveau :** avance | **Popularité :** 66
+**Signification :** Vault (Coffre-fort — HashiCorp Vault)
+**Définition :** Stocker, délivrer et faire tourner les secrets (mots de passe, clés API, certificats) — plus jamais de clé en dur dans le code.
+**Contextes :** rotation de secrets, CI qui récupère ses clés au build, chiffrement applicatif, conformité
+**Cas réguliers :**
+- `vault kv get secret/prod/db` — Récupérer un secret à la volée (le plus courant)
+- `Rotation automatique du mot de passe base` — Secret jamais statique
+- `Clés AWS dynamiques (90 min puis expirées)` — Credentials éphémères
+- `Transit engine : chiffrer les données applicatives` — Clé maître centralisée
+**Origine :** HashiCorp (Mitchell Hashimoto et Armon Dadgar), 2015 — réponse au "secret dans le .env commité par erreur" ; standard de facto de la gestion de secrets.
+**Subtilités/confusions :**
+- Vault ≠ coffre-fort simple : il DÉLIVRE des secrets temporaires (dynamiques) plutôt que de stocker du statique.
+- Secret en dur dans le repo = compromis définitif (git le garde même après suppress) → révoquer TOUT de suite.
+- Mode HA obligatoire en prod : si Vault est down, les services qui renouvellent leur lease ne démarrent pas.
+**Exemple :** `vault kv put secret/ci/deploy token=...` — puis lecture par la CI, jamais dans les logs
+**Voir aussi :** IAM, sécurité, secrets, DevSecOps
+
+## `Kibana` — Exploration de logs et dashboards [Data]
+**Catégorie :** Data | **Niveau :** intermediaire | **Popularité :** 70
+**Signification :** Kibana (nom inventé par l'équipe — la « K » de la stack ELK)
+**Définition :** Interface web d'Elasticsearch : explorer les logs, construire des dashboards et alertes de la Elastic Stack.
+**Contextes :** centralisation de logs, investigation d'incident, dashboards d'usage, audit
+**Cas réguliers :**
+- `Discover : chercher "error 500" sur 7 jours` — Investigation en 1 clic (le plus courant)
+- `Dashboard : count par service, top des routes` — Vue d'ensemble des logs
+- `Index pattern : logs-* par date` — Gestion des index de logs
+- `Alerte sur champ` — Notification quand un motif apparaît
+**Origine :** Rashid Khan, 2013 — la « K » de ELK (Elasticsearch, Logstash, Kibana) ; aujourd'hui Elastic Stack.
+**Subtilités/confusions :**
+- Kibana n'analyse PAS : elle AFFICHE — toute la recherche est exécutée par Elasticsearch en dessous.
+- Un champ non-indexé (mapping) donne 0 résultat trompeur → vérifier le mapping avant de conclure "pas de logs".
+- Kibana sans auth = tous les logs lisibles (souvent des clés dedans) — toujours protéger.
+**Exemple :** `@timestamp >= "now-1h" AND status >= 500`
+**Voir aussi :** Elasticsearch, logstash, logging, observability
+
+## `MTTR` — Temps moyen de rétablissement [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 72
+**Signification :** Mean Time To Repair (Temps Moyen de Réparation)
+**Définition :** Durée moyenne entre le début d'un incident et le retour du service à la normale — la métrique reine de la réactivité d'astreinte.
+**Contextes :** post-mortems, revues d'astreinte, tableaux de bord SRE, objectifs d'amélioration
+**Cas réguliers :**
+- `MTTR de 45 min sur 10 incidents ce mois` — Mesure mensuelle (le plus courant)
+- `Objectif : réduire le MTTR de 30% ce trimestre` — KPI d'équipe
+- `MTTD + MTTA + MTTR décomposés` — Distinguer détection, prise en charge, réparation
+**Origine :** Maintenance industrielle (années 1960, fiabilité des systèmes) ; remis au premier plan par le SRE de Google et les métriques DORA (2013).
+**Subtilités/confusions :**
+- MTTR = 3 homonymes : REPAIR (réparer), RESTORE (restaurer backup), RESPOND (réagir) — préciser lequel on cite.
+- MTBF vs MTTR : MTBF = temps MOYEN ENTRE pannes (fiabilité), MTTR = temps pour réparer (réactivité).
+- Réduire le MTTR d'abord : prévenir toutes les pannes est long, un rollback rapide protège déjà les users.
+**Exemple :** `MTTR = Σ(durées d'incident) / nombre d'incidents`
+**Voir aussi :** SRE, MTBF, post-mortem, SLA
+
+## `DORA` — Métriques de performance de livraison [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 64
+**Signification :** DevOps Research and Assessment (métriques DORA)
+**Définition :** Les 4 métriques qui mesurent la performance d'une équipe logicielle : fréquence de déploiement, délai de livraison, taux de changement, taux d'échec.
+**Contextes :** auto-évaluation d'équipe, comparaison annuelle (State of DevOps), maturité CI/CD
+**Cas réguliers :**
+- `Déploiements par jour + délai commit→prod` — Les 2 métriques de VITESSE (le plus courant)
+- `Taux d'échec de changement + MTTR` — Les 2 métriques de STABILITÉ
+- `Niveaux : Elite / High / Medium / Low` — Le benchmark annuel
+**Origine :** Étude annuelle Puppet (2013), reprise et renommée DORA chez Google (2018, livre Accelerate par Forsgren, Humble, Kim) — la référence empirique du DevOps.
+**Subtilités/confusions :**
+- VITESSE ET STABILITÉ ensemble : déploiements fréquents MAIS cassés = niveau LOW, pas ELITE.
+- Mesurer l'ÉQUIPE, pas l'individu : objectifs personnels sur ces métriques = tricheries (bugs séparés des features...).
+- DORA ≠ outillage : des pipelines parfaits avec une culture toxique baissent les scores.
+**Exemple :** `Elite : déploiements multiples par jour, MTTR < 1h, taux d'échec < 15%`
+**Voir aussi :** CI/CD, SRE, MTTR, Accelerate
+
+## `Post-mortem` — Analyse d'incident sans blâme [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 71
+**Signification :** Post-mortem (« après la mort » — analyse rétrospective d'incident)
+**Définition :** Compte rendu structuré d'un incident : chronologie, cause racine, actions correctives — centré sur le SYSTÈME, pas sur la personne.
+**Contextes :** incident en prod, amélioration continue, partage d'expérience, réduction du MTTR
+**Cas réguliers :**
+- `Timeline : 14h02 alerte, 14h12 cause identifiée...` — Chronologie factuelle (le plus courant)
+- `5 Whys : pourquoi ? → pourquoi ? → cause racine` — Remonter au fond du problème
+- `Actions avec owner et deadline` — Pas de "on fera attention"
+- `Publié et lu par toute l'équipe` — Le savoir doit circuler
+**Origine :** Aviation (rapports d'accident sans poursuite, Culture Safety, années 1990) et SRE de Google (2016) ; adoption étendue après chaque gros incident (Cloudflare, GitHub...).
+**Subtilités/confusions :**
+- Sans blame culture, les gens CACHENT les incidents → les vraies causes n'émergent jamais.
+- "Cause humaine" n'est JAMAIS une cause racine : l'erreur humaine est le symptôme d'un système qui la permet.
+- Post-mortem ≠ sanction : c'est un document d'apprentissage ; en cas de récidive, c'est le PROCESSUS qui a échoué.
+**Exemple :** `Action : ajouter un health check sur le cache — owner: Alice — 12/10`
+**Voir aussi :** SRE, MTTR, incident, retro
+
+## `Runbook` — Procédure opérationnelle d'astreinte [DevOps]
+**Catégorie :** DevOps | **Niveau :** debutant | **Popularité :** 67
+**Signification :** Runbook (« carnet de bord » — procédures d'exploitation)
+**Définition :** Document pas-à-pas décrivant comment diagnostiquer et traiter une situation donnée, exécutable par n'importe qui d'astreinte.
+**Contextes :** astreinte, escalade, reprise après sinistre, onboarding ops
+**Cas réguliers :**
+- `Alerte "disk > 90%" → commande de nettoyage` — Procédure d'astreinte (le plus courant)
+- `Reprise après panne base : étapes 1-5` — DRP exécutable
+- `Escalade : niveau 1 → niveau 2 → équipe périmètre` — Qui appeler quand
+**Origine :** Opérations télécom/mainframe (« run books » des salles machine, années 1970-80) ; systématisés par le SRE (Google) et l'ITIL.
+**Subtilités/confusions :**
+- Un runbook OBSOLÈTE est plus dangereux que pas de runbook : versionner et tester (game day).
+- Runbook ≠ monitoring : l'alerte TE DIT le problème, le runbook TE DIT quoi FAIRE.
+- Idéal : runbook = code (scripts exécutables dans l'alerte), pas un wiki périmé.
+**Exemple :** `Alerte disk-full → runbook: journalctl --vacuum-size=500M, vérifier /var/log/kern.log`
+**Voir aussi :** on-call, post-mortem, monitoring, astreinte
+
+## `TDD` — Test-Driven Development [Développement]
+**Catégorie :** Développement | **Niveau :** avance | **Popularité :** 68
+**Signification :** Test-Driven Development (Développement Piloté par les Tests)
+**Définition :** Écrire le test AVANT le code : rouge (il échoue), vert (le code le fait passer), refactor (nettoyer) — en boucle courte.
+**Contextes :** code robuste, refactoring sécurisé, conception par les exigences, revues de code
+**Cas réguliers :**
+- `Écrire test_sum → échoue (rouge) → coder → passe (vert)` — La boucle classique (le plus courant)
+- `100% des chemins critiques testés` — Couverture ciblée
+- `Refactor en confiance` — Les tests protègent les modifications
+**Origine :** Kent Beck, années 1990 avec les méthodes XP (Extreme Programming), formalisé dans "Test Driven Development: By Example" (2003) ; adopté par tous les frameworks modernes (JUnit, pytest...).
+**Subtilités/confusions :**
+- TDD ≠ écrire les tests après : l'ordre compte — écrire le test d'abord clarifie l'API et évite le sur-conception.
+- TDD ≠ 100% de couverture : une couverture de 100% avec des tests inutiles rassure sans protéger.
+- RED-GREEN-REFACTOR : sauter le refactor = code sale qui s'accumule derrière les tests verts.
+**Exemple :** `def test_add(): assert add(2,3) == 5  # écrit AVANT la fonction add`
+**Voir aussi :** unit test, refactoring, CI, clean code
+
+## `Technical Debt` — Dette technique cumulée [Développement]
+**Catégorie :** Développement | **Niveau :** intermediaire | **Popularité :** 73
+**Signification :** Technical Debt (Dette Technique)
+**Définition :** Le coût reporté des raccourcis pris aujourd'hui : chaque "on corrigera plus tard" pénalise les développements futurs, avec intérêts.
+**Contextes :** code legacy, raccourcis de deadline, refactoring, arbitrages produit/dev
+**Cas réguliers :**
+- `Copier-coller au lieu d'une abstraction partagée` — Dette à intérêts (le plus courant)
+- `Bibliothèques jamais mises à jour` — Dette de sécurité qui grossit
+- `Sprint "technique" trimestriel pour rembourser` — Remboursement planifié
+**Origine :** Métaphore financière de Ward Cunningham (créateur de Wiki, 1992) : la dette est OK si on a l'intention de la rembourser — elle devient toxique quand on l'oublie.
+**Subtilités/confusions :**
+- Dette ≠ code imparfait : c'est une dette VOLONTAIRE et CONSCIENTE — l'inventorier est la moindre des choses.
+- Intérêts = temps perdu à chaque feature touchant ce code — plus on attend, plus on paie.
+- "On n'a pas le temps de tests" = emprunt à taux très élevé : la prochaine modification coûtera le double.
+**Exemple :** `Inventaire : ticket "dette: refactor auth" — coût estimé 3j — criticité haute`
+**Voir aussi :** refactoring, clean code, code legacy, sprint technique
+
+
+
+
 
 
 

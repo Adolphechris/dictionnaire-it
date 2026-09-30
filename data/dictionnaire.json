@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "total": 253,
+  "total": 262,
   "entries": [
     {
       "face": "A",
@@ -19574,6 +19574,965 @@
       "precautions": "",
       "equivalents": [],
       "id": "B-00114",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Istio",
+      "aliases": [
+        "Istio (grec : « voile » — le navire avance au voile)"
+      ],
+      "niveau": "avance",
+      "popularite": 60,
+      "contextes": [
+        "microservices K8s multiples",
+        "mTLS obligatoire",
+        "canary au niveau trafic",
+        "circuit breaking"
+      ],
+      "origine": "Lyft (2017) puis Google et IBM — le service mesh naît du besoin d'observabilité inter-services quand toutes les équipes ne peuvent pas instrumenter leur code.",
+      "subtilites": [
+        "Istio vs Kubernetes : K8s ORCHESTRE les pods, Istio gère le TRAFIC entre pods — complémentaires, surcharge ~1-2% de latence.",
+        "Sidecar (envoy par pod) = cœur du mesh : plus de pods = plus d'envoys à gérer (coût mémoire).",
+        "Complexité majeure : souvent surdimensionné pour une petite équipe — à activer progressivement.",
+        "*Exemple :** `istioctl proxy-status` — état des sidecars du mesh",
+        "*Voir aussi :** Kubernetes, microservices, mTLS, observability"
+      ],
+      "voir_aussi": [
+        "Kubernetes",
+        "microservices",
+        "mTLS",
+        "observability"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Couche réseau qui ajoute sécurité (mTLS), observabilité et routage ENTRE les conteneurs, sans changer le code applicatif.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "mTLS activé entre tous les services",
+          "explication": "Chiffrement interne automatique (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Routage : 10% du trafic vers v2",
+          "explication": "Canary géré par le mesh, pas dans le code",
+          "contexte": ""
+        },
+        {
+          "cmd": "Retry/timeout/circuit breaker par défaut",
+          "explication": "Résilience imposée au service",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Lyft (2017) puis Google et IBM — le service mesh naît du besoin d'observabilité inter-services quand toutes les équipes ne peuvent pas instrumenter leur code.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Istio vs Kubernetes : K8s ORCHESTRE les pods, Istio gère le TRAFIC entre pods — complémentaires, surcharge ~1-2% de latence.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Sidecar (envoy par pod) = cœur du mesh : plus de pods = plus d'envoys à gérer (coût mémoire).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Complexité majeure : souvent surdimensionné pour une petite équipe — à activer progressivement.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `istioctl proxy-status` — état des sidecars du mesh",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** Kubernetes, microservices, mTLS, observability",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "istioctl proxy-status` — état des sidecars du mesh",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00115",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Vault",
+      "aliases": [
+        "Vault (Coffre-fort — HashiCorp Vault)"
+      ],
+      "niveau": "avance",
+      "popularite": 66,
+      "contextes": [
+        "rotation de secrets",
+        "CI qui récupère ses clés au build",
+        "chiffrement applicatif",
+        "conformité"
+      ],
+      "origine": "HashiCorp (Mitchell Hashimoto et Armon Dadgar), 2015 — réponse au \"secret dans le .env commité par erreur\" ; standard de facto de la gestion de secrets.",
+      "subtilites": [
+        "Vault ≠ coffre-fort simple : il DÉLIVRE des secrets temporaires (dynamiques) plutôt que de stocker du statique.",
+        "Secret en dur dans le repo = compromis définitif (git le garde même après suppress) → révoquer TOUT de suite.",
+        "Mode HA obligatoire en prod : si Vault est down, les services qui renouvellent leur lease ne démarrent pas.",
+        "*Exemple :** `vault kv put secret/ci/deploy token=...` — puis lecture par la CI, jamais dans les logs",
+        "*Voir aussi :** IAM, sécurité, secrets, DevSecOps"
+      ],
+      "voir_aussi": [
+        "IAM",
+        "sécurité",
+        "secrets",
+        "DevSecOps"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Stocker, délivrer et faire tourner les secrets (mots de passe, clés API, certificats) — plus jamais de clé en dur dans le code.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "vault kv get secret/prod/db",
+          "explication": "Récupérer un secret à la volée (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Rotation automatique du mot de passe base",
+          "explication": "Secret jamais statique",
+          "contexte": ""
+        },
+        {
+          "cmd": "Clés AWS dynamiques (90 min puis expirées)",
+          "explication": "Credentials éphémères",
+          "contexte": ""
+        },
+        {
+          "cmd": "Transit engine : chiffrer les données applicatives",
+          "explication": "Clé maître centralisée",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** HashiCorp (Mitchell Hashimoto et Armon Dadgar), 2015 — réponse au \"secret dans le .env commité par erreur\" ; standard de facto de la gestion de secrets.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Vault ≠ coffre-fort simple : il DÉLIVRE des secrets temporaires (dynamiques) plutôt que de stocker du statique.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Secret en dur dans le repo = compromis définitif (git le garde même après suppress) → révoquer TOUT de suite.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Mode HA obligatoire en prod : si Vault est down, les services qui renouvellent leur lease ne démarrent pas.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `vault kv put secret/ci/deploy token=...` — puis lecture par la CI, jamais dans les logs",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** IAM, sécurité, secrets, DevSecOps",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "vault kv put secret/ci/deploy token=...` — puis lecture par la CI, jamais dans les logs",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00116",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Kibana",
+      "aliases": [
+        "Kibana (nom inventé par l'équipe — la « K » de la stack ELK)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 70,
+      "contextes": [
+        "centralisation de logs",
+        "investigation d'incident",
+        "dashboards d'usage",
+        "audit"
+      ],
+      "origine": "Rashid Khan, 2013 — la « K » de ELK (Elasticsearch, Logstash, Kibana) ; aujourd'hui Elastic Stack.",
+      "subtilites": [
+        "Kibana n'analyse PAS : elle AFFICHE — toute la recherche est exécutée par Elasticsearch en dessous.",
+        "Un champ non-indexé (mapping) donne 0 résultat trompeur → vérifier le mapping avant de conclure \"pas de logs\".",
+        "Kibana sans auth = tous les logs lisibles (souvent des clés dedans) — toujours protéger.",
+        "*Exemple :** `@timestamp >= \"now-1h\" AND status >= 500`",
+        "*Voir aussi :** Elasticsearch, logstash, logging, observability"
+      ],
+      "voir_aussi": [
+        "Elasticsearch",
+        "logstash",
+        "logging",
+        "observability"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Data"
+      ],
+      "tags": [],
+      "role_fr": "Interface web d'Elasticsearch : explorer les logs, construire des dashboards et alertes de la Elastic Stack.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Discover : chercher \"error 500\" sur 7 jours",
+          "explication": "Investigation en 1 clic (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Dashboard : count par service, top des routes",
+          "explication": "Vue d'ensemble des logs",
+          "contexte": ""
+        },
+        {
+          "cmd": "Index pattern : logs-* par date",
+          "explication": "Gestion des index de logs",
+          "contexte": ""
+        },
+        {
+          "cmd": "Alerte sur champ",
+          "explication": "Notification quand un motif apparaît",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Rashid Khan, 2013 — la « K » de ELK (Elasticsearch, Logstash, Kibana) ; aujourd'hui Elastic Stack.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Kibana n'analyse PAS : elle AFFICHE — toute la recherche est exécutée par Elasticsearch en dessous.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un champ non-indexé (mapping) donne 0 résultat trompeur → vérifier le mapping avant de conclure \"pas de logs\".",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Kibana sans auth = tous les logs lisibles (souvent des clés dedans) — toujours protéger.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `@timestamp >= \"now-1h\" AND status >= 500",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** Elasticsearch, logstash, logging, observability",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "@timestamp >= \"now-1h\" AND status >= 500",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00117",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "MTTR",
+      "aliases": [
+        "Mean Time To Repair (Temps Moyen de Réparation)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 72,
+      "contextes": [
+        "post-mortems",
+        "revues d'astreinte",
+        "tableaux de bord SRE",
+        "objectifs d'amélioration"
+      ],
+      "origine": "Maintenance industrielle (années 1960, fiabilité des systèmes) ; remis au premier plan par le SRE de Google et les métriques DORA (2013).",
+      "subtilites": [
+        "MTTR = 3 homonymes : REPAIR (réparer), RESTORE (restaurer backup), RESPOND (réagir) — préciser lequel on cite.",
+        "MTBF vs MTTR : MTBF = temps MOYEN ENTRE pannes (fiabilité), MTTR = temps pour réparer (réactivité).",
+        "Réduire le MTTR d'abord : prévenir toutes les pannes est long, un rollback rapide protège déjà les users.",
+        "*Exemple :** `MTTR = Σ(durées d'incident) / nombre d'incidents`",
+        "*Voir aussi :** SRE, MTBF, post-mortem, SLA"
+      ],
+      "voir_aussi": [
+        "SRE",
+        "MTBF",
+        "post-mortem",
+        "SLA"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Durée moyenne entre le début d'un incident et le retour du service à la normale — la métrique reine de la réactivité d'astreinte.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "MTTR de 45 min sur 10 incidents ce mois",
+          "explication": "Mesure mensuelle (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Objectif : réduire le MTTR de 30% ce trimestre",
+          "explication": "KPI d'équipe",
+          "contexte": ""
+        },
+        {
+          "cmd": "MTTD + MTTA + MTTR décomposés",
+          "explication": "Distinguer détection, prise en charge, réparation",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Maintenance industrielle (années 1960, fiabilité des systèmes) ; remis au premier plan par le SRE de Google et les métriques DORA (2013).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "MTTR = 3 homonymes : REPAIR (réparer), RESTORE (restaurer backup), RESPOND (réagir) — préciser lequel on cite.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "MTBF vs MTTR : MTBF = temps MOYEN ENTRE pannes (fiabilité), MTTR = temps pour réparer (réactivité).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Réduire le MTTR d'abord : prévenir toutes les pannes est long, un rollback rapide protège déjà les users.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `MTTR = Σ(durées d'incident) / nombre d'incidents",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** SRE, MTBF, post-mortem, SLA",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "MTTR = Σ(durées d'incident) / nombre d'incidents",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00118",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "DORA",
+      "aliases": [
+        "DevOps Research and Assessment (métriques DORA)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 64,
+      "contextes": [
+        "auto-évaluation d'équipe",
+        "comparaison annuelle (State of DevOps)",
+        "maturité CI/CD"
+      ],
+      "origine": "Étude annuelle Puppet (2013), reprise et renommée DORA chez Google (2018, livre Accelerate par Forsgren, Humble, Kim) — la référence empirique du DevOps.",
+      "subtilites": [
+        "VITESSE ET STABILITÉ ensemble : déploiements fréquents MAIS cassés = niveau LOW, pas ELITE.",
+        "Mesurer l'ÉQUIPE, pas l'individu : objectifs personnels sur ces métriques = tricheries (bugs séparés des features...).",
+        "DORA ≠ outillage : des pipelines parfaits avec une culture toxique baissent les scores.",
+        "*Exemple :** `Elite : déploiements multiples par jour, MTTR < 1h, taux d'échec < 15%`",
+        "*Voir aussi :** CI/CD, SRE, MTTR, Accelerate"
+      ],
+      "voir_aussi": [
+        "CI/CD",
+        "SRE",
+        "MTTR",
+        "Accelerate"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Les 4 métriques qui mesurent la performance d'une équipe logicielle : fréquence de déploiement, délai de livraison, taux de changement, taux d'échec.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Déploiements par jour + délai commit→prod",
+          "explication": "Les 2 métriques de VITESSE (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Taux d'échec de changement + MTTR",
+          "explication": "Les 2 métriques de STABILITÉ",
+          "contexte": ""
+        },
+        {
+          "cmd": "Niveaux : Elite / High / Medium / Low",
+          "explication": "Le benchmark annuel",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Étude annuelle Puppet (2013), reprise et renommée DORA chez Google (2018, livre Accelerate par Forsgren, Humble, Kim) — la référence empirique du DevOps.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "VITESSE ET STABILITÉ ensemble : déploiements fréquents MAIS cassés = niveau LOW, pas ELITE.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Mesurer l'ÉQUIPE, pas l'individu : objectifs personnels sur ces métriques = tricheries (bugs séparés des features...).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "DORA ≠ outillage : des pipelines parfaits avec une culture toxique baissent les scores.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `Elite : déploiements multiples par jour, MTTR < 1h, taux d'échec < 15%",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** CI/CD, SRE, MTTR, Accelerate",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "Elite : déploiements multiples par jour, MTTR < 1h, taux d'échec < 15%",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00119",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Post-mortem",
+      "aliases": [
+        "Post-mortem (« après la mort » — analyse rétrospective d'incident)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 71,
+      "contextes": [
+        "incident en prod",
+        "amélioration continue",
+        "partage d'expérience",
+        "réduction du MTTR"
+      ],
+      "origine": "Aviation (rapports d'accident sans poursuite, Culture Safety, années 1990) et SRE de Google (2016) ; adoption étendue après chaque gros incident (Cloudflare, GitHub...).",
+      "subtilites": [
+        "Sans blame culture, les gens CACHENT les incidents → les vraies causes n'émergent jamais.",
+        "\"Cause humaine\" n'est JAMAIS une cause racine : l'erreur humaine est le symptôme d'un système qui la permet.",
+        "Post-mortem ≠ sanction : c'est un document d'apprentissage ; en cas de récidive, c'est le PROCESSUS qui a échoué.",
+        "*Exemple :** `Action : ajouter un health check sur le cache — owner: Alice — 12/10`",
+        "*Voir aussi :** SRE, MTTR, incident, retro"
+      ],
+      "voir_aussi": [
+        "SRE",
+        "MTTR",
+        "incident",
+        "retro"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Compte rendu structuré d'un incident : chronologie, cause racine, actions correctives — centré sur le SYSTÈME, pas sur la personne.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Timeline : 14h02 alerte, 14h12 cause identifiée...",
+          "explication": "Chronologie factuelle (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "5 Whys : pourquoi ? → pourquoi ? → cause racine",
+          "explication": "Remonter au fond du problème",
+          "contexte": ""
+        },
+        {
+          "cmd": "Actions avec owner et deadline",
+          "explication": "Pas de \"on fera attention\"",
+          "contexte": ""
+        },
+        {
+          "cmd": "Publié et lu par toute l'équipe",
+          "explication": "Le savoir doit circuler",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Aviation (rapports d'accident sans poursuite, Culture Safety, années 1990) et SRE de Google (2016) ; adoption étendue après chaque gros incident (Cloudflare, GitHub...).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Sans blame culture, les gens CACHENT les incidents → les vraies causes n'émergent jamais.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "\"Cause humaine\" n'est JAMAIS une cause racine : l'erreur humaine est le symptôme d'un système qui la permet.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Post-mortem ≠ sanction : c'est un document d'apprentissage ; en cas de récidive, c'est le PROCESSUS qui a échoué.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `Action : ajouter un health check sur le cache — owner: Alice — 12/10",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** SRE, MTTR, incident, retro",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "Action : ajouter un health check sur le cache — owner: Alice — 12/10",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00120",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Runbook",
+      "aliases": [
+        "Runbook (« carnet de bord » — procédures d'exploitation)"
+      ],
+      "niveau": "debutant",
+      "popularite": 67,
+      "contextes": [
+        "astreinte",
+        "escalade",
+        "reprise après sinistre",
+        "onboarding ops"
+      ],
+      "origine": "Opérations télécom/mainframe (« run books » des salles machine, années 1970-80) ; systématisés par le SRE (Google) et l'ITIL.",
+      "subtilites": [
+        "Un runbook OBSOLÈTE est plus dangereux que pas de runbook : versionner et tester (game day).",
+        "Runbook ≠ monitoring : l'alerte TE DIT le problème, le runbook TE DIT quoi FAIRE.",
+        "Idéal : runbook = code (scripts exécutables dans l'alerte), pas un wiki périmé.",
+        "*Exemple :** `Alerte disk-full → runbook: journalctl --vacuum-size=500M, vérifier /var/log/kern.log`",
+        "*Voir aussi :** on-call, post-mortem, monitoring, astreinte"
+      ],
+      "voir_aussi": [
+        "on-call",
+        "post-mortem",
+        "monitoring",
+        "astreinte"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Document pas-à-pas décrivant comment diagnostiquer et traiter une situation donnée, exécutable par n'importe qui d'astreinte.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Alerte \"disk > 90%\" → commande de nettoyage",
+          "explication": "Procédure d'astreinte (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Reprise après panne base : étapes 1-5",
+          "explication": "DRP exécutable",
+          "contexte": ""
+        },
+        {
+          "cmd": "Escalade : niveau 1 → niveau 2 → équipe périmètre",
+          "explication": "Qui appeler quand",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Opérations télécom/mainframe (« run books » des salles machine, années 1970-80) ; systématisés par le SRE (Google) et l'ITIL.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un runbook OBSOLÈTE est plus dangereux que pas de runbook : versionner et tester (game day).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Runbook ≠ monitoring : l'alerte TE DIT le problème, le runbook TE DIT quoi FAIRE.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Idéal : runbook = code (scripts exécutables dans l'alerte), pas un wiki périmé.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `Alerte disk-full → runbook: journalctl --vacuum-size=500M, vérifier /var/log/kern.log",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** on-call, post-mortem, monitoring, astreinte",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "Alerte disk-full → runbook: journalctl --vacuum-size=500M, vérifier /var/log/kern.log",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00121",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "TDD",
+      "aliases": [
+        "Test-Driven Development (Développement Piloté par les Tests)"
+      ],
+      "niveau": "avance",
+      "popularite": 68,
+      "contextes": [
+        "code robuste",
+        "refactoring sécurisé",
+        "conception par les exigences",
+        "revues de code"
+      ],
+      "origine": "Kent Beck, années 1990 avec les méthodes XP (Extreme Programming), formalisé dans \"Test Driven Development: By Example\" (2003) ; adopté par tous les frameworks modernes (JUnit, pytest...).",
+      "subtilites": [
+        "TDD ≠ écrire les tests après : l'ordre compte — écrire le test d'abord clarifie l'API et évite le sur-conception.",
+        "TDD ≠ 100% de couverture : une couverture de 100% avec des tests inutiles rassure sans protéger.",
+        "RED-GREEN-REFACTOR : sauter le refactor = code sale qui s'accumule derrière les tests verts.",
+        "*Exemple :** `def test_add(): assert add(2,3) == 5  # écrit AVANT la fonction add`",
+        "*Voir aussi :** unit test, refactoring, CI, clean code"
+      ],
+      "voir_aussi": [
+        "unit test",
+        "refactoring",
+        "CI",
+        "clean code"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Développement"
+      ],
+      "tags": [],
+      "role_fr": "Écrire le test AVANT le code : rouge (il échoue), vert (le code le fait passer), refactor (nettoyer) — en boucle courte.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Écrire test_sum → échoue (rouge) → coder → passe (vert)",
+          "explication": "La boucle classique (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "100% des chemins critiques testés",
+          "explication": "Couverture ciblée",
+          "contexte": ""
+        },
+        {
+          "cmd": "Refactor en confiance",
+          "explication": "Les tests protègent les modifications",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Kent Beck, années 1990 avec les méthodes XP (Extreme Programming), formalisé dans \"Test Driven Development: By Example\" (2003) ; adopté par tous les frameworks modernes (JUnit, pytest...).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "TDD ≠ écrire les tests après : l'ordre compte — écrire le test d'abord clarifie l'API et évite le sur-conception.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "TDD ≠ 100% de couverture : une couverture de 100% avec des tests inutiles rassure sans protéger.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "RED-GREEN-REFACTOR : sauter le refactor = code sale qui s'accumule derrière les tests verts.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `def test_add(): assert add(2,3) == 5  # écrit AVANT la fonction add",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** unit test, refactoring, CI, clean code",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "def test_add(): assert add(2,3) == 5  # écrit AVANT la fonction add",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00122",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Technical Debt",
+      "aliases": [
+        "Technical Debt (Dette Technique)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 73,
+      "contextes": [
+        "code legacy",
+        "raccourcis de deadline",
+        "refactoring",
+        "arbitrages produit/dev"
+      ],
+      "origine": "Métaphore financière de Ward Cunningham (créateur de Wiki, 1992) : la dette est OK si on a l'intention de la rembourser — elle devient toxique quand on l'oublie.",
+      "subtilites": [
+        "Dette ≠ code imparfait : c'est une dette VOLONTAIRE et CONSCIENTE — l'inventorier est la moindre des choses.",
+        "Intérêts = temps perdu à chaque feature touchant ce code — plus on attend, plus on paie.",
+        "\"On n'a pas le temps de tests\" = emprunt à taux très élevé : la prochaine modification coûtera le double.",
+        "*Exemple :** `Inventaire : ticket \"dette: refactor auth\" — coût estimé 3j — criticité haute`",
+        "*Voir aussi :** refactoring, clean code, code legacy, sprint technique"
+      ],
+      "voir_aussi": [
+        "refactoring",
+        "clean code",
+        "code legacy",
+        "sprint technique"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Développement"
+      ],
+      "tags": [],
+      "role_fr": "Le coût reporté des raccourcis pris aujourd'hui : chaque \"on corrigera plus tard\" pénalise les développements futurs, avec intérêts.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Copier-coller au lieu d'une abstraction partagée",
+          "explication": "Dette à intérêts (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Bibliothèques jamais mises à jour",
+          "explication": "Dette de sécurité qui grossit",
+          "contexte": ""
+        },
+        {
+          "cmd": "Sprint \"technique\" trimestriel pour rembourser",
+          "explication": "Remboursement planifié",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Métaphore financière de Ward Cunningham (créateur de Wiki, 1992) : la dette est OK si on a l'intention de la rembourser — elle devient toxique quand on l'oublie.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Dette ≠ code imparfait : c'est une dette VOLONTAIRE et CONSCIENTE — l'inventorier est la moindre des choses.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Intérêts = temps perdu à chaque feature touchant ce code — plus on attend, plus on paie.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "\"On n'a pas le temps de tests\" = emprunt à taux très élevé : la prochaine modification coûtera le double.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `Inventaire : ticket \"dette: refactor auth\" — coût estimé 3j — criticité haute",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** refactoring, clean code, code legacy, sprint technique",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "Inventaire : ticket \"dette: refactor auth\" — coût estimé 3j — criticité haute",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00123",
       "version": 1,
       "updated_at": "2026-09-30"
     }
