@@ -7,10 +7,12 @@ A : existant 115 | A06 archives/paquets 40 | A07 aide/shell 40 | A08 git 60 | A0
 B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 entreprise/concepts 90 | B05 compléments 76 = 400.
 
 ## 🔥 En cours (WIP — max 3)
-- [ ] #024 FaceA_08_git : **18/60 ⏳** — bloc 1 socle (git, init, clone, status, add, commit, diff, push, pull, log, branch, switch, checkout, fetch) + bloc 2 fusions/retours (merge, rebase, stash, reset). Reste 42 : revert, cherry-pick, bisect, blame, reflog, tag, remote, config, restore, rm, mv, clean, worktree, submodule, show, describe, shortlog, grep, ls-files, am, apply, archive, bundle, fsck, gc, maintenance, lfs, hooks, notes, whatchanged, replace, instaweb, daemon, http-backend, fast-export/import, filter-repo, send-email, request-pull, gitweb…
+- [x] #027 FaceA_10_sysadmin : **60/60 ✅ FAIT** (chmod, chown, useradd... apparmor_status)
+- [x] #026 FaceA_09_docker_k8s : **50/50 ✅ FAIT** (docker run... crictl)
+- [x] #024 FaceA_08_git : **60/60 ✅ FAIT** (git... git-filter-repo)
 - [x] #021 FaceA_06_archives_paquets : **40/40 ✅ FAIT** (tar…add-apt-repository)
 - [x] #023b FaceB_02_devops_cloud_bdd : **90/90 ✅ FAIT** (CI…Scalability)
-- [x] #022 FaceA_07_aide_shell : **40/40 ✅ FAIT** (man, --help, which, type, history, alias, export, env, echo, printf, clear, whatis, apropos, info, whereis, command, source, set, unset, eval, test/[, expr, bc, date, watch, timeout, seq, sleep, read, getopts, trap, exec, ulimit, jobs, nohup, fg, bg, disown, time, wait, yes)
+- [x] #022 FaceA_07_aide_shell : **40/40 ✅ FAIT** (man... yes)
 
 ## ✅ Fait (détail)
 - 2026-09-29 #001 git init + nettoyage — AI
@@ -22,15 +24,14 @@ B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 e
 - 2026-09-29 #050 parse_rich.py fiche v3 + validation 10 rubriques + stats MVP1000 + app web enrichie — AI
 - 2026-09-29 #023b FaceB_02 lot 1 (3 fiches riches) — AI
 - 2026-09-29 #021 FaceA_06 lot 1 (6 fiches riches) — AI
-- 2026-09-30 #022 FaceA_07_aide_shell : 40/40 fiches v3 (32 ajoutées cette session) — AI
-- 2026-09-30 #060 README vitrine professionnel (badges, anatomie de fiche, architecture, outils, contribution, roadmap) + vérif pipeline réel — AI
-- 2026-09-30 #024 FaceA_08_git : blocs 1+2 = 18/60 (socle Git + fusions/retours : merge, rebase, stash, reset) — AI
+- 2026-09-30 #022 FaceA_07_aide_shell : 40/40 fiches v3 — AI
+- 2026-09-30 #060 README vitrine professionnel + vérif pipeline réel — AI
+- 2026-09-30 #024 FaceA_08_git : 60/60 fiches v3 — AI
+- 2026-09-30 #026 FaceA_09_docker_k8s : 50/50 fiches v3 — AI
+- 2026-09-30 #027 FaceA_10_sysadmin : 60/60 fiches v3 — AI
 
 ## 📋 Backlog MVP 1000 (P1 = contenu, dans l'ordre)
-- [ ] #024 FaceA_08_git (60) ⏳ **18/60 en cours** — voir WIP ci-dessus
-- [ ] #026 FaceA_09_docker_k8s (50)
-- [ ] #027 FaceA_10_sysadmin (60)
-- [ ] #028 FaceA_11_paquets_multiOS (50)
+- [ ] #028 FaceA_11_paquets_multiOS (50) ⏳ **Prochain lot**
 - [ ] #029 FaceA_12_reseau2_secu (60)
 - [ ] #033 FaceA_13_dev_outils (60) + #034 FaceA_14 compléments (60)
 - [ ] #035 FaceB_03 (90) + #036 FaceB_04 (90) + #037 FaceB_05 (76)
