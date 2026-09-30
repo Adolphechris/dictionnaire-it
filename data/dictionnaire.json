@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "total": 243,
+  "total": 253,
   "entries": [
     {
       "face": "A",
@@ -18513,6 +18513,1067 @@
       "precautions": "",
       "equivalents": [],
       "id": "B-00104",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "HA",
+      "aliases": [
+        "High Availability (Haute Disponibilité)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 76,
+      "contextes": [
+        "services critiques",
+        "e-commerce",
+        "infra cloud",
+        "contrats SLA exigeants"
+      ],
+      "origine": "Terminologie télécom des « cinq nines » (99,999%, ~5 min/an) ; systèmes redondés dès les mainframes IBM (années 1960), systématisés par le cloud (AZs, régions).",
+      "subtilites": [
+        "HA ≠ backup : HA garde le service EN COURS, le backup sauvegarde les DONNÉES — les deux sont nécessaires.",
+        "HA ≠ scale : la HA survit aux pannes, le scale suit la charge — 2 serveurs ne suffisent pas pour 10x trafic.",
+        "Un SPOF caché (DNS, LB unique, base unique) annule toute la redondance — cartographier les dépendances.",
+        "*Exemple :** `99,9% = 8h47/an | 99,99% = 52min/an | 99,999% = 5min/an`",
+        "*Voir aussi :** Load Balancer, SLA, cloud, SPOF"
+      ],
+      "voir_aussi": [
+        "Load Balancer",
+        "SLA",
+        "cloud",
+        "SPOF"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Concevoir un système pour qu'il reste accessible même en cas de panne d'un composant (redondance + bascule automatique).",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "2 serveurs + load balancer au lieu d'1",
+          "explication": "Éliminer le point unique de défaillance (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Multi-AZ : répartir sur 2 zones de données",
+          "explication": "Survivre à la panne d'une zone",
+          "contexte": ""
+        },
+        {
+          "cmd": "Bascule automatique si health check échoue",
+          "explication": "Failover sans intervention humaine",
+          "contexte": ""
+        },
+        {
+          "cmd": "Base primaire + réplique en lecture",
+          "explication": "Continuer à servir les lectures",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Terminologie télécom des « cinq nines » (99,999%, ~5 min/an) ; systèmes redondés dès les mainframes IBM (années 1960), systématisés par le cloud (AZs, régions).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "HA ≠ backup : HA garde le service EN COURS, le backup sauvegarde les DONNÉES — les deux sont nécessaires.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "HA ≠ scale : la HA survit aux pannes, le scale suit la charge — 2 serveurs ne suffisent pas pour 10x trafic.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un SPOF caché (DNS, LB unique, base unique) annule toute la redondance — cartographier les dépendances.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `99,9% = 8h47/an | 99,99% = 52min/an | 99,999% = 5min/an",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** Load Balancer, SLA, cloud, SPOF",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "99,9% = 8h47/an | 99,99% = 52min/an | 99,999% = 5min/an",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00105",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Registry",
+      "aliases": [
+        "Container Registry (Registre de Conteneurs)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 67,
+      "contextes": [
+        "partage d'images CI → prod",
+        "images privées",
+        "scan de vulnérabilités",
+        "pull en prod"
+      ],
+      "origine": "Docker Hub (2013, initialement index.docker.io) a créé le pattern ; ensuite les registres privés : Harbor (2016, CNCF), ECR (AWS), ACR (Azure), GHCR (GitHub).",
+      "subtilites": [
+        "`latest` n'est PAS figé : c'est un alias mou — en prod, tagger par VERSION ou SHA de commit.",
+        "Image ≠ conteneur : l'image est le gabarit immuable, le conteneur est l'exécution en cours.",
+        "Un registre privé ne rend pas une image sûre : scanner quand même (Trivy) avant le pull prod.",
+        "*Exemple :** `docker tag monapp:dev ghcr.io/equipe/monapp:1.4.2 && docker push ghcr.io/equipe/monapp:1.4.2`",
+        "*Voir aussi :** Docker, image, DevSecOps, CI"
+      ],
+      "voir_aussi": [
+        "Docker",
+        "image",
+        "DevSecOps",
+        "CI"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Service qui stocke et distribue les images Docker (versionnées par tag), avec scan de sécurité et politique d'accès.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "docker push monapp:1.4",
+          "explication": "Publier une image (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "docker pull monapp:1.4",
+          "explication": "Récupérer sur un serveur de prod",
+          "contexte": ""
+        },
+        {
+          "cmd": "GHCR / Docker Hub / ECR / ACR",
+          "explication": "Registres publics et privés majeurs",
+          "contexte": ""
+        },
+        {
+          "cmd": "Tags : latest vs 1.4.2 vs git-sha",
+          "explication": "Identifier une build de façon fiable",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Docker Hub (2013, initialement index.docker.io) a créé le pattern ; ensuite les registres privés : Harbor (2016, CNCF), ECR (AWS), ACR (Azure), GHCR (GitHub).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "latest` n'est PAS figé : c'est un alias mou — en prod, tagger par VERSION ou SHA de commit.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Image ≠ conteneur : l'image est le gabarit immuable, le conteneur est l'exécution en cours.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un registre privé ne rend pas une image sûre : scanner quand même (Trivy) avant le pull prod.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `docker tag monapp:dev ghcr.io/equipe/monapp:1.4.2 && docker push ghcr.io/equipe/monapp:1.4.2",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** Docker, image, DevSecOps, CI",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "docker tag monapp:dev ghcr.io/equipe/monapp:1.4.2 && docker push ghcr.io/equipe/monapp:1.4.2",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00106",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Observability",
+      "aliases": [
+        "Observability (Observabilité)"
+      ],
+      "niveau": "avance",
+      "popularite": 70,
+      "contextes": [
+        "debug en production",
+        "microservices complexes",
+        "SRE",
+        "réduction du MTTR"
+      ],
+      "origine": "Concept d'ingénierie des systèmes (années 1960, théorie du contrôle), remis au goût du jour par Twitter (Finagle, Zipkin 2012) face aux microservices.",
+      "subtilites": [
+        "Monitoring vs observabilité : monitoring = ce qu'on SAIT déjà vouloir voir (dashboards prédéfinis), observabilité = explorer l'inconnu.",
+        "3 piliers sans corrélation (même trace_id partout) = 3 silos qui ne s'expliquent pas.",
+        "Un dashboard ne prouve rien sans contexte (déploiement récent, changement de config).",
+        "*Exemple :** `trace_id=abc123 → logs des 6 services de la requête en 1 recherche`",
+        "*Voir aussi :** Prometheus, Grafana, SRE, monitoring"
+      ],
+      "voir_aussi": [
+        "Prometheus",
+        "Grafana",
+        "SRE",
+        "monitoring"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Capacité à déduire l'état INTERNE d'un système à partir de ses sorties (métriques, logs, traces) — sans deviner à l'avance.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "3 piliers : metrics + logs + traces corrélés",
+          "explication": "Le modèle complet (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Trace distribuée : 1 requête traverse 6 services",
+          "explication": "Retrouver le coupable (Jaeger, Tempo)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Alerte sur symptôme utilisateur (taux d'erreur), pas sur CPU",
+          "explication": "Alertes utiles vs bruit",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Concept d'ingénierie des systèmes (années 1960, théorie du contrôle), remis au goût du jour par Twitter (Finagle, Zipkin 2012) face aux microservices.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Monitoring vs observabilité : monitoring = ce qu'on SAIT déjà vouloir voir (dashboards prédéfinis), observabilité = explorer l'inconnu.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "3 piliers sans corrélation (même trace_id partout) = 3 silos qui ne s'expliquent pas.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un dashboard ne prouve rien sans contexte (déploiement récent, changement de config).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `trace_id=abc123 → logs des 6 services de la requête en 1 recherche",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** Prometheus, Grafana, SRE, monitoring",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "trace_id=abc123 → logs des 6 services de la requête en 1 recherche",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00107",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Blue/Green",
+      "aliases": [
+        "Blue/Green (Bleu/Vert — les deux couleurs d'environnement)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 65,
+      "contextes": [
+        "mises à jour critiques sans interruption",
+        "infra non containerisée",
+        "validation avant switch"
+      ],
+      "origine": "Pratique décrite par Martin Fowler et Paul Hammant (2010) dans le contexte CI/CD — popularisée par les PaaS pouvant dupliquer les environnements.",
+      "subtilites": [
+        "Blue/Green vs Canary : Blue/Green = bascule TOUTE OU RIEN ; Canary = migration PROGRESSIVE par pourcentage.",
+        "Les DEUX environnements doivent tourner (coût x2 temporaire) — c'est le prix du rollback rapide.",
+        "Une base de données partagée casse le pattern : prévoir des migrations rétro-compatibles (expand/contract).",
+        "*Exemple :** `Switch LB : 100% → blue | rollback : 100% → green`",
+        "*Voir aussi :** canary, CD, déploiement, rollback"
+      ],
+      "voir_aussi": [
+        "canary",
+        "CD",
+        "déploiement",
+        "rollback"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Maintenir DEUX environnements identiques : on déploie la nouvelle version sur l'inactif, on bascule le trafic d'un coup, rollback = re-basculer.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Blue = prod actuelle, Green = version 2 testée",
+          "explication": "Puis bascule du load balancer (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Rollback en 1 clic : re-basculer sur Blue",
+          "explication": "Revenir à l'ancienne instantanément",
+          "contexte": ""
+        },
+        {
+          "cmd": "Tester Green avec un % de trafic avant",
+          "explication": "Variante progressive",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Pratique décrite par Martin Fowler et Paul Hammant (2010) dans le contexte CI/CD — popularisée par les PaaS pouvant dupliquer les environnements.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Blue/Green vs Canary : Blue/Green = bascule TOUTE OU RIEN ; Canary = migration PROGRESSIVE par pourcentage.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Les DEUX environnements doivent tourner (coût x2 temporaire) — c'est le prix du rollback rapide.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Une base de données partagée casse le pattern : prévoir des migrations rétro-compatibles (expand/contract).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `Switch LB : 100% → blue | rollback : 100% → green",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** canary, CD, déploiement, rollback",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "Switch LB : 100% → blue | rollback : 100% → green",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00108",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Canary",
+      "aliases": [
+        "Canary Release (« Release canari » — les canaris dans les mines, alerte précoce)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 66,
+      "contextes": [
+        "APIs à fort trafic",
+        "réduction du risque de release",
+        "features à impact incertain"
+      ],
+      "origine": "Métaphore des mines de charbon (canaris sentinelles) appliquée au déploiement par les pratiques Agile (2000s), systématisée par Google (2010s) et les feature flags.",
+      "subtilites": [
+        "Canary vs Blue/Green : canary = progressif sur vrais users, blue/green = bascule nette entre deux environnements.",
+        "Sans métriques fiables, un canary est aveugle : il faut pouvoir DÉTECTER la régression pour l'arrêter.",
+        "Router par user/session, sinon un user alterne entre versions (bugs de cohérence).",
+        "*Exemple :** `1% du trafic → critère : taux d'erreur < 0,1% sur 15 min → passage à 10%`",
+        "*Voir aussi :** blue/green, CD, feature flag, SRE"
+      ],
+      "voir_aussi": [
+        "blue/green",
+        "CD",
+        "feature flag",
+        "SRE"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Exposer la nouvelle version à un PETIT pourcentage d'utilisateurs d'abord, élargir si les métriques restent saines.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "1% → 10% → 50% → 100% du trafic",
+          "explication": "Progression conditionnée aux métriques (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Alertes canari : taux d'erreur de la version neuve",
+          "explication": "Critère d'arrêt automatique",
+          "contexte": ""
+        },
+        {
+          "cmd": "Comparaison des deux versions en parallèle",
+          "explication": "Mesure d'impact réelle",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Métaphore des mines de charbon (canaris sentinelles) appliquée au déploiement par les pratiques Agile (2000s), systématisée par Google (2010s) et les feature flags.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Canary vs Blue/Green : canary = progressif sur vrais users, blue/green = bascule nette entre deux environnements.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Sans métriques fiables, un canary est aveugle : il faut pouvoir DÉTECTER la régression pour l'arrêter.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Router par user/session, sinon un user alterne entre versions (bugs de cohérence).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `1% du trafic → critère : taux d'erreur < 0,1% sur 15 min → passage à 10%",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** blue/green, CD, feature flag, SRE",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "1% du trafic → critère : taux d'erreur < 0,1% sur 15 min → passage à 10%",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00109",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Docker Compose",
+      "aliases": [
+        "Docker Compose (Composition d'images Docker)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 80,
+      "contextes": [
+        "environnement local de dev",
+        "empilement multi-services",
+        "démos",
+        "tests d'intégration"
+      ],
+      "origine": "Fig (2013) racheté par Docker (2014) — intégré à Docker Engine en 2017 (v2 : plugin `docker compose`, l'ancien `docker-compose` binaire est obsolète).",
+      "subtilites": [
+        "`docker compose` (nouveau, plugin) vs `docker-compose` (v1, trait d'union) : mêmes commandes, binaire différent.",
+        "Le YAML décrit l'EMPILEMENT (réseaux partagés, volumes, ordre avec depends_on) — pas le rôle d'un Dockerfile.",
+        "`down -v` supprime AUSSI les volumes (données de la base !) — relire avant.",
+        "*Exemple :** `services: { web: {build: ., ports: [\"8080:80\"]}, db: {image: postgres} }`",
+        "*Voir aussi :** Docker, Kubernetes, YAML, image"
+      ],
+      "voir_aussi": [
+        "Docker",
+        "Kubernetes",
+        "YAML",
+        "image"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Décrire une application complète (app + base + cache...) dans un fichier YAML puis la démarrer d'un seul geste.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "docker compose up -d",
+          "explication": "Monter tout l'empilement en arrière-plan (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "docker compose down",
+          "explication": "Tout arrêter et supprimer les réseaux",
+          "contexte": ""
+        },
+        {
+          "cmd": "docker compose logs -f api",
+          "explication": "Suivre les logs d'un service",
+          "contexte": ""
+        },
+        {
+          "cmd": "docker compose ps",
+          "explication": "État des services du fichier",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Fig (2013) racheté par Docker (2014) — intégré à Docker Engine en 2017 (v2 : plugin `docker compose`, l'ancien `docker-compose` binaire est obsolète).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "docker compose` (nouveau, plugin) vs `docker-compose` (v1, trait d'union) : mêmes commandes, binaire différent.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Le YAML décrit l'EMPILEMENT (réseaux partagés, volumes, ordre avec depends_on) — pas le rôle d'un Dockerfile.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "down -v` supprime AUSSI les volumes (données de la base !) — relire avant.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `services: { web: {build: ., ports: [\"8080:80\"]}, db: {image: postgres} }",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** Docker, Kubernetes, YAML, image",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "services: { web: {build: ., ports: [\"8080:80\"]}, db: {image: postgres} }",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00110",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Feature Flag",
+      "aliases": [
+        "Feature Flag (Drapeau de Fonctionnalité)"
+      ],
+      "niveau": "intermediaire",
+      "popularite": 69,
+      "contextes": [
+        "déploiements continus",
+        "tests A/B",
+        "activation progressive",
+        "kill switch d'incident"
+      ],
+      "origine": "Pratique née du trunk-based development chez Facebook, Google et Flickr (années 2000-2010) ; outillée par LaunchDarkly (2014), Unleash, Flagsmith.",
+      "subtilites": [
+        "Un flag est TEMPORAIRE : garder les flags morts = dette technique (date de suppression dans le ticket).",
+        "Flag ≠ déploiement : le code est en prod dans les DEUX cas — le flag décide de la visibilité.",
+        "Trop de flags simultanés = matrice ingérable à tester (limiter le nombre actif).",
+        "*Exemple :** `env \"checkout-v2\" : pourcentage=10, targeting=beta-users`",
+        "*Voir aussi :** canary, CI/CD, A/B testing, rollback"
+      ],
+      "voir_aussi": [
+        "canary",
+        "CI/CD",
+        "A/B testing",
+        "rollback"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Interrupteur dans le code qui active/désactive une feature à l'exécution, par utilisateur ou par pourcentage, sans redéployer.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "if flag(\"new-checkout\") : ...",
+          "explication": "Code déployé, feature cachée (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Activation à 5% des users → 100%",
+          "explication": "Déploiement par paliers",
+          "contexte": ""
+        },
+        {
+          "cmd": "Kill switch : couper une feature qui casse",
+          "explication": "Retour instantané sans rollback du build",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Pratique née du trunk-based development chez Facebook, Google et Flickr (années 2000-2010) ; outillée par LaunchDarkly (2014), Unleash, Flagsmith.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un flag est TEMPORAIRE : garder les flags morts = dette technique (date de suppression dans le ticket).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Flag ≠ déploiement : le code est en prod dans les DEUX cas — le flag décide de la visibilité.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Trop de flags simultanés = matrice ingérable à tester (limiter le nombre actif).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `env \"checkout-v2\" : pourcentage=10, targeting=beta-users",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** canary, CI/CD, A/B testing, rollback",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "env \"checkout-v2\" : pourcentage=10, targeting=beta-users",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00111",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Chaos Engineering",
+      "aliases": [
+        "Chaos Engineering (Ingénierie du Chaos)"
+      ],
+      "niveau": "avance",
+      "popularite": 55,
+      "contextes": [
+        "systèmes à haute disponibilité",
+        "maturité ops",
+        "réduction des incidents",
+        "game day"
+      ],
+      "origine": "Netflix Chaos Monkey (2011, dans la Simian Army) — pour survivre aux pannes AWS ; principes formalisés par Casey Rosenthal et Nora Jones (livre O'Reilly, 2020).",
+      "subtilites": [
+        "Chaos ≠ sabotage : hypothèse d'abord, périmètre limité, rollback immédiat — sinon c'est du vandalisme.",
+        "Règle d'or : sans observation pendant l'expérience, on n'apprend RIEN.",
+        "Commencer en DEV/staging, puis production à faible blast radius — maturité requise.",
+        "*Exemple :** `kubectl delete pod --grace-period=0 sur 1 replica` — panne simulée ciblée",
+        "*Voir aussi :** SRE, HA, game day, résilience"
+      ],
+      "voir_aussi": [
+        "SRE",
+        "HA",
+        "game day",
+        "résilience"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "DevOps"
+      ],
+      "tags": [],
+      "role_fr": "Injecter des pannes VOLONTAIRES en production contrôlée pour découvrir les faiblesses AVANT qu'elles n'arrivent naturellement.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "Couper un serveur en plein trafic",
+          "explication": "Vérifier le failover (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Latence artificielle +300ms sur un service",
+          "explication": "Tester la tolérance aux ralentissements",
+          "contexte": ""
+        },
+        {
+          "cmd": "Game Day : exercice d'incident en équipe",
+          "explication": "Préparer l'astreinte sans urgence réelle",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Netflix Chaos Monkey (2011, dans la Simian Army) — pour survivre aux pannes AWS ; principes formalisés par Casey Rosenthal et Nora Jones (livre O'Reilly, 2020).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Chaos ≠ sabotage : hypothèse d'abord, périmètre limité, rollback immédiat — sinon c'est du vandalisme.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Règle d'or : sans observation pendant l'expérience, on n'apprend RIEN.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Commencer en DEV/staging, puis production à faible blast radius — maturité requise.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `kubectl delete pod --grace-period=0 sur 1 replica` — panne simulée ciblée",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** SRE, HA, game day, résilience",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "kubectl delete pod --grace-period=0 sur 1 replica` — panne simulée ciblée",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00112",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "Elasticsearch",
+      "aliases": [
+        "Elasticsearch (Lucene distribué par Elastic)"
+      ],
+      "niveau": "avance",
+      "popularite": 78,
+      "contextes": [
+        "moteur de recherche de site",
+        "centralisation de logs",
+        "analytics temps réel"
+      ],
+      "origine": "Shay Banon, 2010 (sur Lucene, 1999) — ossature de la stack ELK (Elasticsearch, Logstash, Kibana) ; le changement de licence (Apache → SSPL/Elastic License, 2021) a fait naître le fork OpenSearch d'AWS.",
+      "subtilites": [
+        "Elasticsearch ≠ base transactionnelle : pas de JOIN, pas d'ACID — c'est un INDEX, la source de vérité reste ailleurs.",
+        "Le mapping est un schéma IMPLICITE : un champ mal deviné au premier doc (text vs keyword) casse les agrégations.",
+        "Cluster mal dimensionné en RAM = OOM (circuit breaker) — un index par logique, pas par jour \"au cas où\".",
+        "*Exemple :** `GET /logs-2026.09/_count` — éléments de l'index du mois",
+        "*Voir aussi :** Kibana, FTS5, logstash, NoSQL"
+      ],
+      "voir_aussi": [
+        "Kibana",
+        "FTS5",
+        "logstash",
+        "NoSQL"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Data"
+      ],
+      "tags": [],
+      "role_fr": "Moteur de recherche plein texte distribué sur index JSON — recherche instantanée, analytics de logs, moteur derrière Kibana.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "GET /logs/_search {\"query\": {\"match\": {\"message\": \"erreur 500\"}}}",
+          "explication": "Recherche plein texte (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "Indexation en quasi temps réel (~1s)",
+          "explication": "Logs visibles presque immédiatement",
+          "contexte": ""
+        },
+        {
+          "cmd": "Agrégations : count par niveau, top des IPs",
+          "explication": "Analytics sans SQL",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Shay Banon, 2010 (sur Lucene, 1999) — ossature de la stack ELK (Elasticsearch, Logstash, Kibana) ; le changement de licence (Apache → SSPL/Elastic License, 2021) a fait naître le fork OpenSearch d'AWS.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Elasticsearch ≠ base transactionnelle : pas de JOIN, pas d'ACID — c'est un INDEX, la source de vérité reste ailleurs.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Le mapping est un schéma IMPLICITE : un champ mal deviné au premier doc (text vs keyword) casse les agrégations.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Cluster mal dimensionné en RAM = OOM (circuit breaker) — un index par logique, pas par jour \"au cas où\".",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `GET /logs-2026.09/_count` — éléments de l'index du mois",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** Kibana, FTS5, logstash, NoSQL",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "GET /logs-2026.09/_count` — éléments de l'index du mois",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00113",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "MariaDB",
+      "aliases": [
+        "MariaDB (prénom de la fille de Monty Widenius, co-créateur de MySQL)"
+      ],
+      "niveau": "debutant",
+      "popularite": 62,
+      "contextes": [
+        "Debian/Ubuntu (remplace MySQL par défaut)",
+        "hébergeurs",
+        "migration de WordPress"
+      ],
+      "origine": "Michael \"Monty\" Widenius, 2009, après le rachat de Sun/MySQL par Oracle (2008) — assurer la continuité open source ; distribué par défaut sur Debian et la plupart des distros.",
+      "subtilites": [
+        "MariaDB vs MySQL : compatibles mais DIVERGENT (moteurs, réplication, SQL étendu) — les dumps ne circulent pas toujours dans les deux sens.",
+        "`mysql` en commande peut appeler MariaDB sur Debian — vérifier avec `SELECT VERSION();`.",
+        "MySQL 8 vs MariaDB 11 = deux feuilles de route distinctes malgré l'origine commune.",
+        "*Exemple :** `SELECT VERSION();` → \"11.4.2-MariaDB\" par exemple",
+        "*Voir aussi :** MySQL, SQL, SGBD, PostgreSQL"
+      ],
+      "voir_aussi": [
+        "MySQL",
+        "SQL",
+        "SGBD",
+        "PostgreSQL"
+      ],
+      "source": "faceB_02_devops_cloud_bdd.md",
+      "face": "B",
+      "type": "sigle",
+      "os": [
+        "cross"
+      ],
+      "os_raw": "cross",
+      "categories": [
+        "Bases de données"
+      ],
+      "tags": [],
+      "role_fr": "SGBD relationnel forké de MySQL par son créateur après le rachat par Oracle — compatible MySQL dans l'essentiel.",
+      "syntaxe": "",
+      "cas_reguliers": [
+        {
+          "cmd": "mariadb-dump boutique > backup.sql",
+          "explication": "Sauvegarder (syntaxe mysqldump)",
+          "contexte": ""
+        },
+        {
+          "cmd": "mariadb -u root -p boutique",
+          "explication": "Se connecter en CLI",
+          "contexte": ""
+        },
+        {
+          "cmd": "SELECT VERSION();",
+          "explication": "Savoir exactement ce qui tourne",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Michael \"Monty\" Widenius, 2009, après le rachat de Sun/MySQL par Oracle (2008) — assurer la continuité open source ; distribué par défaut sur Debian et la plupart des distros.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "MariaDB vs MySQL : compatibles mais DIVERGENT (moteurs, réplication, SQL étendu) — les dumps ne circulent pas toujours dans les deux sens.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "mysql` en commande peut appeler MariaDB sur Debian — vérifier avec `SELECT VERSION();`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "MySQL 8 vs MariaDB 11 = deux feuilles de route distinctes malgré l'origine commune.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Exemple :** `SELECT VERSION();` → \"11.4.2-MariaDB\" par exemple",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** MySQL, SQL, SGBD, PostgreSQL",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "SELECT VERSION();` → \"11.4.2-MariaDB\" par exemple",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "",
+      "precautions": "",
+      "equivalents": [],
+      "id": "B-00114",
       "version": 1,
       "updated_at": "2026-09-30"
     }

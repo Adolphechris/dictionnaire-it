@@ -921,6 +921,183 @@
 **Exemple :** `upstream backend { server app1; server app2; }` (nginx)
 **Voir aussi :** reverse proxy, HA, nginx, cloud
 
+## `HA` — Haute Disponibilité [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 76
+**Signification :** High Availability (Haute Disponibilité)
+**Définition :** Concevoir un système pour qu'il reste accessible même en cas de panne d'un composant (redondance + bascule automatique).
+**Contextes :** services critiques, e-commerce, infra cloud, contrats SLA exigeants
+**Cas réguliers :**
+- `2 serveurs + load balancer au lieu d'1` — Éliminer le point unique de défaillance (le plus courant)
+- `Multi-AZ : répartir sur 2 zones de données` — Survivre à la panne d'une zone
+- `Bascule automatique si health check échoue` — Failover sans intervention humaine
+- `Base primaire + réplique en lecture` — Continuer à servir les lectures
+**Origine :** Terminologie télécom des « cinq nines » (99,999%, ~5 min/an) ; systèmes redondés dès les mainframes IBM (années 1960), systématisés par le cloud (AZs, régions).
+**Subtilités/confusions :**
+- HA ≠ backup : HA garde le service EN COURS, le backup sauvegarde les DONNÉES — les deux sont nécessaires.
+- HA ≠ scale : la HA survit aux pannes, le scale suit la charge — 2 serveurs ne suffisent pas pour 10x trafic.
+- Un SPOF caché (DNS, LB unique, base unique) annule toute la redondance — cartographier les dépendances.
+**Exemple :** `99,9% = 8h47/an | 99,99% = 52min/an | 99,999% = 5min/an`
+**Voir aussi :** Load Balancer, SLA, cloud, SPOF
+
+## `Registry` — Dépôt d'images conteneur [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 67
+**Signification :** Container Registry (Registre de Conteneurs)
+**Définition :** Service qui stocke et distribue les images Docker (versionnées par tag), avec scan de sécurité et politique d'accès.
+**Contextes :** partage d'images CI → prod, images privées, scan de vulnérabilités, pull en prod
+**Cas réguliers :**
+- `docker push monapp:1.4` — Publier une image (le plus courant)
+- `docker pull monapp:1.4` — Récupérer sur un serveur de prod
+- `GHCR / Docker Hub / ECR / ACR` — Registres publics et privés majeurs
+- `Tags : latest vs 1.4.2 vs git-sha` — Identifier une build de façon fiable
+**Origine :** Docker Hub (2013, initialement index.docker.io) a créé le pattern ; ensuite les registres privés : Harbor (2016, CNCF), ECR (AWS), ACR (Azure), GHCR (GitHub).
+**Subtilités/confusions :**
+- `latest` n'est PAS figé : c'est un alias mou — en prod, tagger par VERSION ou SHA de commit.
+- Image ≠ conteneur : l'image est le gabarit immuable, le conteneur est l'exécution en cours.
+- Un registre privé ne rend pas une image sûre : scanner quand même (Trivy) avant le pull prod.
+**Exemple :** `docker tag monapp:dev ghcr.io/equipe/monapp:1.4.2 && docker push ghcr.io/equipe/monapp:1.4.2`
+**Voir aussi :** Docker, image, DevSecOps, CI
+
+## `Observability` — Comprendre l'état d'un système [DevOps]
+**Catégorie :** DevOps | **Niveau :** avance | **Popularité :** 70
+**Signification :** Observability (Observabilité)
+**Définition :** Capacité à déduire l'état INTERNE d'un système à partir de ses sorties (métriques, logs, traces) — sans deviner à l'avance.
+**Contextes :** debug en production, microservices complexes, SRE, réduction du MTTR
+**Cas réguliers :**
+- `3 piliers : metrics + logs + traces corrélés` — Le modèle complet (le plus courant)
+- `Trace distribuée : 1 requête traverse 6 services` — Retrouver le coupable (Jaeger, Tempo)
+- `Alerte sur symptôme utilisateur (taux d'erreur), pas sur CPU` — Alertes utiles vs bruit
+**Origine :** Concept d'ingénierie des systèmes (années 1960, théorie du contrôle), remis au goût du jour par Twitter (Finagle, Zipkin 2012) face aux microservices.
+**Subtilités/confusions :**
+- Monitoring vs observabilité : monitoring = ce qu'on SAIT déjà vouloir voir (dashboards prédéfinis), observabilité = explorer l'inconnu.
+- 3 piliers sans corrélation (même trace_id partout) = 3 silos qui ne s'expliquent pas.
+- Un dashboard ne prouve rien sans contexte (déploiement récent, changement de config).
+**Exemple :** `trace_id=abc123 → logs des 6 services de la requête en 1 recherche`
+**Voir aussi :** Prometheus, Grafana, SRE, monitoring
+
+## `Blue/Green` — Déploiement par deux environnements [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 65
+**Signification :** Blue/Green (Bleu/Vert — les deux couleurs d'environnement)
+**Définition :** Maintenir DEUX environnements identiques : on déploie la nouvelle version sur l'inactif, on bascule le trafic d'un coup, rollback = re-basculer.
+**Contextes :** mises à jour critiques sans interruption, infra non containerisée, validation avant switch
+**Cas réguliers :**
+- `Blue = prod actuelle, Green = version 2 testée` — Puis bascule du load balancer (le plus courant)
+- `Rollback en 1 clic : re-basculer sur Blue` — Revenir à l'ancienne instantanément
+- `Tester Green avec un % de trafic avant` — Variante progressive
+**Origine :** Pratique décrite par Martin Fowler et Paul Hammant (2010) dans le contexte CI/CD — popularisée par les PaaS pouvant dupliquer les environnements.
+**Subtilités/confusions :**
+- Blue/Green vs Canary : Blue/Green = bascule TOUTE OU RIEN ; Canary = migration PROGRESSIVE par pourcentage.
+- Les DEUX environnements doivent tourner (coût x2 temporaire) — c'est le prix du rollback rapide.
+- Une base de données partagée casse le pattern : prévoir des migrations rétro-compatibles (expand/contract).
+**Exemple :** `Switch LB : 100% → blue | rollback : 100% → green`
+**Voir aussi :** canary, CD, déploiement, rollback
+
+## `Canary` — Déploiement progressif par cohortes [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 66
+**Signification :** Canary Release (« Release canari » — les canaris dans les mines, alerte précoce)
+**Définition :** Exposer la nouvelle version à un PETIT pourcentage d'utilisateurs d'abord, élargir si les métriques restent saines.
+**Contextes :** APIs à fort trafic, réduction du risque de release, features à impact incertain
+**Cas réguliers :**
+- `1% → 10% → 50% → 100% du trafic` — Progression conditionnée aux métriques (le plus courant)
+- `Alertes canari : taux d'erreur de la version neuve` — Critère d'arrêt automatique
+- `Comparaison des deux versions en parallèle` — Mesure d'impact réelle
+**Origine :** Métaphore des mines de charbon (canaris sentinelles) appliquée au déploiement par les pratiques Agile (2000s), systématisée par Google (2010s) et les feature flags.
+**Subtilités/confusions :**
+- Canary vs Blue/Green : canary = progressif sur vrais users, blue/green = bascule nette entre deux environnements.
+- Sans métriques fiables, un canary est aveugle : il faut pouvoir DÉTECTER la régression pour l'arrêter.
+- Router par user/session, sinon un user alterne entre versions (bugs de cohérence).
+**Exemple :** `1% du trafic → critère : taux d'erreur < 0,1% sur 15 min → passage à 10%`
+**Voir aussi :** blue/green, CD, feature flag, SRE
+
+## `Docker Compose` — Multi-conteneurs en 1 fichier [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 80
+**Signification :** Docker Compose (Composition d'images Docker)
+**Définition :** Décrire une application complète (app + base + cache...) dans un fichier YAML puis la démarrer d'un seul geste.
+**Contextes :** environnement local de dev, empilement multi-services, démos, tests d'intégration
+**Cas réguliers :**
+- `docker compose up -d` — Monter tout l'empilement en arrière-plan (le plus courant)
+- `docker compose down` — Tout arrêter et supprimer les réseaux
+- `docker compose logs -f api` — Suivre les logs d'un service
+- `docker compose ps` — État des services du fichier
+**Origine :** Fig (2013) racheté par Docker (2014) — intégré à Docker Engine en 2017 (v2 : plugin `docker compose`, l'ancien `docker-compose` binaire est obsolète).
+**Subtilités/confusions :**
+- `docker compose` (nouveau, plugin) vs `docker-compose` (v1, trait d'union) : mêmes commandes, binaire différent.
+- Le YAML décrit l'EMPILEMENT (réseaux partagés, volumes, ordre avec depends_on) — pas le rôle d'un Dockerfile.
+- `down -v` supprime AUSSI les volumes (données de la base !) — relire avant.
+**Exemple :** `services: { web: {build: ., ports: ["8080:80"]}, db: {image: postgres} }`
+**Voir aussi :** Docker, Kubernetes, YAML, image
+
+## `Feature Flag` — Activer des features sans redéployer [DevOps]
+**Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 69
+**Signification :** Feature Flag (Drapeau de Fonctionnalité)
+**Définition :** Interrupteur dans le code qui active/désactive une feature à l'exécution, par utilisateur ou par pourcentage, sans redéployer.
+**Contextes :** déploiements continus, tests A/B, activation progressive, kill switch d'incident
+**Cas réguliers :**
+- `if flag("new-checkout") : ...` — Code déployé, feature cachée (le plus courant)
+- `Activation à 5% des users → 100%` — Déploiement par paliers
+- `Kill switch : couper une feature qui casse` — Retour instantané sans rollback du build
+**Origine :** Pratique née du trunk-based development chez Facebook, Google et Flickr (années 2000-2010) ; outillée par LaunchDarkly (2014), Unleash, Flagsmith.
+**Subtilités/confusions :**
+- Un flag est TEMPORAIRE : garder les flags morts = dette technique (date de suppression dans le ticket).
+- Flag ≠ déploiement : le code est en prod dans les DEUX cas — le flag décide de la visibilité.
+- Trop de flags simultanés = matrice ingérable à tester (limiter le nombre actif).
+**Exemple :** `env "checkout-v2" : pourcentage=10, targeting=beta-users`
+**Voir aussi :** canary, CI/CD, A/B testing, rollback
+
+## `Chaos Engineering` — Test volontaire de résilience [DevOps]
+**Catégorie :** DevOps | **Niveau :** avance | **Popularité :** 55
+**Signification :** Chaos Engineering (Ingénierie du Chaos)
+**Définition :** Injecter des pannes VOLONTAIRES en production contrôlée pour découvrir les faiblesses AVANT qu'elles n'arrivent naturellement.
+**Contextes :** systèmes à haute disponibilité, maturité ops, réduction des incidents, game day
+**Cas réguliers :**
+- `Couper un serveur en plein trafic` — Vérifier le failover (le plus courant)
+- `Latence artificielle +300ms sur un service` — Tester la tolérance aux ralentissements
+- `Game Day : exercice d'incident en équipe` — Préparer l'astreinte sans urgence réelle
+**Origine :** Netflix Chaos Monkey (2011, dans la Simian Army) — pour survivre aux pannes AWS ; principes formalisés par Casey Rosenthal et Nora Jones (livre O'Reilly, 2020).
+**Subtilités/confusions :**
+- Chaos ≠ sabotage : hypothèse d'abord, périmètre limité, rollback immédiat — sinon c'est du vandalisme.
+- Règle d'or : sans observation pendant l'expérience, on n'apprend RIEN.
+- Commencer en DEV/staging, puis production à faible blast radius — maturité requise.
+**Exemple :** `kubectl delete pod --grace-period=0 sur 1 replica` — panne simulée ciblée
+**Voir aussi :** SRE, HA, game day, résilience
+
+## `Elasticsearch` — Moteur de recherche et analyse [Data]
+**Catégorie :** Data | **Niveau :** avance | **Popularité :** 78
+**Signification :** Elasticsearch (Lucene distribué par Elastic)
+**Définition :** Moteur de recherche plein texte distribué sur index JSON — recherche instantanée, analytics de logs, moteur derrière Kibana.
+**Contextes :** moteur de recherche de site, centralisation de logs, analytics temps réel
+**Cas réguliers :**
+- `GET /logs/_search {"query": {"match": {"message": "erreur 500"}}}` — Recherche plein texte (le plus courant)
+- `Indexation en quasi temps réel (~1s)` — Logs visibles presque immédiatement
+- `Agrégations : count par niveau, top des IPs` — Analytics sans SQL
+**Origine :** Shay Banon, 2010 (sur Lucene, 1999) — ossature de la stack ELK (Elasticsearch, Logstash, Kibana) ; le changement de licence (Apache → SSPL/Elastic License, 2021) a fait naître le fork OpenSearch d'AWS.
+**Subtilités/confusions :**
+- Elasticsearch ≠ base transactionnelle : pas de JOIN, pas d'ACID — c'est un INDEX, la source de vérité reste ailleurs.
+- Le mapping est un schéma IMPLICITE : un champ mal deviné au premier doc (text vs keyword) casse les agrégations.
+- Cluster mal dimensionné en RAM = OOM (circuit breaker) — un index par logique, pas par jour "au cas où".
+**Exemple :** `GET /logs-2026.09/_count` — éléments de l'index du mois
+**Voir aussi :** Kibana, FTS5, logstash, NoSQL
+
+## `MariaDB` — Fork communautaire de MySQL [Bases de données]
+**Catégorie :** Bases de données | **Niveau :** debutant | **Popularité :** 62
+**Signification :** MariaDB (prénom de la fille de Monty Widenius, co-créateur de MySQL)
+**Définition :** SGBD relationnel forké de MySQL par son créateur après le rachat par Oracle — compatible MySQL dans l'essentiel.
+**Contextes :** Debian/Ubuntu (remplace MySQL par défaut), hébergeurs, migration de WordPress
+**Cas réguliers :**
+- `mariadb-dump boutique > backup.sql` — Sauvegarder (syntaxe mysqldump)
+- `mariadb -u root -p boutique` — Se connecter en CLI
+- `SELECT VERSION();` — Savoir exactement ce qui tourne
+**Origine :** Michael "Monty" Widenius, 2009, après le rachat de Sun/MySQL par Oracle (2008) — assurer la continuité open source ; distribué par défaut sur Debian et la plupart des distros.
+**Subtilités/confusions :**
+- MariaDB vs MySQL : compatibles mais DIVERGENT (moteurs, réplication, SQL étendu) — les dumps ne circulent pas toujours dans les deux sens.
+- `mysql` en commande peut appeler MariaDB sur Debian — vérifier avec `SELECT VERSION();`.
+- MySQL 8 vs MariaDB 11 = deux feuilles de route distinctes malgré l'origine commune.
+**Exemple :** `SELECT VERSION();` → "11.4.2-MariaDB" par exemple
+**Voir aussi :** MySQL, SQL, SGBD, PostgreSQL
+
+
+
+
+
 
 
 
