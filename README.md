@@ -42,9 +42,9 @@ Un **dictionnaire structuré, validé par machine**, où chaque entrée est une 
 
 ---
 
-## Anatomie d'une fiche (format « Fiche riche v3 »)
+## Anatomie d'une fiche
 
-Une fiche = 10 rubriques obligatoires, contrôlées par le parser. Extrait réel de `faceA_06_archives_paquets.md` :
+Une fiche = format « Fiche riche v3 », 10 rubriques obligatoires contrôlées par le parser. Extrait réel de `faceA_06_archives_paquets.md` :
 
 ```markdown
 ## `tar` — Archiver et compresser des dossiers [Linux/macOS]
