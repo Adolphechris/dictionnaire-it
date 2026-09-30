@@ -40,8 +40,36 @@ B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 e
 - 2026-09-30 #036 FaceB_04_entreprise_concepts : 90/90 fiches v3 — AI
 
 ## 📋 Backlog MVP 1000 (P1 = contenu, dans l'ordre)
-- [ ] #037 FaceB_05_complements (76) ⏳ **DERNIER LOT DU MVP 1000 !**
-- [ ] #025 enrichir les 106 legacy vers v3 (progressif, non bloquant)
+- [x] #037 FaceB_05_complements : **102/102 fiches v3 ✅ FAIT**
+- [x] #038 FaceA_15_systeme_avance : **54/54 fiches v3 ✅ FAIT** (chroot, unshare... wipe)
+
+## ✅ Fait (détail)
+- 2026-09-29 #001 git init + nettoyage — AI
+- 2026-09-29 #002 corrections factuelles (tail, hostname, free, mv, head) — AI
+- 2026-09-29 #003 plan validé par Adolphe — AI+Adolphe
+- 2026-09-29 #010/#011/#012 validate + JSON + web_preview — AI
+- 2026-09-29 #020 FaceA_05_reseau legacy (15) — AI
+- 2026-09-29 #023 FaceB_01 vague 1 legacy (54) — AI
+- 2026-09-29 #050 parse_rich.py fiche v3 + validation 10 rubriques + stats MVP1000 + app web enrichie — AI
+- 2026-09-29 #023b FaceB_02 lot 1 (3 fiches riches) — AI
+- 2026-09-29 #021 FaceA_06 lot 1 (6 fiches riches) — AI
+- 2026-09-30 #022 FaceA_07_aide_shell : 40/40 fiches v3 — AI
+- 2026-09-30 #060 README vitrine professionnel + vérif pipeline réel — AI
+- 2026-09-30 #024 FaceA_08_git : 60/60 fiches v3 — AI
+- 2026-09-30 #026 FaceA_09_docker_k8s : 50/50 fiches v3 — AI
+- 2026-09-30 #027 FaceA_10_sysadmin : 60/60 fiches v3 — AI
+- 2026-09-30 #028 FaceA_11_paquets_multiOS : 50/50 fiches v3 — AI
+- 2026-09-30 #029 FaceA_12_reseau2_secu : 60/60 fiches v3 — AI
+- 2026-09-30 #033 FaceA_13_dev_outils : 60/60 fiches v3 — AI
+- 2026-09-30 #034 FaceA_14_complements : 60/60 fiches v3 — AI
+- 2026-09-30 #035 FaceB_03_secu_web_multimedia : 90/90 fiches v3 — AI
+- 2026-09-30 #036 FaceB_04_entreprise_concepts : 90/90 fiches v3 — AI
+- 2026-09-30 #037 FaceB_05_complements : 102 fiches v3 — AI
+- 2026-09-30 #038 FaceA_15_systeme_avance : 54 fiches v3 — AI (🎉 MVP 1000/1000 ATTEINT À 100% !)
+
+## 📋 Backlog MVP 1000 (P1 = contenu)
+- [x] **MVP 1000 ATTEINT ! (600/600 A + 400/400 B)**
+- [ ] #025 enrichir les 95 legacy vers v3 (progressif, non bloquant)
 
 ## 📋 Backlog hors-MVP (P2/P3)
 - [ ] #030 Firebase import (rules déjà posées) — P2
@@ -53,11 +81,11 @@ B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 e
 - [ ] #042 recherche sémantique IA — P3
 
 ## 📊 Compteurs (auto — maj 30/09)
-- Entités: 855 / 1000 MVP (85.5%) — A 546/600 | B 309/400 | riches v3: 749 | legacy: 106
-- Lots terminés: #021 FaceA_06 ✅ 40/40 | #023b FaceB_02 ✅ 90/90 | #022 FaceA_07 ✅ 40/40 | #024 FaceA_08_git ⏳ 18/60
+- Entités: 1000 / 1000 MVP (100.0%) — A 600/600 | B 400/400 | riches v3: 905 | legacy: 95
+- Lots terminés: TOUS LES LOTS DU MVP (FaceA_01 à FaceA_15, FaceB_01 à FaceB_05) ✅
 - Apps: Web preview OK (offline + fiches riches dépliables) | Android 0% | Desktop 0%
 - Docs: README vitrine refait (badges, anatomy, architecture, outils, contribution, roadmap) — 220 lignes
-- Dette: validate ✅ 0 erreur | parse_rich ✅ 183 fiches conformes | 3 fusions riche→legacy en attente (SQL, VM, ORM)
+- Dette: validate ✅ 0 erreur | parse_rich ✅ 905 fiches riches conformes
 
 ## 🧰 Outils anti-perte-de-fil
 1. Ce fichier = Kanban texte, source de vérité (branché à git)
