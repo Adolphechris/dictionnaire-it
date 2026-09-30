@@ -1,6 +1,6 @@
 # Face A — Commandes : GIT ET CONTRÔLE DE VERSION (fiches riches v3)
 
-> Lot MVP #024 — cible 60 fiches. Avancement : 14/60 (bloc 1 : socle Git — git, init, clone, status, add, commit, diff, push, pull, log, branch, switch, checkout, fetch). Format : `## \`commande\` — titre [OS]` + 10 rubriques obligatoires validées par `tools/parse_rich.py`.
+> Lot MVP #024 — cible 60 fiches. Avancement : 18/60 (bloc 1 socle Git : git, init, clone, status, add, commit, diff, push, pull, log, branch, switch, checkout, fetch — bloc 2 fusions & retours : merge, rebase, stash, reset). Format : `## \`commande\` — titre [OS]` + 10 rubriques obligatoires validées par `tools/parse_rich.py`.
 
 ## `git` — Contrôle de version distribué [Linux/macOS/Windows]
 **Niveau :** intermediaire | **Popularité :** 98 | **Aliases :** —
@@ -281,6 +281,88 @@
 **Précautions :** `fetch` avant toute décision de réécriture d'historique pour éviter d'écraser du travail récent.
 **Équivalents :** svn status -u (sans télécharger l'historique), hg fetch
 **Voir aussi :** git pull, git push, git remote, git rebase
+
+## `git merge` — Fusionner deux branches [Linux/macOS/Windows]
+**Niveau :** avance | **Popularité :** 86 | **Aliases :** —
+**Contextes :** intégrer une fonctionnalité dans main, remonter un correctif, réconcilier deux historiques
+**Rôle :** Créer un commit de fusion qui réunit deux branches, en réconciliant leurs modifications.
+**Syntaxe :** `git merge [options] <branche>`
+**Cas réguliers :**
+- `git merge feature-x` — Intégrer la fonctionnalité dans la branche courante (le plus courant)
+- `git merge --no-ff feature-x` — Forcer un commit de fusion même en avance simple (traçabilité PR)
+- `git merge --abort` — Abandonner une fusion en conflit et revenir en arrière
+- `git merge --squash feature-x` — Emporter le travail EN UN SEUL commit (historique propre)
+**Origine :** Git 1.0 (2005) — la fusion à trois voies (ancêtre commun + deux branches) vient du diff3 (1990) ; Git ne fusionne que depuis l'ancêtre commun trouvé automatiquement.
+**Subtilités/confusions :**
+- Fast-forward : sans divergence, Git déplace juste le curseur — AUCUN commit de fusion n'est créé (d'où `--no-ff` en équipe).
+- Un conflit se résout ÉDITER puis `git add` puis `git commit` : beaucoup croient qu'il faut `git merge --continue`.
+- `merge` garde l'histoire telle quelle ; `rebase` la RÉÉCRIT : merge pour l'intégration partagée, rebase pour son travail privé.
+**Urgences/dangers :** ⚠️ Résoudre un conflit en prenant « le leur » ou « le nôtre » à l'aveugle perd du code : lire chaque bloc `<<<<<<<`.
+**Précautions :** `git mergetool` ou l'éditeur pour les conflits ; `git diff --check` repère les marqueurs oubliés avant de commiter.
+**Équivalents :** svn merge, hg merge
+**Voir aussi :** git rebase, git pull, git branch, git log
+
+## `git rebase` — Rejouer ses commits ailleurs [Linux/macOS/Windows]
+**Niveau :** avance | **Popularité :** 80 | **Aliases :** —
+**Contextes :** synchroniser une branche de travail, nettoyer des commits avant une PR, appliquer un correctif sur plusieurs versions
+**Rôle :** Recréer ses commits UN PAR-DESSUS une autre base : l'historique devient linéaire et lisible.
+**Syntaxe :** `git rebase [options] <nouvelle-base>`
+**Cas réguliers :**
+- `git rebase main` — Rejouer ses commits par-dessus main (le plus courant)
+- `git rebase -i HEAD~5` — Réordonner, grouper (`squash`), modifier 5 commits
+- `git rebase --continue` — Reprendre après avoir résolu un conflit
+- `git rebase --abort` — Annuler et retrouver l'état d'avant, intact
+**Origine :** Git 1.0 (2005) — le rebase recrée des commits NEUFS (nouveaux SHA) : c'est pourquoi il n'est sûr que sur du travail non poussé.
+**Subtilités/confusions :**
+- `rebase` réécrit l'identité des commits : après un rebase local, pousser exige `--force-with-lease`.
+- Ne JAMAIS rebaser une branche que d'autres utilisent : leurs bases ne correspondent plus.
+- `rebase -i` demande un éditeur : configurer `git config --global core.editor "nano"` évite de rester bloqué dans Vim.
+**Urgences/dangers :** ⚠️ Rebase sur branche partagée = le piège n°1 de Git en équipe : les collègues doivent re-`pull` et peuvent perdre du travail.
+**Précautions :** Toujours vérifier `git status` propre avant ; `git reflog` garde la version d'avant en cas de doute.
+**Équivalents :** hg rebase (extension), svn : aucune équivalence propre
+**Voir aussi :** git merge, git cherry-pick, git reflog, git push
+
+## `git stash` — Mettre son travail de côté temporairement [Linux/macOS/Windows]
+**Niveau :** intermediaire | **Popularité :** 82 | **Aliases :** —
+**Contextes :** devoir changer de branche d'urgence, tester un état propre, récupérer un stash oublié
+**Rôle :** Ranger les modifications non commitées dans une pile pour retrouver un dossier de travail PROPRE, puis les rejouer plus tard.
+**Syntaxe :** `git stash [push [-m "message"] | pop | apply | list | drop]`
+**Cas réguliers :**
+- `git stash` — Tout ranger pour changer de branche (le plus courant)
+- `git stash pop` — Récupérer et RETIRER le dernier stash (reprise de travail)
+- `git stash list` — Voir ce qui est rangé (`stash@{0}`, `stash@{1}`…)
+- `git stash -u` — Inclure aussi les fichiers NON SUIVIS (souvent oubliés)
+**Origine :** Git 1.0 (2005) — le stash est stocké comme des commits dans une référence spéciale : il survit aux changements de branche mais PAS à un `git clean -f` mal placé ni au nettoyage du GC après 90 jours.
+**Subtilités/confusions :**
+- `pop` applique ET supprime ; `apply` applique en LE GARDANT : en cas de doute, `apply` d'abord.
+- Le stash est une PILE globale au dépôt, pas liée à la branche : on peut le rejouer sur une autre branche (conflits possibles).
+- `git stash` ignore les fichiers non suivis SANS `-u` et les fichiers ignorés SANS `-a` : d'où des « disparitions » mal comprises.
+**Urgences/dangers :** ⚠️ Un `git stash` mal nommé finit oublié des mois : `git stash list` régulièrement, les stash de plus de 90 jours sont éligibles au nettoyage.
+**Précautions :** Mettre un message (`git stash push -m "avant refactor API"`) ; préférer un commit WIP poussé sur une branche pour du travail longue durée.
+**Équivalents :** hg shelve, svn : pas d'équivalent (copie manuelle)
+**Voir aussi :** git status, git worktree, git diff, git clean
+
+## `git reset` — Déplacer HEAD (annuler plus ou moins profondément) [Linux/macOS/Windows]
+**Niveau :** expert | **Popularité :** 76 | **Aliases :** —
+**Contextes :** annuler un commit pas encore poussé, dé-préparer des fichiers, revenir à un état de référence en local
+**Rôle :** Replacer HEAD (et la branche courante) sur un autre commit, avec trois niveaux de profondeur sur l'index et le dossier de travail.
+**Syntaxe :** `git reset [--soft|--mixed|--hard] <commit>`
+**Cas réguliers :**
+- `git reset --soft HEAD~1` — Décommetter le dernier commit EN GARDANT tout prêt à re-commit (le plus utile)
+- `git reset HEAD src/x.py` — Dé-préparer un fichier ajouté par erreur
+- `git reset --hard origin/main` — Recaler sa branche locale sur le distant (jettes tes commits locaux)
+- `git reset --mixed HEAD~3` — Revenir 3 commits en arrière en gardant les modifications
+**Origine :** Git 1.0 (2005) — les trois modes correspondent aux trois zones de Git : HEAD (histoire), index (préparation), dossier de travail (fichiers) ; `--hard` touche les trois.
+**Subtilités/confusions :**
+- `--soft` garde tout, `--mixed` (défaut) garde les fichiers mais vide l'index, `--hard` détruit les modifications locales.
+- `reset` LOCAL ne dit rien au dépôt distant : pour « annuler » publiquement, c'est `git revert` qu'il faut.
+- `reset HEAD~1` puis `commit` produit un historique différent de `revert` : le premier réécrit, le second ajoute.
+**Urgences/dangers :** ⚠️ `git reset --hard` est la commande qui fait le plus pleurer : elle écrase le travail non commité SANS confirmation. Vérifier `git status` avant.
+**Précautions :** `git reflog` conserve les positions précédentes (90 jours par défaut) : c'est le recours après un reset raté.
+**Équivalents :** svn revert (fichiers seulement), hg revert / hg strip
+**Voir aussi :** git revert, git checkout, git restore, git reflog
+
+
 
 
 

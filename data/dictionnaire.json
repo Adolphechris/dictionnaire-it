@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "total": 334,
+  "total": 338,
   "entries": [
     {
       "face": "A",
@@ -20065,6 +20065,694 @@
         }
       ],
       "id": "A-00193",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git merge",
+      "aliases": [],
+      "niveau": "avance",
+      "popularite": 86,
+      "contextes": [
+        "intégrer une fonctionnalité dans main",
+        "remonter un correctif",
+        "réconcilier deux historiques"
+      ],
+      "origine": "Git 1.0 (2005) — la fusion à trois voies (ancêtre commun + deux branches) vient du diff3 (1990) ; Git ne fusionne que depuis l'ancêtre commun trouvé automatiquement.",
+      "subtilites": [
+        "Fast-forward : sans divergence, Git déplace juste le curseur — AUCUN commit de fusion n'est créé (d'où `--no-ff` en équipe).",
+        "Un conflit se résout ÉDITER puis `git add` puis `git commit` : beaucoup croient qu'il faut `git merge --continue`.",
+        "`merge` garde l'histoire telle quelle ; `rebase` la RÉÉCRIT : merge pour l'intégration partagée, rebase pour son travail privé.",
+        "*Urgences/dangers :** ⚠️ Résoudre un conflit en prenant « le leur » ou « le nôtre » à l'aveugle perd du code : lire chaque bloc `<<<<<<<`.",
+        "*Précautions :** `git mergetool` ou l'éditeur pour les conflits ; `git diff --check` repère les marqueurs oubliés avant de commiter.",
+        "*Équivalents :** svn merge, hg merge",
+        "*Voir aussi :** git rebase, git pull, git branch, git log"
+      ],
+      "voir_aussi": [
+        "git rebase",
+        "git pull",
+        "git branch",
+        "git log"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Créer un commit de fusion qui réunit deux branches, en réconciliant leurs modifications.",
+      "syntaxe": "git merge [options] <branche>",
+      "cas_reguliers": [
+        {
+          "cmd": "git merge feature-x",
+          "explication": "Intégrer la fonctionnalité dans la branche courante (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git merge --no-ff feature-x",
+          "explication": "Forcer un commit de fusion même en avance simple (traçabilité PR)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git merge --abort",
+          "explication": "Abandonner une fusion en conflit et revenir en arrière",
+          "contexte": ""
+        },
+        {
+          "cmd": "git merge --squash feature-x",
+          "explication": "Emporter le travail EN UN SEUL commit (historique propre)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — la fusion à trois voies (ancêtre commun + deux branches) vient du diff3 (1990) ; Git ne fusionne que depuis l'ancêtre commun trouvé automatiquement.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Fast-forward : sans divergence, Git déplace juste le curseur — AUCUN commit de fusion n'est créé (d'où `--no-ff` en équipe).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Un conflit se résout ÉDITER puis `git add` puis `git commit` : beaucoup croient qu'il faut `git merge --continue`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "merge` garde l'histoire telle quelle ; `rebase` la RÉÉCRIT : merge pour l'intégration partagée, rebase pour son travail privé.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ Résoudre un conflit en prenant « le leur » ou « le nôtre » à l'aveugle perd du code : lire chaque bloc `<<<<<<<`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** `git mergetool` ou l'éditeur pour les conflits ; `git diff --check` repère les marqueurs oubliés avant de commiter.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn merge, hg merge",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git rebase, git pull, git branch, git log",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git merge feature-x",
+          "explication": "Intégrer la fonctionnalité dans la branche courante (le plus courant)"
+        },
+        {
+          "cmd": "git merge --no-ff feature-x",
+          "explication": "Forcer un commit de fusion même en avance simple (traçabilité PR)"
+        },
+        {
+          "cmd": "git merge --abort",
+          "explication": "Abandonner une fusion en conflit et revenir en arrière"
+        },
+        {
+          "cmd": "git merge --squash feature-x",
+          "explication": "Emporter le travail EN UN SEUL commit (historique propre)"
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — la fusion à trois voies (ancêtre commun + deux branches) vient du diff3 (1990) ; Git ne fusionne que depuis l'ancêtre commun trouvé automatiquement.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "Fast-forward : sans divergence, Git déplace juste le curseur — AUCUN commit de fusion n'est créé (d'où `--no-ff` en équipe).",
+          "explication": ""
+        },
+        {
+          "cmd": "Un conflit se résout ÉDITER puis `git add` puis `git commit` : beaucoup croient qu'il faut `git merge --continue`.",
+          "explication": ""
+        },
+        {
+          "cmd": "merge` garde l'histoire telle quelle ; `rebase` la RÉÉCRIT : merge pour l'intégration partagée, rebase pour son travail privé.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ Résoudre un conflit en prenant « le leur » ou « le nôtre » à l'aveugle perd du code : lire chaque bloc `<<<<<<<`.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** `git mergetool` ou l'éditeur pour les conflits ; `git diff --check` repère les marqueurs oubliés avant de commiter.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn merge, hg merge",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git rebase, git pull, git branch, git log",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ Résoudre un conflit en prenant « le leur » ou « le nôtre » à l'aveugle perd du code : lire chaque bloc `<<<<<<<`.",
+      "precautions": "`git mergetool` ou l'éditeur pour les conflits ; `git diff --check` repère les marqueurs oubliés avant de commiter.",
+      "equivalents": [
+        {
+          "note": "svn merge, hg merge"
+        }
+      ],
+      "id": "A-00194",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git rebase",
+      "aliases": [],
+      "niveau": "avance",
+      "popularite": 80,
+      "contextes": [
+        "synchroniser une branche de travail",
+        "nettoyer des commits avant une PR",
+        "appliquer un correctif sur plusieurs versions"
+      ],
+      "origine": "Git 1.0 (2005) — le rebase recrée des commits NEUFS (nouveaux SHA) : c'est pourquoi il n'est sûr que sur du travail non poussé.",
+      "subtilites": [
+        "`rebase` réécrit l'identité des commits : après un rebase local, pousser exige `--force-with-lease`.",
+        "Ne JAMAIS rebaser une branche que d'autres utilisent : leurs bases ne correspondent plus.",
+        "`rebase -i` demande un éditeur : configurer `git config --global core.editor \"nano\"` évite de rester bloqué dans Vim.",
+        "*Urgences/dangers :** ⚠️ Rebase sur branche partagée = le piège n°1 de Git en équipe : les collègues doivent re-`pull` et peuvent perdre du travail.",
+        "*Précautions :** Toujours vérifier `git status` propre avant ; `git reflog` garde la version d'avant en cas de doute.",
+        "*Équivalents :** hg rebase (extension), svn : aucune équivalence propre",
+        "*Voir aussi :** git merge, git cherry-pick, git reflog, git push"
+      ],
+      "voir_aussi": [
+        "git merge",
+        "git cherry-pick",
+        "git reflog",
+        "git push"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Recréer ses commits UN PAR-DESSUS une autre base : l'historique devient linéaire et lisible.",
+      "syntaxe": "git rebase [options] <nouvelle-base>",
+      "cas_reguliers": [
+        {
+          "cmd": "git rebase main",
+          "explication": "Rejouer ses commits par-dessus main (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git rebase -i HEAD~5",
+          "explication": "Réordonner, grouper (`squash`), modifier 5 commits",
+          "contexte": ""
+        },
+        {
+          "cmd": "git rebase --continue",
+          "explication": "Reprendre après avoir résolu un conflit",
+          "contexte": ""
+        },
+        {
+          "cmd": "git rebase --abort",
+          "explication": "Annuler et retrouver l'état d'avant, intact",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — le rebase recrée des commits NEUFS (nouveaux SHA) : c'est pourquoi il n'est sûr que sur du travail non poussé.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "rebase` réécrit l'identité des commits : après un rebase local, pousser exige `--force-with-lease`.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Ne JAMAIS rebaser une branche que d'autres utilisent : leurs bases ne correspondent plus.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "rebase -i` demande un éditeur : configurer `git config --global core.editor \"nano\"` évite de rester bloqué dans Vim.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ Rebase sur branche partagée = le piège n°1 de Git en équipe : les collègues doivent re-`pull` et peuvent perdre du travail.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Toujours vérifier `git status` propre avant ; `git reflog` garde la version d'avant en cas de doute.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** hg rebase (extension), svn : aucune équivalence propre",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git merge, git cherry-pick, git reflog, git push",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git rebase main",
+          "explication": "Rejouer ses commits par-dessus main (le plus courant)"
+        },
+        {
+          "cmd": "git rebase -i HEAD~5",
+          "explication": "Réordonner, grouper (`squash`), modifier 5 commits"
+        },
+        {
+          "cmd": "git rebase --continue",
+          "explication": "Reprendre après avoir résolu un conflit"
+        },
+        {
+          "cmd": "git rebase --abort",
+          "explication": "Annuler et retrouver l'état d'avant, intact"
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — le rebase recrée des commits NEUFS (nouveaux SHA) : c'est pourquoi il n'est sûr que sur du travail non poussé.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "rebase` réécrit l'identité des commits : après un rebase local, pousser exige `--force-with-lease`.",
+          "explication": ""
+        },
+        {
+          "cmd": "Ne JAMAIS rebaser une branche que d'autres utilisent : leurs bases ne correspondent plus.",
+          "explication": ""
+        },
+        {
+          "cmd": "rebase -i` demande un éditeur : configurer `git config --global core.editor \"nano\"` évite de rester bloqué dans Vim.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ Rebase sur branche partagée = le piège n°1 de Git en équipe : les collègues doivent re-`pull` et peuvent perdre du travail.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Toujours vérifier `git status` propre avant ; `git reflog` garde la version d'avant en cas de doute.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** hg rebase (extension), svn : aucune équivalence propre",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git merge, git cherry-pick, git reflog, git push",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ Rebase sur branche partagée = le piège n°1 de Git en équipe : les collègues doivent re-`pull` et peuvent perdre du travail.",
+      "precautions": "Toujours vérifier `git status` propre avant ; `git reflog` garde la version d'avant en cas de doute.",
+      "equivalents": [
+        {
+          "note": "hg rebase (extension), svn : aucune équivalence propre"
+        }
+      ],
+      "id": "A-00195",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git stash",
+      "aliases": [],
+      "niveau": "intermediaire",
+      "popularite": 82,
+      "contextes": [
+        "devoir changer de branche d'urgence",
+        "tester un état propre",
+        "récupérer un stash oublié"
+      ],
+      "origine": "Git 1.0 (2005) — le stash est stocké comme des commits dans une référence spéciale : il survit aux changements de branche mais PAS à un `git clean -f` mal placé ni au nettoyage du GC après 90 jours.",
+      "subtilites": [
+        "`pop` applique ET supprime ; `apply` applique en LE GARDANT : en cas de doute, `apply` d'abord.",
+        "Le stash est une PILE globale au dépôt, pas liée à la branche : on peut le rejouer sur une autre branche (conflits possibles).",
+        "`git stash` ignore les fichiers non suivis SANS `-u` et les fichiers ignorés SANS `-a` : d'où des « disparitions » mal comprises.",
+        "*Urgences/dangers :** ⚠️ Un `git stash` mal nommé finit oublié des mois : `git stash list` régulièrement, les stash de plus de 90 jours sont éligibles au nettoyage.",
+        "*Précautions :** Mettre un message (`git stash push -m \"avant refactor API\"`) ; préférer un commit WIP poussé sur une branche pour du travail longue durée.",
+        "*Équivalents :** hg shelve, svn : pas d'équivalent (copie manuelle)",
+        "*Voir aussi :** git status, git worktree, git diff, git clean"
+      ],
+      "voir_aussi": [
+        "git status",
+        "git worktree",
+        "git diff",
+        "git clean"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Ranger les modifications non commitées dans une pile pour retrouver un dossier de travail PROPRE, puis les rejouer plus tard.",
+      "syntaxe": "git stash [push [-m \"message\"] | pop | apply | list | drop]",
+      "cas_reguliers": [
+        {
+          "cmd": "git stash",
+          "explication": "Tout ranger pour changer de branche (le plus courant)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git stash pop",
+          "explication": "Récupérer et RETIRER le dernier stash (reprise de travail)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git stash list",
+          "explication": "Voir ce qui est rangé (`stash@{0}`, `stash@{1}`…)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git stash -u",
+          "explication": "Inclure aussi les fichiers NON SUIVIS (souvent oubliés)",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — le stash est stocké comme des commits dans une référence spéciale : il survit aux changements de branche mais PAS à un `git clean -f` mal placé ni au nettoyage du GC après 90 jours.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "pop` applique ET supprime ; `apply` applique en LE GARDANT : en cas de doute, `apply` d'abord.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "Le stash est une PILE globale au dépôt, pas liée à la branche : on peut le rejouer sur une autre branche (conflits possibles).",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "git stash` ignore les fichiers non suivis SANS `-u` et les fichiers ignorés SANS `-a` : d'où des « disparitions » mal comprises.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ Un `git stash` mal nommé finit oublié des mois : `git stash list` régulièrement, les stash de plus de 90 jours sont éligibles au nettoyage.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** Mettre un message (`git stash push -m \"avant refactor API\"`) ; préférer un commit WIP poussé sur une branche pour du travail longue durée.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** hg shelve, svn : pas d'équivalent (copie manuelle)",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git status, git worktree, git diff, git clean",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git stash",
+          "explication": "Tout ranger pour changer de branche (le plus courant)"
+        },
+        {
+          "cmd": "git stash pop",
+          "explication": "Récupérer et RETIRER le dernier stash (reprise de travail)"
+        },
+        {
+          "cmd": "git stash list",
+          "explication": "Voir ce qui est rangé (`stash@{0}`, `stash@{1}`…)"
+        },
+        {
+          "cmd": "git stash -u",
+          "explication": "Inclure aussi les fichiers NON SUIVIS (souvent oubliés)"
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — le stash est stocké comme des commits dans une référence spéciale : il survit aux changements de branche mais PAS à un `git clean -f` mal placé ni au nettoyage du GC après 90 jours.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "pop` applique ET supprime ; `apply` applique en LE GARDANT : en cas de doute, `apply` d'abord.",
+          "explication": ""
+        },
+        {
+          "cmd": "Le stash est une PILE globale au dépôt, pas liée à la branche : on peut le rejouer sur une autre branche (conflits possibles).",
+          "explication": ""
+        },
+        {
+          "cmd": "git stash` ignore les fichiers non suivis SANS `-u` et les fichiers ignorés SANS `-a` : d'où des « disparitions » mal comprises.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ Un `git stash` mal nommé finit oublié des mois : `git stash list` régulièrement, les stash de plus de 90 jours sont éligibles au nettoyage.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** Mettre un message (`git stash push -m \"avant refactor API\"`) ; préférer un commit WIP poussé sur une branche pour du travail longue durée.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** hg shelve, svn : pas d'équivalent (copie manuelle)",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git status, git worktree, git diff, git clean",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ Un `git stash` mal nommé finit oublié des mois : `git stash list` régulièrement, les stash de plus de 90 jours sont éligibles au nettoyage.",
+      "precautions": "Mettre un message (`git stash push -m \"avant refactor API\"`) ; préférer un commit WIP poussé sur une branche pour du travail longue durée.",
+      "equivalents": [
+        {
+          "note": "hg shelve, svn : pas d'équivalent (copie manuelle)"
+        }
+      ],
+      "id": "A-00196",
+      "version": 1,
+      "updated_at": "2026-09-30"
+    },
+    {
+      "nom": "git reset",
+      "aliases": [],
+      "niveau": "expert",
+      "popularite": 76,
+      "contextes": [
+        "annuler un commit pas encore poussé",
+        "dé-préparer des fichiers",
+        "revenir à un état de référence en local"
+      ],
+      "origine": "Git 1.0 (2005) — les trois modes correspondent aux trois zones de Git : HEAD (histoire), index (préparation), dossier de travail (fichiers) ; `--hard` touche les trois.",
+      "subtilites": [
+        "`--soft` garde tout, `--mixed` (défaut) garde les fichiers mais vide l'index, `--hard` détruit les modifications locales.",
+        "`reset` LOCAL ne dit rien au dépôt distant : pour « annuler » publiquement, c'est `git revert` qu'il faut.",
+        "`reset HEAD~1` puis `commit` produit un historique différent de `revert` : le premier réécrit, le second ajoute.",
+        "*Urgences/dangers :** ⚠️ `git reset --hard` est la commande qui fait le plus pleurer : elle écrase le travail non commité SANS confirmation. Vérifier `git status` avant.",
+        "*Précautions :** `git reflog` conserve les positions précédentes (90 jours par défaut) : c'est le recours après un reset raté.",
+        "*Équivalents :** svn revert (fichiers seulement), hg revert / hg strip",
+        "*Voir aussi :** git revert, git checkout, git restore, git reflog"
+      ],
+      "voir_aussi": [
+        "git revert",
+        "git checkout",
+        "git restore",
+        "git reflog"
+      ],
+      "source": "faceA_08_git.md",
+      "face": "A",
+      "type": "commande",
+      "os": [
+        "linux",
+        "macos"
+      ],
+      "os_raw": "Linux/macOS/Windows",
+      "categories": [
+        "git"
+      ],
+      "tags": [],
+      "role_fr": "Replacer HEAD (et la branche courante) sur un autre commit, avec trois niveaux de profondeur sur l'index et le dossier de travail.",
+      "syntaxe": "git reset [--soft|--mixed|--hard] <commit>",
+      "cas_reguliers": [
+        {
+          "cmd": "git reset --soft HEAD~1",
+          "explication": "Décommetter le dernier commit EN GARDANT tout prêt à re-commit (le plus utile)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git reset HEAD src/x.py",
+          "explication": "Dé-préparer un fichier ajouté par erreur",
+          "contexte": ""
+        },
+        {
+          "cmd": "git reset --hard origin/main",
+          "explication": "Recaler sa branche locale sur le distant (jettes tes commits locaux)",
+          "contexte": ""
+        },
+        {
+          "cmd": "git reset --mixed HEAD~3",
+          "explication": "Revenir 3 commits en arrière en gardant les modifications",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — les trois modes correspondent aux trois zones de Git : HEAD (histoire), index (préparation), dossier de travail (fichiers) ; `--hard` touche les trois.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "--soft` garde tout, `--mixed` (défaut) garde les fichiers mais vide l'index, `--hard` détruit les modifications locales.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "reset` LOCAL ne dit rien au dépôt distant : pour « annuler » publiquement, c'est `git revert` qu'il faut.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "reset HEAD~1` puis `commit` produit un historique différent de `revert` : le premier réécrit, le second ajoute.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `git reset --hard` est la commande qui fait le plus pleurer : elle écrase le travail non commité SANS confirmation. Vérifier `git status` avant.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Précautions :** `git reflog` conserve les positions précédentes (90 jours par défaut) : c'est le recours après un reset raté.",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn revert (fichiers seulement), hg revert / hg strip",
+          "explication": "",
+          "contexte": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git revert, git checkout, git restore, git reflog",
+          "explication": "",
+          "contexte": ""
+        }
+      ],
+      "exemples": [
+        {
+          "cmd": "git reset --soft HEAD~1",
+          "explication": "Décommetter le dernier commit EN GARDANT tout prêt à re-commit (le plus utile)"
+        },
+        {
+          "cmd": "git reset HEAD src/x.py",
+          "explication": "Dé-préparer un fichier ajouté par erreur"
+        },
+        {
+          "cmd": "git reset --hard origin/main",
+          "explication": "Recaler sa branche locale sur le distant (jettes tes commits locaux)"
+        },
+        {
+          "cmd": "git reset --mixed HEAD~3",
+          "explication": "Revenir 3 commits en arrière en gardant les modifications"
+        },
+        {
+          "cmd": "*Origine :** Git 1.0 (2005) — les trois modes correspondent aux trois zones de Git : HEAD (histoire), index (préparation), dossier de travail (fichiers) ; `--hard` touche les trois.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Subtilités/confusions :**",
+          "explication": ""
+        },
+        {
+          "cmd": "--soft` garde tout, `--mixed` (défaut) garde les fichiers mais vide l'index, `--hard` détruit les modifications locales.",
+          "explication": ""
+        },
+        {
+          "cmd": "reset` LOCAL ne dit rien au dépôt distant : pour « annuler » publiquement, c'est `git revert` qu'il faut.",
+          "explication": ""
+        },
+        {
+          "cmd": "reset HEAD~1` puis `commit` produit un historique différent de `revert` : le premier réécrit, le second ajoute.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Urgences/dangers :** ⚠️ `git reset --hard` est la commande qui fait le plus pleurer : elle écrase le travail non commité SANS confirmation. Vérifier `git status` avant.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Précautions :** `git reflog` conserve les positions précédentes (90 jours par défaut) : c'est le recours après un reset raté.",
+          "explication": ""
+        },
+        {
+          "cmd": "*Équivalents :** svn revert (fichiers seulement), hg revert / hg strip",
+          "explication": ""
+        },
+        {
+          "cmd": "*Voir aussi :** git revert, git checkout, git restore, git reflog",
+          "explication": ""
+        }
+      ],
+      "urgences_dangers": "⚠️ `git reset --hard` est la commande qui fait le plus pleurer : elle écrase le travail non commité SANS confirmation. Vérifier `git status` avant.",
+      "precautions": "`git reflog` conserve les positions précédentes (90 jours par défaut) : c'est le recours après un reset raté.",
+      "equivalents": [
+        {
+          "note": "svn revert (fichiers seulement), hg revert / hg strip"
+        }
+      ],
+      "id": "A-00197",
       "version": 1,
       "updated_at": "2026-09-30"
     },

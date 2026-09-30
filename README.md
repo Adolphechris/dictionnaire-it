@@ -5,8 +5,8 @@
 </p>
 
 <p align="center">
-  <img alt="entrées" src="https://img.shields.io/badge/entr%C3%A9es-334%20%2F%201000%20MVP-2f81f7?style=flat-square">
-  <img alt="fiches riches" src="https://img.shields.io/badge/fiches%20riches%20v3-183-3fb950?style=flat-square">
+  <img alt="entrées" src="https://img.shields.io/badge/entr%C3%A9es-338%20%2F%201000%20MVP-2f81f7?style=flat-square">
+  <img alt="fiches riches" src="https://img.shields.io/badge/fiches%20riches%20v3-187-3fb950?style=flat-square">
   <img alt="validation" src="https://img.shields.io/badge/validation-0%20erreur-3fb950?style=flat-square">
   <img alt="langue" src="https://img.shields.io/badge/contenu-fran%C3%A7ais-8957b5?style=flat-square">
   <img alt="stack" src="https://img.shields.io/badge/stack-Flutter%20%C2%B7%20Firebase%20%C2%B7%20SQLite%20FTS5-blue?style=flat-square">
@@ -71,10 +71,10 @@ Chaque fiche est compilée en entité JSON typée (`DATA_MODEL.md`) : `id` stabl
 
 | Indicateur | Valeur |
 |---|---|
-| **Entités totales** | **334 / 1000** (33,4 % du MVP) |
-| Face A — commandes | 193 / 600 |
+| **Entités totales** | **338 / 1000** (33,8 % du MVP) |
+| Face A — commandes | 197 / 600 |
 | Face B — sigles | 141 / 400 |
-| Fiches riches v3 | 183 |
+| Fiches riches v3 | 187 |
 | Entrées legacy (tableaux) | 151 — conservées, enrichies progressivement |
 | Fichiers source | 10 (8 × Face A, 2 × Face B) |
 | Validation | ✅ 0 erreur, 0 avertissement |
@@ -83,7 +83,7 @@ Chaque fiche est compilée en entité JSON typée (`DATA_MODEL.md`) : `id` stabl
 
 > Chiffres produits par `python3 tools/stats.py` — à régénérer à chaque lot de contenu.
 
-**Progression par lot** : #021 FaceA_06 archives/paquets ✅ 40/40 · #022 FaceA_07 aide/shell ✅ 40/40 · #023b FaceB_02 DevOps/Cloud/BDD ✅ 90/90 · #024 FaceA_08 git ⏳ 14/60.
+**Progression par lot** : #021 FaceA_06 archives/paquets ✅ 40/40 · #022 FaceA_07 aide/shell ✅ 40/40 · #023b FaceB_02 DevOps/Cloud/BDD ✅ 90/90 · #024 FaceA_08 git ⏳ 18/60.
 
 Le suivi détaillé, lot par lot, vit dans [`TODO_TRACKER.md`](TODO_TRACKER.md) — c'est la source de vérité du chantier.
 
@@ -214,7 +214,7 @@ Le projet est pensé pour survivre à des mois de travail en solo sans perdre le
 
 - [x] **Phase 0** — Hygiène : git, gouvernance, corrections factuelles
 - [x] **Phase 1** — Data : modèle d'entité, validateurs, générateur de JSON, statistiques
-- [ ] **Phase 2** — Contenu MVP **← nous sommes ici (334 / 1000)**
+- [ ] **Phase 2** — Contenu MVP **← nous sommes ici (338 / 1000)**
 - [ ] **Phase 3** — Recherche locale V1 (aperçu web, CLI `cherche.py`)
 - [ ] **Phase 4** — Firebase : import Firestore, rules, hosting PWA
 - [ ] **Phase 5** — App Flutter : SQLite FTS5, écrans Recherche / Détail / Favoris / Offline
