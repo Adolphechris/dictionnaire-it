@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
-"""md_to_json.py — Convertit les face*.md en data/dictionnaire.json (schéma DATA_MODEL v2)."""
-import re, json, glob
+"""DEPRECATED — md_to_json.py (ancien pipeline, schéma v2).
+
+Remplacé par tools/parse_rich.py, qui gère les fiches riches v3 ET les tableaux legacy
+avec validation intégrée. Conservé pour l'historique uniquement : ne pas exécuter.
+"""
+import re, json, glob, sys as _sys
 from pathlib import Path
+
+if __name__ == "__main__" and "--force" not in _sys.argv:
+    print("DEPRECATED - md_to_json.py : utiliser tools/parse_rich.py (voir tools/check.sh).")
+    _sys.exit(0)
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "dictionnaire.json"

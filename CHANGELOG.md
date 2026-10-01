@@ -1,5 +1,25 @@
 # Changelog
 
+## 2026-10-01 — Axes 0 & 1 : réparation du pipeline (parseur, validation, tests) et sécurisation du dépôt
+Réalisé : audit complet (lecture seule) → 7 défauts quantifiés → correction du pipeline.
+
+**Axe 1 — pipeline réparé**
+- `tools/parse_rich.py` réécrit : fin de l'avalement des rubriques (5 249 faux cas + 3 439 fausses subtilités supprimés), conservation des rubriques Face B (`Syntaxe`, `Précautions`, `Équivalents`, `Urgences/dangers` : ~940 rubriques rédigées redeviennent visibles), libellés de rubriques insensibles aux accents/casse, rubriques multiples sur une même ligne, alias automatiques des titres composés (`yum`/`dnf`, `test`/`[` → **1002 entrées**), catégories canoniques Face B déduites du crochet du titre (`CAT_CANON`), normalisation des liens `voir aussi` (`Set-Location (PowerShell)` → `Set-Location`), déduplication des alias déjà couverts par une entrée dédiée.
+- Modes `--check` (aucune écriture, code retour exploitable), `--compare` (dérive du JSON committé), `--strict`, `--quiet`. `updated_at` désormais **stable** = date max des sources.
+- Nouvelle sortie `data/index.json` (380 Ko) pour l'UI ; `data/dictionnaire.json` passe de 4,3 Mo à 2,5 Mo.
+- `tools/validate.py` étendu : contrôle des 907 fiches riches (schéma, rubriques, catégories, vocabulaire OS, popularité, doublons, alias, liens morts) **en plus** des tableaux legacy.
+- `tools/test_parse.py` créé : **15 tests** dont fixtures Face A/Face B et l'invariant « toute rubrique déclarée dans les .md se retrouve dans le JSON ».
+- `tools/audit.py` créé : densité utile, rubriques faibles, couverture OS/catégories, liens morts, placeholders, doublons inter-faces.
+- `tools/check.sh` créé : rituel complet en une commande.
+- `tools/md_to_json.py` déprécié (refus d'exécution sans `--force`).
+
+**Axe 0 — sécurisation**
+- `LICENSE` (MIT, code) + `LICENSE-CONTENT.md` (CC BY-SA 4.0, contenu) : fin du « tous droits réservés » implicite.
+- README remis à jour (badges, état réel, architecture, licence, roadmap) ; CONVENTIONS et DECISIONS complétés (règles machine, rôle ≤ 200, catégories, sorties générées).
+- Tag git `v0.9-mvp1000`.
+
+**Backlog ouvert (Axes 2-4)** : 6 fiches à/second cas régulier, 352 fiches à seconde subtilité, 538 liens `voir aussi` morts (325 cibles), 14 rôles > 200 caractères, couverture Windows à renforcer (4 CMD + 6 PowerShell), 95 entrées legacy à migrer, 8 cas réguliers manquants.
+
 ## 2026-09-30 — 🎉 FINALISATION MVP 1000 ATTEINT À 100% (par Antigravity AI)
 - **Lot #037 FaceB_05_complements** : 102/102 fiches v3 complétées (WLAN, Bluetooth, NFC, RFID, 5G, LTE, PAT, ICMP, NDP, BGP, OSPF, IGMP, TTL, MTU, MAC Address, SRAM, DRAM, VRAM, ECC RAM, DIMM, SoC, ASIC, FPGA, ALU, Caches L1/L2/L3, S.M.A.R.T., AHCI, SAS, DisplayPort, Thunderbolt, RJ45, SFP, PoE, UPS, KVM, PDU, Rack 19, Blade Server, Bare Metal, Hypervisor, vCPU, iSCSI Target, NAS, NVMe-oF, ZFS Pool, Ceph, LVM, Swap, IOPS, Throughput, Latency, QoS, VPC, Subnet, CIDR, Gateway, Proxy, Firewall, DMZ, NAT Gateway, Bastion Host, Jumbo Frames, VLAN Tagging, LACP, Spanning Tree, VRRP, PXE, IPMI, iDRAC, ILO, Syslog, SNMP...).
 - **Lot #038 FaceA_15_systeme_avance** : 54/54 fiches v3 créées (chroot, unshare, nsenter, lsns, cgcreate, cgexec, prlimit, chsh, chpasswd, grub-install, update-grub, efibootmgr, keyctl, lsof, dstat, glances, atop, sysdig, pivot_root, pwconv, grpconv, sulogin, runlevel, telinit, kexec, dracut, mkinitcpio, mokutil, lsipc, ipcmk, ipcrm, ipcs, systemd-run, systemd-cgls, systemd-cgtop, systemd-inhibit, systemd-nspawn, systemd-resolve, arp-scan, tcpick, ngrep, vnstat, bmon, nload, iptstate, nethogs, tcptrack, speedtest-cli, shred, srm, fdupes, ncdu, wipe, scrub).

@@ -50,6 +50,19 @@ Modèle Face B :
 ```
 Règles : OS entre crochets avec vocabulaire existant. Champs en gras exacts (parser sensible). `—` si vide avec justification. Exemples testés réellement.
 
+### Règles machine (contrôlées à chaque exécution)
+
+- **Libellés de rubriques** : reconnus *sans tenir compte des accents ni de la casse* (`**Role :**` = `**Rôle :**`). Les libellés officiels restent accentués.
+- **Listes à puces** : uniquement `- ` (jamais `*`). Une liste s'arrête à la première ligne vide **ou** à la rubrique suivante — ne jamais compter sur une rubrique en gras pour la clôturer (bug d'avalement corrigé le 01/10/2026, ~940 rubriques avaient disparu à l'import).
+- **Rubriques multiples** : plusieurs rubriques peuvent partager une ligne (`**Niveau :** x | **Popularité :** y | **Aliases :** z`) — c'est le format standard de l'en-tête.
+- **Titres composés** : `` `yum` / `dnf` — … `` crée l'entrée `yum` avec l'alias `dnf`. Un nom contenant une barre oblique reste insécable s'il est entre accents graves (`` `blue/green` ``).
+- **Catégorie Face B** : la rubrique `**Catégorie :**` gagne si présente, sinon la catégorie est déduite du crochet du titre (`[Cloud/Réseau]` → `Cloud`, `Réseau`). Mapping canonique dans `tools/parse_rich.py` (`CAT_CANON`).
+- **Signification Face B** : la rubrique `**Signification :**` gagne si présente, sinon le titre fait office de signification — le titre d'une fiche Face B doit donc être le développement du sigle.
+- **OS** : jetons autorisés dans le crochet — `Linux`, `macOS`, `Windows`, `PowerShell`, `CMD`, `Cross`, distributions (`Debian`, `Ubuntu`, `RHEL`, `Fedora`, `CentOS`, `Alpine`, `Arch`, `SUSE`, `BSD`) et `Dev`, `Git`, `Docker`, `Android`, `iOS`. Tout autre jeton → avertissement `W-OS`.
+- **`voir aussi`** : chaque cible doit être le nom exact ou un alias d'une entrée existante (sinon `W-LINK`). Pas d'indication d'OS entre parenthèses : `Set-Location`, jamais `Set-Location (PowerShell)`.
+- **Popularité** : entier de 1 à 100.
+- **Interdits** : `TODO`, `placeholder`, `xxx`, champ vide sans `—`, doublon de nom dans une même face.
+
 
 ## Tableau Face A (7 colonnes fixes)
 `| commande | OS | rôle | syntaxe | exemples | précautions | équivalents |`
@@ -62,7 +75,7 @@ Catégories fermées : `Matériel` `Stockage` `Système` `Réseau` `Web` `Progra
 `voir_aussi` : sigles séparés par `,` ou `—` si aucun. Ne jamais mettre de `|` dans une cellule (ni backticks déséquilibrés).
 
 ## Style rédactionnel
-- rôle : verbe infinitif FR, ≤80 car. Ex: "Copier un fichier" pas "ça copie".
+- rôle : phrase nominale ou verbe à l'infinitif en français, **cible ≤ 80 caractères, maximum dur 200** (au-delà → erreur `validate.py`). Ex : « Copier un fichier », jamais « ça copie ». Les rôles historiques plus longs sont tolérés jusqu'à relecture, tout nouveau contenu tient la cible.
 - syntaxe : backticks + `<obligatoire>` `[optionnel]`.
 - exemples : 2-4 max, testés réellement.
 - précautions : `⚠️` si destructif, `—` si RAS (tiret long, pas `-`).
@@ -72,4 +85,14 @@ Catégories fermées : `Matériel` `Stockage` `Système` `Réseau` `Web` `Progra
 Donnés à l'import, pas à la main. Ne pas renommer une commande sans laisser alias.
 
 ## Workflow contribution
-1. Éditer .md → 2. `python tools/validate.py` → 3. commit `faceA: ajoute curl, wget (#020)` → 4. update TODO_TRACKER + CHANGELOG
+1. Éditer le `.md` (nouveau contenu en **Fiche riche v3** uniquement).
+2. `./tools/check.sh` — tests du parseur, validation, `parse_rich.py --check`, contrôle de dérive du JSON, statistiques, audit. Tout doit être vert.
+3. Commit au format `faceB_05: ajoute Bluetooth, NFC (#039)`.
+4. Mettre à jour `TODO_TRACKER.md` et `CHANGELOG.md` avec les compteurs réels.
+
+## Sorties générées (ne jamais éditer à la main)
+- `data/dictionnaire.json` — entités complètes (`version: 3`, ~2,5 Mo).
+- `data/index.json` — index léger (`id`, `nom`, `aliases`, `os`, `categories`, `niveau`, `popularite`, `role_fr`, `source`) pour l'affichage instantané des listes.
+- `updated_at` = date de modification la plus récente des sources : régénérer sans changer le contenu **ne produit aucun diff**.
+- `tools/md_to_json.py` est **déprécié** (ancien schéma v2, conservé pour l'historique).
+- Le format legacy (tableaux) est **figé** : 95 entrées restantes à migrer en v3, le parseur les gère encore mais aucun nouveau tableau n'est créé.

@@ -5,9 +5,10 @@
 </p>
 
 <p align="center">
-  <img alt="entrées" src="https://img.shields.io/badge/entr%C3%A9es-338%20%2F%201000%20MVP-2f81f7?style=flat-square">
-  <img alt="fiches riches" src="https://img.shields.io/badge/fiches%20riches%20v3-187-3fb950?style=flat-square">
-  <img alt="validation" src="https://img.shields.io/badge/validation-0%20erreur-3fb950?style=flat-square">
+  <img alt="entrées" src="https://img.shields.io/badge/entr%C3%A9es-1002-2f81f7?style=flat-square">
+  <img alt="fiches riches" src="https://img.shields.io/badge/fiches%20riches%20v3-907-3fb950?style=flat-square">
+  <img alt="tests parseur" src="https://img.shields.io/badge/tests%20parseur-15%2F15-3fb950?style=flat-square">
+  <img alt="liens à réparer" src="https://img.shields.io/badge/voir%20aussi%20a%20reparer-538-orange?style=flat-square">
   <img alt="langue" src="https://img.shields.io/badge/contenu-fran%C3%A7ais-8957b5?style=flat-square">
   <img alt="stack" src="https://img.shields.io/badge/stack-Flutter%20%C2%B7%20Firebase%20%C2%B7%20SQLite%20FTS5-blue?style=flat-square">
   <img alt="phase" src="https://img.shields.io/badge/phase-2%20sur%2010%20(contenu%20MVP)-yellow?style=flat-square">
@@ -71,19 +72,21 @@ Chaque fiche est compilée en entité JSON typée (`DATA_MODEL.md`) : `id` stabl
 
 | Indicateur | Valeur |
 |---|---|
-| **Entités totales** | **338 / 1000** (33,8 % du MVP) |
-| Face A — commandes | 197 / 600 |
-| Face B — sigles | 141 / 400 |
-| Fiches riches v3 | 187 |
-| Entrées legacy (tableaux) | 151 — conservées, enrichies progressivement |
-| Fichiers source | 10 (8 × Face A, 2 × Face B) |
-| Validation | ✅ 0 erreur, 0 avertissement |
-| Aperçu web offline | ✅ `web_preview/index.html` |
-| App Flutter | ⏳ Phase 5 (non démarrée) |
+| **Entités totales** | **1002** (MVP 1000/1000 atteint le 30/09, +2 titres composés) |
+| Face A — commandes | 602 |
+| Face B — sigles | 400 |
+| Fiches riches v3 | 907 (535 × Face A, 372 × Face B) |
+| Entrées legacy (tableaux) | 95 — conservées, enrichies progressivement |
+| Fichiers source | 20 (15 × Face A, 5 × Face B) |
+| Tests du parseur | ✅ 15/15 (`tools/test_parse.py` + fixtures) |
+| Validation schéma | 6 cas réguliers à compléter, 538 liens `voir aussi` à réparer (backlog tracé) |
+| Pipeline | ✅ `tools/check.sh` — tests, validation, dérive JSON, stats, audit |
+| Aperçu web offline | ✅ `web_preview/index.html` + index léger `data/index.json` |
+| App Flutter | ⏳ Phase 5 (squelette + schéma SQLite FTS5 livrés) |
 
 > Chiffres produits par `python3 tools/stats.py` — à régénérer à chaque lot de contenu.
 
-**Progression par lot** : #021 FaceA_06 archives/paquets ✅ 40/40 · #022 FaceA_07 aide/shell ✅ 40/40 · #023b FaceB_02 DevOps/Cloud/BDD ✅ 90/90 · #024 FaceA_08 git ⏳ 18/60.
+**Progression par lot** : tous les lots du MVP sont terminés (#021 → #038, 1000 fiches) ✅. Le chantier suivant est la **remédiation qualité** (voir `TODO_TRACKER.md`) : 6 fiches à compléter, 538 liens `voir aussi` à réparer, 352 fiches à seconder d'une subtilité, `voir aussi` Face B à recatégoriser, couverture Windows à renforcer.
 
 Le suivi détaillé, lot par lot, vit dans [`TODO_TRACKER.md`](TODO_TRACKER.md) — c'est la source de vérité du chantier.
 
@@ -96,9 +99,12 @@ Le suivi détaillé, lot par lot, vit dans [`TODO_TRACKER.md`](TODO_TRACKER.md) 
    Markdown versionnés (source de vérité)
    faceA_*.md · faceB_*.md
                 │
-                ├── tools/parse_rich.py  → data/dictionnaire.json (entités typées)
-                ├── tools/validate.py    → contrôle rubriques, doublons, vocabulaire OS
-                └── tools/stats.py       → compteurs MVP, trous de couverture
+                ├── tools/parse_rich.py  → data/dictionnaire.json + data/index.json (entités typées)
+                ├── tools/validate.py    → rubriques, doublons, vocabulaire OS, liens voir_aussi
+                ├── tools/test_parse.py  → tests de non-régression du parseur (fixtures)
+                ├── tools/audit.py       → densité, couverture, liens morts, placeholders
+                ├── tools/stats.py       → compteurs MVP, trous de couverture
+                └── tools/check.sh       → rituel complet en une commande (avant chaque commit)
                 │
       ┌─────────┴──────────────┐
       │                        │
@@ -185,7 +191,7 @@ Tout ajout de contenu **doit** passer par ce trio avant commit : c'est ce qui pe
 1. **Lire `CONVENTIONS.md`** : le format des fiches n'est pas décoratif, il est parsé.
 2. **Créer/éditer** un `face<X>_<NN>_<theme>.md` (noms en minuscules, underscores, pas d'espaces).
 3. **Tout nouveau contenu s'écrit en Fiche riche v3** — le format tableau legacy est figé, il ne fait qu'être enrichi.
-4. **Vérifier** : `python3 tools/parse_rich.py && python3 tools/validate.py && python3 tools/stats.py` — tout doit être vert.
+4. **Vérifier** : `./tools/check.sh` — tests du parseur, validation du corpus, génération et contrôle de dérive du JSON, statistiques et audit qualité. Tout doit être vert.
 5. **Mettre à jour** `TODO_TRACKER.md` (lot coché, compteurs) et `CHANGELOG.md` (une entrée par session).
 6. **Committer** sur un message clair : `Lot #024 FaceA_08_git 12/60`.
 
@@ -214,8 +220,8 @@ Le projet est pensé pour survivre à des mois de travail en solo sans perdre le
 
 - [x] **Phase 0** — Hygiène : git, gouvernance, corrections factuelles
 - [x] **Phase 1** — Data : modèle d'entité, validateurs, générateur de JSON, statistiques
-- [ ] **Phase 2** — Contenu MVP **← nous sommes ici (338 / 1000)**
-- [ ] **Phase 3** — Recherche locale V1 (aperçu web, CLI `cherche.py`)
+- [x] **Phase 2** — Contenu MVP **1002 entrées (MVP 1000 atteint)** ✅
+- [x] **Phase 3** — Recherche locale V1 (aperçu web offline + index léger `data/index.json`)
 - [ ] **Phase 4** — Firebase : import Firestore, rules, hosting PWA
 - [ ] **Phase 5** — App Flutter : SQLite FTS5, écrans Recherche / Détail / Favoris / Offline
 - [ ] **Phase 6** — Desktop : Windows, macOS, Linux + raccourci global
@@ -229,6 +235,16 @@ Le projet est pensé pour survivre à des mois de travail en solo sans perdre le
 
 Projet porté par **Adolphe** — contenu rédigé en français, avec l'assistance d'agents IA pour la production et la validation machine (traçée dans `CHANGELOG.md`).
 
-**Licence : à trancher.** Aucun fichier `LICENSE` n'existe à ce jour, le dépôt est donc *tous droits réservés* par défaut. Une licence ouverte (MIT pour le code des outils, CC BY-SA pour le contenu rédactionnel) est envisagée pour la phase de publication — la décision sera notée dans `DECISIONS.md` au moment du choix.
+**Licence décidée** (voir [`DECISIONS.md`](DECISIONS.md)) :
+
+- **Code** — outils Python, scripts, application : **MIT** ([`LICENSE`](LICENSE)), usage commercial autorisé, attribution requise.
+- **Contenu** — fiches `face*.md`, JSON compilés, textes de l'application : **CC BY-SA 4.0** ([`LICENSE-CONTENT.md`](LICENSE-CONTENT.md)), partage et adaptation autorisés avec attribution et partage à l'identique.
+
+## Chiffres du dépôt
+
+- 20 fichiers source `face*.md`, ~17 000 lignes rédigées à la main.
+- `data/dictionnaire.json` (~2,5 Mo) + `data/index.json` (~380 Ko, index léger pour l'UI).
+- Densité moyenne ~994 caractères utiles par fiche riche ; aucune fiche sous 400 caractères.
+- Mesures vérifiables via `python3 tools/audit.py` (liens morts, rubriques faibles, placeholders, doublons inter-faces).
 
 

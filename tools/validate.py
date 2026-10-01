@@ -1,74 +1,119 @@
 #!/usr/bin/env python3
-"""validate.py — Vérifie les .md FaceA/B avant import. Bloque doublons, colonnes, OS invalides."""
-import re, sys, glob
+"""validate.py - Controle du corpus avant import (tableaux legacy + fiches riches v3).
+
+Usage: python3 tools/validate.py [--strict] [--links N]
+  --strict   les avertissements deviennent bloquants
+  --links N  nombre de liens voir_aussi morts tolere (defaut 0)
+"""
+import sys, glob
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import parse_rich as pr
+
 ROOT = Path(__file__).resolve().parent.parent
-OS_VALIDES = {"linux","macos","windows (cmd)","powershell","windows","linux/macos",
-  "linux/macos/windows","linux/windows","macos/windows","cross","git","docker","bash","zsh"}
-seen = {}
-erreurs, avertissements = [], []
+
+
 def split_row(line):
-    """Split Markdown row on | but ignore | inside backticks."""
+    """Decoupe une ligne Markdown sur | en ignorant les | entre accents graves."""
     parts, cur, in_bt = [], "", False
     for ch in line.strip():
-        if ch == "`": in_bt = not in_bt; cur += ch
-        elif ch == "|" and not in_bt: parts.append(cur); cur = ""
-        else: cur += ch
+        if ch == "`":
+            in_bt = not in_bt
+            cur += ch
+        elif ch == "|" and not in_bt:
+            parts.append(cur)
+            cur = ""
+        else:
+            cur += ch
     parts.append(cur)
-    # drop first/last empty from leading/trailing |
-    if parts and parts[0].strip() == "": parts = parts[1:]
-    if parts and parts[-1].strip() == "": parts = parts[:-1]
+    if parts and parts[0].strip() == "":
+        parts = parts[1:]
+    if parts and parts[-1].strip() == "":
+        parts = parts[:-1]
     return [c.strip() for c in parts]
 
-fichiers = sorted(glob.glob(str(ROOT / "face*.md")))
-if not fichiers:
-    print("Aucun face*.md trouvé"); sys.exit(1)
 
-for f in fichiers:
-    nom = Path(f).name
-    mface = re.search(r"face([A-F])_", nom)
-    face = mface.group(1) if mface else "?"
-    lignes = Path(f).read_text(encoding="utf-8").splitlines()
-    # trouve header tableau
-    for i, l in enumerate(lignes):
-        if l.strip().startswith("| commande") or l.strip().startswith("| sigle") or l.strip().startswith("| nom"):
-            ncols = l.count("|") - 1
-            # vérifie séparateur
-            if i+1 >= len(lignes) or "---" not in lignes[i+1]:
-                erreurs.append(f"{nom}:L{i+2} séparateur --- manquant")
-            # vérifie lignes data
-            for j in range(i+2, len(lignes)):
+def check_tables():
+    """Controles sur les tableaux legacy (fichiers sans fiche riche)."""
+    erreurs, averts, vus, fichiers = [], [], {}, 0
+    for f in sorted(glob.glob(str(ROOT / "face*.md"))):
+        nom = Path(f).name
+        face = nom[4] if nom.startswith("face") else "?"
+        lignes = Path(f).read_text(encoding="utf-8").splitlines()
+        if any(l.startswith("## ") for l in lignes):
+            continue
+        fichiers += 1
+        for i, l in enumerate(lignes):
+            entete = l.strip()
+            if not entete.startswith(("| commande", "| sigle", "| nom")):
+                continue
+            ncols = entete.count("|") - 1
+            if i + 1 >= len(lignes) or "---" not in lignes[i + 1]:
+                erreurs.append("%s:L%d separateur --- manquant" % (nom, i + 2))
+            for j in range(i + 2, len(lignes)):
                 dl = lignes[j].strip()
-                if not dl.startswith("|"): break
+                if not dl.startswith("|"):
+                    break
                 cols = split_row(dl)
                 if len(cols) != ncols:
-                    erreurs.append(f"{nom}:L{j+1} {len(cols)} cols au lieu de {ncols} → {dl[:80]}")
+                    erreurs.append("%s:L%d %d colonnes au lieu de %d" % (nom, j + 1, len(cols), ncols))
                     continue
-                key = f"{face}:{cols[0].lower()}"
-                if key in seen:
-                    avertissements.append(f"{nom}:L{j+1} doublon '{cols[0]}' (déjà dans {seen[key]})")
+                cle = (face, cols[0].lower())
+                if cle in vus:
+                    averts.append("%s:L%d doublon '%s' (deja %s)" % (nom, j + 1, cols[0], vus[cle]))
                 else:
-                    seen[key] = f"{nom}:L{j+1}"
-                # vérifie OS (col 2) si face A
-                if "commande" in lignes[i].lower():
-                    osv = cols[1].lower()
-                    norm = osv.replace(" ", "")
-                    # accepte combos connus
-                    if osv.lower() not in {v for v in OS_VALIDES} and norm not in {"linux/macos","linux/macos/windows","windows(cmd)","linux/windows"}:
-                        # tolérant: signale seulement si vraiment bizarre
-                        if len(osv) < 2:
-                            erreurs.append(f"{nom}:L{j+1} OS vide pour '{cols[0]}'")
-                # anti-patterns connus
-                if "tail -f.log" in dl or "tail -f." in dl.replace(" ", "") and "tail -f " not in dl:
-                    pass
+                    vus[cle] = "%s:L%d" % (nom, j + 1)
+                if "commande" in entete.lower() and len(cols[1].strip()) < 2:
+                    erreurs.append("%s:L%d OS vide pour '%s'" % (nom, j + 1, cols[0]))
                 if "-f.log" in dl:
-                    erreurs.append(f"{nom}:L{j+1} typo probable '-f.log' → '-f app.log' pour '{cols[0]}'")
+                    erreurs.append("%s:L%d typo probable '-f.log' -> '-f app.log' pour '%s'" % (nom, j + 1, cols[0]))
             break
+    return erreurs, averts, len(vus), fichiers
 
-print(f"Fichiers: {len(fichiers)} | Entrées uniques: {len(seen)}")
-for a in avertissements: print("AVERT:", a)
-for e in erreurs: print("ERREUR:", e)
-if erreurs:
-    print(f"\n❌ {len(erreurs)} erreur(s), {len(avertissements)} avertissement(s)"); sys.exit(1)
-print(f"\n✅ OK — {len(seen)} entrées, {len(avertissements)} avertissement(s) (doublons à fusionner plus tard)")
+
+def main():
+    strict = "--strict" in sys.argv
+    tol = 0
+    if "--links" in sys.argv:
+        tol = int(sys.argv[sys.argv.index("--links") + 1])
+    entries, errors, warnings, unresolved = pr.build()
+    t_err, t_av, nb_lignes, nb_fichiers = check_tables()
+    liens = sum(unresolved.values())
+    riches = sum(1 for e in entries if not e.get("legacy"))
+    legacy = len(entries) - riches
+    fam = {}
+    for w in warnings:
+        fam[w.split()[0]] = fam.get(w.split()[0], 0) + 1
+    print("VALIDATION")
+    print("  fiches riches analysees     : %d" % riches)
+    print("  entrees legacy (tableaux)   : %d (%d fichiers legacy)" % (legacy, nb_fichiers))
+    print("  lignes legacy uniques       : %d" % nb_lignes)
+    print("  erreurs bloquantes          : %d" % (len(errors) + len(t_err)))
+    print("  avertissements              : %d" % (len(warnings) + len(t_av)))
+    if fam:
+        print("  familles d'avertissement    : %s" % fam)
+    print("  liens voir_aussi morts      : %d / %d" % (liens, liens + sum(1 for e in entries for _ in e.get("voir_aussi", [])) - liens))
+    for e in (errors + t_err)[:40]:
+        print("  ERREUR :", e)
+    if len(errors) + len(t_err) > 40:
+        print("  ... +%d erreurs" % (len(errors) + len(t_err) - 40))
+    for a in (warnings + t_av)[:15]:
+        print("  AVERT  :", a)
+    if len(warnings) + len(t_av) > 15:
+        print("  ... +%d avertissements" % (len(warnings) + len(t_av) - 15))
+    top = sorted(unresolved.items(), key=lambda x: -x[1])[:12]
+    if top:
+        print("  cibles manquantes (top)     : %s" % ", ".join("%s x%d" % (k, v) for k, v in top))
+    if errors or t_err:
+        print("X %d erreur(s)" % (len(errors) + len(t_err)))
+        return 1
+    if strict and (warnings or t_av or liens > tol):
+        print("X mode strict: %d avertissement(s), %d lien(s) mort(s) (> %d)" % (len(warnings) + len(t_av), liens, tol))
+        return 1
+    print("OK corpus conforme")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,6 +1,6 @@
 # TODO TRACKER — Source de vérité (MVP porté à 1000 le 29/09 à la demande d'Adolphe)
 
-> Rituel : début session → lire ce fichier ; fin session → cocher + CHANGELOG + commit. Outils : `python3 tools/parse_rich.py && python3 tools/validate.py && python3 tools/stats.py`
+> Rituel : début session → lire ce fichier ; fin session → cocher + CHANGELOG + commit. Outils : `./tools/check.sh` (tests parseur → validation → `parse_rich.py --check` → dérive JSON → `stats.py` → `audit.py`).
 
 ## 🎯 MVP 1000 = 600 commandes (A) + 400 sigles (B) — fiches RICHES v3
 A : existant 115 | A06 archives/paquets 40 | A07 aide/shell 40 | A08 git 60 | A09 docker/k8s 50 | A10 sysadmin 60 | A11 paquets/multiOS 50 | A12 réseau II+sécurité 60 | A13 dev/outils 60 | A14 compléments 60 = 600.
@@ -16,6 +16,24 @@ B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 e
 - [x] #021 FaceA_06_archives_paquets : **40/40 ✅ FAIT** (tar…add-apt-repository)
 - [x] #023b FaceB_02_devops_cloud_bdd : **90/90 ✅ FAIT** (CI…Scalability)
 - [x] #022 FaceA_07_aide_shell : **40/40 ✅ FAIT** (man... yes)
+
+## 🔧 Remédiation qualité (post-MVP — état mesuré le 01/10/2026 par `tools/audit.py`)
+- [x] **R1** Pipeline réparé : parseur, validation, tests, audit, `check.sh`, licences, tag `v0.9-mvp1000`
+- [x] **R2** Bug d'avalement des rubriques corrigé (5 249 faux cas / 3 439 fausses subtilités supprimés ; ~940 rubriques Face B republiées)
+- [x] **R3** 2 titres composés récupérés (`yum`/`dnf`, `test`/`[`) → 1002 entrées
+- [x] **R4** Catégories Face B canoniques déduites du crochet (plus de slug de fichier dans l'UI)
+- [x] **R5** `updated_at` stable + `data/index.json` (fin des diffs quotidiens de 15 800 lignes)
+- [ ] **R6** 6 fiches à compléter (2e cas régulier) : `whoami`, `git request-pull`, `git gitweb`, `SOAR`, `XDR`, `HOTP`
+- [ ] **R7** 352 fiches à seconde subtilité (distribution {1: 352, 2: 304, 3+: 251})
+- [ ] **R8** 538 liens `voir aussi` morts (325 cibles) — créer les entrées les plus demandées puis corriger les renvois
+- [ ] **R9** 14 rôles > 200 caractères à raccourcir (max actuel 245 : MFA)
+- [ ] **R10** 6 fiches Face B sans crochet de catégorie (`Bluetooth`, `NFC`, `RFID`, `NDP`, `ALU`, `Caches L1/L2/L3`)
+- [ ] **R11** 95 entrées legacy à migrer en fiche riche v3 (faceA_01/02/03/04/05, faceB_01)
+- [ ] **R12** Couverture Windows : 4 entrées CMD + 6 PowerShell → lot A16 (PowerShell/CMD, 30-40 fiches)
+- [ ] **R13** Vérification factuelle web des attributions `Origine` les plus surprenantes
+- [ ] **R14** Recatégorisation : 3 doublons inter-faces (docker compose, helm, vault) à croiser explicitement
+- [ ] **R15** Aperçu web : liens cliquables, deep links, filtres face/catégorie/niveau/OS, pagination
+- [ ] **R16** App Flutter + SQLite FTS5 (schéma, import JSON, recherche FR/EN)
 
 ## ✅ Fait (détail)
 - 2026-09-29 #001 git init + nettoyage — AI
