@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-02 — Remédiation R8 (partiel : +36 cibles pour réparer les liens 'voir aussi')
+- Ajout de `faceA_16_commandes_manquantes.md` (8 fiches : `jq`, `python`, `node`, `java`, `venv`, `tmux`, `dd`, `ffmpeg`).
+- Ajout de `faceB_06_concepts_manquants.md` (28 fiches : `Cloud`, `BDD`, `API REST`, `Ethernet`, `Switch`, `Routeur`, `NAT`, `AS`, `Datacenter`, `Cache`, `Image`, `Event-Driven`, `Sécurité`, `Shell`, `Réseau`, `Kernel`, `Signal`, `systemd`, `initrd`, `cgroups`, `nginx`, `containerd`, `Firebase`, `Next.js`, `Cron`, `Linux`, `Script`, `Redirection`).
+- Recablage des `Voir aussi` dans les fiches existantes (faceA_06..12, faceB_03..05) pour éliminer les cibles mortes (`virtualenv` → `poetry`, `script` → `Shell`, etc.).
+- Régénération des sorties JSON : **1038 entrées** (A:610, B:428, 943 fiches v3 riches, 95 legacy). `./tools/check.sh` vert.
+
 ## 2026-10-01 — Axes 0 & 1 : réparation du pipeline (parseur, validation, tests) et sécurisation du dépôt
 Réalisé : audit complet (lecture seule) → 7 défauts quantifiés → correction du pipeline.
 

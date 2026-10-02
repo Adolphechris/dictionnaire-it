@@ -1106,6 +1106,9 @@
 **Syntaxe :** `git request-pull <start> <url> [<end>]`
 **Cas réguliers :**
 - `git request-pull v1.0 https://github.com/mon-fork/app.git dev` — Générer la demande d'intégration de la branche `dev` depuis la version `v1.0`
+- `git request-pull -p v1.0 https://github.com/mon-fork/app.git dev` — Inclure le patch complet (`-p`) pour une revue hors-ligne sans accès réseau
+- `git request-pull v1.0 https://github.com/mon-fork/app.git` — Demande portant sur HEAD quand la branche finale est omise (fin implicite)
+- `git request-pull HEAD~10 origin main > demande.txt` — Enregistrer la demande dans un fichier pour l'envoyer par courriel à un mainteneur
 **Origine :** Git 1.0 (2005) — l'ancêtre direct du concept moderne de "Pull Request" popularisé par GitHub.
 **Subtilités/confusions :**
 - Ne fait AUCUNE ACTION sur le réseau : produit uniquement un texte récapitulatif à copier-coller ou à envoyer par courriel.
@@ -1122,6 +1125,9 @@
 **Syntaxe :** Exécuté par un serveur web CGI ou via `git instaweb`.
 **Cas réguliers :**
 - Accéder à l'interface `http://localhost/cgi-bin/gitweb.cgi` — Naviguer visuellement dans l'historique et les fichiers du dépôt
+- `git instaweb --start` — Démarrer le serveur web local avec les réglages par défaut
+- `git instaweb --httpd=webrick --port=1234` — Lancer l'interface web locale sans configurer Apache ni Nginx
+- `git instaweb --stop` — Arrêter proprement l'instance locale après consultation
 **Origine :** Kay Sievers & Kay Torvalds (2005) — première interface web historique développée pour l'écosystème Git.
 **Subtilités/confusions :**
 - Interface web très rustique mais d'une légèreté et d'une compatibilité inégalées.

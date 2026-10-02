@@ -194,7 +194,7 @@
 ## `UEFI` — Unified Extensible Firmware Interface [Matériel/Système]
 **Niveau :** intermediaire | **Popularité :** 97 | **Aliases :** EFI
 **Contextes :** initialiser le matériel informatique lors de la mise sous tension de la carte mère et charger l'exécutable d'amorçage du système d'exploitation
-**Rôle :** Spécification de firmware moderne remplaçant l'ancien BIOS historique, offrant la prise en charge des disques de plus de 2 To (table de partition GPT), une interface graphique et des fonctions de sécurité avancées.
+**Rôle :** Firmware moderne remplaçant le BIOS historique : disques de plus de 2 To (partition GPT), interface graphique et sécurité avancée (Secure Boot, modules signés).
 **Syntaxe :** `efibootmgr` (Linux)
 **Cas réguliers :**
 - `Secure Boot` — Fonctionnalité de l'UEFI qui vérifie la signature numérique du noyau OS avant de l'autoriser à démarrer (protection anti-rootkits)
@@ -860,7 +860,7 @@
 ## `FPGA` — Field-Programmable Gate Array [Matériel]
 **Niveau :** expert | **Popularité :** 80 | **Aliases :** Réseau de Portes Programmables, Logic Array
 **Contextes :** prototypage matériel, traitement du signal DSP, trading haute fréquence, aéronautique/défense, accélération réseau
-**Rôle :** Circuit intégré contenant une matrice de blocs logiques configurables post-fabrication, permettant d'implémenter des circuits numériques personnalisés via des langages de description matérielle (VHDL, Verilog).
+**Rôle :** Circuit intégré reprogrammable après fabrication : une matrice de blocs logiques configurables décrivant du matériel dédié (VHDL, Verilog, HLS).
 **Syntaxe :** (chaînes de synthèse : Vivado (Xilinx/AMD), Quartus (Intel) ; déploiement via JTAG)
 **Cas réguliers :**
 - `Prototypage d'architecture RISC-V` — Implémentation et simulation d'un nouveau processeur RISC-V sur carte FPGA avant gravure en ASIC
@@ -1183,7 +1183,7 @@
 ## `SNMP` — Simple Network Management Protocol [Supervision]
 **Niveau :** intermediaire | **Popularité :** 88 | **Aliases :** SNMPv3, RFC 3411, Network Management Protocol
 **Contextes :** supervision réseau, monitoring d'infrastructure IT, gestion d'équipements (switches, routeurs, UPS, PDU)
-**Rôle :** Protocole standard de supervision permettant de collecter des métriques et de recevoir des alertes (Traps) depuis les équipements réseau et serveurs via une structure d'informations hiérarchique (MIB).
+**Rôle :** Protocole de supervision permettant de collecter métriques et alertes (Traps) des serveurs et équipements réseau via une base d'informations hiérarchique (MIB).
 **Syntaxe :** `snmpget -v3 -u user -l authPriv -a SHA -x AES -A pass -X pass host OID` ou `snmpwalk -v2c -c public host`
 **Cas réguliers :**
 - `Collecte de métriques d'interface réseau` — Lecture des compteurs d'octets entrants/sortants et de la charge d'interface d'un switch via SNMP Get

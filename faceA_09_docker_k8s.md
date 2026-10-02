@@ -174,7 +174,7 @@
 **Urgences/dangers :** ⚠️ `docker rm -fv` supprime le conteneur ET ses volumes anonymes : toutes les données non persistées sur un volume nommé sont perdues définitivement.
 **Précautions :** S'assurer que les données critiques sont stockées sur des volumes nommés ou des bind mounts avant la suppression.
 **Équivalents :** podman rm, kubectl delete pod, nerdctl rm
-**Voir aussi :** docker rmi, docker stop, docker container prune
+**Voir aussi :** docker rmi, docker stop, docker system prune
 
 ## `docker rmi` — Supprimer une image Docker [Linux/macOS/Windows]
 **Niveau :** debutant | **Popularité :** 88 | **Aliases :** docker image rm
@@ -193,7 +193,7 @@
 **Urgences/dangers :** — (les images supprimées peuvent toujours être re-téléchargées si elles existent sur un registre distant)
 **Précautions :** Purger d'abord les conteneurs inutilisés (`docker container prune`) avant d'exécuter `docker rmi`.
 **Équivalents :** podman rmi, nerdctl rmi, crictl rmi
-**Voir aussi :** docker images, docker rm, docker image prune
+**Voir aussi :** docker images, docker rm, docker system prune
 
 ## `docker logs` — Consulter les journaux d'un conteneur [Linux/macOS/Windows]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** docker container logs
@@ -289,7 +289,7 @@
 **Urgences/dangers :** ⚠️ `docker system prune -a --volumes` détruit TOUTES les images et TOUS les volumes de données non rattachés à un conteneur actif sans retour possible.
 **Précautions :** Toujours relire attentivement la liste des éléments qui vont être supprimés avant de confirmer par `y`.
 **Équivalents :** podman system prune, nerdctl system prune
-**Voir aussi :** docker container prune, docker image prune, docker volume prune
+**Voir aussi :** docker volume, docker rmi, docker volume prune
 
 ## `docker compose` — Définir et gérer des applications multi-conteneurs [Linux/macOS/Windows]
 **Niveau :** intermediaire | **Popularité :** 97 | **Aliases :** docker-compose (V1 historique)
@@ -329,7 +329,7 @@
 **Urgences/dangers :** ⚠️ `docker volume rm` ou `docker volume prune` supprime physiquement les fichiers du disque de l'hôte sans possibilité de restauration.
 **Précautions :** Sauvegarder régulièrement le contenu des volumes critiques en créant des archives tar via un conteneur temporaire.
 **Équivalents :** podman volume, Kubernetes PersistentVolume (PV/PVC)
-**Voir aussi :** docker run -v, docker inspect, docker system prune
+**Voir aussi :** docker run, docker inspect, docker system prune
 
 ## `docker network` — Administrer les réseaux virtuels [Linux/macOS/Windows]
 **Niveau :** intermediaire | **Popularité :** 89 | **Aliases :** —
@@ -368,7 +368,7 @@
 **Urgences/dangers :** — (remplace le fichier cible sans confirmation)
 **Précautions :** Pour les modifications permanentes, privilégier un volume monté (`bind mount`) ou mettre à jour le Dockerfile.
 **Équivalents :** kubectl cp, podman cp, nerdctl cp
-**Voir aussi :** docker exec, docker run -v
+**Voir aussi :** docker exec, docker run
 
 ## `docker commit` — Créer une image depuis un conteneur [Linux/macOS/Windows]
 **Niveau :** intermediaire | **Popularité :** 78 | **Aliases :** docker container commit

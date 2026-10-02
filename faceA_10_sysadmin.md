@@ -20,7 +20,7 @@
 **Urgences/dangers :** ⚠️ `chmod -R 777 /` ou `chmod -R 777 var/` détruit la sécurité du système et rend SSH inopérant immédiatement.
 **Précautions :** Toujours vérifier les permissions modifiées avec `ls -l` ; ne jamais appliquer `777` en production.
 **Équivalents :** icacls (Windows PowerShell/CMD), Set-Acl
-**Voir aussi :** chown, umask, ls -l, chattr
+**Voir aussi :** chown, umask, ls, chattr
 
 ## `chown` — Changer le propriétaire d'un fichier [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** —
@@ -40,7 +40,7 @@
 **Urgences/dangers :** ⚠️ `chown -R user:user /` détruit l'arborescence du système d'exploitation et exige une réinstallation.
 **Précautions :** Toujours contrôler le chemin cible avant d'exécuter `chown -R` avec les privilèges `sudo`.
 **Équivalents :** takeown (Windows CMD), Set-Acl (PowerShell)
-**Voir aussi :** chmod, chgrp, id, ls -l
+**Voir aussi :** chmod, chgrp, id, ls
 
 ## `useradd` — Créer un compte utilisateur [Linux]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** adduser (wrapper interactif Debian/Ubuntu)
@@ -220,6 +220,9 @@
 **Syntaxe :** `whoami`
 **Cas réguliers :**
 - `whoami` — Afficher le nom de l'utilisateur courant (le réflexe simple)
+- `sudo whoami` — Vérifier sous quelle identité s'exécute réellement une commande après élévation de privilèges
+- `su postgres -c 'whoami'` — Vérifier l'identité effective après un changement d'utilisateur
+- `ssh ada@srv whoami` — Vérifier quel utilisateur distant une connexion SSH utilise réellement
 **Origine :** 2BSD Unix (1978) — raccourci historique pour « Who am I? ».
 **Subtilités/confusions :**
 - Équivalent strict à la commande `id -un`.

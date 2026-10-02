@@ -352,7 +352,7 @@
 **Urgences/dangers :** ⚠️ `sudo pip install` en global peut CASSER Python système (des outils système en dépendent) — toujours en venv.
 **Précautions :** venv systématique ; requirements.txt versionné ; pip list --outdated pour l'audit.
 **Équivalents :** npm (JS), gem (Ruby), apt (OS)
-**Voir aussi :** python, venv, npm, virtualenv
+**Voir aussi :** python, venv, npm, poetry
 
 ## `yarn` — Gestionnaire de paquets JavaScript alternatif [Cross/Dev]
 **Niveau :** intermediaire | **Popularité :** 70 | **Aliases :** Yarn (Yet Another Resource Harness)

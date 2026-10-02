@@ -217,7 +217,7 @@
 **Urgences/dangers :** — (aucun)
 **Précautions :** En démo, `clear` + pipe vers less est préférable pour les sorties longues.
 **Équivalents :** cls (Windows), Ctrl+L, printf '\033[2J'
-**Voir aussi :** less, script, terminal, history
+**Voir aussi :** less, Shell, terminal, history
 
 ## `whatis` — Résumé d'une commande en une ligne [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 55 | **Aliases :** man -f
@@ -392,7 +392,7 @@
 **Urgences/dangers :** ⚠️ ÉVITER eval sur toute donnée externe (form, args, API) — équivalent shell d'une injection SQL, faille critique récurrente.
 **Précautions :** Si indispensable, whitelist stricte de l'entrée avant eval ; commenter le pourquoi.
 **Équivalents :** Invoke-Expression (PowerShell — même danger), aucun équivalent recommandé
-**Voir aussi :** set, shell, injection, script
+**Voir aussi :** set, shell, injection, Shell
 
 ## `test` / `[` — Conditions dans les scripts [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 75 | **Aliases :** [
@@ -412,7 +412,7 @@
 **Urgences/dangers :** ⚠️ Un test qui passe à tort peut sauter une étape critique (backup, migration) — vérifier les codes de retour.
 **Précautions :** Toujours guillemeter les variables ; `[[ ]]` en bash, `[ ]` en sh portable.
 **Équivalents :** if (langage), [Test-Path] (PowerShell), if exist (CMD)
-**Voir aussi :** if, expr, shell, script
+**Voir aussi :** if, expr, shell, Shell
 
 ## `expr` — Calcul et expressions en ligne de commande [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 45 | **Aliases :** —
@@ -432,7 +432,7 @@
 **Urgences/dangers :** — (aucun ; division par zéro = erreur gérée par le script)
 **Précautions :** Scripts neufs = `$(( ))` et `[[ ]]` ; expr pour la maintenance du legacy.
 **Équivalents :** $(( )) (bash), let (bash), calcul en langage de prog
-**Voir aussi :** test, set, shell, script
+**Voir aussi :** test, set, shell, Shell
 
 ## `bc` — Calculateur en précision arbitraire [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 40 | **Aliases :** —
@@ -532,7 +532,7 @@
 **Urgences/dangers :** — (aucun)
 **Précautions :** En bash pur, préférer `{1..n}` ; seq pour les pas décimaux (`seq 0 0.5 2`).
 **Équivalents :** {1..10} (bash), jot (BSD), range (Python)
-**Voir aussi :** for, expr, shell, script
+**Voir aussi :** for, expr, shell, Shell
 
 ## `sleep` — Attendre un nombre de secondes [Linux/macOS/Windows]
 **Niveau :** debutant | **Popularité :** 75 | **Aliases :** Start-Sleep (PowerShell)
@@ -812,7 +812,7 @@
 **Urgences/dangers :** ⚠️ `yes | rm -r ...` ou `yes | fdisk` : automatiser un OUI à une commande destructive = catastrophe silencieuse.
 **Précautions :** Préférer les options de contournement (`--assume-yes`) ; ne jamais piping yes vers un outil destructeur.
 **Équivalents :** echo "y" | (une seule réponse), --yes natif des CLI, expect (interaction fine)
-**Voir aussi :** tee, head, cp, script
+**Voir aussi :** tee, head, cp, Shell
 
 
 

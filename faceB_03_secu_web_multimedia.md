@@ -182,7 +182,7 @@
 ## `OWASP` — Open Worldwide Application Security Project [Sécurité]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** —
 **Contextes :** auditer la sécurité des applications web, former les équipes de développement aux bonnes pratiques de codage sécurisé, appliquer le OWASP Top 10
-**Rôle :** Fondation à but non lucratif dédiée à l'amélioration de la sécurité des logiciels, célèbre pour ses guides, standards et sa liste des 10 risques de sécurité applicative les plus critiques (*OWASP Top 10*).
+**Rôle :** Fondation à but non lucratif dédiée à la sécurité des logiciels, célèbre pour sa liste des 10 risques applicatifs les plus critiques (*OWASP Top 10*) et ses guides.
 **Syntaxe :** (Organisation / Référentiel de sécurité)
 **Cas réguliers :**
 - `OWASP Top 10` — Classement de référence des 10 failles web les plus courantes (Injection, Authentification brisée, XSS, Misconfiguration…)
@@ -282,7 +282,7 @@
 ## `HSTS` — HTTP Strict Transport Security [Web/Sécurité]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** RFC 6797
 **Contextes :** forcer les navigateurs web à ne communiquer avec votre site qu'en HTTPS sécurisé et empêcher toute tentative de dégradation vers le protocole HTTP non chiffré
-**Rôle :** En-tête de réponse HTTP qui ordonne au navigateur d'interdire toute connexion non chiffrée (HTTP) vers le domaine pendant une période donnée et de rediriger automatiquement les requêtes en interne vers HTTPS.
+**Rôle :** En-tête HTTP ordonnant au navigateur d'interdire tout accès non chiffré à un domaine pendant une durée donnée, en redirigeant les requêtes vers HTTPS.
 **Syntaxe :** `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`
 **Cas réguliers :**
 - `max-age=31536000` — Conserver la consigne de connexion HTTPS stricte pendant 1 an (en secondes)
@@ -367,6 +367,9 @@
 **Syntaxe :** (Plateformes : Splunk SOAR / Phantom, Palo Alto Cortex XSOAR, Shuffle open source)
 **Cas réguliers :**
 - `Playbook automatisé` — Réception d'une alerte de phishing -> extraction de l'IP malveillante -> ajout de l'IP dans le WAF/Firewall -> isolation du poste infecté via l'EDR -> fermeture du ticket SOC
+- `Enrichissement automatique d'IOC` — Sur réception d'un hash de malware signalé par messagerie, interroger VirusTotal puis bloquer l'expéditeur dans la passerelle
+- `Confinement coordonné` — Face à un rançongiciel : isoler les postes via l'EDR, révoquer les sessions via l'IAM et bloquer le serveur de commande au pare-feu en une seule exécution
+- `Escalade à validation humaine` — Les actions destructrices (couper un serveur de production) restent en attente d'approbation explicite avant exécution
 **Origine :** Terme forgé par Gartner (2017).
 **Subtilités/confusions :**
 - Compléte le SIEM en transformant les **alertes** textuelles en **actions concrètes automatisées** sans intervention humaine systématique.
@@ -378,7 +381,7 @@
 ## `EDR` — Endpoint Detection and Response [Sécurité]
 **Niveau :** intermediaire | **Popularité :** 95 | **Aliases :** —
 **Contextes :** surveiller en continu l'activité des postes de travail et serveurs (processus, modifications de registre, connexions réseau) pour bloquer les ransomwares et attaques avancées
-**Rôle :** Outil de sécurité installé directement sur les terminaux (endpoints) combinant la détection comportementale en temps réel, l'enregistrement d'activité et la capacité de réponse à distance (isolation réseau, suppression de processus).
+**Rôle :** Agent de sécurité installé sur les terminaux : détection comportementale en temps réel, journalisation d'activité et réponse à distance (isolation réseau, arrêt de processus).
 **Syntaxe :** (Solutions : CrowdStrike Falcon, Microsoft Defender for Endpoint, SentinelOne, Wazuh)
 **Cas réguliers :**
 - `Détection comportementale` — Détecter qu'un document Word a lancé PowerShell qui télécharge un script exécutable (comportement d'attaque classique)
@@ -398,6 +401,9 @@
 **Syntaxe :** (Solutions : Palo Alto Cortex XDR, Trend Micro Vision One, CrowdStrike XDR)
 **Cas réguliers :**
 - `Corrélation multi-couches` — Lier une anomalie d'authentification cloud (IAM), avec une connexion réseau suspecte (NDR) et la création d'un fichier suspect sur un poste (EDR)
+- `Détection d'exfiltration lente` — Corréler un trafic sortant anormal (NDR) avec un processus de compression inconnu (EDR) et déclencher la quarantaine du poste
+- `Chasse aux menaces unifiée` — Rechercher un même indicateur (hash, IP, domaine) à la fois sur les terminaux, le trafic réseau et les journaux cloud depuis une console unique
+- `Réponse coordonnée en un clic` — Quarantaine du poste (EDR), révocation de la session (IAM) et blocage réseau (pare-feu) déclenchés ensemble depuis l'alerte
 **Origine :** Nir Zuk / Palo Alto Networks (2018).
 **Subtilités/confusions :**
 - L'EDR se limite aux terminaux ; le XDR s'étend au réseau, au cloud, aux e-mails et aux bases de données.
@@ -475,7 +481,7 @@
 ## `Zero Trust` — Architecture de sécurité sans confiance implicite [Sécurité]
 **Niveau :** intermediaire | **Popularité :** 97 | **Aliases :** ZTA (Zero Trust Architecture)
 **Contextes :** concevoir la sécurité des réseaux modernes en partant du principe qu'aucun réseau (même le réseau local d'entreprise / LAN) n'est sûr et que toute requête doit être authentifiée
-**Rôle :** Modèle stratégique de cybersécurité résumé par la maxime « *Never Trust, Always Verify* » (Ne jamais faire confiance, toujours vérifier), exigeant l'authentification et l'autorisation continues de chaque utilisateur et appareil.
+**Rôle :** Modèle de cybersécurité résumé par « Never Trust, Always Verify » : chaque utilisateur et appareil est authentifié et autorisé en continu, même depuis le réseau interne.
 **Syntaxe :** (Paradigme d'architecture réseau et sécurité)
 **Cas réguliers :**
 - `Vérification continue` — Exiger l'authentification MFA, vérifier la santé du poste (EDR) et restreindre les accès au strict nécessaire (principe du moindre privilège)
@@ -1266,7 +1272,7 @@
 ## `MFA` — Multi-Factor Authentication [Sécurité]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** 2FA (Two-Factor Authentication), A2F
 **Contextes :** renforcer la sécurité des connexions utilisateurs (comptes cloud, VPN, webmail, SSH) en exigeant au moins deux preuves d'identité distinctes
-**Rôle :** Système de contrôle d'accès qui requiert la présentation combinée de deux ou plusieurs facteurs indépendants parmi : ce que l'on sait (mot de passe), ce que l'on possède (smartphone, clé YubiKey), ou ce que l'on est (empreinte digitale, visage).
+**Rôle :** Contrôle d'accès exigeant au moins deux facteurs indépendants : ce que l'on sait (mot de passe), possède (YubiKey, smartphone) ou est (empreinte, visage).
 **Syntaxe :** (Mécanisme d'authentification renforcée)
 **Cas réguliers :**
 - `Facteur 1` — Quelque chose que je sais (mot de passe, code PIN)
@@ -1303,6 +1309,9 @@
 **Syntaxe :** `oathtool --hotp -b "CLE_SECRETE_BASE32" --counter=1`
 **Cas réguliers :**
 - `Jeton matériel (Hardware Token)` — Boîtier physique avec écran LCD qui génère un nouveau code de 6 chiffres à chaque pression du bouton
+- `Application mobile OTP` — Même code à 6 chiffres obtenu dans Google Authenticator, le compteur partagé étant incrémenté à chaque demande
+- `oathtool --hotp -b "CLE_SECRETE_BASE32" --counter=5` — Générer en ligne de commande le code attendu pour un compteur donné (test et dépannage)
+- `oathtool --hotp -b "CLE_SECRETE_BASE32" --window=5` — Tolérer un décalage de compteur après des appuis hors-ligne (fenêtre de resynchronisation)
 **Origine :** NINIT / IETF (2005 / RFC 4226).
 **Subtilités/confusions :**
 - Contrairement à TOTP (basé sur le **temps**), HOTP est basé sur un **compteur d'utilisations** qui s'incrémente à chaque demande.

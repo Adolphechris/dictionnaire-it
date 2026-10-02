@@ -436,7 +436,7 @@
 ## `OKR` — Objectives and Key Results [Management]
 **Niveau :** intermediaire | **Popularité :** 95 | **Aliases :** Objectifs et Résultats Clés
 **Contextes :** aligner l'ensemble des équipes (engineering, produit, marketing) autour d'objectifs ambitieux et mesurer leur progression grâce à des résultats clés chiffrés
-**Rôle :** Méthodologie de cadrage des objectifs d'entreprise popularisée par Intel et Google, articulée autour d'un **Objectif** (qualitatif et inspirant) et de 3 à 5 **Résultats Clés** (quantitatifs et mesurables).
+**Rôle :** Méthodologie de cadrage des objectifs popularisée par Intel et Google : un **Objectif** qualitatif et 3 à 5 **Résultats Clés** quantitatifs et mesurables.
 **Syntaxe :** *Objectif : Devenir le leader du stockage cloud.* -> *KR1 : Atteindre 99.99% d'uptime. KR2 : Réduire le temps de latence de 30%.*
 **Cas réguliers :**
 - `Stretch Goals` — Les OKR sont conçus pour être très ambitieux (atteindre 70% d'un OKR est généralement considéré comme un succès !)
@@ -960,7 +960,7 @@
 ## `Event Sourcing` — Persistence par journal d'événements [Développement/Data]
 **Niveau :** avance | **Popularité :** 90 | **Aliases :** Sourcing d'Événements
 **Contextes :** conserver l'historique complet et inaltérable de tous les changements d'état d'un système (banque, comptabilité, suivi de colis, audit juridique)
-**Rôle :** Patron d'architecture de persistance où l'état d'une application n'est pas stocké sous forme de données modifiées sur place (*UPDATE*), mais sous forme d'une séquence ordonnée et immuable d'événements factuels (*Event Log*).
+**Rôle :** Patron de persistance où l'état d'une application n'est pas modifié sur place (*UPDATE*) mais reconstruit depuis une séquence immuable d'événements (*Event Log*).
 **Syntaxe :** Ex: `[AccountOpened, MoneyDeposited(100), MoneyWithdrawn(30)]` -> Solde actuel calculé = 70
 **Cas réguliers :**
 - `Journal Immuable (Append-only Log)` — Les événements ne sont JAMAIS supprimés ni modifiés (`INSERT` uniquement)
@@ -1104,7 +1104,7 @@
 ## `Circuit Breaker` — Patron de disjoncteur réseau [DevOps/Architecture]
 **Niveau :** avance | **Popularité :** 92 | **Aliases :** Disjoncteur Logiciel
 **Contextes :** empêcher qu'une panne sur un microservice secondaire (ex: service de recommandation) ne fasse s'effondrer par cascade l'ensemble du site web (ex: blocage du panier d'achat)
-**Rôle :** Patron de conception qui surveille les appels réseau vers un service distant et coupe temporairement le flux (*Open Circuit*) si le taux d'erreur dépasse un seuil, renvoyant immédiatement un mode dégradé (*Fallback*).
+**Rôle :** Patron de résilience qui coupe temporairement les appels vers un service distant (*Open*) au-delà d'un seuil d'erreur et renvoie un mode dégradé (*Fallback*).
 **Syntaxe :** (États : Fermé / Normal, Ouvert / Coupé, Semi-Ouvert / Test)
 **Cas réguliers :**
 - `Fermé (Closed)` — Le trafic circule normalement, les erreurs sont comptabilisées
@@ -1271,7 +1271,7 @@
 ## `CAP Theorem` — Théorème CAP de Brewer [BDD/Architecture]
 **Niveau :** avance | **Popularité :** 97 | **Aliases :** Théorème de Brewer
 **Contextes :** faire des choix d'architecture fondamentaux lors de la sélection d'une base de données distribuée ou d'un système réseau
-**Rôle :** Théorème prouvant qu'un système de données distribué ne peut garantir simultanément que 2 des 3 propriétés suivantes : Cohérence (**Consistency**), Disponibilité (**Availability**), et Tolérance au morcellement (**Partition Tolerance**).
+**Rôle :** Théorème : un système distribué ne peut garantir simultanément que deux des trois propriétés — Cohérence (**C**), Disponibilité (**A**), Tolérance au morcellement (**P**).
 **Syntaxe :** (Choix d'architecture : CP vs AP vs CA)
 **Cas réguliers :**
 - `C - Cohérence (Consistency)` — Tous les nœuds voient exactement les mêmes données au même moment
@@ -1288,7 +1288,7 @@
 ## `PACELC` — Extension du Théorème CAP [BDD/Architecture]
 **Niveau :** avance | **Popularité :** 86 | **Aliases :** Théorème PACELC
 **Contextes :** affiner les critères d'évaluation des bases de données distribuées en prenant en compte leur comportement en fonctionnement normal (hors panne réseau)
-**Rôle :** Extension du théorème CAP formulée par Daniel Abadi : *S'il y a un Morcellement (**P**), choisir entre Disponibilité (**A**) ou Cohérence (**C**) ; **E**lsinon (fonctionnement normal), choisir entre Latence (**L**) ou Cohérence (**C**)*.
+**Rôle :** Extension du CAP par Daniel Abadi : en cas de morcellement (**P**), choisir Disponibilité (**A**) ou Cohérence (**C**) ; sinon, choisir Latence (**L**) ou Cohérence (**C**).
 **Syntaxe :** Format : `PA/EL` (ex: DynamoDB est PA/EL, MongoDB est PC/EC)
 **Cas réguliers :**
 - `MongoDB (PC/EC)` — Privilégie la cohérence en cas de panne et la cohérence en fonctionnement normal

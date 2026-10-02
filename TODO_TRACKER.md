@@ -25,7 +25,7 @@ B : existant 54 | B02 devops/cloud/bdd 90 | B03 sécu/web/multimédia 90 | B04 e
 - [x] **R5** `updated_at` stable + `data/index.json` (fin des diffs quotidiens de 15 800 lignes)
 - [ ] **R6** 6 fiches à compléter (2e cas régulier) : `whoami`, `git request-pull`, `git gitweb`, `SOAR`, `XDR`, `HOTP`
 - [ ] **R7** 352 fiches à seconde subtilité (distribution {1: 352, 2: 304, 3+: 251})
-- [ ] **R8** 538 liens `voir aussi` morts (325 cibles) — créer les entrées les plus demandées puis corriger les renvois
+- [ ] **R8** Liens `voir aussi` morts (partiel 36/325 cibles créées via FaceA_16 + FaceB_06 ; reste 350 liens morts)
 - [ ] **R9** 14 rôles > 200 caractères à raccourcir (max actuel 245 : MFA)
 - [ ] **R10** 6 fiches Face B sans crochet de catégorie (`Bluetooth`, `NFC`, `RFID`, `NDP`, `ALU`, `Caches L1/L2/L3`)
 - [ ] **R11** 95 entrées legacy à migrer en fiche riche v3 (faceA_01/02/03/04/05, faceB_01)

@@ -943,7 +943,7 @@
 ## `hashcat` — Craquage de hachages par GPU [Cross]
 **Niveau :** avance | **Popularité :** 86 | **Aliases :** —
 **Contextes :** récupérer des mots de passe à partir de hachages lors d'un test de pénétration autorisé, tester la robustesse de la politique de mots de passe d'une organisation
-**Rôle :** Outil de récupération de mots de passe (cracking) le plus rapide au monde, exploitant la puissance des GPU via OpenCL/CUDA pour attaquer des centaines de types de hachages (MD5, bcrypt, NTLM, SHA-256…).
+**Rôle :** Outil de récupération de mots de passe (cracking) exploitant la puissance des GPU via OpenCL/CUDA pour attaquer des centaines de types de hachages (MD5, bcrypt, NTLM, SHA-256…).
 **Syntaxe :** `hashcat -m <mode> -a <attaque> <hachage_ou_fichier> <wordlist_ou_masque>`
 **Cas réguliers :**
 - `hashcat -m 0 -a 0 hashes.txt /usr/share/wordlists/rockyou.txt` — Attaque par dictionnaire sur des hachages MD5 (mode 0) avec rockyou.txt

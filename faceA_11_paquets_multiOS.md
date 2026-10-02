@@ -544,7 +544,7 @@
 **Urgences/dangers :** —
 **Précautions :** Installer les bibliothèques d'en-tête C de développement (`libssl-dev`, `zlib1g-dev`) avant de compiler de nouvelles versions Python avec `pyenv install`.
 **Équivalents :** asdf, mise, conda, uv
-**Voir aussi :** pip, virtualenv, venv, poetry
+**Voir aussi :** pip, venv, venv, poetry
 
 ## `rbenv` — Gestionnaire de versions légères pour Ruby [Cross]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** —

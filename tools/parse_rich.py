@@ -54,7 +54,8 @@ def canon_categories(bracket: str) -> tuple[list[str], list[str]]:
     cats, tags = [], []
     for p in parts:
         tags.append(p)
-        c = CAT_CANON.get(deaccent(p)) or CAT_CANON.get(deaccent(p).replace(" ", ""))
+        d = deaccent(p)
+        c = CAT_CANON.get(d) or CAT_CANON.get(d.replace(" ", "")) or CAT_CANON.get(d.split(" ")[0])
         if c and c not in cats:
             cats.append(c)
     return cats, tags
