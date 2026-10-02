@@ -26,11 +26,11 @@
 **Origine :** Juergen Weigert (1990) — distribué historiquement avec l'éditeur Vim.
 **Subtilités/confusions :**
 - La fonction d'inversion (`-r`) fait de `xxd` un outil de choix pour patcher des binaires ou injecter des payloads dans des tests de sécurité.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Rediriger la sortie vers un fichier texte avant d'éditer les octets à modifier.
 **Équivalents :** hexdump, od
 **Voir aussi :** hexdump, file
-
 ## `dc` — Calculatrice en notation polonaise inverse (RPN) [Linux/macOS]
 **Niveau :** avance | **Popularité :** 78 | **Aliases :** —
 **Contextes :** effectuer des calculs mathématiques en ligne de commande en utilisant une pile et la notation polonaise inverse sans parenthèses
@@ -42,11 +42,11 @@
 **Origine :** Robert Morris / Lorinda Cherry (Bell Labs, 1970) — le tout premier langage de programmation à avoir tourné sur le tout premier système UNIX !
 **Subtilités/confusions :**
 - Précède historiquement `bc` ; en fait, les premières versions de `bc` étaient un pré-processeur traduisant les expressions vers `dc` !
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Ne pas oublier la commande `p` à la fin d'une expression pour imprimer le résultat sur la sortie standard.
 **Équivalents :** bc, expr
 **Voir aussi :** bc, awk
-
 ## `factor` — Décomposition d'entiers en facteurs premiers [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 75 | **Aliases :** —
 **Contextes :** décomposer un nombre entier en le produit de ses facteurs premiers lors de résolutions de problèmes mathématiques ou d'exercices d'algorithmique
@@ -59,11 +59,11 @@
 **Origine :** Utilitaire UNIX historique (System V / GNU Coreutils).
 **Subtilités/confusions :**
 - Gère de très grands entiers arbitraires grâce aux algorithmes de factorisation modernes du projet GNU.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Sur de très grands entiers cryptographiques (ex: 2048 bits), la factorisation peut prendre un temps considérable.
 **Équivalents :** bc, python3
 **Voir aussi :** seq, expr
-
 ## `envsubst` — Substitution de variables d'environnement dans un modèle [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 92 | **Aliases :** —
 **Contextes :** générer des fichiers de configuration dynamiques (Nginx, Kubernetes, Docker Compose) à partir de modèles (*templates*) contenant des variables `$VAR`
@@ -75,11 +75,11 @@
 **Origine :** Projet GNU gettext (1995).
 **Subtilités/confusions :**
 - Si un nom de variable à remplacer n'est pas spécifié avec la syntaxe restreinte `envsubst '$VAR'`, toutes les variables non définies seront remplacées par des chaînes vides !
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Toujours lister explicitement les variables à substituer (`envsubst '$VAR1 $VAR2'`) lorsqu'on traite des fichiers contenant des expressions JavaScript ou Bash.
 **Équivalents :** sed, envtpl, gomplate
 **Voir aussi :** sed, export, printenv
-
 ## `iconv` — Conversion du jeu de caractères / encodage de fichiers [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 89 | **Aliases :** —
 **Contextes :** convertir des fichiers texte encodés en ISO-8859-1 (Latin-1) ou Windows-1252 vers le standard moderne UTF-8 (ou inversement) pour éviter les caractères corrompus
@@ -92,11 +92,11 @@
 **Origine :** Spécification Open Group / POSIX (1993) — implémenté par la GNU C Library (glibc).
 **Subtilités/confusions :**
 - L'option `//TRANSLIT` tente de remplacer les caractères indisponibles par des équivalents proches ; `//IGNORE` ignore les caractères non convertibles.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Vérifier l'encodage de départ avec la commande `file -i fichier.txt` avant de lancer `iconv`.
 **Équivalents :** uchardet, recode
 **Voir aussi :** file, dos2unix, enca
-
 ## `dos2unix` — Conversion des fins de lignes Windows (CRLF) en UNIX (LF) [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 94 | **Aliases :** —
 **Contextes :** corriger les erreurs de syntaxe des scripts shell édités sous Windows (erreur classique : `\r: command not found`) en supprimant les retours chariot `\r`
@@ -109,11 +109,11 @@
 **Origine :** Benjamin Lin / Erwin Waterlander (1989) — utilitaire indispensable en environnement mixte Windows/Linux.
 **Subtilités/confusions :**
 - Modifie directement le fichier par défaut ; utiliser `-n` (new file) si l'on souhaite créer une copie.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Configurer `core.autocrlf` dans Git pour éviter de commiter des retours chariot Windows par inadvertance.
 **Équivalents :** unix2dos, sed 's/\r$//', tr -d '\r'
 **Voir aussi :** unix2dos, sed, iconv
-
 ## `unix2dos` — Conversion des fins de lignes UNIX (LF) en Windows (CRLF) [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 82 | **Aliases :** —
 **Contextes :** convertir un fichier texte généré sous Linux pour qu'il s'affiche correctement dans le Bloc-notes de vieilles versions de Windows
@@ -125,11 +125,11 @@
 **Origine :** Erwin Waterlander (1989).
 **Subtilités/confusions :**
 - Principalement utile lors de la préparation de fichiers de configuration ou de scripts destinés à être exécutés sur d'anciens systèmes Windows.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Ne pas appliquer `unix2dos` sur des scripts shell destinés à s'exécuter sous Linux.
 **Équivalents :** dos2unix, sed
 **Voir aussi :** dos2unix, iconv
-
 ## `fold` — Ajustement de la largeur des lignes d'un texte [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 76 | **Aliases :** —
 **Contextes :** découper des lignes de texte trop longues à une largeur fixe donnée (ex: 80 colonnes) pour un affichage propre en terminal ou pour de l'impression
@@ -141,11 +141,11 @@
 **Origine :** Utilitaire UNIX historique (BSD / GNU Coreutils).
 **Subtilités/confusions :**
 - Sans l'option `-s` (space), `fold` coupe brutalement au milieu des mots dès qu'il atteint la colonne spécifiée.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Toujours combiner `-s` avec `-w` pour obtenir une mise en page lisible de paragraphes.
 **Équivalents :** fmt, column
 **Voir aussi :** fmt, column, cut
-
 ## `fmt` — Reformateur et metteur en page de paragraphes de texte [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 81 | **Aliases :** —
 **Contextes :** nettoyer et réaligner des paragraphes de texte brut, joindre des lignes coupées manuellement ou ajuster la largeur de documentation
@@ -158,11 +158,11 @@
 **Origine :** Utilitaire UNIX historique (BSD 3.0, 1980 / GNU Coreutils).
 **Subtilités/confusions :**
 - Contrairement à `fold` qui coupe les lignes longues, `fmt` sait à la fois remplir les lignes courtes et découper les lignes longues pour former de vrais paragraphes.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Préserve les retours à la ligne vides séparant les paragraphes ainsi que l'indentation de début de paragraphe.
 **Équivalents :** fold, column, par
 **Voir aussi :** fold, column
-
 ## `column` — Formatage de données sous forme de tableau aligné [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 93 | **Aliases :** —
 **Contextes :** rendre lisible un fichier CSV, un fichier séparé par des deux-points (`/etc/passwd`) ou la sortie brute d'un script en l'alignant proprement sous forme de colonnes
@@ -175,11 +175,11 @@
 **Origine :** BSD 4.3 (1989) / intégré dans util-linux.
 **Subtilités/confusions :**
 - L'option `-t` (table) est obligatoire pour activer l'alignement en colonnes réelles.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Idéal pour formater la sortie de vos propres scripts Bash pour les rendre lisibles.
 **Équivalents :** awk, pr
 **Voir aussi :** fmt, fold, awk, cut
-
 ## `expand` — Conversion des tabulations en espaces [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 78 | **Aliases :** —
 **Contextes :** remplacer les tabulations d'un fichier source par un nombre fixe d'espaces (ex: 4 espaces) pour garantir un affichage uniforme dans tous les éditeurs
@@ -191,11 +191,11 @@
 **Origine :** BSD / GNU Coreutils.
 **Subtilités/confusions :**
 - Ne pas appliquer `expand` sur un `Makefile` (dont les règles exigent impérativement des tabulations).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser `unexpand` pour effectuer l'opération inverse (espaces vers tabulations).
 **Équivalents :** unexpand, sed
 **Voir aussi :** unexpand, fmt, fold
-
 ## `unexpand` — Conversion des espaces en tabulations [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 74 | **Aliases :** —
 **Contextes :** convertir des espaces de début de ligne en caractères de tabulation pour se conformer aux règles de style de certains projets ou Makefiles
@@ -207,11 +207,11 @@
 **Origine :** BSD / GNU Coreutils.
 **Subtilités/confusions :**
 - Par défaut sans `-a`, `unexpand` ne convertit que les espaces situés au début de chaque ligne (indentation).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Toujours vérifier le résultat avec `cat -A` pour distinguer visuellement les espaces (`.`) des tabulations (`^I`).
 **Équivalents :** expand, sed
 **Voir aussi :** expand, cat
-
 ## `rev` — Inversion de l'ordre des caractères de chaque ligne [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 79 | **Aliases :** —
 **Contextes :** inverser le sens de lecture des caractères d'un texte, extraire des extensions de fichiers ou traiter des chaînes de droite à gauche
@@ -223,11 +223,11 @@
 **Origine :** Utilitaire UNIX historique (BSD 4.3).
 **Subtilités/confusions :**
 - `rev` inverse l'ordre des **caractères sur une même ligne**, alors que `tac` inverse l'ordre des **lignes dans le fichier**.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Très utile combiné à `cut` pour cibler le dernier champ d'une ligne séparée par des délimiteurs variables.
 **Équivalents :** tac (inversion des lignes)
 **Voir aussi :** tac, cut, sed
-
 ## `tac` — Affichage d'un fichier de bas en haut (ligne par ligne inverse) [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 87 | **Aliases :** —
 **Contextes :** lire un fichier de log ou un journal de transactions dans l'ordre chronologique inverse (les événements les plus récents en premier)
@@ -239,11 +239,11 @@
 **Origine :** GNU Coreutils.
 **Subtilités/confusions :**
 - Ne pas confondre avec `rev` (qui inverse les caractères sur chaque ligne) ni avec `cat` (qui lit de haut en bas).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Sur macOS, si `tac` n'est pas disponible par défaut, utiliser `tail -r` ou installer `coreutils` via Homebrew (`gtac`).
 **Équivalents :** tail -r, sed -n '1!G;h;$p'
 **Voir aussi :** cat, rev, tail
-
 ## `comm` — Comparaison de deux fichiers triés ligne par ligne [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 83 | **Aliases :** —
 **Contextes :** identifier les lignes uniques au fichier A, uniques au fichier B et communes aux deux fichiers (ex: comparer des listes de clients ou d'IPs)
@@ -256,11 +256,11 @@
 **Origine :** Utilitaire UNIX historique (AT&T Unix, 1970s / GNU Coreutils).
 **Subtilités/confusions :**
 - **IMPÉRATIF :** Les deux fichiers DOIVENT être triés (`sort`) avant d'exécuter `comm`, sinon le résultat est erroné.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser la substitution de processus pour trier à la volée : `comm -12 <(sort file1) <(sort file2)`.
 **Équivalents :** diff, sdiff, cmp
 **Voir aussi :** sort, diff, uniq
-
 ## `cmp` — Comparaison d'octet par octet de deux fichiers [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 85 | **Aliases :** —
 **Contextes :** vérifier si deux fichiers (binaires ou images) sont 100% identiques, ou trouver le tout premier octet où ils diffèrent
@@ -272,11 +272,11 @@
 **Origine :** AT&T Unix (1970s).
 **Subtilités/confusions :**
 - Contrairement à `diff` (qui compare du texte ligne à ligne), `cmp` est conçu pour les fichiers binaires de n'importe quel type.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Pratique dans des scripts d'automatisation avec `cmp -s` pour tester l'égalité de deux fichiers sans générer de sortie texte.
 **Équivalents :** diff, md5sum, sha256sum
 **Voir aussi :** diff, comm, md5sum
-
 ## `paste` — Fusion ligne à ligne côte à côte de plusieurs fichiers [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 84 | **Aliases :** —
 **Contextes :** combiner deux colonnes de données provenant de deux fichiers différents en un seul fichier (ex: joindre noms et adresses email)
@@ -289,11 +289,11 @@
 **Origine :** AT&T Unix / GNU Coreutils.
 **Subtilités/confusions :**
 - Ne fait aucun rapprochement sémantique : il associe simplement la ligne N du fichier 1 avec la ligne N du fichier 2.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Si vous avez besoin de joindre deux fichiers selon une clé commune, utiliser `join` plutôt que `paste`.
 **Équivalents :** join, column, pr
 **Voir aussi :** join, cut, column
-
 ## `join` — Fusion de fichiers sur la base d'un champ clé commun [Linux/macOS]
 **Niveau :** avance | **Popularité :** 80 | **Aliases :** —
 **Contextes :** réaliser une opération équivalente au `INNER JOIN` de SQL sur deux fichiers texte plat ayant une colonne en commun (ex: ID utilisateur)
@@ -305,11 +305,11 @@
 **Origine :** AT&T Unix / GNU Coreutils.
 **Subtilités/confusions :**
 - Tout comme `comm`, les deux fichiers de départ DOIVENT impérativement être triés sur leur champ de jointure respectif !
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Tri préalable indispensable via `sort -k` avant d'invoquer `join`.
 **Équivalents :** awk, paste
 **Voir aussi :** paste, sort, comm, awk
-
 ## `nl` — Numérotation des lignes d'un fichier avec options avancées [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 82 | **Aliases :** —
 **Contextes :** ajouter des numéros de lignes à un document ou fichier source pour impression ou révision, avec contrôle sur la numérotation des lignes vides
@@ -322,11 +322,11 @@
 **Origine :** System V / GNU Coreutils.
 **Subtilités/confusions :**
 - Par défaut (mode `-bt`), `nl` ne numérote pas les lignes vides, contrairement à `cat -n` qui numérote tout indifféremment.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Très pratique pour générer des extraits de code source numérotés pour des rapports ou documentations.
 **Équivalents :** cat -n, awk '{print NR, $0}'
 **Voir aussi :** cat, fold, fmt
-
 ## `shuf` — Mélange aléatoire de lignes de texte [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 88 | **Aliases :** —
 **Contextes :** tirer une ligne au sort dans un fichier, mélanger aléatoirement une liste de données (ex: dataset d'apprentissage Machine Learning)
@@ -339,11 +339,11 @@
 **Origine :** GNU Coreutils (Paul Eggert, 2006).
 **Subtilités/confusions :**
 - L'option `-i 1-N` évite d'avoir à créer un fichier de nombres au préalable.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser `--random-source` avec un fichier déterministe pour obtenir des mélanges répétables dans des tests automatisés.
 **Équivalents :** sort -R, random
 **Voir aussi :** sort, seq, head
-
 ## `csplit` — Découpage contextuel de fichiers basé sur des motifs [Linux/macOS]
 **Niveau :** avance | **Popularité :** 77 | **Aliases :** —
 **Contextes :** scinder un fichier massif en plusieurs petits fichiers à chaque apparition d'un séparateur ou d'une expression régulière (ex: scinder un fichier de logs par jour)
@@ -355,11 +355,11 @@
 **Origine :** System V / GNU Coreutils.
 **Subtilités/confusions :**
 - Diffère de `split` (qui découpe par taille en octets ou nombre de lignes fixe) en découpant de manière dynamique selon le contenu texte.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** L'option `-z` évite la création de fichiers de sortie vides si le motif correspond dès la première ligne.
 **Équivalents :** split, awk
 **Voir aussi :** split, awk, sed
-
 ## `truncate` — Modification explicite de la taille d'un fichier [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 84 | **Aliases :** —
 **Contextes :** vider instantanément un fichier de log saturé sans le supprimer (pour préserver les descripteurs ouverts), ou créer des fichiers creux (*sparse files*)
@@ -372,11 +372,11 @@
 **Origine :** FreeBSD / GNU Coreutils (Padraig Brady, 2008).
 **Subtilités/confusions :**
 - Faire `truncate -s 0 log.txt` est beaucoup plus propre que `rm log.txt` si un service est en train d'écrire dedans (évite d'invalider le file descriptor).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** ⚠️ Réduire la taille d'un fichier supprime définitivement les données situées au-delà de la nouvelle limite.
 **Précautions :** Toujours vérifier deux fois la taille passée en paramètre.
 **Équivalents :** fallocate, > file
 **Voir aussi :** fallocate, stat, dd
-
 ## `fallocate` — Allocation rapide d'espace disque pour un fichier [Linux]
 **Niveau :** avance | **Popularité :** 86 | **Aliases :** —
 **Contextes :** pré-allouer instantanément un fichier de swap ou de stockage virtuel sans gaspiller de temps d'E/S CPU/Disque
@@ -388,11 +388,11 @@
 **Origine :** Eric Sandeen / util-linux (2009) — s'appuie sur l'appel système `fallocate()`.
 **Subtilités/confusions :**
 - Contrairement à `dd if=/dev/zero`, `fallocate` ne fait pas d'écriture physique d'octets et s'exécute de manière quasi-instantanée quelle que soit la taille.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Certains systèmes de fichiers anciens ou virtuels ne supportent pas l'appel système `fallocate` ; utiliser `dd` en repli.
 **Équivalents :** truncate, dd
 **Voir aussi :** truncate, swapon, swap
-
 ## `stat` — Affichage détaillé des métadonnées et i-nœuds d'un fichier [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 93 | **Aliases :** —
 **Contextes :** vérifier la date d'accès, de modification et de changement de statut (atime, mtime, ctime), les permissions octales et le numéro d'i-nœud d'un fichier
@@ -405,11 +405,11 @@
 **Origine :** François Pinard / GNU Coreutils (1993).
 **Subtilités/confusions :**
 - Distinguer `mtime` (modification du contenu) et `ctime` (changement de métadonnées/permissions).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** La syntaxe des options de formatage (`-c` sous Linux GNU contre `-f` sous macOS BSD) diffère légèrement selon l'OS.
 **Équivalents :** ls -l, file
 **Voir aussi :** file, ls, touch
-
 ## `file` — Détermination du type de fichier via les numéros magiques [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** —
 **Contextes :** identifier le format réel d'un fichier (ex: image, binaire, archive) même si son extension a été modifiée ou supprimée
@@ -422,11 +422,11 @@
 **Origine :** Ian Darwin / Geoff Collyer (AT&T Unix 1973 / Fine Free File Command 1987).
 **Subtilités/confusions :**
 - `file` ne se fie JAMAIS à l'extension du fichier (ex: un binaire `.exe` renommé en `.png` sera correctement identifié comme binaire PE).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser `file -i` dans les scripts web pour valider le type des fichiers envoyés par les utilisateurs.
 **Équivalents :** stat, hexdump
 **Voir aussi :** stat, hexdump, xxd
-
 ## `pathchk` — Vérification de la portabilité et validité de chemins [Linux/macOS]
 **Niveau :** avance | **Popularité :** 73 | **Aliases :** —
 **Contextes :** s'assurer qu'un chemin de fichier ou nom de dossier ne contient pas de caractères invalides ou ne dépasse pas la longueur maximale autorisée sous d'autres OS
@@ -438,11 +438,11 @@
 **Origine :** Spécification POSIX.1 / GNU Coreutils.
 **Subtilités/confusions :**
 - Ne vérifie pas si le fichier **existe**, mais uniquement si le **nom de chemin est légal et portable**.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Pratique dans des scripts d'archivage ou de création de paquets multiplateformes.
 **Équivalents :** realpath, test -e
 **Voir aussi :** realpath, readlink, dirname
-
 ## `realpath` — Résolution du chemin d'accès absolu canonique [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 93 | **Aliases :** —
 **Contextes :** convertir un chemin relatif (`./../dir/file.txt`) ou contenant des liens symboliques en son chemin absolu canonique unique sur le disque
@@ -455,11 +455,11 @@
 **Origine :** GNU Coreutils (Padraig Brady, 2011).
 **Subtilités/confusions :**
 - Résout tous les niveaux de liens symboliques imbriqués pour atteindre la cible réelle finale sur le système de fichiers.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Incontournable dans les scripts Bash pour s'assurer que l'on manipule des chemins absolus non ambigus.
 **Équivalents :** readlink -f, pwd -P
 **Voir aussi :** readlink, dirname, basename
-
 ## `readlink` — Affichage de la cible d'un lien symbolique [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 89 | **Aliases :** —
 **Contextes :** vérifier vers quel fichier ou dossier pointe un lien symbolique (*symlink*) donné
@@ -471,11 +471,11 @@
 **Origine :** OpenBSD / GNU Coreutils (Dmitry V. Levin, 2002).
 **Subtilités/confusions :**
 - Si le fichier spécifié n'est pas un lien symbolique, `readlink` sans option ne renvoie rien et sort avec le code d'erreur `1`.
+- Consulter la documentation officielle pour vérifier la liste complète des options prises en charge.
 **Urgences/dangers :** —
 **Précautions :** Préférer `realpath` si le but est d'obtenir le chemin absolu d'un fichier quelconque (qu'il soit un lien ou non).
 **Équivalents :** realpath, ls -l
 **Voir aussi :** realpath, ln, ls
-
 ## `basename` — Extraction du nom de fichier pur depuis un chemin [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** —
 **Contextes :** isoler le nom de fichier (ex: `script.py`) en supprimant tous les répertoires d'en-tête d'un chemin complet
@@ -488,11 +488,11 @@
 **Origine :** AT&T Unix (1970s) / GNU Coreutils.
 **Subtilités/confusions :**
 - Outil complémentaire de `dirname` (qui conserve le répertoire et jette le nom de fichier).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Indispensable dans les boucles shell pour renommer des fichiers ou générer des noms de fichiers de sortie.
 **Équivalents :** dirname (inverse), expansion de paramètre shell `${var##*/}`
 **Voir aussi :** dirname, realpath
-
 ## `dirname` — Extraction du répertoire parent d'un chemin [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** —
 **Contextes :** obtenir le chemin du dossier contenant un fichier (ex: isoler le dossier d'un script Bash pour charger des modules relatifs)
@@ -504,11 +504,11 @@
 **Origine :** AT&T Unix (1970s) / GNU Coreutils.
 **Subtilités/confusions :**
 - Complément direct de `basename` (qui conserve le nom du fichier et jette le dossier).
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Idéal pour s'assurer qu'un script s'exécute toujours depuis son propre répertoire quel que soit l'endroit d'où il est appelé.
 **Équivalents :** realpath, expansion shell `${var%/*}`
 **Voir aussi :** basename, realpath, pwd
-
 ## `getconf` — Consultation des paramètres de configuration POSIX et C [Linux/macOS]
 **Niveau :** avance | **Popularité :** 80 | **Aliases :** —
 **Contextes :** interroger les limites et constantes du système d'exploitation et de la bibliothèque C (taille de page mémoire, largeur de registre CPU, limites POSIX)
@@ -521,11 +521,11 @@
 **Origine :** Spécification POSIX.2 / GNU C Library.
 **Subtilités/confusions :**
 - Permet de tester les limites physiques du système sans écrire de programme C.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser `getconf -a` pour afficher l'intégralité des variables de configuration système disponibles.
 **Équivalents :** sysctl, ulimit
 **Voir aussi :** sysctl, ulimit, nproc
-
 ## `printenv` — Affichage des variables d'environnement système [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 94 | **Aliases :** —
 **Contextes :** lister toutes les variables d'environnement du shell courant ou consulter la valeur exacte d'une variable spécifique
@@ -538,11 +538,11 @@
 **Origine :** BSD 4.2 (1983) / GNU Coreutils.
 **Subtilités/confusions :**
 - `printenv` n'affiche QUE les variables exportées dans l'environnement, contrairement à `set` (qui affiche aussi les variables shell locales).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Ne pas faire un `printenv` brut dans des logs publics car il peut révéler des jetons d'API ou mots de passe présents en mémoire.
 **Équivalents :** env, export, set
 **Voir aussi :** env, export, direnv
-
 ## `nproc` — Affichage du nombre de processeurs disponibles [Linux]
 **Niveau :** debutant | **Popularité :** 91 | **Aliases :** —
 **Contextes :** déterminer le nombre de cœurs CPU accessibles pour passer l'option `-j` aux commandes de compilation (`make -j$(nproc)`, `cmake --build . -j$(nproc)`)
@@ -554,11 +554,11 @@
 **Origine :** GNU Coreutils (Paul Eggert, 2009).
 **Subtilités/confusions :**
 - Respecte les restrictions de quotas CPU appliquées aux conteneurs Docker/cgroups (contrairement à `/proc/cpuinfo` qui affiche les cœurs physiques de l'hôte).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser systématiquement `nproc` dans les scripts de build automatisés.
 **Équivalents :** sysctl -n hw.ncpu (macOS), lscpu
 **Voir aussi :** lscpu, make, cmake
-
 ## `stdbuf` — Contrôle de la mise en mémoire tampon des flux (buffering) [Linux/macOS]
 **Niveau :** avance | **Popularité :** 83 | **Aliases :** —
 **Contextes :** forcer l'affichage immédiat des sorties de commandes dans les pipelines (ex: `tail -f log | grep foo`) pour éviter que les données ne soient bloquées en tampon
@@ -570,11 +570,11 @@
 **Origine :** GNU Coreutils (Padraig Brady, 2009) — utilise `LD_PRELOAD` pour ajuster `setvbuf()`.
 **Subtilités/confusions :**
 - Élimine le problème classique des scripts où les données n'apparaissent dans un tuyau (`|`) qu'une fois le tampon de 4Ko rempli.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Désactiver totalement le tampon (`-o0`) peut dégrader les performances en cas d'E/S très fréquentes.
 **Équivalents :** unbuffer (expect), script
 **Voir aussi :** tail, grep, tee
-
 ## `tsort` — Tri topologique de graphes orientés [Linux/macOS]
 **Niveau :** avance | **Popularité :** 74 | **Aliases :** —
 **Contextes :** déterminer un ordre d'exécution ou d'installation valide pour des éléments liés par des dépendances (ex: packages, tâches de build, graphes DAG)
@@ -586,11 +586,11 @@
 **Origine :** AT&T Unix (1970s) / GNU Coreutils.
 **Subtilités/confusions :**
 - Si le graphe contient un cycle (dépendance circulaire A -> B -> A), `tsort` affiche un avertissement de boucle.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Outil fondamental utilisé par les gestionnaires de paquets et les moteurs de compilation pour calculer l'ordre des cibles.
 **Équivalents :** graphviz (visualisation), ldd
 **Voir aussi :** sort, comm, make
-
 ## `chfn` — Modification des informations utilisateur (Finger) [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 72 | **Aliases :** —
 **Contextes :** modifier le nom complet, le numéro de bureau ou le numéro de téléphone associé à un compte utilisateur dans `/etc/passwd` (champ GECOS)
@@ -602,11 +602,11 @@
 **Origine :** BSD 4.0 (1980) / shadow-utils.
 **Subtilités/confusions :**
 - Met à jour le champ d'information de `/etc/passwd` sans altérer les droits ou le mot de passe du compte.
+- L execution avec les privilèges d administration doit être restreinte au strict nécessaire.
 **Urgences/dangers :** —
 **Précautions :** Un utilisateur normal ne peut modifier que ses propres informations GECOS ; root peut modifier n'importe quel compte.
 **Équivalents :** usermod -c, chsh
 **Voir aussi :** usermod, chsh, passwd
-
 ## `taskset` — Attribution de l'affinité CPU d'un processus [Linux]
 **Niveau :** avance | **Popularité :** 86 | **Aliases :** —
 **Contextes :** lier l'exécution d'un processus gourmand ou critique à des cœurs CPU spécifiques (*CPU pinning*) pour optimiser le cache L3 ou éviter la contention
@@ -619,11 +619,11 @@
 **Origine :** Robert Love / util-linux (2002) — s'appuie sur `sched_setaffinity()`.
 **Subtilités/confusions :**
 - L'option `-c` accepte des listes de cœurs lisibles (`0,2,4-7`), évitant de devoir calculer des masques hexadécimaux.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** Restreindre un processus multi-thread à un seul cœur réduira drastiquement ses performances en calcul parallèle.
 **Précautions :** Très utile en benchmarking pour isoler un test sur un cœur réservé et non perturbé par d'autres tâches.
 **Équivalents :** numactl, chrt
 **Voir aussi :** chrt, ionice, renice, nproc
-
 ## `chrt` — Modification des attributs d'ordonnancement temps réel [Linux]
 **Niveau :** avance | **Popularité :** 81 | **Aliases :** —
 **Contextes :** conférer des priorités d'ordonnancement temps réel (SCHED_FIFO, SCHED_RR, SCHED_DEADLINE) à des tâches critiques (traitement audio, robotique, trading)
@@ -636,11 +636,11 @@
 **Origine :** Robert Love / util-linux (2002).
 **Subtilités/confusions :**
 - Un processus en `SCHED_FIFO` de priorité élevée préempte TOUS les processus normaux du système tant qu'il a du travail à effectuer !
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** ⚠️ Une boucle infinie dans un processus Temps Réel `SCHED_FIFO` peut figer complètement le système Linux.
 **Précautions :** Nécessite les privilèges root ou la capacité `CAP_SYS_NICE`.
 **Équivalents :** renice, taskset, ionice
 **Voir aussi :** renice, taskset, ionice, top
-
 ## `ionice` — Modification de la classe et de la priorité d'E/S disque [Linux]
 **Niveau :** avance | **Popularité :** 83 | **Aliases :** —
 **Contextes :** réduire l'impact sur le disque dur/SSD de tâches de fond lourdes (sauvegardes, indexation) pour ne pas ralentir les applications utilisateur
@@ -652,11 +652,11 @@
 **Origine :** Jens Axboe / util-linux (2005).
 **Subtilités/confusions :**
 - Les 3 classes sont : `1` (Realtime), `2` (Best-effort, défaut), `3` (Idle).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser systématiquement `ionice -c 3` sur vos scripts de sauvegarde cron ou d'indexation nocturne.
 **Équivalents :** renice, taskset, chrt
 **Voir aussi :** renice, taskset, nice
-
 ## `renice` — Modification de la priorité d'exécution d'un processus actif [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** —
 **Contextes :** réduire la priorité CPU d'un processus en cours d'exécution qui consomme trop de ressources, ou accélérer un traitement urgent
@@ -669,11 +669,11 @@
 **Origine :** BSD 4.0 (1980) / util-linux.
 **Subtilités/confusions :**
 - Les utilisateurs normaux ne peuvent qu'**augmenter** la valeur nice (réduire leur priorité) ; seul root peut **diminuer** la valeur nice sous 0.
+- L execution avec les privilèges d administration doit être restreinte au strict nécessaire.
 **Urgences/dangers :** —
 **Précautions :** -20 est la priorité la plus élevée ; +19 est la priorité la plus basse.
 **Équivalents :** nice, ionice, chrt
 **Voir aussi :** top, htop, ionice, taskset
-
 ## `killall` — Envoi de signaux à tous les processus portant un nom [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** —
 **Contextes :** arrêter rapidement toutes les instances d'une application (ex: tous les processus `firefox` ou `nginx`) sans chercher leurs PIDs individuels
@@ -686,11 +686,11 @@
 **Origine :** System V / Pkill package / psmisc.
 **Subtilités/confusions :**
 - Sous Solaris/Unix System V historique, `killall` tuait TOUS les processus du système ! Sous Linux (psmisc), il ne tue que ceux portant le nom spécifié.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** ⚠️ `killall -9` empêche les processus d'exécuter leurs routines de nettoyage (risque de corruption de fichiers/bases).
 **Précautions :** Préférer `killall` sans `-9` en premier lieu pour laisser une chance au processus de s'arrêter proprement.
 **Équivalents :** pkill, pidof, kill
 **Voir aussi :** pkill, pgrep, pidof
-
 ## `pkill` — Envoi de signaux aux processus selon des motifs regex [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 93 | **Aliases :** —
 **Contextes :** cibler et envoyer un signal à des processus en utilisant une correspondance par expression régulière sur leur nom ou ligne de commande complète
@@ -703,11 +703,11 @@
 **Origine :** Solaris 7 (1998) / procps-ng.
 **Subtilités/confusions :**
 - Diffère de `killall` qui exige le nom binaire exact : `pkill` utilise des expressions régulières et supporte la recherche sur la ligne de commande complète (`-f`).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Exécuter d'abord `pgrep -l <motif>` pour vérifier quels processus correspondent au motif avant de lancer `pkill` !
 **Équivalents :** pgrep, killall, kill
 **Voir aussi :** pgrep, killall, pidof
-
 ## `pgrep` — Recherche de processus par motif et critères [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 94 | **Aliases :** —
 **Contextes :** trouver les PIDs des processus correspondant à un nom ou une ligne de commande pour les utiliser dans un script Bash
@@ -720,11 +720,11 @@
 **Origine :** Solaris 7 (1998) / procps-ng.
 **Subtilités/confusions :**
 - Évite l'idiome lourd et bancal `ps aux | grep node | grep -v grep`.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser `-l` pour afficher le nom du processus à côté du PID pour lever toute ambiguïté.
 **Équivalents :** pidof, ps, pkill
 **Voir aussi :** pkill, pidof, ps
-
 ## `pidof` — Recherche du PID exact d'un programme en cours [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 89 | **Aliases :** —
 **Contextes :** récupérer rapidement le PID numérique exact d'un démon système (ex: `pidof systemd` ou `pidof mysqld`) dans des scripts d'administration
@@ -737,11 +737,11 @@
 **Origine :** System V / procps-ng / SysVinit.
 **Subtilités/confusions :**
 - Ne prend pas en charge les expressions régulières : exige le nom exact du fichier binaire exécutable.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Si le programme n'est pas en cours d'exécution, `pidof` ne renvoie rien et sort avec le code de retour `1`.
 **Équivalents :** pgrep, ps
 **Voir aussi :** pgrep, pkill, killall
-
 ## `lsattr` — Affichage des attributs étendus de fichiers [Linux]
 **Niveau :** intermediaire | **Popularité :** 85 | **Aliases :** —
 **Contextes :** vérifier si un fichier est marqué comme immuable (`i`), en écriture seule / append-only (`a`), ou crypté sur un système de fichiers ext2/ext3/ext4
@@ -754,11 +754,11 @@
 **Origine :** Remy Card / e2fsprogs (1993).
 **Subtilités/confusions :**
 - Les attributs `lsattr` sont distincts des permissions standard Unix (`chmod`) et des ACLs (`getfacl`).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Si un fichier ne peut pas être supprimé même par root (`Operation not permitted`), faire un `lsattr` pour vérifier si le drapeau `i` (immuable) est posé.
 **Équivalents :** chattr, getfacl
 **Voir aussi :** chattr, getfacl, stat
-
 ## `filefrag` — Diagnostic de fragmentation d'un fichier sur disque [Linux]
 **Niveau :** avance | **Popularité :** 78 | **Aliases :** —
 **Contextes :** vérifier en combien d'étendues / fragments disjoints (*extents*) un fichier massif ou une image de VM est découpé sur le stockage physique
@@ -770,11 +770,11 @@
 **Origine :** Theodore Ts'o / e2fsprogs (2003).
 **Subtilités/confusions :**
 - Les systèmes de fichiers Linux modernes (ext4, Btrfs, XFS) gèrent la fragmentation très efficacement, mais un nombre d'étendues très élevé (> 1000) peut ralentir les accès E/S séquentiels.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Utiliser `e4defrag` sur ext4 si un binaire critique présente un niveau de fragmentation excessif.
 **Équivalents :** e4defrag, hdparm
 **Voir aussi :** stat, lsattr, fallocate
-
 ## `getfacl` — Consultation des listes de contrôle d'accès (ACL) POSIX [Linux]
 **Niveau :** intermediaire | **Popularité :** 87 | **Aliases :** —
 **Contextes :** vérifier les autorisations fines d'un fichier lorsqu'un utilisateur spécifique a des droits d'accès non visibles via les droits standard `chmod` (`ls -l`)
@@ -787,11 +787,11 @@
 **Origine :** Spécification POSIX 1003.1e / paquet `acl` Linux.
 **Subtilités/confusions :**
 - Lorsqu'un fichier possède des ACLs étendues sous Linux, la commande `ls -l` affiche un petit signe plus `+` à la fin des permissions (`-rw-r--r--+`).
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Toujours vérifier `getfacl` si un accès utilisateur est refusé alors que `chmod` semble correct.
 **Équivalents :** setfacl, ls -l
 **Voir aussi :** setfacl, chmod, lsattr
-
 ## `setfacl` — Configuration des listes de contrôle d'accès POSIX (ACL) [Linux]
 **Niveau :** intermediaire | **Popularité :** 88 | **Aliases :** —
 **Contextes :** accorder des droits de lecture/écriture sur un fichier ou dossier à un utilisateur spécifique sans le rendre propriétaire ni modifier le groupe principal du fichier
@@ -804,11 +804,11 @@
 **Origine :** Paquet `acl` Linux (Andreas Gruenbacher, 2002).
 **Subtilités/confusions :**
 - Les ACLs par défaut (`-m d:...`) s'appliquent uniquement aux répertoires et sont héritées par les nouveaux sous-dossiers et fichiers créés à l'intérieur.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** Des ACLs mal configurées peuvent contourner l'isolation de sécurité standard du système.
 **Précautions :** Utiliser `setfacl -b fichier` pour supprimer TOUTES les ACLs étendues et revenir aux permissions POSIX standard.
 **Équivalents :** getfacl, chmod, chown
 **Voir aussi :** getfacl, chmod, chown
-
 ## `getcap` — Inspection des capacités noyau attribuées aux binaires [Linux]
 **Niveau :** avance | **Popularité :** 84 | **Aliases :** —
 **Contextes :** auditer la sécurité du système pour identifier quels executables disposent de privilèges noyau spécifiques (*Capabilities*) sans être lancés avec le SUID root
@@ -820,11 +820,11 @@
 **Origine :** Andrew G. Morgan / paquet `libcap` (1997) — sous-système de sécurité POSIX Capabilities du noyau Linux.
 **Subtilités/confusions :**
 - Les capacités Linux découpent le pouvoir absolu de `root` en ~40 privilèges granulaires (`CAP_NET_BIND_SERVICE`, `CAP_SYS_ADMIN`, `CAP_NET_RAW`…).
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Auditer régulièrement les capacités pour détecter d'éventuelles élévations de privilèges non autorisées (*privilege escalation*).
 **Équivalents :** setcap, ls -l (SUID check)
 **Voir aussi :** setcap, chmod, sudo
-
 ## `setcap` — Attribution de capacités noyau à des binaires [Linux]
 **Niveau :** avance | **Popularité :** 86 | **Aliases :** —
 **Contextes :** autoriser un serveur web (ex: Nginx ou un binaire Go) à se lier sur le port 80/443 sans devoir l'exécuter en tant qu'utilisateur root !
@@ -836,11 +836,11 @@
 **Origine :** Paquet `libcap` (Andrew G. Morgan, 1997).
 **Subtilités/confusions :**
 - Le drapeau `+ep` signifie **Effective** et **Permitted** (rend la capacité immédiatement active à l'exécution).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** ⚠️ Attribuer `cap_sys_admin` à un binaire non sécurisé équivaut pratiquement à lui donner les droits root complets.
 **Précautions :** Préférer toujours `setcap` à l'utilisation du bit SUID (`chmod u+s`) car la portée des privilèges est strictement limitée.
 **Équivalents :** getcap, chmod u+s
 **Voir aussi :** getcap, chmod, sudo
-
 ## `vmstat` — Statistiques globales de mémoire virtuelle et processeur [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 94 | **Aliases :** —
 **Contextes :** diagnostiquer un ralentissement système global, identifier des goulots d'étranglement en swap, mémoire vive, interruptions E/S ou CPU
@@ -853,11 +853,11 @@
 **Origine :** BSD 3.0 / procps-ng (Henry Ware, 1991).
 **Subtilités/confusions :**
 - La première ligne affichée par `vmstat` est TOUJOURS la moyenne depuis le démarrage du système ; les lignes suivantes affichent les deltas de l'intervalle.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Surveiller les colonnes `si` (swap in) et `so` (swap out) : si elles sont élevées non nulles, le système manque cruellement de RAM.
 **Équivalents :** free, iostat, mpstat, top
 **Voir aussi :** free, iostat, mpstat, sar
-
 ## `iostat` — Statistiques d'entrée/sortie disque et sous-systèmes E/S [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 93 | **Aliases :** —
 **Contextes :** identifier quel disque dur ou SSD est saturé (temps d'attente E/S élevé, `%util` proche de 100%), mesurer les débits de lecture/écriture MB/s
@@ -869,11 +869,11 @@
 **Origine :** System V / paquet `sysstat` (Sebastien Godard, 1999).
 **Subtilités/confusions :**
 - La métrique `%util` indique le pourcentage de temps pendant lequel le disque a eu des requêtes E/S en cours (une valeur > 90% indique une saturation du disque).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser avec l'option `-x` pour obtenir les métriques de latence d'attente (`await`) indispensables au diagnostic de bases de données lentes.
 **Équivalents :** iotop, vmstat, sar
 **Voir aussi :** vmstat, mpstat, sar, pidstat
-
 ## `mpstat` — Statistiques d'utilisation processeur par cœur CPU [Linux]
 **Niveau :** intermediaire | **Popularité :** 89 | **Aliases :** —
 **Contextes :** vérifier la répartition de la charge CPU sur un serveur multi-cœurs (ex: détecter si un seul cœur est saturé à 100% par une application mono-thread)
@@ -885,11 +885,11 @@
 **Origine :** Solaris / paquet `sysstat` (Sebastien Godard, 1999).
 **Subtilités/confusions :**
 - `%iowait` indique le pourcentage de temps CPU perdu à attendre la réponse d'un composant de stockage (disque).
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Pratique pour vérifier si vos tâches parallèles exploitent correctement l'ensemble des cœurs CPU disponibles (`nproc`).
 **Équivalents :** htop, lscpu, vmstat
 **Voir aussi :** vmstat, iostat, sar, nproc
-
 ## `pidstat` — Statistiques de ressources filtrées par processus [Linux]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** —
 **Contextes :** identifier précisément quel processus consomme le plus d'E/S disque, de RAM ou génère des fautes de page (*page faults*) en temps réel
@@ -902,11 +902,11 @@
 **Origine :** Paquet `sysstat` (Sebastien Godard, 2007).
 **Subtilités/confusions :**
 - Contrairement à `top` qui rafraîchit tout l'écran, `pidstat` affiche une séquence d'historique en défilement continu idéal pour les logs d'analyse.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Inestimable pour débusquer un processus d'arrière-plan qui effectue des écritures disque masquées destructrices de performances.
 **Équivalents :** top, htop, iotop
 **Voir aussi :** iostat, vmstat, mpstat, sar
-
 ## `sar` — Collecteur et rapporteur d'activité système historique [Linux]
 **Niveau :** avance | **Popularité :** 91 | **Aliases :** —
 **Contextes :** analyser a posteriori les performances du système lors d'une panne survenue la nuit dernière (charge CPU, RAM, trafic réseau, E/S disque)
@@ -919,11 +919,11 @@
 **Origine :** System V / paquet `sysstat` (Sebastien Godard, 1999).
 **Subtilités/confusions :**
 - Nécessite d'activer le service `sysstat` (`systemctl enable --now sysstat`) pour qu'il enregistre les métriques en arrière-plan chaque minute.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Indispensable lors de l'investigation d'incidents (post-mortem) pour savoir exactement ce qui s'est passé à une heure précise.
 **Équivalents :** vmstat, iostat, dstat
 **Voir aussi :** vmstat, iostat, mpstat, pidstat
-
 ## `numactl` — Contrôle des politiques mémoire et CPU sur architectures NUMA [Linux]
 **Niveau :** avance | **Popularité :** 82 | **Aliases :** —
 **Contextes :** optimiser les accès mémoire sur les serveurs biprocesseurs (NUMA) pour s'assurer qu'un processus tourne sur le socket CPU directement relié à sa banque de RAM
@@ -936,11 +936,11 @@
 **Origine :** Andi Kleen / SuSE (2003) — paquet `numactl`.
 **Subtilités/confusions :**
 - Évite les pénalités de latence mémoire (jusqu'à 30% de ralentissement) dues aux traversées du bus inter-socket (QPI/UPI/Infinity Fabric).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Recommandé pour les bases de données haute performance (PostgreSQL, MySQL, Redis, Oracle) hébergées sur de gros serveurs bi-sockets.
 **Équivalents :** taskset, lscpu
 **Voir aussi :** taskset, lscpu, nproc
-
 ## `ldd` — Affichage des bibliothèques partagées dynamiques requises [Linux]
 **Niveau :** intermediaire | **Popularité :** 97 | **Aliases :** —
 **Contextes :** diagnostiquer l'erreur classique `error while loading shared libraries`, ou lister toutes les dépendances `.so` requises par un binaire ELF
@@ -952,11 +952,11 @@
 **Origine :** GNU C Library / SunOS.
 **Subtilités/confusions :**
 - Si une bibliothèque est manquante, `ldd` affiche `not found` en face de son nom.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** ⚠️ Ne jamais exécuter `ldd` sur un binaire binaire provenant d'une source non fiable (certaines implémentations de l'outil exécutent partiellement le code pour résoudre les dépendances !). Utiliser `objdump -p` ou `readelf -d` sur des binaires suspects.
 **Précautions :** Pratique lors de la création d'images Docker minimalistes (*distroless* ou *chroot*) pour copier exactement les bibliothèques requises.
 **Équivalents :** objdump -p, readelf -d, otool -L (macOS)
 **Voir aussi :** readelf, objdump, gcc
-
 ## `readelf` — Inspection de la structure des fichiers binaires ELF [Linux]
 **Niveau :** avance | **Popularité :** 88 | **Aliases :** —
 **Contextes :** analyser la structure interne d'un fichier binaire binaire ELF (en-têtes, sections, symboles, dépendances) sans dépendre du chargeur dynamique
@@ -969,11 +969,11 @@
 **Origine :** Nick Clifton / GNU Binutils (1999).
 **Subtilités/confusions :**
 - N'exécute JAMAIS le binaire analysé, ce qui en fait l'outil d'analyse statique et de reverse engineering le plus sûr de Linux.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Idéal pour vérifier si un binaire est compilé en mode position-indépendante (`PIE`) pour des raisons de sécurité.
 **Équivalents :** objdump, ldd, nm
 **Voir aussi :** ldd, nm, gcc, file
-
 ## `nm` — Liste des symboles des fichiers binaires et objets [Linux/macOS]
 **Niveau :** avance | **Popularité :** 89 | **Aliases :** —
 **Contextes :** diagnostiquer des erreurs d'édition de liens (*undefined reference to...*), vérifier si une fonction ou variable globale est présente dans une bibliothèque `.a` ou `.so`
@@ -986,6 +986,7 @@
 **Origine :** AT&T Unix (1970s) / GNU Binutils.
 **Subtilités/confusions :**
 - L'option `-C` (`--demangle`) est essentielle pour du C++ afin de convertir les noms internes mutilés (ex: `_Z3fooi`) en signatures de fonctions lisibles (ex: `foo(int)`).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Si un binaire a été dépouillé de ses symboles (`strip`), `nm` affichera `no symbols`.
 **Équivalents :** readelf -s, objdump -t

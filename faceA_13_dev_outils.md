@@ -28,11 +28,11 @@
 **Origine :** Michael Tiemann (1987) — premier compilateur C++ natif open source.
 **Subtilités/confusions :**
 - Diffère de `gcc` car il lie automatiquement `libstdc++` et traite les fichiers `.c` comme du C++.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Spécifier explicitement le standard C++ (`-std=c++17` ou `-std=c++20`) pour garantir la répétabilité du build.
 **Équivalents :** clang++, icpx, MSVC (cl.exe)
 **Voir aussi :** gcc, clang++, cmake, gdb
-
 ## `clang` — Compilateur C/C++/Obj-C basé sur LLVM [Cross]
 **Niveau :** intermediaire | **Popularité :** 95 | **Aliases :** —
 **Contextes :** compiler du code C/C++ avec des messages d'erreur ultra-clairs, utiliser des analyseurs statiques et sanitizers (ASan, TSan), remplacer GCC
@@ -45,11 +45,11 @@
 **Origine :** Apple / Chris Lattner (2007) — créé pour remplacer GCC dans les outils Xcode d'Apple.
 **Subtilités/confusions :**
 - Compatible avec les drapeaux CLI de GCC (`-Wall`, `-O2`, `-o`…), ce qui permet de l'utiliser en remplacement direct dans la plupart des Makefiles.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser `-fsanitize=undefined` et `-fsanitize=address` en phase de test pour intercepter les comportements indéfinis.
 **Équivalents :** gcc, tcc
 **Voir aussi :** clang++, gcc, llvm-ar, scan-build
-
 ## `clang++` — Compilateur C++ basé sur LLVM [Cross]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** —
 **Contextes :** compiler du code C++ sous macOS (compilateur par défaut via Xcode), Linux ou Windows, intégrer l'écosystème d'outils LLVM
@@ -61,11 +61,11 @@
 **Origine :** Projet LLVM (2007).
 **Subtilités/confusions :**
 - Sous macOS, la commande `g++` est souvent un alias ou un wrapper pointeur vers `clang++`.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Faire attention aux incompatibilités d'ABI lors du mélange d'objets compilés avec GCC (libstdc++) et Clang (libc++).
 **Équivalents :** g++, MSVC
 **Voir aussi :** clang, g++, cmake
-
 ## `bear` — Générateur de base de données de compilation (`compile_commands.json`) [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 86 | **Aliases :** —
 **Contextes :** intercepter les commandes d'un Makefile pour générer automatiquement le fichier `compile_commands.json` requis par Clangd, Clang-Tidy, et les serveurs LSP
@@ -77,11 +77,11 @@
 **Origine :** László Nagy (2014) — créé pour alimenter les outils d'analyse statique C/C++ basés sur Clang.
 **Subtilités/confusions :**
 - Fonctionne en préchargeant une bibliothèque via `LD_PRELOAD` qui intercepte les appels système `execve` des compilateurs.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Toujours faire un `make clean` avant de lancer `bear -- make` pour forcer la re-compilation de tous les fichiers objets.
 **Équivalents :** compiledb, cmake (-DCMAKE_EXPORT_COMPILE_COMMANDS=ON)
 **Voir aussi :** cmake, clang-tidy, clang
-
 ## `cmake` — Générateur de fichiers de build multiplateforme [Cross]
 **Niveau :** intermediaire | **Popularité :** 97 | **Aliases :** —
 **Contextes :** configurer la compilation de projets C/C++ complexes et multiplateformes, générer des Makefiles, fichiers Ninja ou projets Visual Studio / Xcode
@@ -94,11 +94,11 @@
 **Origine :** Bill Hoffman / Kitware (2000) — créé pour automatiser le build de la bibliothèque de traitement d'images ITK.
 **Subtilités/confusions :**
 - `cmake` ne compile pas lui-même le code source : il génère les fichiers pour un outil de build effectif (Make, Ninja, MSVC).
+- Consulter la documentation officielle pour vérifier la liste complète des options prises en charge.
 **Urgences/dangers :** —
 **Précautions :** Toujours privilégier les builds hors-source (`cmake -B build`) pour conserver un répertoire source propre.
 **Équivalents :** meson, autotools, bazel
 **Voir aussi :** make, ninja, gcc, clang
-
 ## `ninja` — Moteur de compilation ultra-rapide axé sur la vitesse [Cross]
 **Niveau :** intermediaire | **Popularité :** 91 | **Aliases :** —
 **Contextes :** accélérer considérablement les temps de compilation des grands projets (Android, LLVM, Chromium, CMake) par rapport à Make
@@ -116,7 +116,6 @@
 **Précautions :** Ne pas éditer manuellement le fichier `build.ninja` car il est régénéré par CMake/Meson.
 **Équivalents :** make, samurai (samu)
 **Voir aussi :** cmake, meson, make
-
 ## `bazel` — Moteur de build multi-langages et monorepo [Cross]
 **Niveau :** avance | **Popularité :** 86 | **Aliases :** —
 **Contextes :** gérer le build hermétique, reproductible et distribué de grands monorepos multi-langages (C++, Java, Go, Python, Rust)
@@ -129,11 +128,11 @@
 **Origine :** Google (2015) — version open source du système de build interne `Blaze` de Google.
 **Subtilités/confusions :**
 - Bazel impose un bac à sable strict : si une dépendance n'est pas déclarée explicitement dans le fichier `BUILD`, le build échoue.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Configurer un serveur de cache distant (*Remote Build Execution / RBE*) pour tirer pleinement parti de la vitesse de Bazel en équipe.
 **Équivalents :** buck (Meta), pants, nx, msbuild
 **Voir aussi :** cmake, make, cargo
-
 ## `meson` — Système de build moderne et rapide [Cross]
 **Niveau :** intermediaire | **Popularité :** 85 | **Aliases :** —
 **Contextes :** configurer et compiler des projets C/C++/GNOME/GTK avec une syntaxe claire et conviviale en remplacement d'Autotools
@@ -146,11 +145,11 @@
 **Origine :** Jussi Pakkanen (2012) — créé pour offrir une alternative moderne et lisible à CMake et Autotools.
 **Subtilités/confusions :**
 - La syntaxe du fichier `meson.build` est non Turing-complète par design pour éviter la complexité des scripts CMake.
+- Consulter la documentation officielle pour vérifier la liste complète des options prises en charge.
 **Urgences/dangers :** —
 **Précautions :** Nécessite Python 3 et Ninja installés sur la machine hôte.
 **Équivalents :** cmake, autotools
 **Voir aussi :** ninja, cmake, gcc
-
 ## `watchexec` — Exécution automatique de commandes sur modification de fichiers [Cross]
 **Niveau :** debutant | **Popularité :** 89 | **Aliases :** —
 **Contextes :** relancer automatiquement des tests, re-compiler du code ou redémarrer un serveur local chaque fois qu'un fichier source du projet est modifié
@@ -162,11 +161,11 @@
 **Origine :** Félix Saparelli (2016) — écrit en Rust.
 **Subtilités/confusions :**
 - Ignore automatiquement les fichiers listés dans votre `.gitignore` sans aucune configuration supplémentaire.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser l'option `-r` (restart) pour tuer le processus précédent avant de relancer le nouveau si c'est un serveur long.
 **Équivalents :** nodemon, entr, reflex
 **Voir aussi :** just, cargo, uv
-
 ## `rustc` — Compilateur officiel du langage Rust [Cross]
 **Niveau :** avance | **Popularité :** 90 | **Aliases :** —
 **Contextes :** compiler directement un fichier source Rust `.rs` sans passer par Cargo, inspecter le code assembleur ou la MIR générée
@@ -179,11 +178,11 @@
 **Origine :** Graydon Hoare / Mozilla (2010).
 **Subtilités/confusions :**
 - Dans 99% des cas, les développeurs utilisent `cargo` qui invoque `rustc` en arrière-plan avec les bons arguments.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser `rustc --explain` dès qu'un message d'erreur du compilateur n'est pas immédiatement clair.
 **Équivalents :** gcc, clang, javac
 **Voir aussi :** cargo, rustup, clang
-
 ## `javac` — Compilateur de bytecode du langage Java [Cross]
 **Niveau :** debutant | **Popularité :** 93 | **Aliases :** —
 **Contextes :** compiler des fichiers de code source Java (`.java`) en fichiers de bytecode Java (`.class`) exécutables par la JVM
@@ -196,11 +195,11 @@
 **Origine :** Sun Microsystems (1995) / désormais géré par Oracle et le projet OpenJDK.
 **Subtilités/confusions :**
 - `javac` produit du bytecode `.class`, non un binaire natif (exécutable ensuite avec `java Main`).
+- Consulter la documentation officielle pour vérifier la liste complète des options prises en charge.
 **Urgences/dangers :** —
 **Précautions :** S'assurer d'utiliser la même version de `javac` et de `java` (`javac -version`) pour éviter les erreurs `UnsupportedClassVersionError`.
 **Équivalents :** kotlinc (Kotlin), scalac (Scala)
 **Voir aussi :** java, jar, maven, gradle
-
 ## `zig` — Compilateur et toolchain du langage Zig [Cross]
 **Niveau :** intermediaire | **Popularité :** 87 | **Aliases :** —
 **Contextes :** compiler du code Zig, utiliser Zig comme compilateur C/C++ multiplateforme ultra-performant (cross-compilation facile)
@@ -213,11 +212,11 @@
 **Origine :** Andrew Kelley (2015) — créé pour remplacer le C avec un langage simple, sans macro et sans comportement indéfini.
 **Subtilités/confusions :**
 - `zig cc` et `zig c++` sont des remplacements directs et redoutablement efficaces de `gcc`/`clang` pour la cross-compilation C/C++.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Le langage Zig est encore en évolution rapide (0.x) ; vérifier la version exacte utilisée.
 **Équivalents :** gcc, clang, cargo
 **Voir aussi :** gcc, clang, cargo
-
 ## `nvcc` — Compilateur NVIDIA CUDA C/C++ pour GPU [Linux/Windows]
 **Niveau :** avance | **Popularité :** 88 | **Aliases :** —
 **Contextes :** compiler du code C/C++ contenant des noyaux (*kernels*) d'exécution parallèle CUDA pour GPU NVIDIA (IA, calcul scientifique)
@@ -230,11 +229,11 @@
 **Origine :** NVIDIA (2007) — composant fondamental du toolkit CUDA pour le GPGPU.
 **Subtilités/confusions :**
 - Nécessite des pilotes NVIDIA compatibles et le toolkit CUDA installé sur le système hôte.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Vérifier l'architecture Compute Capability de votre GPU (`nvidia-smi`) et passer l'option `-arch=sm_XX` correspondante.
 **Équivalents :** hipcc (AMD ROCm)
 **Voir aussi :** gcc, clang, GPU
-
 ## `nasm` — Netwide Assembler pour l'architecture x86/x64 [Cross]
 **Niveau :** avance | **Popularité :** 82 | **Aliases :** —
 **Contextes :** assembler du code source en langage d'assemblage x86 ou x64 (syntaxe Intel) en fichier objet ELF, Mach-O ou Win64
@@ -247,11 +246,11 @@
 **Origine :** Simon Tatham et Julian Hall (1996) — créé pour combler le manque d'un bon assembleur syntaxe Intel sous Linux.
 **Subtilités/confusions :**
 - Diffère de `as` (GNU Assembler) qui utilise par défaut la syntaxe AT&T (`mov %rax, %rbx`) alors que NASM utilise la syntaxe Intel (`mov rax, rbx`).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Toujours lier le fichier objet `.o` généré avec `ld` ou `gcc` pour obtenir un binaire exécutable.
 **Équivalents :** yasm, fasm, masm, as (GAS)
 **Voir aussi :** gcc, gdb, objdump
-
 ## `gdb` — Débogueur GNU pour C, C++ et Fortran [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 97 | **Aliases :** —
 **Contextes :** analyser un plantage d'application (*segfault*), inspecter la mémoire et la pile d'appels à un point d'arrêt, débugger des fichiers *core dump*
@@ -264,11 +263,11 @@
 **Origine :** Richard Stallman (1986) — composant incontournable de l'écosystème C/C++ sous Linux.
 **Subtilités/confusions :**
 - Nécessite d'avoir compilé le programme avec l'option `-g` pour pouvoir faire correspondre les adresses mémoire au code source.
+- Consulter la documentation officielle pour vérifier la liste complète des options prises en charge.
 **Urgences/dangers :** S'attacher à un processus en production avec `gdb` le met en pause tant que vous êtes dans le débogueur.
 **Précautions :** Utiliser la commande `bt` (backtrace) dans gdb pour obtenir immédiatement la pile d'appels lors d'un crash.
 **Équivalents :** lldb, windbg (Windows), r2 (radare2)
 **Voir aussi :** gcc, valgrind, lldb, strace
-
 ## `lldb` — Débogueur haute performance basé sur LLVM [Cross]
 **Niveau :** intermediaire | **Popularité :** 92 | **Aliases :** —
 **Contextes :** débugger des programmes C, C++, Swift ou Rust sous macOS (débogueur par défaut de Xcode), Linux ou Windows
@@ -281,11 +280,11 @@
 **Origine :** Apple / Projet LLVM (2010) — conçu pour remplacer GDB dans Xcode et l'écosystème LLVM.
 **Subtilités/confusions :**
 - La syntaxe des commandes diffère légèrement de GDB (ex: `breakpoint set -n main` dans LLDB contre `b main` dans GDB, bien que les alias courts existent).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser `command alias` dans `~/.lldbinit` pour créer des raccourcis similaires à GDB si besoin.
 **Équivalents :** gdb, windbg
 **Voir aussi :** clang, gdb, rustc
-
 ## `valgrind` — Analyseur de mémoire et détecteur de fuites [Linux/macOS]
 **Niveau :** avance | **Popularité :** 94 | **Aliases :** —
 **Contextes :** détecter des fuites mémoire (*memory leaks*), des lectures/écritures hors-limites (*buffer overflow*), ou des accès à de la mémoire non initialisée
@@ -298,11 +297,11 @@
 **Origine :** Julian Seward (2002) — récompensé par le prix ACM Software System Award.
 **Subtilités/confusions :**
 - Valgrind ralentit l'exécution de l'application de 10× à 50× (car il interprète le binaire sous forme d'instructions virtuelles).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Toujours compiler avec `-g` (symboles de débogage) et sans optimisations abusives (`-O0` ou `-O1`) pour des rapports lisibles.
 **Équivalents :** AddressSanitizer (ASan), Heaptrack, Dr. Memory
 **Voir aussi :** gdb, gcc, clang
-
 ## `strace` — Traçage des appels système (*syscalls*) [Linux]
 **Niveau :** intermediaire | **Popularité :** 96 | **Aliases :** —
 **Contextes :** diagnostiquer pourquoi une application ne démarre pas, quel fichier de configuration manquant elle essaie d'ouvrir, ou pourquoi un processus est bloqué sur le réseau
@@ -315,11 +314,11 @@
 **Origine :** Paul Kranenburg (1991) — outil de diagnostic fondamental de l'écosystème Linux.
 **Subtilités/confusions :**
 - `strace` filtre via `-e trace=network`, `-e trace=file`, `-e trace=process` pour réduire la quantité d'output.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** S'attacher à un processus très sollicité dégrade légèrement ses performances en raison du surcoût des interruptions `ptrace`.
 **Précautions :** Rediriger la sortie avec `-o trace.log` car le volume de logs généré sur `stderr` peut être immense.
 **Équivalents :** dtrace (macOS/Solaris), truss (BSD), procmon (Windows)
 **Voir aussi :** ltrace, gdb, perf, lsof
-
 ## `ltrace` — Traçage des appels de bibliothèques dynamiques [Linux]
 **Niveau :** intermediaire | **Popularité :** 84 | **Aliases :** —
 **Contextes :** intercepter les appels aux fonctions de bibliothèques partagées (`libc`, `openssl`, `libcurl`) effectuées par un programme utilisateur
@@ -332,11 +331,11 @@
 **Origine :** Juan Cespedes (1997).
 **Subtilités/confusions :**
 - `strace` intercepte les appels au noyau (`open`, `read`), alors que `ltrace` intercepte les appels aux fonctions C de l'espace utilisateur (`fopen`, `fread`).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Si le binaire est lié de manière statique (*statically linked*), `ltrace` ne verra aucun symbole de bibliothèque.
 **Équivalents :** dtrace, latrace
 **Voir aussi :** strace, gdb, ldd
-
 ## `perf` — Profiler de performance du noyau Linux [Linux]
 **Niveau :** avance | **Popularité :** 89 | **Aliases :** `perf_events`
 **Contextes :** identifier les fonctions gourmandes en CPU (points chauds / *hotspots*), analyser les ratés de cache CPU (*cache misses*) et générer des Flamegraphs
@@ -349,11 +348,11 @@
 **Origine :** Ingo Molnar / noyau Linux (2009) — sous-système officiel du noyau Linux.
 **Subtilités/confusions :**
 - Nécessite souvent d'ajuster `sysctl kernel.perf_event_paranoid` ou de s'exécuter avec les privilèges root.
+- L execution avec les privilèges d administration doit être restreinte au strict nécessaire.
 **Urgences/dangers :** —
 **Précautions :** Compiler le code cible avec `-fno-omit-frame-pointer` pour obtenir des piles d'appels précises dans les Flamegraphs.
 **Équivalents :** gprof, valgrind (callgrind), VTune (Intel)
 **Voir aussi :** strace, valgrind, sysctl
-
 ## `hyperfine` — Outil de benchmarking CLI moderne [Cross]
 **Niveau :** debutant | **Popularité :** 88 | **Aliases :** —
 **Contextes :** comparer scientifiquement les temps d'exécution de deux commandes ou scripts CLI (ex: `fd` vs `find`, `grep` vs `ripgrep`, `npm` vs `pnpm`)
@@ -366,11 +365,11 @@
 **Origine :** David Peter « sharkdp » (2018) — créateur de `bat` et `fd`.
 **Subtilités/confusions :**
 - Calcule la moyenne, l'écart-type, le minimum et le maximum automatiquement sur plusieurs itérations.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Fermer les applications gourmandes en arrière-plan pendant la mesure pour éviter les biais de charge CPU.
 **Équivalents :** time, bench
 **Voir aussi :** time (bash), perf
-
 ## `webpack` — Bundler de modules JavaScript/Web [Cross]
 **Niveau :** intermediaire | **Popularité :** 92 | **Aliases :** —
 **Contextes :** assembler des dépendances JavaScript/TypeScript, CSS et assets pour le navigateur web dans les applications Single Page (React, Vue, Angular)
@@ -382,11 +381,11 @@
 **Origine :** Tobias Koppers (2012) — le bundler historique dominant de l'écosystème Node.js.
 **Subtilités/confusions :**
 - Très puissant mais réputé pour la complexité de son fichier de configuration `webpack.config.js`.
+- Consulter la documentation officielle pour vérifier la liste complète des options prises en charge.
 **Urgences/dangers :** —
 **Précautions :** Utiliser la séparation de code (*code splitting*) via l'import dynamique pour éviter d'envoyer des bundles JS trop volumineux au navigateur.
 **Équivalents :** vite, esbuild, rollup, rspack, parcel
 **Voir aussi :** vite, esbuild, npm, pnpm
-
 ## `vite` — Bundler et serveur de dev web ultra-rapide [Cross]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** —
 **Contextes :** démarrer instantanément un serveur de développement pour React, Vue, Svelte ou TypeScript, builder pour la production avec Rollup/esbuild
@@ -399,11 +398,11 @@
 **Origine :** Evan You (créateur de Vue.js, 2020) — devenu le standard de fait de l'écosystème JS.
 **Subtilités/confusions :**
 - Ne re-bundler pas l'application entière en mode dev à chaque modification : seul le fichier modifié est transmis au navigateur via ESM natif.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Configurer `vite.config.js` pour gérer les variables d'environnement (préfixées par `VITE_` pour être accessibles côté client).
 **Équivalents :** webpack, parcel, farm
 **Voir aussi :** esbuild, webpack, pnpm, bun
-
 ## `esbuild` — Bundler JavaScript/TypeScript ultra-rapide en Go [Cross]
 **Niveau :** avance | **Popularité :** 91 | **Aliases :** —
 **Contextes :** transpiler du TypeScript/JSX et bundler du JavaScript 10 à 100 fois plus vite que les outils JS traditionnels (Babel, Webpack)
@@ -416,11 +415,11 @@
 **Origine :** Evan Wallace (co-fondateur de Figma, 2020) — écrit en Go pour éviter le surcoût de la boucle d'événements et du garbage collector Node.js.
 **Subtilités/confusions :**
 - `esbuild` ne fait pas de vérification de types TypeScript (*type checking*) ; il supprime simplement les annotations de type (pour le checking, utiliser `tsc --noEmit`).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Intégré en sous-main comme moteur interne de Vite et d'autres frameworks modernes.
 **Équivalents :** swc, webpack, rollup, rspack
 **Voir aussi :** vite, swc, tsc
-
 ## `swc` — Compilateur JS/TS ultra-rapide écrit en Rust [Cross]
 **Niveau :** avance | **Popularité :** 89 | **Aliases :** —
 **Contextes :** transpiler et minifier du JavaScript/TypeScript à très grande vitesse dans des pipelines Next.js, Jest ou Webpack
@@ -432,11 +431,11 @@
 **Origine :** DongYoon Kang / Vercel (2018) — écrit en Rust pour offrir des performances maximales dans les builds Next.js.
 **Subtilités/confusions :**
 - Tout comme esbuild, SWC ne fait pas de contrôle de types TypeScript ; il se concentre sur la vitesse de transformation de la syntaxe.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Configurer `.swcrc` pour personnaliser les cibles ECMAScript et les plugins React (JSX transform).
 **Équivalents :** babel, esbuild, tsc
 **Voir aussi :** esbuild, tsc, vite
-
 ## `tsc` — Compilateur TypeScript officiel [Cross]
 **Niveau :** debutant | **Popularité :** 98 | **Aliases :** —
 **Contextes :** vérifier la cohérence des types d'un projet TypeScript, générer les fichiers JavaScript correspondants ainsi que les définitions de types (`.d.ts`)
@@ -449,11 +448,11 @@
 **Origine :** Anders Hejlsberg / Microsoft (2012) — créateur du langage C# et de TypeScript.
 **Subtilités/confusions :**
 - Seul `tsc` garantit une vérification complète du graphe de types ; les transpileurs rapides (esbuild, SWC, Babel) ignorent la vérification des types.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Activer `"strict": true` dans le fichier `tsconfig.json` pour bénéficier de toute la protection contre les erreurs `null`/`undefined`.
 **Équivalents :** swc, esbuild, babel
 **Voir aussi :** esbuild, swc, pnpm
-
 ## `babel` — Transpileur JavaScript rétro-compatible [Cross]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** `babel-cli`
 **Contextes :** convertir du code JavaScript moderne (ES6+, JSX, propositions récentes) en code compatible avec les anciennes versions des navigateurs web ou Node.js
@@ -465,11 +464,11 @@
 **Origine :** Sebastian McKenzie (2014) — initialement appelé *6to5*.
 **Subtilités/confusions :**
 - Nécessite la présence d'un fichier de configuration `babel.config.json` ou `.babelrc` décrivant les presets et plugins à appliquer.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Pour les nouveaux projets, évaluer l'utilisation d'outils plus rapides comme SWC ou ESBuild sauf besoin spécifique d'un plugin Babel sur-mesure.
 **Équivalents :** swc, esbuild, tsc
 **Voir aussi :** swc, esbuild, webpack
-
 ## `tokei` — Compteur de lignes de code et statistiques de langage [Cross]
 **Niveau :** debutant | **Popularité :** 90 | **Aliases :** —
 **Contextes :** afficher rapidement un tableau récapitulatif du nombre de lignes de code, de commentaires et de lignes vides ventilées par langage dans un projet
@@ -482,11 +481,11 @@
 **Origine :** Xidorn Quan (2016) — écrit en Rust.
 **Subtilités/confusions :**
 - Plus de 100 fois plus rapide que les vieux outils en Perl comme `cloc`.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Idéal pour évaluer la taille et les langages prédominants d'un nouveau dépôt avant d'entamer une refactorisation.
 **Équivalents :** scc, cloc, sloccount
 **Voir aussi :** scc, git, hyperfine
-
 ## `ast-grep` — Recherche et refactoring de code basé sur l'AST (`sg`) [Cross]
 **Niveau :** avance | **Popularité :** 91 | **Aliases :** `sg`
 **Contextes :** rechercher et remplacer des motifs de code complexes en comprenant la structure syntaxique (AST) au lieu d'utiliser de simples regex textuelles
@@ -498,11 +497,11 @@
 **Origine :** Herrington Darkholme (2022) — écrit en Rust, basé sur les grammaires Tree-sitter.
 **Subtilités/confusions :**
 - `$A` est une métavariable qui capture n'importe quel nœud AST (expression, variable, fonction).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Tester les règles de remplacement avec `--interactive` avant d'appliquer les modifications en masse.
 **Équivalents :** semgrep, comby, jscodeshift
 **Voir aussi :** semgrep, grep, ripgrep
-
 ## `prettier` — Formateur de code opinionâtre multi-langages [Cross]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** —
 **Contextes :** harmoniser automatiquement le style de code (formatage, espaces, guillemets, point-virgules) dans un projet web ou multi-langages (JS, TS, HTML, CSS, JSON, Markdown, YAML)
@@ -514,11 +513,11 @@
 **Origine :** James Long (2017) — inspiré de `gofmt` pour mettre fin aux débats de style dans les équipes web.
 **Subtilités/confusions :**
 - Prettier ne s'occupe QUE du style visuel (espaces, retours à la ligne) ; les erreurs de logique ou de variables non utilisées sont gérées par un linter comme `eslint`.
+- Consulter la documentation officielle pour vérifier la liste complète des options prises en charge.
 **Urgences/dangers :** —
 **Précautions :** Définir un fichier `.prettierignore` pour exclure les répertoires de build (`dist/`, `node_modules/`, `.git/`).
 **Équivalents :** ruff, black, clang-format, gofmt, biome
 **Voir aussi :** eslint, ruff, black
-
 ## `eslint` — Linter statique pour JavaScript et TypeScript [Cross]
 **Niveau :** intermediaire | **Popularité :** 98 | **Aliases :** —
 **Contextes :** analyser le code source JavaScript/TypeScript à la recherche de bugs potentiels, de mauvaises pratiques, de variables inutilisées et d'incohérences
@@ -531,11 +530,11 @@
 **Origine :** Nicholas C. Zakas (2013) — créé pour offrir un linter totalement modulaire et extensible par plugins.
 **Subtilités/confusions :**
 - Utiliser `@typescript-eslint` pour étendre ESLint au langage TypeScript.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Associer ESLint avec Prettier en désactivant les règles de formatage ESLint conflictuelles (`eslint-config-prettier`).
 **Équivalents :** biome, oxlint, ruff (pour Python)
 **Voir aussi :** prettier, tsc, swc
-
 ## `ruff` — Linter et formateur Python ultra-rapide en Rust [Cross]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** —
 **Contextes :** vérifier et formater du code Python 100 à 1000 fois plus vite que Flake8, Black, isort, pydocstyle et bandit réunis
@@ -548,11 +547,11 @@
 **Origine :** Charlie Marsh / Astral (2022) — devenu l'outil de linting standard adopté par la majorité des grands projets Python (FastAPI, Pandas, SciPy).
 **Subtilités/confusions :**
 - `ruff check` remplace Flake8/isort ; `ruff format` remplace Black.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Configurer les règles dans `pyproject.toml` sous la section `[tool.ruff]`.
 **Équivalents :** flake8, black, isort, pylint, mypy
 **Voir aussi :** uv, black, prettier
-
 ## `black` — Formateur de code Python intransigeant [Cross]
 **Niveau :** debutant | **Popularité :** 93 | **Aliases :** —
 **Contextes :** formater automatiquement du code Python selon une norme stricte et déterministe pour éliminer toute discussion sur le style lors des revues de code
@@ -565,11 +564,11 @@
 **Origine :** Łukasz Langa (2018) — projet officiel hébergé sous l'organisation Python Software Foundation (PSF).
 **Subtilités/confusions :**
 - Black ne propose volontairement que très peu d'options de configuration (longueur de ligne maximale par défaut : 88 caractères).
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Utiliser `black --check` dans les hooks de pré-commit et les pipelines de CI.
 **Équivalents :** ruff format, yapf, autopep8
 **Voir aussi :** ruff, prettier, uv
-
 ## `clang-format` — Formateur de code C, C++, Java, JS et C# [Cross]
 **Niveau :** intermediaire | **Popularité :** 91 | **Aliases :** —
 **Contextes :** appliquer une règle de style de code unifiée (Google, LLVM, Mozilla, Chromium, GNU) à des fichiers source C, C++, Java, JavaScript ou Proto
@@ -582,11 +581,11 @@
 **Origine :** Projet LLVM (2012).
 **Subtilités/confusions :**
 - L'option `-i` modifie directement le fichier sur le disque sans demander de confirmation.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Placer le fichier de configuration `.clang-format` à la racine de votre dépôt Git pour que tous les développeurs et l'IDE utilisent les mêmes règles.
 **Équivalents :** unrust, astyle, prettier
 **Voir aussi :** clang, clang-tidy, gcc
-
 ## `clang-tidy` — Analyseur statique et linter C/C++ [Cross]
 **Niveau :** avance | **Popularité :** 89 | **Aliases :** —
 **Contextes :** détecter des erreurs de logique, des fuites de mémoire, des violations de règles C++ Core Guidelines et moderniser du code C++ ancien
@@ -599,11 +598,11 @@
 **Origine :** Projet LLVM (2014).
 **Subtilités/confusions :**
 - Nécessite de connaître les drapeaux de compilation de votre projet (souvent fourni automatiquement via un fichier `compile_commands.json` généré par CMake via `cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON`).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** L'option `-fix` modifie le code source ; vérifier le `git diff` après exécution.
 **Précautions :** Utiliser `clang-tidy` conjointement avec `compile_commands.json` pour des projets de grande taille.
 **Équivalents :** cppcheck, flawfinder, infer (Meta)
 **Voir aussi :** clang, clang-format, cmake
-
 ## `doxygen` — Générateur de documentation pour C/C++/Java [Cross]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** —
 **Contextes :** générer automatiquement une documentation HTML/PDF/LaTeX complète avec diagrammes de classes à partir des commentaires structurés du code source
@@ -615,11 +614,11 @@
 **Origine :** Dimitri van Heesch (1997) — créé pour offrir l'équivalent de Javadoc pour C++.
 **Subtilités/confusions :**
 - Utilise les blocs de commentaires avec double astérisque (`/** ... */`) ou triple slash (`/// ...`) et les balises `@param`, `@return`, `@brief`.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Si `graphviz` (commande `dot`) est installé sur la machine, Doxygen génère de magnifiques diagrammes d'héritage et d'appels de fonctions.
 **Équivalents :** sphinx-build, javadoc, rustdoc
 **Voir aussi :** sphinx-build, gcc, cmake
-
 ## `sphinx-build` — Générateur de documentation technique [Cross]
 **Niveau :** intermediaire | **Popularité :** 89 | **Aliases :** `sphinx`
 **Contextes :** générer des sites de documentation d'une qualité professionnelle (HTML, PDF, Read-the-Docs) à partir de fichiers reStructuredText ou Markdown
@@ -631,11 +630,11 @@
 **Origine :** Georg Brandl / Python Software Foundation (2008) — conçu à l'origine pour documenter le langage Python lui-même.
 **Subtilités/confusions :**
 - Utilise par défaut le format `reStructuredText` (`.rst`), mais supporte le Markdown grâce à l'extension `myst-parser`.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Héberger gratuitement la documentation générée par Sphinx sur le service *Read the Docs* (`readthedocs.org`).
 **Équivalents :** mkdocs, doxygen, jekyll
 **Voir aussi :** mkdocs, doxygen, python3
-
 ## `yq` — Processeur YAML, JSON et XML en ligne de commande [Cross]
 **Niveau :** intermediaire | **Popularité :** 88 | **Aliases :** —
 **Contextes :** extraire, modifier ou convertir des valeurs dans des fichiers de configuration YAML (Kubernetes manifests, Docker Compose, Ansible, CI/CD) en CLI
@@ -648,11 +647,11 @@
 **Origine :** Mike Farah (version Go, 2017) / Andrey Kislyuk (version Python).
 **Subtilités/confusions :**
 - La version Go de Mike Farah (la plus populaire) possède une syntaxe d'expression très proche de `jq`.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** L'option `-i` écrase le fichier source ; s'assurer que le fichier est sous contrôle de version Git avant modification.
 **Équivalents :** jq, fx, dasel
 **Voir aussi :** jq, fx, pup, sops
-
 ## `fx` — Visualiseur JSON interactif et processeur en CLI [Cross]
 **Niveau :** debutant | **Popularité :** 85 | **Aliases :** —
 **Contextes :** explorer visuellement de très gros fichiers JSON dans son terminal avec pliage/dépliage de nœuds, effectuer des requêtes avec du code JavaScript natif
@@ -664,11 +663,11 @@
 **Origine :** Anton Medvedev (2018) — écrit en Go avec un moteur d'évaluation JavaScript léger.
 **Subtilités/confusions :**
 - Permet d'utiliser la syntaxe et les méthodes JavaScript standards (`.filter()`, `.map()`, `.find()`) directement en ligne de commande.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Idéal pour explorer des réponses d'API complexes avant de scripter avec `jq`.
 **Équivalents :** jq, jless, yq
 **Voir aussi :** jq, yq, curl
-
 ## `pup` — Processeur et sélecteur HTML en ligne de commande [Cross]
 **Niveau :** intermediaire | **Popularité :** 81 | **Aliases :** —
 **Contextes :** parser et extraire des éléments spécifiques d'une page web HTML brute (scraping léger) en utilisant des sélecteurs CSS depuis le terminal
@@ -681,11 +680,11 @@
 **Origine :** Eric Chiang (2014) — écrit en Go.
 **Subtilités/confusions :**
 - Fonctionne avec des sélecteurs CSS standards (`div#id`, `a.class`, `h1 + p`), ce qui le rend très intuitif pour les développeurs web.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Combiner `curl`, `pup` et `jq` pour construire des scripts de scraping puissants sans installer de navigateur headless.
 **Équivalents :** htmlq, xpath, xq
 **Voir aussi :** curl, jq, yq
-
 ## `grpcurl` — Outil CLI d'interaction avec des serveurs gRPC [Cross]
 **Niveau :** intermediaire | **Popularité :** 87 | **Aliases :** —
 **Contextes :** tester des endpoints d'API gRPC (Protobuf), inspecter la réflexion de services gRPC et exécuter des requêtes RPC directement depuis le terminal
@@ -698,11 +697,11 @@
 **Origine :** FullStory (2017) — écrit en Go.
 **Subtilités/confusions :**
 - Si le serveur gRPC n'active pas le service de réflexion (*Server Reflection*), vous devez fournir le fichier `.proto` via l'option `-proto`.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser `-plaintext` uniquement en développement local HTTP non sécurisé.
 **Équivalents :** evans, grpc-cli
 **Voir aussi :** curl, protobuf (protoc), httpie
-
 ## `newman` — Runner de collections Postman en ligne de commande [Cross]
 **Niveau :** intermediaire | **Popularité :** 86 | **Aliases :** —
 **Contextes :** exécuter automatiquement des suites de tests d'API REST/GraphQL exportées depuis Postman dans un pipeline CI/CD
@@ -715,11 +714,11 @@
 **Origine :** Postman Inc. (2014) — nommé en hommage au personnage de la série Seinfeld.
 **Subtilités/confusions :**
 - Permet d'intégrer des tests fonctionnels d'API créés visuellement par des développeurs dans des pipelines GitHub Actions ou GitLab CI.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Ne pas commiter de fichiers d'environnement Postman contenant des clés d'API ou tokens réels en clair.
 **Équivalents :** hurl, Bruno CLI, k6
 **Voir aussi :** hurl, curl, httpie
-
 ## `hurl` — Outil CLI de test d'API HTTP basé sur du texte brut [Cross]
 **Niveau :** intermediaire | **Popularité :** 89 | **Aliases :** —
 **Contextes :** décrire et exécuter des scénarios de test d'API HTTP complexes (requêtes en chaîne, captures de variables, assertions sur le status et le JSON)
@@ -731,11 +730,11 @@
 **Origine :** Orange / Fabrice Bellard & contribs (2020) — conçu pour offrir une alternative légère, rapide et orientée Git à Postman.
 **Subtilités/confusions :**
 - Format `.hurl` extrêmement lisible permettant d'enchaîner les requêtes (ex: capturer le token JWT de la réponse 1 pour l'injecter dans la requête 2).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Intégrer la commande `hurl --test *.hurl` directement dans vos tests d'intégration CI/CD.
 **Équivalents :** newman, Bruno CLI, httpie
 **Voir aussi :** curl, httpie, newman
-
 ## `mkdocs` — Générateur de sites de documentation static en Markdown [Cross]
 **Niveau :** debutant | **Popularité :** 94 | **Aliases :** —
 **Contextes :** créer un site web de documentation d'une élégance exceptionnelle à partir de simples fichiers Markdown, héberger sur GitHub Pages
@@ -748,11 +747,11 @@
 **Origine :** Dougal Matthews (2014) — conçu pour être l'outil de documentation le plus simple d'emploi.
 **Subtilités/confusions :**
 - Toute la structure du site est pilotée par un fichier YAML central simple nommé `mkdocs.yml`.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Installer le paquet `mkdocs-material` (`pip install mkdocs-material`) pour bénéficier du thème moderne responsive avec mode sombre.
 **Équivalents :** sphinx-build, docusaurus, vuepress, astro
 **Voir aussi :** sphinx-build, python3
-
 ## `protoc` — Compilateur Protocol Buffers (gRPC) [Cross]
 **Niveau :** intermediaire | **Popularité :** 93 | **Aliases :** —
 **Contextes :** générer du code source fortement typé (C++, Java, Python, Go, TypeScript) à partir de fichiers de définition `.proto` pour les communications gRPC
@@ -765,11 +764,11 @@
 **Origine :** Google (2008) — format de sérialisation binaire interne de Google rendu open source.
 **Subtilités/confusions :**
 - Nécessite d'installer les plugins de langage spécifiques (ex: `protoc-gen-go`, `protoc-gen-grpc-web`) dans votre PATH pour chaque langage cible.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Respecter les règles de compatibilité descendante des numéros de champs Protobuf (ne jamais réorganiser ni supprimer un numéro de champ existant).
 **Équivalents :** flatc (FlatBuffers), thrift
 **Voir aussi :** grpcurl, gcc, cmake
-
 ## `flatc` — Compilateur FlatBuffers pour sérialisation à accès direct [Cross]
 **Niveau :** avance | **Popularité :** 83 | **Aliases :** —
 **Contextes :** sérialiser des données binaires haute performance pour les jeux vidéo, les systèmes temps réel ou le Machine Learning sans surcoût de parsing
@@ -781,11 +780,11 @@
 **Origine :** Wouter van Oortmerssen / Google (2014) — créé pour les besoins de performance extrême dans le développement de jeux vidéo (Android/OpenXR).
 **Subtilités/confusions :**
 - Contrairement à Protobuf ou JSON, FlatBuffers ne nécessite pas d'allouer de la mémoire ou d'analyser le buffer avant de lire une valeur.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser FlatBuffers lorsque la vitesse d'accès et la mémoire sont des facteurs critiques strictes.
 **Équivalents :** protoc, capnproto
 **Voir aussi :** protoc, gcc
-
 ## `graphql-codegen` — Générateur de code typé pour GraphQL [Cross]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** —
 **Contextes :** générer automatiquement des types TypeScript, des hooks React (Apollo, TanStack Query) ou des classes Java à partir de vos schémas et requêtes GraphQL
@@ -797,11 +796,11 @@
 **Origine :** Dotan Simha / The Guild (2016) — l'outil de référence de l'écosystème GraphQL.
 **Subtilités/confusions :**
 - Élimine totalement le besoin de définir manuellement les interfaces de réponses API dans le code frontend.
+- Consulter la documentation officielle pour vérifier la liste complète des options prises en charge.
 **Urgences/dangers :** —
 **Précautions :** Exécuter le codegen dans vos pipelines CI pour garantir que les types frontend sont toujours synchronisés avec le serveur GraphQL.
 **Équivalents :** openapi-generator-cli, apollo codegen
 **Voir aussi :** tsc, prettier, eslint
-
 ## `openapi-generator-cli` — Générateur de SDKs et clients API OpenAPI [Cross]
 **Niveau :** intermediaire | **Popularité :** 91 | **Aliases :** —
 **Contextes :** générer automatiquement des bibliothèques clientes (SDKs) dans plus de 50 langages (TypeScript, Python, Go, Java, Swift…) ou des stubs de serveur à partir d'une spécification OpenAPI/Swagger
@@ -813,11 +812,11 @@
 **Origine :** Projet communautaire OpenAPITools (2018) — fork open source d'un project Swagger Codegen original.
 **Subtilités/confusions :**
 - Évite d'écrire à la main des milliers de lignes de code de sérialisation et d'appels d'API HTTP dans vos applications.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Ne pas modifier manuellement les fichiers générés dans le dossier de sortie : toujours régénérer via la spécification OpenAPI.
 **Équivalents :** swagger-codegen, stainless, openapi-typescript
 **Voir aussi :** curl, hurl, tsc
-
 ## `structurizr-cli` — Générateur de diagrammes d'architecture C4 [Cross]
 **Niveau :** avance | **Popularité :** 84 | **Aliases :** —
 **Contextes :** modéliser l'architecture d'un système logiciel sous forme de code (*Architecture as Code*) selon le modèle C4 (Context, Container, Component, Code)
@@ -829,11 +828,11 @@
 **Origine :** Simon Brown (2020) — créateur du célèbre modèle de visualisation d'architecture C4 Model.
 **Subtilités/confusions :**
 - Sépare la **modélisation** du système de la **représentation visuelle** (les diagrammes sont générés automatiquement sans dessiner de boîtes à la main).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Commiter les fichiers `.dsl` dans Git aux côtés du code source de l'application pour maintenir la documentation d'architecture à jour.
 **Équivalents :** plantuml, mermaid-cli, c4builder
 **Voir aussi :** plantuml, mermaid-cli, graphviz
-
 ## `plantuml` — Générateur de diagrammes UML à partir de texte [Cross]
 **Niveau :** intermediaire | **Popularité :** 92 | **Aliases :** —
 **Contextes :** créer des diagrammes de séquence, de classes, de composants ou de cas d'usage à partir de descriptions textuelles lisibles
@@ -846,11 +845,11 @@
 **Origine :** Arnaud Roques (2009) — écrit en Java.
 **Subtilités/confusions :**
 - Nécessite Java (JRE) et optionnellement Graphviz (`dot`) pour la disposition automatique de certains diagrammes complexes.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Intégrer les diagrammes PlantUML dans vos fichiers Markdown grâce aux extensions Sphinx ou MkDocs.
 **Équivalents :** mermaid-cli, graphviz, d2
 **Voir aussi :** graphviz, structurizr-cli, java
-
 ## `mermaid-cli` — Générateur CLI de diagrammes Mermaid (`mmdc`) [Cross]
 **Niveau :** debutant | **Popularité :** 93 | **Aliases :** `mmdc`
 **Contextes :** convertir des diagrammes Mermaid (séquence, flowchart, Gantt, ERD, Git graph) en images SVG/PNG dans des scripts automatiques ou des pipelines CI
@@ -862,11 +861,11 @@
 **Origine :** Knut Sveidqvist / Projet Mermaid (2015) — devenu le standard de fait de rendu de diagrammes dans GitHub Markdown.
 **Subtilités/confusions :**
 - La syntaxe Mermaid est rendue nativement par l'interface GitHub/GitLab, mais `mmdc` est nécessaire si vous devez générer des artefacts PNG/PDF pour des rapports imprimables.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Nécessite Node.js et un navigateur Chromium headless (géré par Puppeteer) pour l'étape de rendu.
 **Équivalents :** plantuml, graphviz, d2
 **Voir aussi :** plantuml, structurizr-cli, graphviz
-
 ## `graphviz` — Outil de disposition et tracé de graphes (`dot`) [Cross]
 **Niveau :** avance | **Popularité :** 94 | **Aliases :** `dot`, `neato`
 **Contextes :** visualiser automatiquement des structures de données complexes (arbres, graphes orientés, dépendances de paquets, graphes d'appels de fonctions)
@@ -879,11 +878,11 @@
 **Origine :** AT&T Labs Research (1991) — l'un des plus anciens et puissants moteurs de rendu de graphes au monde.
 **Subtilités/confusions :**
 - `dot` est la commande pour les graphes orientés hiérarchiques ; `neato`, `fdp` et `circo` sont d'autres moteurs inclus dans le paquet Graphviz pour des dispositions circulaires ou en réseaux.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Composant requis par Doxygen, Valgrind/Callgrind et de nombreux autres outils pour générer leurs visuels.
 **Équivalents :** plantuml, mermaid-cli
 **Voir aussi :** doxygen, plantuml, valgrind
-
 ## `semgrep` — Analyseur statique de code basé sur des motifs sémantiques [Cross]
 **Niveau :** intermediaire | **Popularité :** 91 | **Aliases :** —
 **Contextes :** rechercher des failles de sécurité (SAST), des violations de secrets ou des anti-patterns dans le code source (30+ langages) avec une syntaxe proche du code lui-même
@@ -896,11 +895,11 @@
 **Origine :** Yoann Padioleau / r2c (now Semgrep Inc., 2020) — inspiré par l'outil `coccinelle`.
 **Subtilités/confusions :**
 - Contrairement aux regex ordinaires (grep), `semgrep` comprend la structure syntaxique (AST) : il ignore les commentaires et les espaces et comprend l'équivalence des variables.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Exécuter dans les workflows GitHub Actions pour bloquer l'introduction de failles de sécurité avant le merge.
 **Équivalents :** SonarQube, CodeQL, Snyk
 **Voir aussi :** trivy, syft, ruff
-
 ## `trivy` — Scanner de vulnérabilités pour conteneurs et code [Cross]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** —
 **Contextes :** auditer la sécurité d'une image Docker, d'un système de fichiers, d'un dépôt Git, d'un cluster Kubernetes ou d'un fichier de dépendances (SCA)
@@ -913,11 +912,11 @@
 **Origine :** Teppei Fukuda / Aqua Security (2019) — rapidement devenu le scanner de conteneurs open source de référence.
 **Subtilités/confusions :**
 - Met à jour automatiquement sa base de données de vulnérabilités CVE au démarrage de chaque scan.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser `--severity HIGH,CRITICAL` pour ne faire échouer le pipeline CI qu'en présence de vulnérabilités sévères.
 **Équivalents :** grype, clair, snyk, docker scout
 **Voir aussi :** grype, syft, cosign, docker
-
 ## `syft` — Générateur de Software Bill of Materials (SBOM) [Cross]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** —
 **Contextes :** générer un inventaire complet et normalisé des logiciels et dépendances (SBOM) d'une image Docker ou d'un répertoire pour la conformité et la sécurité
@@ -930,11 +929,11 @@
 **Origine :** Anchore (2020) — créé pour répondre aux exigences réglementaires de sécurité de la chaîne d'approvisionnement logicielle (*Software Supply Chain Security*).
 **Subtilités/confusions :**
 - `syft` génère l'inventaire des composants (le SBOM) ; `grype` prend ce SBOM pour y rechercher les vulnérabilités CVE correspondantes.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Archiver les fichiers SBOM générés lors de chaque release logicielle pour la traçabilité légale.
 **Équivalents :** cdxgen, spdx-tools
 **Voir aussi :** grype, trivy, cosign
-
 ## `grype` — Scanner de vulnérabilités basé sur SBOM et conteneurs [Cross]
 **Niveau :** intermediaire | **Popularité :** 89 | **Aliases :** —
 **Contextes :** analyser un SBOM généré par Syft ou scanner directement une image Docker pour identifier les vulnérabilités CVE de la chaîne d'approvisionnement
@@ -947,11 +946,11 @@
 **Origine :** Anchore (2020).
 **Subtilités/confusions :**
 - Scanner un SBOM pré-généré avec Grype prend une fraction de seconde, ce qui est idéal pour surveiller en continu des milliers d'images sans les re-télécharger.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Exécuter `grype db update` pour mettre à jour la base locale de CVE.
 **Équivalents :** trivy, snyk, clair
 **Voir aussi :** syft, trivy, cosign
-
 ## `cosign` — Signature binaire et vérification d'images conteneur [Cross]
 **Niveau :** avance | **Popularité :** 88 | **Aliases :** —
 **Contextes :** signer numériquement des images conteneur Docker dans un registre (OCI) et vérifier leur authenticité dans Kubernetes avant déploiement
@@ -964,11 +963,11 @@
 **Origine :** Projet Sigstore / OpenSSF (2021) — soutenu par Google, Red Hat et Chainguard pour sécuriser la Software Supply Chain.
 **Subtilités/confusions :**
 - Stocke les signatures directement sous forme d'artefacts dans le registre OCI à côté de l'image elle-même.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Configurer un contrôleur d'admission dans Kubernetes (ex: Kyverno ou Conftest) pour interdire tout conteneur non signé par Cosign.
 **Équivalents :** notary (Docker Trust)
 **Voir aussi :** trivy, syft, gpg
-
 ## `direnv` — Chargeur dynamique d'environnement shell par dossier [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** —
 **Contextes :** charger et décharger automatiquement des variables d'environnement spécifiques (`.envrc`) dès que l'on entre ou sort d'un répertoire dans le terminal
@@ -981,11 +980,11 @@
 **Origine :** Fabien Framery (2014) — écrit en Go.
 **Subtilités/confusions :**
 - Par sécurité, tout nouveau fichier `.envrc` ou toute modification nécessite de taper `direnv allow` avant d'être pris en compte.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** Ne jamais faire `direnv allow` sur un dépôt dont vous n'avez pas audité le fichier `.envrc` (risque d'exécution de code malveillant).
 **Précautions :** Ajouter `.envrc` dans votre `.gitignore` global pour éviter de commiter des secrets par inadvertance.
 **Équivalents :** dotenv, autoenv, shadowenv
 **Voir aussi :** uv, rbenv, pyenv
-
 ## `just` — Command runner moderne et alternative propre à Make [Cross]
 **Niveau :** debutant | **Popularité :** 92 | **Aliases :** `justfile`
 **Contextes :** définir et exécuter des raccourcis de commandes spécifiques à un projet (ex: `just build`, `just test`, `just lint`) via un fichier `justfile` lisible
@@ -998,6 +997,7 @@
 **Origine :** Casey Rodarmor (2016) — créé pour remplacer l'utilisation détournée de `make` comme simple lanceur de scripts.
 **Subtilités/confusions :**
 - Contrairement à Make, `just` n'a pas de syntaxe complexe de gestion de dépendances de fichiers et autorise les recettes dans n'importe quel langage (bash, python, node).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Placer le fichier `justfile` à la racine de votre dépôt Git pour documenter toutes les commandes utiles de l'application.
 **Équivalents :** make, task (Taskfile), npm run

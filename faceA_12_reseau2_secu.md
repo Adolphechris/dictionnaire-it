@@ -33,7 +33,6 @@
 **Précautions :** Utiliser `-Y` pour appliquer la puissance des filtres de dissection Wireshark lors de l'analyse post-mortem de fichiers `.pcap`.
 **Équivalents :** tcpdump, wireshark, dumpcap
 **Voir aussi :** tcpdump, nmap
-
 ## `traceroute` — Traçage d'itinéraire de paquets IP [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** —
 **Contextes :** identifier où s'arrête le routage d'un paquet vers un serveur distant, déterminer la latence induite par chaque routeur intermédiaire
@@ -51,7 +50,6 @@
 **Précautions :** Utiliser le mode TCP (`traceroute -T -p 80`) lorsque les paquets UDP/ICMP par défaut sont bloqués par les pare-feux réseau.
 **Équivalents :** tracert (Windows), mtr, tcptraceroute
 **Voir aussi :** tracert, mtr, ping, ip
-
 ## `tracert` — Traçage d'itinéraire de paquets sous Windows [Windows]
 **Niveau :** debutant | **Popularité :** 94 | **Aliases :** —
 **Contextes :** diagnostiquer des pannes de routage réseau ou des lenteurs de sauts d'interconnexion depuis un poste Windows
@@ -69,7 +67,6 @@
 **Précautions :** Lancer dans une invite de commande Windows (CMD) ou PowerShell.
 **Équivalents :** traceroute (Linux/macOS), mtr, Test-NetConnection -TraceRoute (PowerShell)
 **Voir aussi :** traceroute, ping, mtr
-
 ## `mtr` — Traçage d'itinéraire et diagnostic réseau en temps réel [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 92 | **Aliases :** —
 **Contextes :** surveiller les pertes de paquets (*packet loss*) et les gitter de latence sur une liaison réseau longue durée
@@ -82,11 +79,11 @@
 **Origine :** Matt Kimball / Roger Wolff (1997) — acronyme de « My TraceRoute » (initialement Matt's TraceRoute).
 **Subtilités/confusions :**
 - Les colonnes `Loss%`, `Snt`, `Last`, `Avg`, `Best`, `Wrst`, `StDev` permettent d'isoler avec une précision chirurgicale le routeur responsable de la dégradation réseau.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Une perte de paquets affichée sur un saut intermédiaire qui disparaît sur les sauts suivants indique un simple rate-limiting ICMP du routeur et non une vraie perte de réseau.
 **Équivalents :** traceroute, pathping (Windows)
 **Voir aussi :** traceroute, ping, iperf3
-
 ## `nc` — Le couteau suisse des connexions réseau TCP/UDP [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 98 | **Aliases :** netcat
 **Contextes :** tester si un port distant est ouvert (`nc -zv`), transférer un fichier entre deux machines, ouvrir une écoute sur un port TCP
@@ -104,7 +101,6 @@
 **Précautions :** Privilégier `nc -zv` pour les vérifications de ports réseau dans les scripts d'administration.
 **Équivalents :** ncat (Nmap), socat, Test-NetConnection (PowerShell)
 **Voir aussi :** ncat, socat, nmap, ss
-
 ## `nmap` — Scanner d'exploration réseau et d'audit de sécurité [Cross]
 **Niveau :** intermediaire | **Popularité :** 97 | **Aliases :** —
 **Contextes :** découvrir les hôtes actifs sur un réseau local, identifier les ports ouverts et les services/versions qui y tournent
@@ -122,7 +118,6 @@
 **Précautions :** Restreindre la plage de ports scannés (ex: `-p 1-1024` ou `-F`) pour accélérer le scan et réduire le bruit réseau.
 **Équivalents :** masscan, rustscan, zenmap (GUI)
 **Voir aussi :** nc, masscan, tshark, ss
-
 ## `ss` — Inspection des sockets et connexions réseau Linux [Linux]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** —
 **Contextes :** vérifier quels ports sont en écoute sur un serveur, trouver quel processus utilise le port 8080 (remplaçant moderne de `netstat`)
@@ -140,7 +135,6 @@
 **Précautions :** Remplacer systématiquement la commande obsolète `netstat -tulpn` par `ss -tulpn` dans tous les scripts Linux.
 **Équivalents :** netstat, lsof -i, Get-NetTCPConnection (PowerShell)
 **Voir aussi :** netstat, lsof, ip, nc
-
 ## `netstat` — Statistique des connexions réseau et tables de routage [Cross]
 **Niveau :** debutant | **Popularité :** 93 | **Aliases :** —
 **Contextes :** inspecter les connexions réseau actives et la table de routage sous Windows, macOS ou anciens systèmes Unix
@@ -158,7 +152,6 @@
 **Précautions :** Utiliser `ss` sous Linux et `netstat -ano` sous Windows.
 **Équivalents :** ss (Linux), Get-NetTCPConnection (PowerShell), lsof -i
 **Voir aussi :** ss, ip, lsof
-
 ## `ip` — Suite universelle d'administration réseau Linux [Linux]
 **Niveau :** debutant | **Popularité :** 98 | **Aliases :** —
 **Contextes :** afficher l'adresse IP d'une machine (`ip a`), activer/désactiver une interface réseau, modifier la table de routage
@@ -176,7 +169,6 @@
 **Précautions :** Valider la syntaxe et s'assurer d'avoir un accès console de secours avant d'altérer les routes principales.
 **Équivalents :** ifconfig, route, netsh (Windows), Get-NetIPAddress (PowerShell)
 **Voir aussi :** ifconfig, route, ss, nmcli
-
 ## `ifconfig` — Configuration historique des interfaces réseau [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 92 | **Aliases :** —
 **Contextes :** consulter son adresse IP sous macOS, administrer d'anciens systèmes Unix ou BSD
@@ -194,7 +186,6 @@
 **Précautions :** Utiliser `ip a` sous Linux et `ifconfig` sous macOS.
 **Équivalents :** ip addr (Linux), ipconfig (Windows), Get-NetIPAddress (PowerShell)
 **Voir aussi :** ip, route, ipconfig
-
 ## `route` — Consultation et gestion de la table de routage IP [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 86 | **Aliases :** —
 **Contextes :** ajouter une route statique pour joindre un réseau privé à travers une passerelle ou un VPN
@@ -212,7 +203,6 @@
 **Précautions :** Utiliser `ip route` sous Linux moderne.
 **Équivalents :** ip route (Linux), route (Windows CMD), New-NetRoute (PowerShell)
 **Voir aussi :** ip, ifconfig, netstat
-
 ## `arp` — Table de correspondance entre adresses IP et adresses physiques MAC [Cross]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** —
 **Contextes :** vérifier l'adresse MAC physique d'un équipement sur le réseau local, diagnostiquer une attaque par empoisonnement ARP (*ARP spoofing*)
@@ -230,7 +220,6 @@
 **Précautions :** Vider le cache ARP (`arp -d *` sous Windows ou `ip neigh flush all` sous Linux) en cas de remplacement d'un équipement réseau ayant gardé la même IP.
 **Équivalents :** ip neigh (Linux), Get-NetNeighbor (PowerShell)
 **Voir aussi :** ip, arping, ifconfig
-
 ## `ethtool` — Configuration et diagnostic des cartes réseau Ethernet [Linux]
 **Niveau :** avance | **Popularité :** 84 | **Aliases :** —
 **Contextes :** vérifier la vitesse de négociation d'un câble Ethernet (100 Mbps vs 1 Gbps / 10 Gbps), forcer le mode Full-Duplex, identifier le clignotement de la LED du port
@@ -248,7 +237,6 @@
 **Précautions :** Conserver `autoneg on` dans 99% des cas modernes.
 **Équivalents :** networksetup (macOS), Get-NetAdapterAdvancedProperty (PowerShell)
 **Voir aussi :** ip, lspci, dmesg
-
 ## `iwconfig` — Inspection et configuration des cartes réseau sans fil Wi-Fi [Linux]
 **Niveau :** intermediaire | **Popularité :** 78 | **Aliases :** —
 **Contextes :** vérifier la qualité du signal Wi-Fi (dBm), le nom du point d'accès (ESSID) et la fréquence sous Linux
@@ -265,7 +253,6 @@
 **Précautions :** Préférer `iw dev` ou `nmcli` sur les distributions Linux modernes.
 **Équivalents :** iw (Linux), nmcli, wdutil (macOS), netsh wlan (Windows)
 **Voir aussi :** nmcli, ifconfig, ip
-
 ## `dig` — Interrogation DNS avancée (*Domain Information Groper*) [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** —
 **Contextes :** diagnostiquer la résolution d'un nom de domaine (A, AAAA, MX, TXT, CNAME), auditer la propagation DNS globale
@@ -283,7 +270,6 @@
 **Précautions :** Passer l'option `+short` dans les scripts shell pour récupérer uniquement la valeur brute (ex: adresse IP) sans l'en-tête de réponse.
 **Équivalents :** nslookup, host, Resolve-DnsName (PowerShell)
 **Voir aussi :** nslookup, host, ping
-
 ## `nslookup` — Recherche d'enregistrements d'adresses DNS [Cross]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** —
 **Contextes :** tester rapidement si un domaine pointe sur la bonne adresse IP sous Windows, Linux ou macOS
@@ -301,7 +287,6 @@
 **Précautions :** Utiliser `dig` sur les systèmes Unix/Linux et `nslookup` ou `Resolve-DnsName` sur Windows.
 **Équivalents :** dig, host, Resolve-DnsName (PowerShell)
 **Voir aussi :** dig, host
-
 ## `host` — Utilitaire de résolution de nom de domaine simple [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 90 | **Aliases :** —
 **Contextes :** vérifier la correspondance simple entre un nom de domaine et son IP dans un script Bash
@@ -314,11 +299,11 @@
 **Origine :** Eric Wassenaar / BIND (1991).
 **Subtilités/confusions :**
 - Produit une sortie en langage naturel très facile à lire et parser en script (ex: `google.com has address 142.250.179.206`).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Préférer `host` à `dig` pour un affichage humain minimaliste en une seule ligne.
 **Équivalents :** dig, nslookup
 **Voir aussi :** dig, nslookup
-
 ## `whois` — Consultation des enregistrements de propriété de domaines et d'IP [Cross]
 **Niveau :** debutant | **Popularité :** 92 | **Aliases :** —
 **Contextes :** identifier le propriétaire ou le registrar d'un nom de domaine, connaître la date d'expiration d'un domaine ou le bloc IP d'un FAI
@@ -330,11 +315,11 @@
 **Origine :** DARPA / SRI-NIC (1982) — formalisé par la RFC 812 puis RFC 3912.
 **Subtilités/confusions :**
 - En raison des réglementations RGPD / GDPR, de nombreuses informations personnelles d'individus (nom, adresse, téléphone) sont désormais masquées par défaut.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Interroger le serveur qui convient en cas de domaines de premier niveau spécifiques (ex: `whois -h whois.afnic.fr domaine.fr`).
 **Équivalents :** rdap (protocol moderne JSON), Get-Whois
 **Voir aussi :** dig, nslookup
-
 ## `curl` — Transfert de données universel via URL [Cross]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** —
 **Contextes :** tester une API REST, télécharger un fichier, inspecter les en-têtes HTTP/S, déboguer des webservices
@@ -352,7 +337,6 @@
 **Précautions :** Passer `-f` (`--fail`) dans les scripts Bash pour que `curl` retourne un code d'erreur Shell en cas de réponse HTTP 4xx ou 5xx.
 **Équivalents :** wget, httpie, Invoke-WebRequest (PowerShell)
 **Voir aussi :** wget, httpie, openssl
-
 ## `wget` — Téléchargeur de fichiers réseau non-interactif [Cross]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** —
 **Contextes :** télécharger de gros fichiers ou ISO en tâche de fond, aspirer la totalité d'un site web de manière récursive
@@ -370,7 +354,6 @@
 **Précautions :** Passer l'option `-q` (*quiet*) dans les scripts d'arrière-plan pour masquer la barre de progression.
 **Équivalents :** curl, Invoke-WebRequest (PowerShell)
 **Voir aussi :** curl, aria2
-
 ## `httpie` — Client HTTP en ligne de commande moderne et lisible [Cross]
 **Niveau :** debutant | **Popularité :** 89 | **Aliases :** http, https
 **Contextes :** tester des APIs web JSON en développement avec une coloration syntaxique et un formatage automatique
@@ -388,7 +371,6 @@
 **Précautions :** Passer `--offline` pour construire et afficher la requête HTTP générée sans l'envoyer sur le réseau.
 **Équivalents :** curl, wget, curlie, postman
 **Voir aussi :** curl, wget
-
 ## `ping` — Vérification de l'accessibilité ICMP entre hôtes [Cross]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** —
 **Contextes :** vérifier si un serveur est allumé et joignable sur le réseau local ou distant, évaluer le temps d'aller-retour (*Round Trip Time*)
@@ -406,7 +388,6 @@
 **Précautions :** Ne pas conclure qu'un serveur est éteint si le ping échoue : tester également le port TCP avec `nc -zv`.
 **Équivalents :** fping, arping, Test-Connection (PowerShell)
 **Voir aussi :** fping, arping, traceroute, mtr
-
 ## `arping` — Envoi de requêtes d'exploration ARP sur le réseau local [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 82 | **Aliases :** —
 **Contextes :** découvrir l'adresse IP d'un équipement sur le même réseau Ethernet même si son pare-feu interne bloque les pings ICMP
@@ -423,7 +404,6 @@
 **Précautions :** Utiliser `arping -D` avant d'assigner une adresse IP statique à un serveur pour éviter les conflits d'adresses IP.
 **Équivalents :** ping, fping, nmap -sn
 **Voir aussi :** ping, arp, ip
-
 ## `fping` — Envoi simultané de requêtes ICMP à de multiples cibles [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 86 | **Aliases :** —
 **Contextes :** vérifier en une seule commande la connectivité d'une liste de 100 serveurs ou d'un sous-réseau complet `/24`
@@ -436,11 +416,11 @@
 **Origine :** Roland Schemers (1992) — conçu pour surmonter la lenteur séquentielle de `ping`.
 **Subtilités/confusions :**
 - Très utilisé dans les scripts de monitoring (Zabbix, Nagios) pour tester des fermes de serveurs sans temps d'attente bloquant.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Passer le drapeau `-a` pour ne conserver dans la sortie que les machines qui répondent au ping.
 **Équivalents :** ping, nmap -sn, gping
 **Voir aussi :** ping, arping, nmap
-
 ## `iperf3` — Outil de mesure de débit et bande passante réseau [Cross]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** iperf
 **Contextes :** tester la bande passante maximale réelle (en Mbps ou Gbps) entre deux serveurs ou à travers une liaison VPN
@@ -458,7 +438,6 @@
 **Précautions :** Privilégier les tests TCP par défaut qui adaptent automatiquement leur fenêtre de congestion.
 **Équivalents :** netperf, nttcp, speedtest-cli
 **Voir aussi :** mtr, ping, bandwhich
-
 ## `socat` — Relais bidirectionnel de flux de données et sockets [Linux/macOS]
 **Niveau :** avance | **Popularité :** 85 | **Aliases :** —
 **Contextes :** rediriger un port TCP local vers une socket Unix ou un port distant, créer un proxy SSL/TLS improvisé, déboguer des liaisons séries
@@ -471,11 +450,11 @@
 **Origine :** Gerhard Rieger (2001) — acronyme de « SOcket CAT ».
 **Subtilités/confusions :**
 - Surnommé "Netcat sous stéroïdes" : supporte les fichiers, descripteurs, tuyaux, sockets IPv4/IPv6, SSL/TLS, pty et sockets Unix domain.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Ajouter l'option `fork` pour que socat accepte plusieurs connexions successives sans s'arrêter après la première.
 **Équivalents :** nc, ncat
 **Voir aussi :** nc, ncat, openssl
-
 ## `ncat` — Implémentation moderne de Netcat par l'équipe Nmap [Cross]
 **Niveau :** intermediaire | **Popularité :** 88 | **Aliases :** —
 **Contextes :** établir des connexions TCP/UDP sécurisées avec chiffrement SSL/TLS natif, créer des tunnels d'accès
@@ -488,11 +467,11 @@
 **Origine :** Nmap Project / Gordon Lyon (2009) — conçu pour remplacer les différentes variantes incompatibles de netcat.
 **Subtilités/confusions :**
 - Intègre de manière native le support du chiffrement SSL/TLS (`--ssl`) et des proxys HTTP/SOCKS.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Préférer `ncat` à `nc` lorsque le support natif de SSL/TLS est nécessaire sans recourir à `openssl s_client`.
 **Équivalents :** nc, socat
 **Voir aussi :** nc, nmap, socat
-
 ## `bandwhich` — Affichage de l'utilisation de la bande passante par processus [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 84 | **Aliases :** —
 **Contextes :** identifier en temps réel quel processus ou conteneur consomme toute la bande passante réseau du serveur
@@ -505,11 +484,11 @@
 **Origine :** Aram Drevekenin (2019) — écrit en Rust, autrefois nommé `what-system-is-doing-on-the-network`.
 **Subtilités/confusions :**
 - Nécessite les privilèges `sudo` pour capturer les paquets bruts et associer les sockets aux PIDs des processus.
+- L execution avec les privilèges d administration doit être restreinte au strict nécessaire.
 **Urgences/dangers :** —
 **Précautions :** Idéal pour repérer un transfert Docker ou un processus en arrière-plan qui sature la ligne.
 **Équivalents :** iftop, nethogs, iptraf-ng
 **Voir aussi :** iftop, top, htop
-
 ## `iftop` — Affichage en temps réel de l'utilisation de la bande passante par interface [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 91 | **Aliases :** —
 **Contextes :** visualiser sous forme de graphique texte le trafic réseau entrant et sortant par paire d'hôtes distants
@@ -527,7 +506,6 @@
 **Précautions :** Passer l'option `-n` pour éviter les ralentissements liés aux requêtes DNS inverses.
 **Équivalents :** bandwhich, nethogs, bmon, nload
 **Voir aussi :** bandwhich, top, iperf3
-
 ## `openssl` — Boîte à outils cryptographique SSL/TLS et gestion des certificats [Cross]
 **Niveau :** intermediaire | **Popularité :** 98 | **Aliases :** —
 **Contextes :** générer des paires de clés RSA/ECC, créer une demande de signature de certificat (CSR), vérifier la date d'expiration d'un certificat HTTPS distant
@@ -545,7 +523,6 @@
 **Précautions :** Sécuriser l'accès aux clés privées avec `chmod 600` ou `chmod 400`.
 **Équivalents :** mkcert, cfssl, certbot
 **Voir aussi :** certbot, ssh-keygen, gpg
-
 ## `iptables` — Administration des filtres de paquets du noyau Linux [Linux]
 **Niveau :** avance | **Popularité :** 96 | **Aliases :** —
 **Contextes :** configurer les règles de pare-feu réseau Linux, bloquer des adresses IP malveillantes, configurer la redirection de ports (*NAT / port forwarding*)
@@ -563,7 +540,6 @@
 **Précautions :** Toujours vérifier les règles avec `iptables -L -n` et programmer un redémarrage automatique d'urgence (`at now + 5 min`) lors de modifications à risque à distance.
 **Équivalents :** nftables, ufw, firewall-cmd, pf (macOS/BSD)
 **Voir aussi :** nftables, ufw, firewalld, fail2ban-client
-
 ## `nftables` — Sous-système moderne de filtrage de paquets Linux [Linux]
 **Niveau :** avance | **Popularité :** 90 | **Aliases :** nft
 **Contextes :** construire des règles de pare-feu ultra-rapides et unifiées (IPv4 + IPv6) sous Linux moderne
@@ -581,7 +557,6 @@
 **Précautions :** Utiliser la table `inet` pour appliquer simultanément les règles de sécurité aux paquets IPv4 et IPv6.
 **Équivalents :** iptables, ufw, firewalld
 **Voir aussi :** iptables, ufw, firewalld
-
 ## `ufw` — Pare-feu simplifié Uncomplicated Firewall [Linux]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** —
 **Contextes :** sécuriser facilement un serveur Ubuntu ou Debian sans devoir maîtriser la complexité d'iptables
@@ -599,7 +574,6 @@
 **Précautions :** Toujours exécuter `ufw allow ssh` ou `ufw allow 22/tcp` AVANT d'activer avec `ufw enable`.
 **Équivalents :** firewalld, iptables, nftables
 **Voir aussi :** iptables, firewalld, fail2ban-client
-
 ## `firewalld` — Pare-feu dynamique par zones [RHEL/Fedora/CentOS]
 **Niveau :** intermediaire | **Popularité :** 92 | **Aliases :** firewall-cmd
 **Contextes :** administrer le pare-feu par zones sous Red Hat Enterprise Linux, Fedora, Rocky Linux ou AlmaLinux
@@ -617,7 +591,6 @@
 **Précautions :** Toujours exécuter `firewall-cmd --reload` après avoir ajouté des règles avec l'option `--permanent`.
 **Équivalents :** ufw, iptables, nftables
 **Voir aussi :** ufw, iptables, nftables
-
 ## `fail2ban-client` — PRÉVENTION contre les attaques par force brute [Linux]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** —
 **Contextes :** bannir automatiquement les adresses IP d'attaquants qui tentent de deviner des mots de passe SSH ou web
@@ -635,7 +608,6 @@
 **Précautions :** Ajouter l'adresse IP de votre réseau d'administration dans la directive `ignoreip` de `jail.local` pour éviter de vous bannir vous-même.
 **Équivalents :** sshguard, denylosts
 **Voir aussi :** iptables, ufw, firewalld
-
 ## `wireguard` — Configuration du protocole VPN moderne et rapide [Cross]
 **Niveau :** intermediaire | **Popularité :** 95 | **Aliases :** wg, wg-quick
 **Contextes :** établir un tunnel VPN chiffré ultra-rapide entre deux serveurs ou pour sécuriser les connexions mobiles
@@ -653,7 +625,6 @@
 **Précautions :** Conserver la clé privée `privatekey` strictement confidentielle et ne partager QUE la clé publique `publickey` avec les pairs VPN.
 **Équivalents :** openvpn, tailscale, ipsec
 **Voir aussi :** openvpn, ip, openssl
-
 ## `openvpn` — Démon de réseau virtuel VPN basé sur SSL/TLS [Cross]
 **Niveau :** intermediaire | **Popularité :** 92 | **Aliases :** —
 **Contextes :** raccorder un poste client distant au réseau de l'entreprise via un tunnel VPN TLS sécurisé
@@ -670,7 +641,6 @@
 **Précautions :** Préférer le mode UDP pour limiter la latence et les problèmes d'effondrement de fenêtre TCP (*TCP meltdowns*).
 **Équivalents :** wireguard, tailscale, ipsec
 **Voir aussi :** wireguard, openssl
-
 ## `ssh-keygen` — Génération et gestion de paires de clés d'authentification SSH [Cross]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** —
 **Contextes :** créer une clé d'accès sécurisée pour se connecter à des serveurs distants ou à des services Git (GitHub/GitLab) sans mot de passe
@@ -688,7 +658,6 @@
 **Précautions :** Protéger toujours votre clé privée SSH avec une phrase de passe (*passphrase*) solide.
 **Équivalents :** puttygen (Windows)
 **Voir aussi :** ssh-copy-id, ssh, openssl
-
 ## `ssh-copy-id` — Installation automatisée de clé publique SSH sur un serveur distant [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** —
 **Contextes :** autoriser la connexion SSH sans mot de passe à un nouveau serveur Linux venant d'être provisionné
@@ -700,11 +669,11 @@
 **Origine :** Phil Hands / OpenSSH project (1999).
 **Subtilités/confusions :**
 - S'assure automatiquement que les permissions des dossiers distant `~/.ssh` (`0700`) et `authorized_keys` (`0600`) sont correctement restreintes.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Tester la connexion SSH (`ssh user@server`) dans un NOUVEAU terminal sans fermer la session courante pour vérifier que la clé fonctionne.
 **Équivalents :** ssh, cat id_rsa.pub | ssh user@host "cat >> ~/.ssh/authorized_keys"
 **Voir aussi :** ssh-keygen, ssh
-
 ## `gpg` — Chiffrement, déchiffrement et signature numérique OpenPGP [Cross]
 **Niveau :** intermediaire | **Popularité :** 93 | **Aliases :** gpg2
 **Contextes :** chiffrer un fichier confidentiel avant envoi par mail, signer un commit Git (`git commit -S`), vérifier les signatures de paquets Linux
@@ -722,7 +691,6 @@
 **Précautions :** Sauvegarder votre certificat de révocation et votre clé privée dans un coffre-fort sécurisé.
 **Équivalents :** age, sops, openssl
 **Voir aussi :** age, sops, openssl, git
-
 ## `certbot` — Automatisation des certificats SSL/TLS gratuits Let's Encrypt [Linux]
 **Niveau :** intermediaire | **Popularité :** 96 | **Aliases :** —
 **Contextes :** obtenir et renouveler automatiquement un certificat HTTPS sécurisé Let's Encrypt pour Nginx ou Apache
@@ -740,7 +708,6 @@
 **Précautions :** Tester les nouvelles configurations avec le drapeau `--staging` ou `--dry-run` pour éviter d'atteindre les quotas de production.
 **Équivalents :** acme.sh, lego, Caddy (intégré)
 **Voir aussi :** openssl, nginx
-
 ## `vault` — Outil HashiCorp de gestion sécurisée des secrets et identités [Cross]
 **Niveau :** avance | **Popularité :** 91 | **Aliases :** —
 **Contextes :** stocker de manière chiffrée des clés d'API, mots de passe de BDD et jetons d'accès dans un coffre-fort centralisé d'entreprise
@@ -758,7 +725,6 @@
 **Précautions :** Conserver les clés de déverrouillage (*unseal keys*) entre les mains de plusieurs administrateurs distincts.
 **Équivalents :** AWS Secrets Manager, SOPS, Bitwarden CLI
 **Voir aussi :** sops, age, consul
-
 ## `age` — Outil moderne et simple de chiffrement de fichiers [Cross]
 **Niveau :** intermediaire | **Popularité :** 84 | **Aliases :** —
 **Contextes :** chiffrer rapidement un fichier de sauvegarde ou une archive avant de la stocker sur un Cloud public
@@ -776,7 +742,6 @@
 **Précautions :** Conserver la clé privée `key.txt` générée par `age-keygen` en lieu sûr.
 **Équivalents :** gpg, sops, openssl enc
 **Voir aussi :** gpg, sops
-
 ## `sops` — Chiffrement de fichiers de configuration structurés (JSON/YAML) [Cross]
 **Niveau :** avance | **Popularité :** 89 | **Aliases :** —
 **Contextes :** chiffrer uniquement les valeurs sensibles de fichiers de configuration Kubernetes/Ansible/YAML dans Git tout en laissant les clés visibles
@@ -789,11 +754,11 @@
 **Origine :** Mozilla / Julien Vehent (2015) — acronyme de « Secrets OPerationS ».
 **Subtilités/confusions :**
 - La magie de SOPS est de ne chiffrer QUE les VALEURS des clés YAML/JSON, permettant de faire des `git diff` lisibles sur la structure du fichier sans exposer les secrets.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Définir le fichier de règles `.sops.yaml` à la racine de votre dépôt Git pour attribuer automatiquement les bonnes clés de chiffrement.
 **Équivalents :** git-secret, git-crypt, vault, age
 **Voir aussi :** age, vault, gpg, git
-
 
 
 ## `nmcli` — Contrôle de NetworkManager en ligne de commande [Linux]
@@ -813,7 +778,6 @@
 **Précautions :** Tester les modifications réseau en local avant de les appliquer sur un serveur distant (risque de déconnexion SSH).
 **Équivalents :** ip, ifup/ifdown, netplan apply (Ubuntu), systemd-networkd
 **Voir aussi :** ip, networkctl, resolvectl
-
 ## `networkctl` — Inspection des liens réseau gérés par systemd-networkd [Linux]
 **Niveau :** intermediaire | **Popularité :** 72 | **Aliases :** —
 **Contextes :** inspecter l'état des interfaces réseau sur un système utilisant `systemd-networkd` (serveurs minimalistes, conteneurs), vérifier les adresses IP, le débit et la qualité du lien
@@ -831,7 +795,6 @@
 **Précautions :** Sur les systèmes avec NetworkManager (Desktop Ubuntu), utiliser `nmcli` à la place.
 **Équivalents :** nmcli, ip link
 **Voir aussi :** nmcli, resolvectl, systemctl
-
 ## `resolvectl` — Diagnostic et contrôle du résolveur DNS systemd [Linux]
 **Niveau :** intermediaire | **Popularité :** 75 | **Aliases :** `systemd-resolve`
 **Contextes :** diagnostiquer des problèmes de résolution DNS sur un poste ou serveur Linux moderne, vérifier quels serveurs DNS sont utilisés pour chaque interface, vider le cache DNS
@@ -849,7 +812,6 @@
 **Précautions :** Vérifier que `systemd-resolved` est actif (`systemctl status systemd-resolved`) avant d'utiliser `resolvectl`.
 **Équivalents :** dig, nslookup, host
 **Voir aussi :** dig, nmcli, networkctl
-
 ## `ipset` — Gestion de jeux d'adresses IP pour iptables [Linux]
 **Niveau :** avance | **Popularité :** 74 | **Aliases :** —
 **Contextes :** bloquer efficacement des milliers d'adresses IP ou plages CIDR en une seule règle iptables, maintenir des listes noires dynamiques, implémenter du geo-blocking
@@ -867,7 +829,6 @@
 **Précautions :** Tester les règles en environnement de préproduction ; sauvegarder les jeux avec `ipset save > backup.ipset`.
 **Équivalents :** nftables sets, firewalld rich rules
 **Voir aussi :** iptables, nftables, firewalld
-
 ## `masscan` — Scan de ports ultra-rapide sur internet [Linux]
 **Niveau :** avance | **Popularité :** 80 | **Aliases :** —
 **Contextes :** scanner des plages entières d'adresses internet pour découvrir des hôtes exposant des ports ouverts (usage : audit de surface d'attaque, red team), pentesting autorisé
@@ -885,7 +846,6 @@
 **Précautions :** Toujours obtenir une autorisation écrite avant tout scan. Limiter le débit (`--rate`) pour éviter de saturer les équipements réseau.
 **Équivalents :** nmap, rustscan, zmap
 **Voir aussi :** nmap, rustscan, ncat
-
 ## `rustscan` — Scanner de ports moderne en Rust [Cross]
 **Niveau :** intermediaire | **Popularité :** 76 | **Aliases :** —
 **Contextes :** scanner rapidement tous les ports ouverts d'une cible avant de passer nmap uniquement sur les ports détectés, accélérer les phases de reconnaissance en CTF ou pentest autorisé
@@ -903,7 +863,6 @@
 **Précautions :** Vérifier les permissions légales avant tout scan.
 **Équivalents :** nmap, masscan, zmap
 **Voir aussi :** nmap, masscan
-
 ## `nikto` — Scanner de vulnérabilités de serveurs web [Cross]
 **Niveau :** intermediaire | **Popularité :** 82 | **Aliases :** —
 **Contextes :** auditer un serveur web pour détecter des fichiers sensibles exposés, des en-têtes HTTP manquants, des versions obsolètes de logiciels ou des configurations dangereuses ; usage : tests de pénétration web autorisés
@@ -921,7 +880,6 @@
 **Précautions :** Coupler avec d'autres outils (nmap, gobuster) pour une analyse complète ; vérifier chaque finding manuellement.
 **Équivalents :** wpscan (WordPress), skipfish, nuclei
 **Voir aussi :** nmap, gobuster, curl
-
 ## `gobuster` — Brute-force de répertoires et sous-domaines web [Cross]
 **Niveau :** intermediaire | **Popularité :** 84 | **Aliases :** —
 **Contextes :** découvrir des répertoires cachés, des fichiers exposés ou des sous-domaines non référencés sur un serveur web lors d'un test de pénétration autorisé ou d'un audit de sécurité
@@ -939,7 +897,6 @@
 **Précautions :** Utiliser des wordlists adaptées au contexte (CMS, langages de programmation) pour de meilleurs résultats.
 **Équivalents :** ffuf, dirb, feroxbuster, dirsearch
 **Voir aussi :** nikto, ffuf, curl, nmap
-
 ## `hashcat` — Craquage de hachages par GPU [Cross]
 **Niveau :** avance | **Popularité :** 86 | **Aliases :** —
 **Contextes :** récupérer des mots de passe à partir de hachages lors d'un test de pénétration autorisé, tester la robustesse de la politique de mots de passe d'une organisation
@@ -957,7 +914,6 @@
 **Précautions :** Surveiller la température GPU pendant les sessions longues ; sur VM sans GPU, utiliser `-D 1` (CPU uniquement).
 **Équivalents :** john (John the Ripper), ophcrack, crunch
 **Voir aussi :** john, gpg, openssl
-
 ## `john` — John the Ripper, craquage de mots de passe [Cross]
 **Niveau :** intermediaire | **Popularité :** 85 | **Aliases :** `john the ripper`, `jtr`
 **Contextes :** récupérer des mots de passe à partir de fichiers `/etc/shadow` ou de hachages extraits d'une base de données lors d'un audit de sécurité autorisé, identifier les mots de passe faibles
@@ -975,7 +931,6 @@
 **Précautions :** Définir une politique de mots de passe robuste (longueur ≥12, complexité) pour que le craquage soit impraticable.
 **Équivalents :** hashcat, hydra, ophcrack
 **Voir aussi :** hashcat, hydra (si présent), openssl
-
 ## `lynis` — Audit de sécurité complet d'un système Linux [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 83 | **Aliases :** —
 **Contextes :** auditer la sécurité d'un serveur Linux avant une mise en production, obtenir un score de durcissement (hardening), identifier les configurations non sécurisées et les vulnérabilités courantes
@@ -993,7 +948,6 @@
 **Précautions :** Exécuter en tant que root pour accéder à tous les fichiers système et obtenir un audit complet.
 **Équivalents :** openscap, tiger, rkhunter, chkrootkit
 **Voir aussi :** auditd, fail2ban-client, ufw
-
 ## `auditd` — Démon d'audit de sécurité Linux [Linux]
 **Niveau :** avance | **Popularité :** 78 | **Aliases :** `auditctl`, `ausearch`, `aureport`
 **Contextes :** tracer l'accès aux fichiers sensibles (`/etc/passwd`, clés SSH), auditer les appels système suspects pour la conformité (PCI-DSS, SOX, HIPAA), détecter des intrusions post-incident
@@ -1011,7 +965,6 @@
 **Précautions :** Archiver régulièrement les logs d'audit (`/var/log/audit/audit.log`) pour la conformité réglementaire.
 **Équivalents :** sysdig, falco, osquery
 **Voir aussi :** lynis, fail2ban-client, sops
-
 ## `last` — Historique des dernières connexions utilisateur [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 86 | **Aliases :** —
 **Contextes :** vérifier qui s'est connecté sur un serveur et quand, détecter des connexions suspectes depuis des adresses IP inconnues, auditer les horaires d'accès après un incident de sécurité
@@ -1029,7 +982,6 @@
 **Précautions :** Le fichier `wtmp` peut être effacé ou falsifié par un attaquant ayant les droits root ; ne pas s'y fier comme seule source de vérité forensique.
 **Équivalents :** lastlog, who, w, journalctl
 **Voir aussi :** lastlog, who, auditd, ssh
-
 ## `lastlog` — Dernière connexion de chaque compte utilisateur [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 78 | **Aliases :** —
 **Contextes :** vérifier que des comptes de service ou des comptes dormants ne se sont jamais connectés (ou ne se sont pas connectés récemment), auditer les comptes système inactifs
@@ -1047,7 +999,6 @@
 **Précautions :** Identifier et désactiver régulièrement les comptes humains avec « Never logged in » ou une connexion > 90 jours.
 **Équivalents :** last, who, w
 **Voir aussi :** last, auditd, lynis
-
 ## `auditctl` — Configuration des règles d'audit noyau Linux en temps réel [Linux]
 **Niveau :** avance | **Popularité :** 73 | **Aliases :** —
 **Contextes :** ajouter ou supprimer des règles d'audit dynamiquement sans redémarrer `auditd`, tester de nouvelles règles de surveillance avant de les rendre persistantes, lister les règles actives

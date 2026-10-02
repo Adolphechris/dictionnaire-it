@@ -25,11 +25,11 @@
 **Origine :** NVIDIA (GeForce 256 en 1999).
 **Subtilités/confusions :**
 - La mémoire VRAM est un élément critique en IA : un modèle de langage (LLM) doit tenir entièrement dans la VRAM du GPU pour une vitesse de réponse maximale.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Installer les pilotes propriétaires et les toolkits de calcul (CUDA/ROCm) adaptés à la version du noyau de votre système d'exploitation.
 **Équivalents :** TPU, NPU, Carte Graphique
 **Voir aussi :** CPU, TPU, NPU, GPU
-
 ## `TPU` — Tensor Processing Unit [Matériel/IA]
 **Niveau :** avance | **Popularité :** 92 | **Aliases :** Google TPU
 **Contextes :** accélérer spécifiquement les calculs matriciels complexes d'apprentissage profond (Deep Learning / réseaux de neurones) dans le cloud Google
@@ -41,11 +41,11 @@
 **Origine :** Google (2016).
 **Subtilités/confusions :**
 - Contrairement aux GPUs généraux, le TPU est un ASIC entièrement spécialisé dans la multiplication de matrices de tenseurs (opérations IA).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Formater vos données sous forme de tenseurs optimisés (ex: bfloat16) pour exploiter les unités de calcul matriciel du TPU à 100%.
 **Équivalents :** GPU (NVIDIA H100/A100), NPU
 **Voir aussi :** GPU, NPU, CPU, Cloud
-
 ## `NPU` — Neural Processing Unit [Matériel/IA]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** Moteur Neural (Neural Engine)
 **Contextes :** exécuter des modèles d'IA légers en local directement sur le processeur d'un smartphone, PC portable ou objet connecté (reconnaissance faciale, transcription vocale, Copilot+ PC)
@@ -57,11 +57,11 @@
 **Origine :** Apple (A11 Bionic Neural Engine, 2017) / Qualcomm / ARM.
 **Subtilités/confusions :**
 - Le NPU est conçu pour consommer très peu d'énergie sur batterie pour l'**inférence**, alors que les gros GPU/TPU sont conçus pour la puissance brute de l'**entraînement**.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Utiliser des frameworks d'inférence adaptés au matériel (CoreML sous macOS/iOS, ONNX Runtime avec DirectML sous Windows).
 **Équivalents :** TPU, GPU, AI Accelerator
 **Voir aussi :** GPU, TPU, CPU
-
 ## `RAM` — Random Access Memory [Matériel]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** Mémoire Vive
 **Contextes :** stocker temporairement le code et les données des programmes en cours d'exécution pour un accès quasi-instantané par le processeur
@@ -73,11 +73,11 @@
 **Origine :** Robert Dennard (DRAM 1 cellule, IBM 1966).
 **Subtilités/confusions :**
 - Si la RAM est saturée, le système d'exploitation utilise le disque dur/SSD sous forme d'espace de pagination (**Swap**), ce qui ralentit considérablement la machine.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Dimensionner la RAM en fonction des exigences réelles de la charge applicative pour éviter le déclenchement de l'OOM Killer (*Out-Of-Memory*).
 **Équivalents :** Mémoire Vive, VRAM (pour GPU)
 **Voir aussi :** ROM, NVMe, free, vmstat
-
 ## `ROM` — Read-Only Memory [Matériel]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** Mémoire Morte
 **Contextes :** stocker de manière permanente et inaltérable les instructions de démarrage d'un équipement informatique (firmware BIOS/UEFI, routeurs, consoles)
@@ -89,11 +89,11 @@
 **Origine :** Débuts de l'informatique / Mémoires à masques (années 1960).
 **Subtilités/confusions :**
 - Contrairement à la RAM (volatile et réinscriptible à l'infini), la ROM est non volatile et destinée à conserver du code système fixe.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Interrompre l'alimentation électrique pendant le flashage d'une mémoire ROM (mise à jour BIOS) peut rendre l'équipement définitivement inexploitable (*brické*).
 **Précautions :** Brancher l'équipement sur un onduleur (ASI) lors des mises à jour de firmware ROM.
 **Équivalents :** EEPROM, Flash Memory
 **Voir aussi :** RAM, BIOS, UEFI
-
 ## `NVMe` — Non-Volatile Memory Express [Matériel/Stockage]
 **Niveau :** debutant | **Popularité :** 98 | **Aliases :** SSD NVMe
 **Contextes :** stocker des données sur des disques SSD ultra-rapides connectés directement au bus PCIe du processeur (débits > 7000 MB/s)
@@ -105,11 +105,11 @@
 **Origine :** Consortium NVM Express (Intel, Samsung, SanDisk, Dell, 2011).
 **Subtilités/confusions :**
 - M.2 est le **format physique** (la barrette) ; NVMe est le **protocole logique** de communication (passant par PCIe).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Utiliser des dissipateurs thermiques sur les SSD NVMe haute performance pour éviter les baisses de débit dues à la chauffe.
 **Équivalents :** SATA (obsolète), SAS
 **Voir aussi :** SSD, PCIe, HDD
-
 ## `SSD` — Solid-State Drive [Matériel/Stockage]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** Disque Flash
 **Contextes :** stocker de manière permanente les données et le système d'exploitation d'un ordinateur sans aucune pièce mécanique en mouvement
@@ -121,11 +121,11 @@
 **Origine :** Dataram (Bulk Core 1976) / SanDisk (premier SSD Flash 1991).
 **Subtilités/confusions :**
 - Les SSD offrent des temps d'accès quasi-instantanés (< 0.1 ms) et des débits de 5 à 100 fois supérieurs aux anciens disques durs mécaniques (HDD).
+- Un suivi des métriques en production permet de prévenir la saturation des ressources.
 **Urgences/dangers :** —
 **Précautions :** S'assurer que le service de TRIM automatique (`fstrim.timer` sous Linux) est actif pour préserver la durée de vie des puces flash.
 **Équivalents :** NVMe, HDD
 **Voir aussi :** NVMe, HDD, RAID, lsblk
-
 ## `HDD` — Hard Disk Drive [Matériel/Stockage]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** Disque Dur Mécanique
 **Contextes :** stocker de très grands volumes de données (archivage, NAS, serveurs de stockage capacitif) au meilleur coût par gigaoctet
@@ -137,11 +137,11 @@
 **Origine :** IBM (IBM 350 RAMAC, 1956).
 **Subtilités/confusions :**
 - Très vulnérable aux chocs physiques et aux vibrations lorsqu'il est en cours de fonctionnement (risque d'atterrissage de tête / crash binaire).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Un bruit de cliquètement répétitif ("Click of Death") indique une panne mécanique imminente de la tête de lecture.
 **Précautions :** Surveiller l'état de santé du disque dur via les métriques S.M.A.R.T. (`smartctl`).
 **Équivalents :** SSD, Ruban magnétique (Tape)
 **Voir aussi :** SSD, RAID, S.M.A.R.T.
-
 ## `RAID` — Redundant Array of Independent Disks [Stockage/Infrastructure]
 **Niveau :** intermediaire | **Popularité :** 97 | **Aliases :** Grappe de Disques Redondants
 **Contextes :** regrouper plusieurs disques durs ou SSD en une seule unité logique pour améliorer les performances E/S, la capacité globale ou la tolérance aux pannes
@@ -154,11 +154,11 @@
 **Origine :** David Patterson, Garth A. Gibson et Randy Katz (UC Berkeley, 1987).
 **Subtilités/confusions :**
 - **LE RAID N'EST PAS UNE SAUVEGARDE !** Si un fichier est effacé par erreur ou chiffré par un ransomware, la modification est répercutée immédiatement sur tous les disques de la grappe.
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** ⚠️ Toujours remplacer immédiatement un disque défaillant dans une grappe RAID 5/6 avant qu'un deuxième disque ne tombe en panne.
 **Précautions :** Prévoir un disque de secours à chaud (*Hot Spare*) dans le châssis pour démarrer la reconstruction automatiquement dès qu'une panne survient.
 **Équivalents :** ZFS, Btrfs, Storage Spaces
 **Voir aussi :** HDD, SSD, mdadm, stat
-
 ## `PCIe` — Peripheral Component Interconnect Express [Matériel]
 **Niveau :** intermediaire | **Popularité :** 96 | **Aliases :** PCI Express
 **Contextes :** connecter des composants matériels à très haut débit (cartes graphiques GPU, SSDs NVMe, cartes réseau 100G) directement à la carte mère et au processeur
@@ -170,11 +170,11 @@
 **Origine :** Intel, Dell, HP, IBM / PCI-SIG (2003).
 **Subtilités/confusions :**
 - Les lignes PCIe sont une ressource limitée du processeur : installer trop de SSDs NVMe peut réduire le nombre de lignes disponibles pour la carte graphique.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Vérifier que le connecteur PCIe de la carte mère supporte la génération et le nombre de lignes réclamés par le composant.
 **Équivalents :** CXL (Compute Express Link), PCI (obsolète)
 **Voir aussi :** GPU, NVMe, lspci
-
 ## `USB` — Universal Serial Bus [Matériel]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** Bus Série Universel
 **Contextes :** connecter, alimenter et échanger des données entre un ordinateur et des périphériques externes (clés USB, disques durs, claviers, souris, webcams, smartphones)
@@ -186,11 +186,11 @@
 **Origine :** Compaq, DEC, IBM, Intel, Microsoft, NEC, Nortel (1996).
 **Subtilités/confusions :**
 - Le nom commercial de l'USB 3.0 a été renommé à plusieurs reprises (USB 3.1 Gen 1, USB 3.2 Gen 1x1) désignant le même débit de 5 Gbit/s.
+- Un suivi des métriques en production permet de prévenir la saturation des ressources.
 **Urgences/dangers :** ⚠️ Ne jamais brancher une clé USB inconnue trouvée dans la rue (risque d'attaque par émulation de clavier *Rubber Ducky* ou destruction électrique *USB Killer*).
 **Précautions :** Utiliser des câbles USB certifiés "Power Delivery" pour recharger des ordinateurs portables sans surchauffe.
 **Équivalents :** Thunderbolt, FireWire (obsolète)
 **Voir aussi :** lsusb, NVMe, PCIe
-
 ## `UEFI` — Unified Extensible Firmware Interface [Matériel/Système]
 **Niveau :** intermediaire | **Popularité :** 97 | **Aliases :** EFI
 **Contextes :** initialiser le matériel informatique lors de la mise sous tension de la carte mère et charger l'exécutable d'amorçage du système d'exploitation
@@ -202,11 +202,11 @@
 **Origine :** Intel (projet Extensible Firmware Interface / EFI, 1998) / Forum Unified EFI (2005).
 **Subtilités/confusions :**
 - Nécessite d'utiliser une table de partitionnement **GPT** (GUID Partition Table) au lieu de l'ancien format MBR.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Sauvegarder le contenu de la partition ESP avant toute mise à jour majeure du chargeur de démarrage (GRUB).
 **Équivalents :** BIOS (obsolète), Coreboot
 **Voir aussi :** BIOS, POST, efibootmgr, GPT
-
 ## `BIOS` — Basic Input/Output System [Matériel/Système]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** Legacy BIOS
 **Contextes :** désigner le microprogramme historique intégré à la carte mère chargé d'effectuer les autotests matériels (POST) et de lancer le système d'exploitation
@@ -218,11 +218,11 @@
 **Origine :** Gary Kildall (CP/M OS, 1975) / Adopté par IBM PC (1981).
 **Subtilités/confusions :**
 - Le BIOS traditionnel ne pouvait pas démarrer sur des disques de plus de 2.2 Terabytes (limitation du MBR 32 bits).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Préférer le mode UEFI natif pour tous les nouveaux ordinateurs et serveurs.
 **Équivalents :** UEFI, Coreboot
 **Voir aussi :** UEFI, POST, ROM
-
 ## `POST` — Power-On Self-Test [Matériel]
 **Niveau :** debutant | **Popularité :** 94 | **Aliases :** Autotest au Démarrage
 **Contextes :** séquence automatique de tests matériels exécutée par le BIOS/UEFI immédiatement après l'appui sur le bouton d'allumage de l'ordinateur
@@ -234,11 +234,11 @@
 **Origine :** Premiers micro-ordinateurs personnels (années 1970).
 **Subtilités/confusions :**
 - Si le POST échoue (ex: RAM mal insérée ou processeur non détecté), l'ordinateur ne peut même pas afficher d'image à l'écran.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Consulter le manuel de la carte mère pour interpréter la signification exacte de la séquence de bips ou de LEDs d'erreur.
 **Équivalents :** Boot Diagnostic
 **Voir aussi :** BIOS, UEFI, RAM, CPU
-
 ## `GPT` — GUID Partition Table [Stockage/Système]
 **Niveau :** intermediaire | **Popularité :** 96 | **Aliases :** Table de Partitionnement GUID
 **Contextes :** partitionner des disques de grande capacité (> 2 Terabytes) et démarrer des systèmes d'exploitation modernes en mode UEFI
@@ -250,11 +250,11 @@
 **Origine :** Intel / Spécification Unified EFI (années 2000).
 **Subtilités/confusions :**
 - Contrairement au MBR qui limitait à 4 partitions principales, GPT permet d'en créer jusqu'à 128 sans recourir aux partitions étendues.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Utiliser l'outil `gdisk` ou `parted` plutôt que le vieux `fdisk` pour manipuler des disques au format GPT.
 **Équivalents :** MBR (obsolète)
 **Voir aussi :** MBR, UEFI, parted, fdisk
-
 ## `MBR` — Master Boot Record [Stockage/Système]
 **Niveau :** debutant | **Popularité :** 94 | **Aliases :** Premier Secteur de Démarrage
 **Contextes :** désigner le premier secteur de 512 octets d'un disque dur traditionnel contenant la table de partition historique et le code d'amorçage du BIOS
@@ -266,11 +266,11 @@
 **Origine :** IBM (PC DOS 2.0, 1983).
 **Subtilités/confusions :**
 - Format désormais obsolète remplacé par **GPT** sur tous les ordinateurs et serveurs modernes.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Si le MBR est écrasé ou corrompu, le BIOS affiche `No bootable device found`.
 **Précautions :** Sauvegarder le secteur MBR avec `dd if=/dev/sda of=mbr_backup.bin bs=512 count=1`.
 **Équivalents :** GPT (successeur)
 **Voir aussi :** GPT, BIOS, fdisk
-
 ## `FAT32` — File Allocation Table 32 [Stockage/Système]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** FAT32
 **Contextes :** formater des clés USB et des cartes mémoire SD pour garantir une lisibilité universelle sur tous les appareils (Windows, macOS, Linux, télévisions, autoradios)
@@ -282,11 +282,11 @@
 **Origine :** Microsoft (Windows 95 OSR2, 1996).
 **Subtilités/confusions :**
 - Très simple et sans gestion de permissions de fichiers Unix (pas de `chmod` ou `chown` possible sur un volume FAT32).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Formater les cartes SD de plus de 32 Go en **exFAT** pour dépasser la limite de 4 Go par fichier tout en conservant une grande compatibilité.
 **Équivalents :** exFAT, NTFS, ext4
 **Voir aussi :** NTFS, ext4, UEFI
-
 ## `NTFS` — New Technology File System [Stockage/Système]
 **Niveau :** debutant | **Popularité :** 98 | **Aliases :** Système de Fichiers Windows
 **Contextes :** formater les partitions système et disques durs sous Microsoft Windows avec gestion des droits d'accès, de la journalisation et des gros fichiers
@@ -298,11 +298,11 @@
 **Origine :** Gary Kimura et Tom Miller / Microsoft (Windows NT 3.1, 1993).
 **Subtilités/confusions :**
 - Sous macOS, les disques NTFS sont lisibles nativement en lecture seule, mais nécessitent des pilotes tiers pour l'écriture.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Monter les volumes NTFS sous Linux en utilisant le pilote moderne intégré au noyau `ntfs3` ou l'outil `ntfs-3g`.
 **Équivalents :** ext4, APFS (macOS), ReFS
 **Voir aussi :** FAT32, ext4, Btrfs
-
 ## `ext4` — Fourth Extended File System [Stockage/Linux]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** ext4fs
 **Contextes :** formater le système de fichiers principal de la plupart des distributions Linux (Ubuntu, Debian, Red Hat) pour une stabilité et des performances éprouvées
@@ -314,11 +314,11 @@
 **Origine :** Theodore Ts'o et Mingming Cao / Noyau Linux (2008 / évolution de ext3).
 **Subtilités/confusions :**
 - Le système de fichiers Linux le plus robuste, éprouvé et rapide pour les usages serveurs et de bureau généraux.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Réserver un pourcentage d'espace pour le compte `root` (par défaut 5%) pour éviter qu'un disque saturé ne bloque le démarrage de l'OS.
 **Équivalents :** Btrfs, XFS, ZFS, NTFS
 **Voir aussi :** Btrfs, ZFS, fsck, stat
-
 ## `Btrfs` — B-tree File System [Stockage/Linux]
 **Niveau :** intermediaire | **Popularité :** 92 | **Aliases :** ButterFS
 **Contextes :** bénéficier de fonctionnalités de stockage avancées sous Linux (snapshots instantanés, déduplication, RAID logiciel intégré, auto-réparation des données)
@@ -330,11 +330,11 @@
 **Origine :** Chris Mason / Oracle (2007) / Adopté comme système de fichiers par défaut dans Fedora et Synology NAS.
 **Subtilités/confusions :**
 - Intègre son propre moteur de gestion de volumes et de RAID, rendant l'usage de LVM ou `mdadm` superflu.
+- Un suivi des métriques en production permet de prévenir la saturation des ressources.
 **Urgences/dangers :** —
 **Précautions :** Défragmenter ou désactiver CoW sur les fichiers de bases de données (PostgreSQL, MySQL) ou d'images de machines virtuelles pour maintenir de bonnes performances E/S.
 **Équivalents :** ZFS, XFS, APFS
 **Voir aussi :** ZFS, ext4, RAID
-
 ## `ZFS` — Zettabyte File System [Stockage/Infrastructure]
 **Niveau :** avance | **Popularité :** 95 | **Aliases :** OpenZFS
 **Contextes :** gérer de très grands pools de stockage d'entreprise (NAS, serveurs de stockage TrueNAS, clusters Proxmox) avec une intégrité des données absolue
@@ -347,11 +347,11 @@
 **Origine :** Matthew Ahrens et Jeff Bonwick / Sun Microsystems (2001) / Projet open source OpenZFS.
 **Subtilités/confusions :**
 - ZFS consomme une quantité importante de mémoire RAM pour son cache ARC (compter environ 1 Go de RAM par Terabyte de stockage géré).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Ne jamais utiliser ZFS au-dessus d'un contrôleur RAID matériel qui masque l'accès direct aux disques physiques (*HBA / IT Mode requis*).
 **Précautions :** Utiliser des cartes HBA en mode IT (pass-through) pour laisser ZFS gérer directement les disques physiques.
 **Équivalents :** Btrfs, Storage Spaces Direct
 **Voir aussi :** Btrfs, RAID, HDD, SSD
-
 ## `NFS` — Network File System [Réseau/Stockage]
 **Niveau :** intermediaire | **Popularité :** 95 | **Aliases :** Partage de Fichiers NFS / RFC 7530
 **Contextes :** partager un répertoire de fichiers sur un réseau local Linux/UNIX de manière transparente (montage de volumes partagés sur des serveurs web ou Kubernetes)
@@ -363,11 +363,11 @@
 **Origine :** Sun Microsystems (1984 / RFC 1094).
 **Subtilités/confusions :**
 - NFS est le protocole de partage de fichiers natif de l'écosystème **Linux/UNIX** ; **SMB** est le protocole natif de l'écosystème **Windows**.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Restreindre l'accès dans `/etc/exports` aux sous-réseaux IP autorisés et utiliser `noexec` sur les points de montage si nécessaire.
 **Équivalents :** SMB/CIFS, SSHFS
 **Voir aussi :** SMB, NAS, mount, showmount
-
 ## `SMB` — Server Message Block [Réseau/Stockage]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** CIFS, Partage Windows (Samba)
 **Contextes :** partager des fichiers et des imprimantes sur un réseau local entre des systèmes Windows, macOS et Linux
@@ -379,11 +379,11 @@
 **Origine :** Barry Feigenbaum / IBM (1983) / Microsoft / Andrew Tridgell (Samba, 1992).
 **Subtilités/confusions :**
 - Ne plus utiliser SMBv1 qui a été le vecteur de propagation mondial du fameux ransomware WannaCry (faille EternalBlue).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Désactiver impérativement SMBv1 sur tous les postes Windows et serveurs Samba.
 **Précautions :** Filtrer le port TCP 445 aux frontières du réseau pour empêcher l'exposition des partages SMB sur Internet.
 **Équivalents :** NFS, AFP (macOS obsolète)
 **Voir aussi :** NFS, NAS, Samba
-
 ## `iSCSI` — Internet Small Computer System Interface [Stockage/Réseau]
 **Niveau :** avance | **Popularité :** 91 | **Aliases :** RFC 3720
 **Contextes :** connecter un serveur à un SAN (Storage Area Network) via le réseau Ethernet TCP/IP pour lui présenter des disques de stockage bruts (*LUNs*)
@@ -396,11 +396,11 @@
 **Origine :** IBM et Cisco (2001 / Standardisé IETF RFC 3720 en 2004).
 **Subtilités/confusions :**
 - Contrairement à NFS ou SMB (qui partagent des **fichiers et dossiers**), iSCSI partage du **stockage bloc brut** que le client doit formater lui-même.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Isoler le trafic iSCSI sur un réseau VLAN physique dédié ou utiliser des jumboframes (MTU 9000) pour maximiser le débit E/S.
 **Équivalents :** Fibre Channel (FC), NVMe-oF
 **Voir aussi :** SAN, NAS, SCSI, iscsiadm
-
 ## `SAN` — Storage Area Network [Stockage/Infrastructure]
 **Niveau :** avance | **Popularité :** 93 | **Aliases :** Réseau de Stockage Dédié
 **Contextes :** interconnecter des serveurs d'entreprise et des baies de stockage haute performance via un réseau dédié à très haut débit et très faible latence
@@ -412,11 +412,11 @@
 **Origine :** Années 1990 / Évolution du stockage DAS (Direct-Attached Storage).
 **Subtilités/confusions :**
 - Le **SAN** présente du stockage **BLOC brut** à formater ; le **NAS** présente des **FICHIERS** partagés sur le réseau local via un système de fichiers.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Multiplier les chemins d'accès au stockage (*Multipathing / MPIO*) pour éviter la déconnexion des serveurs en cas de coupure de câble.
 **Équivalents :** NAS, DAS (Direct-Attached Storage)
 **Voir aussi :** NAS, iSCSI, SSD, HDD
-
 ## `NAS` — Network-Attached Storage [Stockage/Infrastructure]
 **Niveau :** debutant | **Popularité :** 98 | **Aliases :** Boîtier de Stockage Réseau
 **Contextes :** stocker, partager et sauvegarder des fichiers au sein d'un réseau local pour plusieurs utilisateurs ou serveurs (Synology, QNAP, TrueNAS)
@@ -428,11 +428,11 @@
 **Origine :** Auspex Systems / Network Appliance (NetApp, 1992).
 **Subtilités/confusions :**
 - Un NAS intègre son propre système d'exploitation et processeur pour gérer les fichiers et le RAID.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Ne pas exposer l'interface de gestion d'un NAS directement sur Internet sans filtrage IP ou VPN.
 **Équivalents :** SAN, Cloud Storage (S3)
 **Voir aussi :** SAN, NFS, SMB, RAID
-
 ## `LAN` — Local Area Network [Réseau]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** Réseau Local
 **Contextes :** désigner l'infrastructure réseau reliant les ordinateurs, imprimantes et équipements au sein d'un même espace géographique restreint (maison, bureau, bâtiment)
@@ -445,11 +445,11 @@
 **Origine :** Ethernet (Xerox PARC, 1973) / Standardisé par l'IEEE 802.
 **Subtilités/confusions :**
 - Séparé du réseau étendu (**WAN** / Internet) par un routeur ou une passerelle effectuant de la traduction d'adresse (**NAT**).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Segmenter les grands réseaux locaux en **VLANs** distincts pour réduire les domaines de diffusion (*broadcast domains*) et renforcer la sécurité.
 **Équivalents :** WLAN (Wi-Fi), WAN, MAN
 **Voir aussi :** WAN, VLAN, ip, route
-
 ## `WAN` — Wide Area Network [Réseau]
 **Niveau :** debutant | **Popularité :** 98 | **Aliases :** Réseau Étendu
 **Contextes :** désigner les réseaux de télécommunications couvrant de grandes distances géographiques (villes, pays, continent), Internet étant le plus grand WAN au monde
@@ -461,11 +461,11 @@
 **Origine :** ARPANET (1969) / Télécommunications mondiales.
 **Subtilités/confusions :**
 - Les débits WAN sont généralement plus faibles et les latences plus élevées que sur un LAN en raison des distances physiques franchies.
+- Un suivi des métriques en production permet de prévenir la saturation des ressources.
 **Urgences/dangers :** —
 **Précautions :** Chiffrer systématiquement tout le trafic transitant sur le WAN au moyen de VPN (IPsec, WireGuard) ou TLS.
 **Équivalents :** Internet, MAN (Metropolitan Area Network)
 **Voir aussi :** LAN, SD-WAN, VPN, IPsec
-
 ## `VLAN` — Virtual Local Area Network [Réseau]
 **Niveau :** intermediaire | **Popularité :** 97 | **Aliases :** Réseau Local Virtuel / IEEE 802.1Q
 **Contextes :** séparer logiquement plusieurs réseaux indépendants sur les mêmes équipements physiques (switchs réseau) pour isoler le trafic (ex: VLAN Utilisateurs, VLAN Serveurs, VLAN Wi-Fi Invités)
@@ -478,11 +478,11 @@
 **Origine :** IEEE 802.1Q (1998).
 **Subtilités/confusions :**
 - Permet de créer de la sécurité et d'endiguer les tempêtes de broadcast sans acheter des switchs physiques séparés.
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** ⚠️ Attention aux attaques de "VLAN Hopping" si les configurations de ports Trunk ne sont pas sécurisées.
 **Précautions :** Ne jamais utiliser le VLAN 1 par défaut pour le trafic d'administration du réseau.
 **Équivalents :** VXLAN (extension Cloud)
 **Voir aussi :** LAN, WAN, ip, route
-
 ## `WLAN` — Wireless Local Area Network [Réseau]
 **Niveau :** intermediaire | **Popularité :** 97 | **Aliases :** Wi-Fi Network, IEEE 802.11
 **Contextes :** administration réseau sans-fil, déploiement de bornes Wi-Fi, réseau d'entreprise et domicile
@@ -499,7 +499,6 @@
 **Précautions :** Utiliser WPA3 ou WPA2-Enterprise (802.1X) ; désactiver WPS qui présente des vulnérabilités d'attaque par brute force.
 **Équivalents :** Wi-Fi (marque commerciale)
 **Voir aussi :** LAN, WAN, VLAN, Bluetooth, NFC
-
 ## `Bluetooth` — IEEE 802.15.1 WPAN [Réseau sans-fil]
 **Niveau :** debutant | **Popularité :** 98 | **Aliases :** BT, IEEE 802.15.1
 **Contextes :** connexion de périphériques à courte portée (écouteurs, claviers, souris, IoT), transfert de fichiers, audio sans-fil
@@ -516,7 +515,6 @@
 **Précautions :** Désactiver le mode découvrable dès que l'appairage est terminé ; mettre à jour le firmware des périphériques.
 **Équivalents :** BLE, Zigbee (IoT), ANT+
 **Voir aussi :** NFC, WLAN, WPAN, WLAN
-
 ## `NFC` — Near Field Communication [Réseau sans-fil]
 **Niveau :** intermediaire | **Popularité :** 95 | **Aliases :** Communication en Champ Proche, ISO/IEC 18092
 **Contextes :** paiement sans contact, contrôle d'accès bâtiment, lecture de tags d'information, appairage rapide de périphériques
@@ -533,7 +531,6 @@
 **Précautions :** Protéger les cartes NFC/RFID bancaires dans des étuis blindés RFID ; utiliser des applications nécessitant confirmation (biométrie, PIN).
 **Équivalents :** RFID (superset), Bluetooth LE (appairage)
 **Voir aussi :** RFID, Bluetooth, WLAN, ISO 14443
-
 ## `RFID` — Radio Frequency Identification [Réseau sans-fil]
 **Niveau :** intermediaire | **Popularité :** 93 | **Aliases :** Radio-identification, Étiquette Radio
 **Contextes :** logistique, traçabilité d'inventaire, contrôle d'accès bâtiment, gestion d'animaux, anti-vol de marchandises
@@ -550,7 +547,6 @@
 **Précautions :** Migrer vers des cartes à cryptographie embarquée (MIFARE DESFire, iClass Seos) résistantes au clonage.
 **Équivalents :** NFC (sous-ensemble HF), Barcode (visuel)
 **Voir aussi :** NFC, Bluetooth, IoT, Proxmark
-
 ## `5G` — 5th Generation Mobile Network [Télécoms]
 **Niveau :** intermediaire | **Popularité :** 98 | **Aliases :** 5G NR, IMT-2020
 **Contextes :** télécommunications mobiles, Edge Computing industriel, véhicules connectés, IoT massif, slice réseau
@@ -567,7 +563,6 @@
 **Précautions :** Pour les déploiements critiques (usine, santé), privilégier la 5G SA privée (Private 5G) avec contrôle total de l'infrastructure.
 **Équivalents :** LTE-A Pro (prédécesseur), Wi-Fi 6E (concurrent en intérieur)
 **Voir aussi :** LTE, 4G, eMBB, URLLC, Edge Computing
-
 ## `LTE` — Long Term Evolution [Télécoms]
 **Niveau :** intermediaire | **Popularité :** 97 | **Aliases :** 4G, LTE-Advanced, LTE-A
 **Contextes :** réseau mobile cellulaire 4G, communication de données mobiles, VoLTE, M2M/IoT
@@ -584,7 +579,6 @@
 **Précautions :** Utiliser des applications de communication chiffrées de bout en bout (Signal, Element) même sur LTE.
 **Équivalents :** 4G, HSPA+ (3G amélioré), WiMAX
 **Voir aussi :** 5G, VoLTE, WLAN, GSM
-
 ## `PAT` — Port Address Translation [Réseau]
 **Niveau :** intermediaire | **Popularité :** 87 | **Aliases :** NAPT, NAT Overload, NAT avec surcharge de ports
 **Contextes :** routage réseau, translation d'adresses NAT, accès Internet partagé depuis un réseau privé
@@ -601,7 +595,6 @@
 **Précautions :** Loguer les associations port→IP privée côté pare-feu pour conserver la traçabilité légale (RGPD, obligation légale de conservation des logs).
 **Équivalents :** NAT Masquerade, NAPT
 **Voir aussi :** NAT, IP, iptables, nftables
-
 ## `ICMP` — Internet Control Message Protocol [Réseau]
 **Niveau :** intermediaire | **Popularité :** 96 | **Aliases :** ICMPv4, RFC 792
 **Contextes :** diagnostic réseau, détection de joignabilité, analyse de route, gestion d'erreurs IP
@@ -618,7 +611,6 @@
 **Précautions :** Filtrer sélectivement ICMP : autoriser les types essentiels (Echo, Destination Unreachable, Time Exceeded) ; bloquer Redirect et Timestamp.
 **Équivalents :** ICMPv6, NDPv6
 **Voir aussi :** ping, traceroute, IP, TTL
-
 ## `NDP` — Neighbor Discovery Protocol [Réseau IPv6]
 **Niveau :** avance | **Popularité :** 82 | **Aliases :** IPv6 ND, RFC 4861
 **Contextes :** réseau IPv6, résolution d'adresses, découverte de routeurs, autoconfiguration SLAAC
@@ -635,7 +627,6 @@
 **Précautions :** Activer la protection RA Guard sur les commutateurs réseau pour bloquer les faux Router Advertisements malveillants.
 **Équivalents :** ARP (équivalent IPv4)
 **Voir aussi :** ARP, IPv6, ICMPv6, SLAAC
-
 ## `BGP` — Border Gateway Protocol [Réseau]
 **Niveau :** expert | **Popularité :** 91 | **Aliases :** BGP-4, RFC 4271, EGP
 **Contextes :** routage inter-opérateurs (Internet), interconnexion d'Autonomous Systems, peering entre FAI, routage des datacenters cloud
@@ -652,7 +643,6 @@
 **Précautions :** Déployer RPKI (Resource Public Key Infrastructure) pour valider cryptographiquement l'origine des annonces BGP.
 **Équivalents :** OSPF (interne, IGP), EGP (prédécesseur obsolète)
 **Voir aussi :** AS, OSPF, RIP, RPKI, IP
-
 ## `OSPF` — Open Shortest Path First [Réseau]
 **Niveau :** avance | **Popularité :** 90 | **Aliases :** OSPFv2, OSPFv3, IGP Link-State
 **Contextes :** routage interne d'entreprise, FAI, campus réseau, datacenter interne
@@ -669,7 +659,6 @@
 **Précautions :** Authentifier les échanges OSPF entre routeurs (MD5 ou SHA-HMAC) pour empêcher l'injection de routes non autorisées.
 **Équivalents :** IS-IS (protocole similaire chez les opérateurs), RIP (obsolète)
 **Voir aussi :** BGP, RIP, Dijkstra, Router, AS
-
 ## `IGMP` — Internet Group Management Protocol [Réseau]
 **Niveau :** avance | **Popularité :** 76 | **Aliases :** RFC 3376, Multicast Group Management
 **Contextes :** streaming IPTV, multicast applicatif, réseau d'entreprise utilisant des flux Multicast IP
@@ -686,7 +675,6 @@
 **Précautions :** Activer IGMP Snooping sur tous les commutateurs qui acheminent du trafic multicast pour optimiser la bande passante.
 **Équivalents :** MLD (équivalent IPv6)
 **Voir aussi :** Multicast, PIM, ICMPv6, VLAN
-
 ## `TTL` — Time to Live [Réseau]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** Hop Limit (IPv6), Time-to-Live
 **Contextes :** contrôle de boucles de routage IP, diagnostic réseau, sécurité, enregistrements DNS
@@ -703,7 +691,6 @@
 **Précautions :** Ne pas se fier au TTL observé pour fingerprinter un OS de manière certaine : des proxies, VPN ou NAT peuvent altérer la valeur.
 **Équivalents :** Hop Limit (IPv6)
 **Voir aussi :** IP, ICMP, ping, traceroute, DNS
-
 ## `MTU` — Maximum Transmission Unit [Réseau]
 **Niveau :** intermediaire | **Popularité :** 88 | **Aliases :** Maximum Transfer Unit, Path MTU
 **Contextes :** administration réseau, configuration VPN, optimisation de performances réseau
@@ -720,7 +707,6 @@
 **Précautions :** Toujours ajuster le MSS TCP (TCP MSS Clamping) côté pare-feu pour éviter les problèmes de fragmentation avec les VPN.
 **Équivalents :** MSS (Maximum Segment Size, couche TCP)
 **Voir aussi :** IP, Ethernet, VPN, ICMP, Jumbo Frames
-
 ## `MAC Address` — Media Access Control Address [Réseau]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** Adresse MAC, Hardware Address, Physical Address, Adresse physique
 **Contextes :** communication Ethernet, filtrage réseau, ARP/NDP, identification de périphérique réseau, Wi-Fi
@@ -737,7 +723,6 @@
 **Précautions :** Ne pas utiliser le filtrage MAC comme seule mesure de sécurité ; combiner avec 802.1X/EAP pour une authentification réseau robuste.
 **Équivalents :** BSSID (adresse MAC d'un point d'accès Wi-Fi)
 **Voir aussi :** Ethernet, ARP, NDP, IP, WLAN
-
 ## `SRAM` — Static Random Access Memory [Matériel]
 **Niveau :** avance | **Popularité :** 79 | **Aliases :** Static RAM, Cache RAM
 **Contextes :** caches CPU (L1/L2/L3), registres, mémoires embarquées haute vitesse dans les microcontrôleurs
@@ -754,7 +739,6 @@
 **Précautions :** Le dimensionnement du cache SRAM est critique pour les performances CPU — un miss de cache L1 peut coûter 10 à 100 cycles de latence supplémentaires.
 **Équivalents :** DRAM (alternative moins chère et plus dense)
 **Voir aussi :** DRAM, CPU, L1/L2/L3 Cache, ALU
-
 ## `DRAM` — Dynamic Random Access Memory [Matériel]
 **Niveau :** intermediaire | **Popularité :** 88 | **Aliases :** DDR SDRAM, Mémoire Dynamique
 **Contextes :** mémoire vive principale des ordinateurs (RAM système), serveurs, smartphones
@@ -771,7 +755,6 @@
 **Précautions :** Utiliser des modules ECC RAM sur les serveurs pour détecter et corriger automatiquement les erreurs de bit dues aux rayons cosmiques ou à la dégradation des cellules.
 **Équivalents :** SRAM (plus rapide mais plus chère), LPDDR (variante basse consommation pour mobile)
 **Voir aussi :** SRAM, ECC RAM, DIMM, RAM
-
 ## `VRAM` — Video Random Access Memory [Matériel]
 **Niveau :** intermediaire | **Popularité :** 88 | **Aliases :** GPU Memory, GDDR, HBM
 **Contextes :** rendu graphique 3D, jeux vidéo haute résolution, entraînement de modèles IA, calcul GPGPU
@@ -788,7 +771,6 @@
 **Précautions :** Surveiller l'utilisation VRAM via `nvidia-smi` ; dimensionner la VRAM selon les exigences du modèle ou de la résolution cible avant l'achat du GPU.
 **Équivalents :** GDDR6X (NVIDIA RTX), HBM3 (H100/MI300X), LPDDR5 (GPU mobile)
 **Voir aussi :** GPU, RAM, PCIe, DRAM
-
 ## `ECC RAM` — Error-Correcting Code RAM [Matériel]
 **Niveau :** avance | **Popularité :** 82 | **Aliases :** ECC Memory, Registered ECC, RDIMM
 **Contextes :** serveurs, stations de travail professionnelles, centres de données, calcul scientifique critique
@@ -805,7 +787,6 @@
 **Précautions :** Surveiller régulièrement les compteurs d'erreurs ECC corrigées via `edac-util` ou IPMI — une augmentation soudaine signale un module défaillant à remplacer.
 **Équivalents :** RDIMM (avec registre tampon), LRDIMM (Load-Reduced DIMM)
 **Voir aussi :** DRAM, DIMM, SRAM, RAM, Server
-
 ## `DIMM` — Dual In-line Memory Module [Matériel]
 **Niveau :** debutant | **Popularité :** 88 | **Aliases :** Barrette mémoire, SO-DIMM, RDIMM
 **Contextes :** assemblage PC et serveur, upgrade mémoire RAM, diagnostic matériel
@@ -822,7 +803,6 @@
 **Précautions :** Toujours installer les barrettes par paires dans les bons slots (consulter le manuel de la carte mère) pour bénéficier du mode Dual-Channel.
 **Équivalents :** SO-DIMM (portable), RDIMM (serveur), LRDIMM (très grand serveur)
 **Voir aussi :** DRAM, ECC RAM, RAM, Motherboard
-
 ## `SoC` — System on Chip [Matériel]
 **Niveau :** intermediaire | **Popularité :** 93 | **Aliases :** System-on-a-Chip, Puce System
 **Contextes :** smartphones, tablettes, systèmes embarqués, IoT, ordinateurs Apple Silicon, Raspberry Pi
@@ -839,7 +819,6 @@
 **Précautions :** Vérifier la compatibilité matérielle des logiciels avant d'acquérir un appareil à SoC ARM (notamment pour la compatibilité x86 via émulation Rosetta 2 / WSL2).
 **Équivalents :** MCU (Microcontroller Unit, version embarquée simplifiée)
 **Voir aussi :** CPU, GPU, NPU, ARM, PCIe
-
 ## `ASIC` — Application-Specific Integrated Circuit [Matériel]
 **Niveau :** expert | **Popularité :** 83 | **Aliases :** Circuit Intégré Spécifique, Custom IC
 **Contextes :** minage de cryptomonnaie, commutateurs réseau haute vitesse, traitement du signal numérique, automobile
@@ -856,7 +835,6 @@
 **Précautions :** Pour une application dont les spécifications évoluent, privilégier le FPGA (prototypage) avant de valider un design ASIC pour la production en volume.
 **Équivalents :** FPGA (reconfigurable), SoC (générique)
 **Voir aussi :** FPGA, SoC, GPU, CPU
-
 ## `FPGA` — Field-Programmable Gate Array [Matériel]
 **Niveau :** expert | **Popularité :** 80 | **Aliases :** Réseau de Portes Programmables, Logic Array
 **Contextes :** prototypage matériel, traitement du signal DSP, trading haute fréquence, aéronautique/défense, accélération réseau
@@ -873,7 +851,6 @@
 **Précautions :** Valider la conception avec des simulations (ModelSim, Questa) et prendre en compte les contraintes de timing et de placement avant la synthèse.
 **Équivalents :** CPLD (Complex Programmable Logic Device, moins dense), ASIC (non reconfigurable)
 **Voir aussi :** ASIC, SoC, VHDL, Verilog
-
 ## `ALU` — Arithmetic Logic Unit [Architecture CPU]
 **Niveau :** expert | **Popularité :** 78 | **Aliases :** Unité d'Arithmétique et de Logique, UAL
 **Contextes :** architecture de processeur, enseignement informatique, conception de CPU, compilation
@@ -890,7 +867,6 @@
 **Précautions :** Lors de la conception de code critique (cryptographie, calcul financier), valider les comportements d'overflow et de carry de l'ALU pour chaque architecture cible.
 **Équivalents :** FPU (virgule flottante), SIMD/AVX (calcul vectoriel parallèle)
 **Voir aussi :** CPU, FPU, Registers, SoC, FPGA
-
 ## `L1/L2/L3 Cache` — Multi-Level CPU Cache [Architecture CPU]
 **Niveau :** intermediaire | **Popularité :** 86 | **Aliases :** Cache CPU, Mémoire Cache, CPU Cache
 **Contextes :** architecture processeur, performance logicielle, optimisation d'algorithmes, tuning système
@@ -907,7 +883,6 @@
 **Précautions :** Aligner les structures de données critiques en mémoire sur les lignes de cache (64 octets) pour maximiser les taux de hit et éviter le false sharing entre threads.
 **Équivalents :** TLB (Translation Lookaside Buffer, cache MMU)
 **Voir aussi :** CPU, SRAM, DRAM, ALU, RAM
-
 ## `S.M.A.R.T.` — Self-Monitoring Analysis and Reporting Technology [Stockage]
 **Niveau :** intermediaire | **Popularité :** 85 | **Aliases :** SMART, Self-Monitoring
 **Contextes :** diagnostic disque dur HDD, surveillance SSD, prévention de panne de stockage, monitoring infrastructure
@@ -924,7 +899,6 @@
 **Précautions :** Configurer des alertes automatiques via `smartd` (démon Linux) pour être notifié par email avant la panne physique d'un disque.
 **Équivalents :** NVMe Health Information Log (standard NVMe équivalent)
 **Voir aussi :** HDD, SSD, NVMe, S.M.A.R.T., RAID
-
 ## `AHCI` — Advanced Host Controller Interface [Stockage]
 **Niveau :** avance | **Popularité :** 76 | **Aliases :** SATA AHCI, Mode AHCI
 **Contextes :** contrôleur de stockage SATA, configuration BIOS, pilotes système, disques HDD et SSD SATA
@@ -941,7 +915,6 @@
 **Précautions :** Pour les SSD modernes, migrer vers le mode NVMe/PCIe natif (protocole NVMe) qui offre des files d'attente et des performances considérablement supérieures à AHCI.
 **Équivalents :** NVMe (protocole supérieur), IDE (protocole obsolète)
 **Voir aussi :** SATA, NVMe, SSD, HDD, BIOS
-
 ## `SAS` — Serial Attached SCSI [Stockage]
 **Niveau :** avance | **Popularité :** 77 | **Aliases :** Serial SCSI, SAS-3
 **Contextes :** serveurs entreprise, baies de stockage, SAN, RAID matériel haute disponibilité
@@ -958,7 +931,6 @@
 **Précautions :** Vérifier la compatibilité de la carte contrôleur SAS (HBA ou RAID) avec les disques sélectionnés — la Vendor Compatibility List (VCL) du serveur est la référence.
 **Équivalents :** NVMe/SAS (SAS 4 annonce des capacités NVMe), iSCSI (réseau)
 **Voir aussi :** SATA, SCSI, SAN, RAID, AHCI
-
 ## `DisplayPort` — DisplayPort Video Interface [Matériel]
 **Niveau :** intermediaire | **Popularité :** 87 | **Aliases :** DP, Mini-DP, VESA DP
 **Contextes :** connexion moniteur PC, multi-écrans professionnels, stations de travail, gaming haute fréquence
@@ -975,7 +947,6 @@
 **Précautions :** Vérifier la version DP (1.4, 2.0, 2.1) supportée par le GPU et le moniteur pour garantir la bande passante nécessaire à la résolution et fréquence cibles.
 **Équivalents :** HDMI (grand public/TV), Thunderbolt (multifonction haut de gamme)
 **Voir aussi :** HDMI, Thunderbolt, GPU, VESA, xrandr
-
 ## `Thunderbolt` — Thunderbolt Hardware Interface [Matériel]
 **Niveau :** intermediaire | **Popularité :** 88 | **Aliases :** TB4, Light Peak, Intel Thunderbolt
 **Contextes :** stations d'accueil (docks), eGPU, transferts de données ultra-rapides, connexion multi-écrans 8K
@@ -992,7 +963,6 @@
 **Précautions :** Activer Kernel DMA Protection (Intel) dans le BIOS et désactiver l'autorisation automatique de nouveaux appareils Thunderbolt dans les paramètres système.
 **Équivalents :** USB4 (version ouverte très similaire à TB3), DisplayPort Alt Mode (vidéo seule)
 **Voir aussi :** USB, PCIe, DisplayPort, Type-C, eGPU
-
 ## `RJ45` — Registered Jack 45 [Réseau]
 **Niveau :** debutant | **Popularité :** 98 | **Aliases :** 8P8C, Connecteur Ethernet, RJ-45
 **Contextes :** câblage réseau Ethernet, infrastructure informatique, connexion de postes, baie de brassage
@@ -1009,7 +979,6 @@
 **Précautions :** Respecter la longueur maximale de 100 m par segment de câble Ethernet cuivre (UTP/STP) et vérifier l'impédance du câble avec un testeur avant installation.
 **Équivalents :** SFP (fibre optique), DAC (câble cuivre direct), SFP28
 **Voir aussi :** Ethernet, Cat6, Switch, SFP, PoE
-
 ## `SFP` — Small Form-factor Pluggable [Réseau]
 **Niveau :** avance | **Popularité :** 85 | **Aliases :** Transceiver SFP, SFP+, SFP28, QSFP
 **Contextes :** commutateurs réseau entreprise, interconnexions datacenter, liaison fibre optique, uplinks réseau
@@ -1026,7 +995,6 @@
 **Précautions :** Toujours insérer le bouchon plastique de protection dans les ports SFP non utilisés pour éviter la poussière sur les connecteurs optiques.
 **Équivalents :** RJ45 (cuivre courte distance), QSFP (très haut débit)
 **Voir aussi :** Ethernet, RJ45, Switch, Fibre Optique, QSFP
-
 ## `PoE` — Power over Ethernet [Réseau]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** IEEE 802.3af, PoE+, PoE++
 **Contextes :** déploiement de bornes Wi-Fi, caméras IP, téléphonie VoIP, contrôle d'accès, affichage dynamique
@@ -1043,7 +1011,6 @@
 **Précautions :** Calculer la puissance totale consommée par tous les équipements PoE avant de dimensionner le switch — le budget PoE total du switch est limité (ex: 370W pour 24 ports).
 **Équivalents :** Alimentation dédiée AC (alternative non PoE)
 **Voir aussi :** Ethernet, RJ45, Switch, WLAN, IEEE 802.3
-
 ## `UPS` — Uninterruptible Power Supply [Infrastructure IT]
 **Niveau :** intermediaire | **Popularité :** 91 | **Aliases :** Onduleur, Alimentation Sans Interruption, ASI
 **Contextes :** protection des serveurs, salle de datacenter, protection de postes de travail critiques, continuité de service
@@ -1060,7 +1027,6 @@
 **Précautions :** Configurer NUT (Network UPS Tools) sur tous les serveurs reliés à l'UPS pour un arrêt automatique et coordonné en cas de panne secteur prolongée.
 **Équivalents :** PDU (distribue le courant), Groupe Électrogène (autonomie longue durée)
 **Voir aussi :** PDU, SNMP, Rack 19, Datacenter, NUT
-
 ## `KVM` — Keyboard Video Mouse [Infrastructure IT]
 **Niveau :** intermediaire | **Popularité :** 84 | **Aliases :** KVM Switch, Console Switch, KVM over IP
 **Contextes :** administration de salle serveur, gestion de baies multi-serveurs, accès console hors-bande
@@ -1077,7 +1043,6 @@
 **Précautions :** Sécuriser l'accès au KVM over IP sur un VLAN d'administration dédié et isolé, inaccessible depuis le réseau de production.
 **Équivalents :** iDRAC/iLO (intégré aux serveurs Dell/HPE), IPMI BMC
 **Voir aussi :** iDRAC, ILO, IPMI, Rack 19, SSH
-
 ## `PDU` — Power Distribution Unit [Infrastructure IT]
 **Niveau :** intermediaire | **Popularité :** 79 | **Aliases :** Bandeau de prises, Répartiteur d'Alimentation
 **Contextes :** baie informatique 19 pouces, salle serveur, datacenter, gestion de l'énergie
@@ -1094,7 +1059,6 @@
 **Précautions :** Répartir les équipements critiques sur deux PDU distincts alimentés par deux circuits électriques indépendants pour la redondance d'alimentation.
 **Équivalents :** UPS (protection batterie), Multiprise industrielle
 **Voir aussi :** UPS, Rack 19, SNMP, Datacenter, C13/C19
-
 ## `Rack 19` — 19-inch Server Rack [Infrastructure IT]
 **Niveau :** debutant | **Popularité :** 89 | **Aliases :** Baie 19 pouces, EIA-310, Armoire Réseau
 **Contextes :** salle serveur, datacenter, local technique, hébergement d'équipements actifs (serveurs, switches, firewalls)
@@ -1111,7 +1075,6 @@
 **Précautions :** Documenter précisément chaque emplacement (slot diagram) de la baie et gérer les câbles avec des guides et attaches pour faciliter les interventions futures.
 **Équivalents :** Baie ouverte (Open Frame Rack), Armoire fermée à serrure
 **Voir aussi :** PDU, UPS, Blade Server, Datacenter, EIA-310
-
 ## `Blade Server` — Blade Server Architecture [Infrastructure IT]
 **Niveau :** avance | **Popularité :** 79 | **Aliases :** Serveur Lame, Blade Computing
 **Contextes :** datacenter haute densité, hébergement d'entreprise, virtualisation à grande échelle
@@ -1128,7 +1091,6 @@
 **Précautions :** Configurer obligatoirement les modules d'alimentation et switchs en double exemplaire redondant dans le châssis blade pour garantir la haute disponibilité.
 **Équivalents :** Rack Server (serveur 1U/2U classique), Hyperconverged Infrastructure (HCI)
 **Voir aussi :** Rack 19, Bare Metal, Hypervisor, Datacenter
-
 ## `Bare Metal` — Bare Metal Server [Cloud / Infrastructure]
 **Niveau :** intermediaire | **Popularité :** 84 | **Aliases :** Serveur Dédié, Physical Server, Dedicated Host
 **Contextes :** cloud computing haute performance, bases de données enterprise, HPC, charges de travail nécessitant l'accès direct au matériel
@@ -1145,7 +1107,6 @@
 **Précautions :** Planifier soigneusement les besoins avant provisionnement — redimensionner un Bare Metal est bien plus contraignant que de modifier une VM cloud.
 **Équivalents :** VM (instance virtuelle mutualisée), Dedicated Host (équivalent AWS)
 **Voir aussi :** Hypervisor, VM, IaaS, Cloud, Cloud
-
 ## `Hypervisor` — Hypervisor / Hyperviseur [Virtualisation]
 **Niveau :** intermediaire | **Popularité :** 95 | **Aliases :** VMM, Virtual Machine Monitor, Superviseur de Machines Virtuelles
 **Contextes :** virtualisation de serveurs, cloud computing, développement et test, isolation de charges de travail
@@ -1162,7 +1123,6 @@
 **Précautions :** Maintenir rigoureusement l'hyperviseur à jour avec les correctifs de sécurité — les vulnérabilités d'évasion VM sont des vecteurs d'attaque critiques.
 **Équivalents :** Container Runtime (Docker/LXC — isolation légère sans VM complète), Unikernel
 **Voir aussi :** VM, Bare Metal, KVM, Proxmox, vCPU
-
 ## `vCPU` — Virtual Central Processing Unit [Virtualisation]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** CPU Virtuel, Virtual Core
 **Contextes :** hyperviseur, cloud computing, dimensionnement de machines virtuelles, conteneurs
@@ -1179,7 +1139,6 @@
 **Précautions :** Monitorer le CPU Ready (VMware) ou CPU Steal (`top` colonne `st` sous Linux) pour détecter la saturation en ressources CPU de l'hôte physique.
 **Équivalents :** vCore (terminologie alternative), CPU limit (conteneurs Kubernetes)
 **Voir aussi :** Hypervisor, CPU, VM, Cloud, Bare Metal
-
 ## `SNMP` — Simple Network Management Protocol [Supervision]
 **Niveau :** intermediaire | **Popularité :** 88 | **Aliases :** SNMPv3, RFC 3411, Network Management Protocol
 **Contextes :** supervision réseau, monitoring d'infrastructure IT, gestion d'équipements (switches, routeurs, UPS, PDU)
@@ -1196,7 +1155,6 @@
 **Précautions :** Toujours utiliser SNMPv3 avec authentification et chiffrement ; filtrer l'accès SNMP aux seules adresses IP des serveurs de supervision via ACL et VLAN de gestion dédié.
 **Équivalents :** Prometheus/OpenMetrics (pull HTTP moderne), gNMI/gRPC (réseau nouvelle génération)
 **Voir aussi :** MIB, SNMP, SNMP, SIEM, Syslog
-
 ## `Syslog` — System Logging Protocol [Supervision]
 **Niveau :** intermediaire | **Popularité :** 87 | **Aliases :** RFC 5424, rsyslog, syslog-ng
 **Contextes :** centralisation de journaux, SIEM, supervision de sécurité, audit de conformité, débogage d'infrastructure
@@ -1213,7 +1171,6 @@
 **Précautions :** Stocker les logs centralisés sur un système en écriture seule (WORM) ou un SIEM pour garantir leur intégrité légale (chaîne de custody pour les investigations).
 **Équivalents :** Journald (systemd, format binaire), Windows Event Log (équivalent Microsoft)
 **Voir aussi :** SIEM, Syslog, journalctl, SNMP, Logs
-
 ## `PXE` — Preboot Execution Environment [Infrastructure IT]
 **Niveau :** avance | **Popularité :** 82 | **Aliases :** Network Boot, iPXE, Network Install
 **Contextes :** déploiement automatisé de serveurs, clients légers diskless, provisionnement de datacenter, boot réseau
@@ -1230,7 +1187,6 @@
 **Précautions :** Activer UEFI Secure Boot et valider les certificats des fichiers bootloader PXE pour empêcher le boot d'images non signées provenant d'un serveur compromis.
 **Équivalents :** USB Live (alternative hors réseau), Cobbler/Foreman (outils de provisionnement PXE)
 **Voir aussi :** DHCP, TFTP, UEFI, Kickstart, Preseed
-
 ## `IPMI` — Intelligent Platform Management Interface [Infrastructure IT]
 **Niveau :** avance | **Popularité :** 83 | **Aliases :** BMC, Baseboard Management Controller, Out-of-Band Management
 **Contextes :** supervision matériel hors-bande, administration de serveurs, gestion d'infrastructure datacenter
@@ -1247,7 +1203,6 @@
 **Précautions :** Isoler le port IPMI/BMC sur un VLAN d'administration totalement séparé, non routable depuis Internet ; désactiver les ciphers IPMI faibles et utiliser Redfish en remplacement.
 **Équivalents :** Redfish (successeur API REST moderne), iDRAC (Dell), iLO (HPE)
 **Voir aussi :** iDRAC, ILO, KVM, Syslog, SNMP
-
 ## `iDRAC` — Integrated Dell Remote Access Controller [Hardware / Administration]
 **Niveau :** avance | **Popularité :** 85 | **Aliases :** Dell iDRAC, iDRAC9
 **Contextes :** administration de serveurs Dell PowerEdge, gestion hors-bande, maintenance datacenter
@@ -1264,7 +1219,6 @@
 **Précautions :** Toujours placer les interfaces iDRAC sur un VLAN d'administration isolé et sécuriser l'accès avec MFA/TLS.
 **Équivalents :** ILO (HPE), IPMI, Redfish
 **Voir aussi :** ILO, IPMI, KVM, Server
-
 ## `ILO` — Integrated Lights-Out [Hardware / Administration]
 **Niveau :** avance | **Popularité :** 85 | **Aliases :** HPE iLO, iLO 5, iLO 6
 **Contextes :** administration de serveurs HPE ProLiant, gestion matérielle hors-bande, datacenter
@@ -1281,7 +1235,6 @@
 **Précautions :** Restreindre l'accès réseau à l'iLO via des ACLs strictes et maintenir son firmware à jour.
 **Équivalents :** iDRAC (Dell), IPMI, Redfish
 **Voir aussi :** iDRAC, IPMI, KVM, Redfish
-
 ## `NAT Gateway` — Network Address Translation Gateway [Cloud / Réseau]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** Cloud NAT, Passerelle NAT
 **Contextes :** architectures cloud (AWS, GCP, Azure), VPC, sous-réseaux privés, sécurité des accès sortants
@@ -1298,7 +1251,6 @@
 **Précautions :** Déployer une NAT Gateway par zone de disponibilité (AZ) pour garantir la haute disponibilité en cas de panne d'une zone.
 **Équivalents :** Instance NAT (auto-hébergée), PAT / Masquerade
 **Voir aussi :** NAT, VPC, Subnet, Gateway
-
 ## `VPC` — Virtual Private Cloud [Cloud / Réseau]
 **Niveau :** intermediaire | **Popularité :** 96 | **Aliases :** Cloud Private Network, Réseau Virtuel Privé
 **Contextes :** cloud computing (AWS, GCP, Azure, OpenStack), isolation de réseau, architecture multi-tiers
@@ -1315,7 +1267,6 @@
 **Précautions :** Bien planifier la plage CIDR initiale du VPC (ex: 10.0.0.0/16) pour éviter les chevauchements d'adresses lors d'interconnexions futures (VPN/Peering).
 **Équivalents :** VNet (Azure Virtual Network), Tenant Network (OpenStack)
 **Voir aussi :** Subnet, CIDR, Gateway, VPN
-
 ## `CIDR` — Classless Inter-Domain Routing [Réseau]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** Notation CIDR, Masque de sous-réseau
 **Contextes :** adressage IP, sous-réseaux, routage Internet, configuration VPC/Cloud
@@ -1332,7 +1283,6 @@
 **Précautions :** Utiliser un outil comme `ipcalc` pour valider les plages d'adresses et éviter les erreurs de chevauchement de sous-réseaux.
 **Équivalents :** Subnet Mask (masque décimal traditionnel)
 **Voir aussi :** Subnet, IP, BGP, VPC
-
 ## `Subnet` — IP Subnetwork [Réseau]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** Sous-réseau, Subnetwork
 **Contextes :** architecture réseau, découpage IP, sécurité, VLAN, sous-réseaux cloud
@@ -1349,7 +1299,6 @@
 **Précautions :** Réserver des adresses IP d'administration fixes en dehors des plages attribuées par le serveur DHCP dans chaque sous-réseau.
 **Équivalents :** VLAN (équivalent couche 2)
 **Voir aussi :** CIDR, IP, Gateway, VLAN
-
 ## `Gateway` — Default Gateway / Passerelle [Réseau]
 **Niveau :** debutant | **Popularité :** 98 | **Aliases :** Passerelle par défaut, Default Route
 **Contextes :** configuration IP, routage local, accès Internet, réseau d'entreprise
@@ -1366,7 +1315,6 @@
 **Précautions :** Tester la joignabilité de la passerelle avec `ping <ip-gateway>` lors de tout diagnostic de panne réseau.
 **Équivalents :** Default route (0.0.0.0/0)
 **Voir aussi :** IP, Router, route, NAT
-
 ## `DMZ` — Demilitarized Zone [Sécurité / Réseau]
 **Niveau :** intermediaire | **Popularité :** 92 | **Aliases :** Zone Démilitarisée, Perimeter Network
 **Contextes :** architecture de sécurité réseau, hébergement de services publics (Web, Mail, DNS), pare-feu
@@ -1383,7 +1331,6 @@
 **Précautions :** Ne jamais stocker de bases de données contenant des données sensibles directement dans des serveurs situés en DMZ.
 **Équivalents :** Perimeter Network, Public Subnet (Cloud)
 **Voir aussi :** Firewall, LAN, Bastion Host
-
 ## `Firewall` — Network Firewall [Sécurité]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** Pare-feu, NGFW, WAF
 **Contextes :** sécurité réseau, protection de périmètre, filtrage de paquets, contrôle d'accès
@@ -1400,7 +1347,6 @@
 **Précautions :** Toujours tester les règles de pare-feu temporairement avec un script de rollback automatique avant de les rendre permanentes.
 **Équivalents :** Security Group (Cloud), ACL
 **Voir aussi :** iptables, nftables, ufw, DMZ
-
 ## `Proxy` — Proxy Server / Serveur Mandataire [Sécurité / Réseau]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** Serveur Mandataire, Forward Proxy, Reverse Proxy
 **Contextes :** filtrage web d'entreprise, cache HTTP, anonymisation, répartition de charge, sécurité
@@ -1417,7 +1363,6 @@
 **Précautions :** Pour le déchiffrement HTTPS par un proxy d'inspection (SSL Interception), déployer l'autorité de certification (CA) du proxy sur tous les postes clients.
 **Équivalents :** Gateway applicative, Reverse Proxy
 **Voir aussi :** Reverse Proxy, Nginx, HAProxy, CDN
-
 ## `Bastion Host` — Jump Server / Bastion [Sécurité]
 **Niveau :** intermediaire | **Popularité :** 88 | **Aliases :** Jump Box, Jump Server, Serveur Rebond
 **Contextes :** administration à distance sécurisée, accès aux serveurs cloud/datacenter, audit SSH
@@ -1434,7 +1379,6 @@
 **Précautions :** Désactiver l'authentification par mot de passe au profit de clés SSH protégées et exiger l'authentification multifacteur (MFA).
 **Équivalents :** AWS Systems Manager Session Manager (alternative sans bastion), Teleport
 **Voir aussi :** SSH, MFA, DMZ, VPC
-
 ## `VRRP` — Virtual Router Redundancy Protocol [Réseau]
 **Niveau :** avance | **Popularité :** 82 | **Aliases :** RFC 5798, Redondance de Routeur
 **Contextes :** haute disponibilité réseau, redondance de passerelle par défaut, basculement automatique
@@ -1451,7 +1395,6 @@
 **Précautions :** Autoriser le protocole IP 112 (VRRP) dans les règles de pare-feu locales entre les membres du cluster.
 **Équivalents :** HSRP (Cisco), CARP (BSD/pfSense)
 **Voir aussi :** Gateway, VRRP, HA, IP
-
 ## `LACP` — Link Aggregation Control Protocol [Réseau]
 **Niveau :** avance | **Popularité :** 86 | **Aliases :** IEEE 802.3ad, IEEE 802.1AX, NIC Bonding
 **Contextes :** agrégation de liens Ethernet, haute disponibilité, augmentation de bande passante, switches/serveurs
@@ -1468,7 +1411,6 @@
 **Précautions :** Configurer le mode LACP dynamique (mode 4 / 802.3ad) plutôt qu'un bonding statique pour garantir la négociation d'état entre équipements.
 **Équivalents :** EtherChannel (Cisco), Trunking (HP)
 **Voir aussi :** Ethernet, Switch, HA, Bonding
-
 ## `Spanning Tree` — Spanning Tree Protocol [Réseau]
 **Niveau :** avance | **Popularité :** 85 | **Aliases :** STP, RSTP, IEEE 802.1D, IEEE 802.1w
 **Contextes :** commutation Ethernet, prévention des boucles réseau, topologie redondante inter-switchs
@@ -1485,7 +1427,6 @@
 **Précautions :** Activer BPDU Guard et PortFast sur les ports d'accès reliés aux postes utilisateurs pour éviter les attaques ou l'injection involontaire de switchs grand public.
 **Équivalents :** RSTP (Rapid STP), MSTP (Multiple STP)
 **Voir aussi :** Switch, Ethernet, VLAN, Loop
-
 ## `Jumbo Frames` — Jumbo Ethernet Frames [Réseau]
 **Niveau :** intermediaire | **Popularité :** 82 | **Aliases :** Trame Géante, MTU 9000
 **Contextes :** réseaux de stockage SAN/NAS (iSCSI, NFS), sauvegarde haut débit, interconnexion datacenter
@@ -1502,7 +1443,6 @@
 **Précautions :** Réserver l'utilisation des Jumbo Frames aux réseaux locaux dédiés (VLAN de stockage iSCSI/NFS) et ne jamais les activer sur des réseaux routés vers Internet.
 **Équivalents :** Standard Ethernet Frame (MTU 1500)
 **Voir aussi :** MTU, Ethernet, iSCSI, NAS
-
 ## `VLAN Tagging` — IEEE 802.1Q VLAN Tagging [Réseau]
 **Niveau :** intermediaire | **Popularité :** 91 | **Aliases :** 802.1Q Tagging, Trunking, Frame Tagging
 **Contextes :** commutation Ethernet, virtualisation, hyperviseurs, transport multi-VLANs sur câble unique
@@ -1519,7 +1459,6 @@
 **Précautions :** Définir un Native VLAN inutilisé et différent du VLAN 1 sur tous les ports Trunk.
 **Équivalents :** VXLAN (extension d'encapsulation pour le cloud)
 **Voir aussi :** VLAN, Switch, Ethernet, 802.1Q
-
 ## `BGP Hijacking` — Border Gateway Protocol Hijacking [Sécurité / Réseau]
 **Niveau :** expert | **Popularité :** 80 | **Aliases :** Détournement BGP, Route Hijacking, IP Hijacking
 **Contextes :** sécurité du routage Internet, cyberattaques d'infrastructure, interception de trafic mondial
@@ -1536,7 +1475,6 @@
 **Précautions :** Déployer RPKI (ROA - Route Origin Authorization) et filtrer les annonces BGP entrantes avec ROV (Route Origin Validation).
 **Équivalents :** DNS Spoofing (au niveau nom de domaine)
 **Voir aussi :** BGP, AS, RPKI, IP
-
 ## `QoS` — Quality of Service [Réseau]
 **Niveau :** intermediaire | **Popularité :** 91 | **Aliases :** Qualité de Service, DiffServ, CoS
 **Contextes :** priorisation du trafic réseau, VoIP, visioconférence, streaming, congestion réseau
@@ -1553,7 +1491,6 @@
 **Précautions :** Appliquer le marquage QoS au plus près de la source (sur le poste ou le premier switch) pour un traitement optimal tout au long du chemin.
 **Équivalents :** Traffic Shaping, Bandwidth Limiting
 **Voir aussi :** DSCP, VoIP, Router, Réseau
-
 ## `ZFS Pool` — ZFS Storage Pool (zpool) [Stockage]
 **Niveau :** avance | **Popularité :** 86 | **Aliases :** zpool, ZFS Pool
 **Contextes :** stockage d'entreprise, Proxmox, TrueNAS, gestionnaires de fichiers ZFS, tolérance aux pannes
@@ -1570,7 +1507,6 @@
 **Précautions :** Toujours prévoir au moins 20% d'espace libre dans un zpool ZFS pour éviter les dégradations majeures de performances.
 **Équivalents :** LVM VG (Volume Group), Btrfs pool
 **Voir aussi :** ZFS, RAID, LVM, SSD, RAID-Z
-
 ## `Ceph` — Ceph Distributed Object Store [Stockage / Cloud]
 **Niveau :** expert | **Popularité :** 85 | **Aliases :** Ceph Storage, RADOS, Ceph cluster
 **Contextes :** stockage cloud distribué, OpenStack, Proxmox VE, stockage objet S3, block devices distribués
@@ -1587,7 +1523,6 @@
 **Précautions :** Déployer un réseau 10 GbE ou 25 GbE dédié exclusivement au trafic de réplication interne du cluster Ceph.
 **Équivalents :** GlusterFS, MinIO (objet uniquement), VMware vSAN
 **Voir aussi :** Cloud, S3, ZFS, Proxmox
-
 ## `LVM` — Logical Volume Manager [Stockage / Linux]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** LVM2, Logical Volume, Volume Group
 **Contextes :** administration de stockage Linux, redimensionnement dynamique de partitions, snapshots, chiffrement LUKS
@@ -1604,7 +1539,6 @@
 **Précautions :** Utiliser des thin pools LVM (`thin provisioning`) pour des instantanés et volumes plus flexibles et économes en espace.
 **Équivalents :** ZFS (système de fichiers avec gestionnaire intégré), Btrfs
 **Voir aussi :** ext4, ZFS, partition, disk, fdisk
-
 ## `swap` — Swap Space / Espace de Pagination [Système]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** Swap file, Swap partition, Espace d'échange
 **Contextes :** gestion de la mémoire sous Linux/Unix, prévention d'OOM (Out Of Memory), mise en veille prolongée (hibernation)
@@ -1621,7 +1555,6 @@
 **Précautions :** Régler le paramètre `vm.swappiness` (entre 10 et 30 sur serveur) pour limiter l'utilisation du swap tant que la RAM n'est pas presque pleine.
 **Équivalents :** Pagefile.sys (Windows), swapfile (macOS)
 **Voir aussi :** RAM, free, sysctl, memory, OOM
-
 ## `IOPS` — Input/Output Operations Per Second [Stockage]
 **Niveau :** intermediaire | **Popularité :** 92 | **Aliases :** Operations d'E/S par seconde
 **Contextes :** benchmark de disque, performance SSD/NVMe/HDD, dimensionnement de bases de données, stockage cloud (EBS)
@@ -1638,7 +1571,6 @@
 **Précautions :** Pour les bases de données (accès aléatoire en petits blocs), privilégier des IOPS élevées ; pour la vidéo (gros fichiers), privilégier le débit (Throughput en Mo/s).
 **Équivalents :** TPS (Transactions Per Second)
 **Voir aussi :** SSD, HDD, NVMe, Throughput, fio
-
 ## `Throughput` — Data Throughput / Débit [Réseau / Stockage]
 **Niveau :** debutant | **Popularité :** 93 | **Aliases :** Débit, Bandwidth Utilization, Transfer Rate
 **Contextes :** mesure de performance réseau, vitesse de transfert de stockage, sauvegardes, streaming
@@ -1655,7 +1587,6 @@
 **Précautions :** Faire attention à la confusion courante entre bits par seconde (b/s, Gbps pour le réseau) et octets par seconde (B/s, Mo/s pour le stockage).
 **Équivalents :** Goodput, Bitrate
 **Voir aussi :** IOPS, Latency, iperf3, nload
-
 ## `Latency` — Network & System Latency [Réseau / Système]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** Latence, RTT, Temps de réponse, Delay
 **Contextes :** performance réseau, jeux en ligne, trading haute fréquence, réactivité applicative, accès mémoire
@@ -1672,7 +1603,6 @@
 **Précautions :** Déployer des CDN et héberger les applications au plus près des utilisateurs pour réduire la latence réseau liée à la distance géographique.
 **Équivalents :** RTT (Round Trip Time), Lag
 **Voir aussi :** ping, mtr, Throughput, QoS
-
 ## `NVMe-oF` — NVMe over Fabrics [Stockage / Réseau]
 **Niveau :** expert | **Popularité :** 80 | **Aliases :** NVMf, NVMe over RoCE, NVMe over TCP
 **Contextes :** stockage SAN ultra-hautes performances, datacenters cloud, NVMe distribué, RoCEv2
@@ -1689,7 +1619,6 @@
 **Précautions :** Activer les fonctionnalités Priority Flow Control (PFC) sur les switches Ethernet lors de l'utilisation de NVMe over RoCE.
 **Équivalents :** iSCSI (plus ancien, latence plus élevée), Fibre Channel
 **Voir aussi :** NVMe, iSCSI, SAN, SSD, RDMA
-
 ## `iSCSI Target` — iSCSI Storage Target [Stockage / Réseau]
 **Niveau :** avance | **Popularité :** 86 | **Aliases :** Cible iSCSI, LUN Target, targetcli
 **Contextes :** stockage SAN sur réseau IP, baies de stockage, virtualisation (VMware, Proxmox), stockage bloc partagé

@@ -31,7 +31,6 @@
 **Précautions :** Migrer les nouvelles clés d'authentification vers Ed25519 ou utiliser au minimum du RSA 3072/4096 bits.
 **Équivalents :** ECC, Ed25519, DSA (obsolète)
 **Voir aussi :** ECC, ssh-keygen, openssl, PKI
-
 ## `ECC` — Elliptic Curve Cryptography [Sécurité]
 **Niveau :** avance | **Popularité :** 96 | **Aliases :** ECDSA, Ed25519
 **Contextes :** s'authentifier de manière ultra-sécurisée et rapide sur des serveurs SSH, établir des sessions TLS 1.3, signer des transactions blockchain ou des paquets d'applications
@@ -43,11 +42,11 @@
 **Origine :** Neal Koblitz et Victor S. Miller (1985).
 **Subtilités/confusions :**
 - Une clé Ed25519 de 256 bits offre un niveau de sécurité équivalent ou supérieur à une clé RSA de 3072 bits, tout en s'exécutant 10× plus vite !
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** —
 **Précautions :** Privilégier la courbe Curve25519 (Ed25519) aux courbes du NIST pour éviter les soupçons de portes dérobées historiques.
 **Équivalents :** RSA, DSA
 **Voir aussi :** RSA, ssh-keygen, TLS, PKI
-
 ## `TLS` — Transport Layer Security [Réseau/Sécurité]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** SSL (abus de langage)
 **Contextes :** sécuriser les communications réseau sur Internet (HTTPS, SMTPS, IMAPS, WSS, VPN TLS) en garantissant la confidentialité, l'authenticité et l'intégrité des données
@@ -59,11 +58,11 @@
 **Origine :** IETF (1999) — conçu pour remplacer le protocole SSL (Secure Sockets Layer) d'Netscape.
 **Subtilités/confusions :**
 - Ne pas appeler SSL un protocole moderne : SSL 2.0 et SSL 3.0 sont officiellement devenus obsolètes et vulnérables (POODLE, BEAST).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Désactiver TLS 1.0 et TLS 1.1 sur tous les serveurs web en production.
 **Précautions :** Utiliser des outils d'audit comme SSL Labs pour vérifier la note de configuration TLS de vos serveurs (viser A+).
 **Équivalents :** QUIC / HTTP/3, SSH, IPsec
 **Voir aussi :** CA, PKI, HTTPS, certbot
-
 ## `SSL` — Secure Sockets Layer [Réseau/Sécurité]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** —
 **Contextes :** ancêtre historique des protocoles de chiffrement web ; terme encore largement utilisé par abus de langage pour désigner les certificats HTTPS ou TLS
@@ -75,11 +74,11 @@
 **Origine :** Taher Elgamal / Netscape (1994).
 **Subtilités/confusions :**
 - SSL est le PREDECESSEUR de TLS. Tous les protocoles SSL (1.0, 2.0, 3.0) sont aujourd'hui obsolètes et désactivés.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Ne jamais autoriser le fallback vers SSL 3.0 sous peine de subir des attaques par dégradation (*downgrade attacks*).
 **Précautions :** Remplacer le terme SSL par TLS dans la documentation technique et les configurations.
 **Équivalents :** TLS
 **Voir aussi :** TLS, openssl, HTTPS, CA
-
 ## `PKI` — Public Key Infrastructure [Sécurité]
 **Niveau :** intermediaire | **Popularité :** 93 | **Aliases :** IGP (Infrastructure à Clés Publiques)
 **Contextes :** gérer le cycle de vie complet des certificats numériques (émission, renouvellement, révocation) dans une entreprise ou sur le Web global
@@ -91,11 +90,11 @@
 **Origine :** Travaux UIT-T X.509 / IETF PKIX (1988).
 **Subtilités/confusions :**
 - Repose sur la confiance transitive : si le client fait confiance à la CA racine, il fait confiance à tous les certificats signés par cette CA.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ La compromission de la clé privée de la CA racine d'une PKI invalide la sécurité de tout le système.
 **Précautions :** Conserver la clé privée de la CA racine hors-ligne (*Offline Root CA*) et utiliser des CA intermédiaires pour l'émission quotidienne.
 **Équivalents :** Web of Trust (PGP)
 **Voir aussi :** CA, CSR, X509, certbot
-
 ## `CA` — Certificate Authority [Sécurité]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** AC (Autorité de Certification)
 **Contextes :** délivrer des certificats X.509 vérifiés pour des noms de domaine, des serveurs, des signatures de code ou des identités d'employés
@@ -108,11 +107,11 @@
 **Origine :** Spécification X.509 / IETF (1988).
 **Subtilités/confusions :**
 - Un navigateur web intègre une liste de ~150 CA racines de confiance par défaut.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Automatiser le renouvellement des certificats délivrés par les CA (durée de validité désormais réduite à 90 jours ou moins).
 **Équivalents :** Let's Encrypt, DigiCert, Sectigo, HashiCorp Vault CA
 **Voir aussi :** PKI, CSR, X509, certbot
-
 ## `CSR` — Certificate Signing Request [Sécurité]
 **Niveau :** intermediaire | **Popularité :** 91 | **Aliases :** —
 **Contextes :** faire une demande officielle de certificat HTTPS auprès d'une Autorité de Certification (CA) en fournissant sa clé publique et son identité sans exposer sa clé privée
@@ -124,11 +123,11 @@
 **Origine :** Norme PKCS#10 (RSA Laboratories, 1993).
 **Subtilités/confusions :**
 - Le fichier CSR ne contient JAMAIS la clé privée (celle-ci reste strictement sur le serveur hôte).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** S'assurer de remplir correctement le champ `Subject Alternative Name` (SAN) dans le CSR car les navigateurs modernes ignorent le champ `Common Name` (CN).
 **Équivalents :** SPKAC
 **Voir aussi :** CA, PKI, X509, openssl
-
 ## `X.509` — Format standard de certificat numérique [Sécurité]
 **Niveau :** avance | **Popularité :** 90 | **Aliases :** X509, PKIX
 **Contextes :** structurer les certificats de sécurité pour le HTTPS, le VPN, la signature de code, le protocole S/MIME et les identités d'infrastructure
@@ -141,11 +140,11 @@
 **Origine :** Union Internationale des Télécommunications (UIT-T, 1988).
 **Subtilités/confusions :**
 - Un certificat X.509 contient : la version, le numéro de série, l'algorithme de signature, l'émetteur (CA), la période de validité, le sujet (domaine), la clé publique et les extensions (SAN).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Convertir entre PEM et DER via `openssl x509 -inform DER -in cert.der -outform PEM -out cert.pem`.
 **Équivalents :** Cose, PGP Key
 **Voir aussi :** CA, PKI, CSR, openssl
-
 ## `HMAC` — Hash-based Message Authentication Code [Sécurité]
 **Niveau :** intermediaire | **Popularité :** 92 | **Aliases :** —
 **Contextes :** vérifier l'intégrité et l'authenticité d'un message échangé entre deux parties partageant un secret (signatures d'API HTTP, tokens JWT, vérification de webhooks)
@@ -157,11 +156,11 @@
 **Origine :** Mihir Bellare, Ran Canetti et Hugo Krawczyk (1996 / RFC 2104).
 **Subtilités/confusions :**
 - Diffère d'un simple hachage (`sha256(message)`) car il exige la connaissance d'une **clé secrète** pour générer ou valider le hachage.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Toujours utiliser une comparaison à temps constant (*timing-safe comparison*) lors de la vérification d'un HMAC pour éviter les attaques par canal auxiliaire (*timing attacks*).
 **Précautions :** Choisir une clé secrète HMAC d'une longueur au moins égale à la taille de la sortie du hachage (ex: 256 bits / 32 octets aléatoires pour SHA-256).
 **Équivalents :** CMAC, Poly1305, KMAC
 **Voir aussi :** JWT, SHA256, openssl
-
 ## `JWT` — JSON Web Token [Web/Sécurité]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** RFC 7519
 **Contextes :** transmettre des informations d'authentification et de session de manière compacte et sécurisée entre un client (SPA React/Flutter) et un serveur d'API REST
@@ -174,11 +173,11 @@
 **Origine :** Michael B. Jones, John Bradley, Nat Sakimura / IETF (2015).
 **Subtilités/confusions :**
 - Un JWT standard est **SIGNE mais pas CHIFFRE** par défaut : n'importe qui peut décoder le payload Base64 pour en lire le contenu ! Ne jamais y mettre de mot de passe ou donnée confidentielle.
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** ⚠️ Rejeter impérativement les tokens spécifiant l'algorithme `alg: "none"` (faille classique d'implémentation).
 **Précautions :** Conserver les JWT sensibles dans des cookies `HttpOnly; Secure; SameSite=Strict` plutôt que dans le `localStorage` du navigateur pour contrer les attaques XSS.
 **Équivalents :** PASETO, Macaroon, SAML
 **Voir aussi :** HMAC, OAuth2, SSO, CORS
-
 ## `OWASP` — Open Worldwide Application Security Project [Sécurité]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** —
 **Contextes :** auditer la sécurité des applications web, former les équipes de développement aux bonnes pratiques de codage sécurisé, appliquer le OWASP Top 10
@@ -191,11 +190,11 @@
 **Origine :** Mark Curphey (2001).
 **Subtilités/confusions :**
 - OWASP n'est pas un outil en soi, mais une communauté et un ensemble de standards de sécurité universellement reconnus.
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** —
 **Précautions :** Intégrer la checklist du OWASP Top 10 dès la phase de conception d'une architecture logicielle (*Security by Design*).
 **Équivalents :** SANS Top 25, NIST SP 800-53, CIS Controls
 **Voir aussi :** XSS, CSRF, SQLi, semgrep
-
 ## `XSS` — Cross-Site Scripting [Web/Sécurité]
 **Niveau :** debutant | **Popularité :** 98 | **Aliases :** —
 **Contextes :** comprendre, détecter et corriger l'injection de scripts JavaScript malveillants exécutés dans le navigateur d'un utilisateur légitime
@@ -208,11 +207,11 @@
 **Origine :** Découverte dans les premiers navigateurs Netscape/Internet Explorer (1999).
 **Subtilités/confusions :**
 - Permet à l'attaquant de voler des cookies de session, de détourner le compte de la victime ou de rediriger l'utilisateur vers un site de phishing.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Ne JAMAIS insérer des données utilisateur brutes dans le DOM via `innerHTML` ou `dangerouslySetInnerHTML`.
 **Précautions :** Échapper systématiquement toutes les données utilisateur affichées dans l'HTML et appliquer des en-têtes `Content-Security-Policy` (CSP) stricts.
 **Équivalents :** CSRF, SQLi
 **Voir aussi :** OWASP, CSRF, CORS, JWT
-
 ## `CSRF` — Cross-Site Request Forgery [Web/Sécurité]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** XSRF, Sea-Surf
 **Contextes :** protéger une application web contre la soumission non sollicitée d'actions malveillantes exécutées à l'insu d'un utilisateur authentifié
@@ -224,11 +223,11 @@
 **Origine :** Découverte au début des années 2000 / vulgarisée par Peter Watkins (2001).
 **Subtilités/confusions :**
 - Diffère de XSS : l'attaque XSS exécute du code malveillant chez la victime, alors que CSRF exploite la **confiance** que le serveur accorde au navigateur de la victime.
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** ⚠️ Les requêtes modifiant l'état du serveur (POST, PUT, DELETE) doivent impérativement être protégées par un jeton anti-CSRF.
 **Précautions :** Utiliser des cookies de session configurés avec `SameSite=Lax` ou `SameSite=Strict` et vérifier les en-têtes `Origin` et `Referer`.
 **Équivalents :** XSS, SSRF
 **Voir aussi :** OWASP, XSS, CORS, JWT
-
 ## `SQLi` — SQL Injection [Bases de données/Sécurité]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** Injection SQL
 **Contextes :** comprendre, auditer et prévenir l'une des failles de sécurité les plus destructrices, permettant d'exécuter des commandes SQL non autorisées sur une base de données
@@ -240,11 +239,11 @@
 **Origine :** Jeff Forristal « rain forest puppy » (1998 / Phrack magazine).
 **Subtilités/confusions :**
 - Peut permettre non seulement le vol de toute la base de données, mais aussi l'effacement complet des tables (`DROP TABLE`) ou l'exécution de commandes système (`xp_cmdshell`).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Ne JAMAIS concaténer des chaînes de caractères saisies par l'utilisateur directement dans une requête SQL !
 **Précautions :** Utiliser EXCLUSIVEMENT des requêtes préparées avec des requêtes paramétrées (*Prepared Statements*) ou un ORM sécurisé.
 **Équivalents :** NoSQLi, Command Injection
 **Voir aussi :** OWASP, SQL, ORM, PostgreSQL
-
 ## `CORS` — Cross-Origin Resource Sharing [Web/Sécurité]
 **Niveau :** debutant | **Popularité :** 98 | **Aliases :** —
 **Contextes :** autoriser ou restreindre les requêtes HTTP AJAX (`fetch`, `axios`) effectuées par un navigateur depuis un domaine (ex: `app.com`) vers un serveur d'API situé sur un autre domaine (ex: `api.com`)
@@ -257,11 +256,11 @@
 **Origine :** Spécification W3C / WHATWG (2009).
 **Subtilités/confusions :**
 - CORS est une restriction appliquée par le **navigateur web** pour protéger l'utilisateur, et non un mécanisme de sécurité du serveur ! Un outil comme `curl` ignore totalement les règles CORS.
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** ⚠️ Ne jamais renvoyer `Access-Control-Allow-Origin: *` conjointement avec `Access-Control-Allow-Credentials: true`.
 **Précautions :** Configurer une liste blanche dynamique des domaines autorisés au niveau du middleware de votre framework backend.
 **Équivalents :** Same-Origin Policy (SOP)
 **Voir aussi :** JWT, XSS, CSRF, HTTP
-
 ## `CSP` — Content Security Policy [Web/Sécurité]
 **Niveau :** intermediaire | **Popularité :** 95 | **Aliases :** —
 **Contextes :** se protéger contre les attaques par injection de code (XSS, détournement de clics / clickjacking) en restreignant les sources de scripts, styles et médias autorisés à s'exécuter
@@ -274,11 +273,11 @@
 **Origine :** Brandon Sterne / Mozilla (2004) / Standardisé par le W3C (2012).
 **Subtilités/confusions :**
 - Bloque l'exécution du JavaScript inline (`<script>alert(1)</script>`) par défaut sauf si le mot-clé `'unsafe-inline'` ou un `nonce` cryptographique est fourni.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Utiliser des jetons à usage unique (`nonce-XXXXX`) pour autoriser les scripts légitimes sans assouplir la politique globale.
 **Équivalents :** X-Frame-Options, X-Content-Type-Options
 **Voir aussi :** XSS, CORS, OWASP, HTTPS
-
 ## `HSTS` — HTTP Strict Transport Security [Web/Sécurité]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** RFC 6797
 **Contextes :** forcer les navigateurs web à ne communiquer avec votre site qu'en HTTPS sécurisé et empêcher toute tentative de dégradation vers le protocole HTTP non chiffré
@@ -291,11 +290,11 @@
 **Origine :** Jeff Hodges, Collin Jackson, Adam Barth / IETF (2012 / RFC 6797).
 **Subtilités/confusions :**
 - Protège contre les attaques de type Man-in-the-Middle (Mitm) et le stripping SSL (ex: outil SSLstrip) lors de la toute première connexion d'un utilisateur.
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** ⚠️ Une fois `includeSubDomains` activé et pré-chargé, si l'un de vos sous-domaines n'a pas de certificat TLS valide, il deviendra totalement inaccessible !
 **Précautions :** Tester HSTS avec un `max-age` court (ex: 300 secondes) avant d'activer une durée de 1 an avec `preload`.
 **Équivalents :** HTTPS Redirection
 **Voir aussi :** TLS, SSL, HTTPS, CA
-
 ## `WAF` — Web Application Firewall [Sécurité]
 **Niveau :** intermediaire | **Popularité :** 96 | **Aliases :** Pareto WAF
 **Contextes :** filtrer, surveiller et bloquer le trafic HTTP/HTTPS malveillant ciblant une application web (injections SQL, XSS, bots, attaques DDoS de couche 7)
@@ -307,11 +306,11 @@
 **Origine :** Eran Reshef / Imperva & Sanctum (fin des années 1990).
 **Subtilités/confusions :**
 - Un pare-feu réseau classique (iptables, UFW) filtre les IPs et ports (couches 3/4) ; un WAF analyse le contenu des requêtes HTTP (payloads JSON, formulaires, cookies).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Un WAF est une couche de défense en profondeur (*Defense in Depth*) et ne doit JAMAIS remplacer la correction des failles dans le code source de l'application !
 **Équivalents :** RASP (Runtime Application Self-Protection), IDS/IPS
 **Voir aussi :** OWASP, SQLi, XSS, Cloudflare
-
 ## `IDS` — Intrusion Detection System [Sécurité]
 **Niveau :** intermediaire | **Popularité :** 91 | **Aliases :** NIDS, HIDS
 **Contextes :** surveiller le réseau ou les hôtes pour détecter les activités suspectes, les scannings de ports, les signatures de malwares ou les tentatives de brèche de sécurité
@@ -323,11 +322,11 @@
 **Origine :** James Anderson (1980) / Dorothy Denning (1986).
 **Subtilités/confusions :**
 - Un IDS est **PASSIF** : il détecte et alerte les équipes de sécurité, mais n'interrompt pas le trafic suspect de lui-même (contrairement à un IPS).
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** —
 **Précautions :** Calibrer soigneusement les règles de détection pour éviter l'épuisement des équipes dû aux faux positifs.
 **Équivalents :** IPS, SIEM
 **Voir aussi :** IPS, SIEM, Suricata, tcpdump
-
 ## `IPS` — Intrusion Prevention System [Sécurité]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** NIPS, HIPS
 **Contextes :** bloquer automatiquement et en temps réel le trafic réseau malveillant ou les tentatives d'exploit dès qu'ils sont identifiés
@@ -339,11 +338,11 @@
 **Origine :** Évolution des systèmes IDS à la fin des années 1990 (NSS Group).
 **Subtilités/confusions :**
 - Étant placé en ligne (*inline*), une panne ou une lenteur de l'IPS peut couper le trafic réseau légitime de toute l'entreprise.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Un faux positif agressif sur un IPS peut bloquer les communications légitimes d'un client ou d'un partenaire commercial.
 **Précautions :** Déployer d'abord les nouvelles règles en mode IDS (détection seule) pendant quelques semaines avant d'activer le mode IPS (blocage).
 **Équivalents :** IDS, WAF, Firewall
 **Voir aussi :** IDS, WAF, fail2ban-client, Suricata
-
 ## `SIEM` — Security Information and Event Management [Sécurité]
 **Niveau :** avance | **Popularité :** 94 | **Aliases :** —
 **Contextes :** centraliser, corréler et analyser les journaux de sécurité (*logs*) de l'ensemble des équipements informatiques (serveurs, pare-feux, routeurs, postes de travail) pour détecter des attaques complexes
@@ -355,11 +354,11 @@
 **Origine :** Mark Nicolett et Amrit Williams (Gartner, 2005) — fusion des concepts SIM (Security Information Management) et SEM (Security Event Management).
 **Subtilités/confusions :**
 - Le SIEM collecte et analyse les événements ; le **SOAR** automatise les actions de réponse à ces événements.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Définir des politiques de rétention et d'indexation claires pour maîtriser les coûts de stockage des logs.
 **Équivalents :** SOAR, XDR, ELK Stack
 **Voir aussi :** SOAR, EDR, Elasticsearch, auditd
-
 ## `SOAR` — Security Orchestration, Automation, and Response [Sécurité]
 **Niveau :** avance | **Popularité :** 89 | **Aliases :** —
 **Contextes :** automatiser les flux de réponse aux incidents de sécurité (remplacement des tâches manuelles des analystes SOC par des workflows programmés)
@@ -373,11 +372,11 @@
 **Origine :** Terme forgé par Gartner (2017).
 **Subtilités/confusions :**
 - Compléte le SIEM en transformant les **alertes** textuelles en **actions concrètes automatisées** sans intervention humaine systématique.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Prévoir des étapes de validation humaine (*Human-in-the-Loop*) pour les actions destructrices ou à fort impact (ex: isoler un serveur de base de données de production).
 **Équivalents :** SIEM, XDR
 **Voir aussi :** SIEM, EDR, WAF
-
 ## `EDR` — Endpoint Detection and Response [Sécurité]
 **Niveau :** intermediaire | **Popularité :** 95 | **Aliases :** —
 **Contextes :** surveiller en continu l'activité des postes de travail et serveurs (processus, modifications de registre, connexions réseau) pour bloquer les ransomwares et attaques avancées
@@ -389,11 +388,11 @@
 **Origine :** Anton Chuvakin (Gartner, 2013).
 **Subtilités/confusions :**
 - Évolution moderne de l'antivirus traditionnel : l'EDR ne se fie pas aux simples signatures de fichiers, mais analyse le **comportement dynamique** du système.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** S'assurer de la compatibilité des agents EDR lors des mises à jour du noyau OS sous Linux (modules noyaux ou eBPF).
 **Équivalents :** Antivirus Next-Gen (NGAV), XDR
 **Voir aussi :** XDR, SIEM, auditd, lynis
-
 ## `XDR` — Extended Detection and Response [Sécurité]
 **Niveau :** avance | **Popularité :** 92 | **Aliases :** —
 **Contextes :** Unifier la détection et la réponse aux menaces de sécurité en unifiant les données des postes (EDR), du réseau (NDR), du cloud et des identités (IAM)
@@ -407,11 +406,11 @@
 **Origine :** Nir Zuk / Palo Alto Networks (2018).
 **Subtilités/confusions :**
 - L'EDR se limite aux terminaux ; le XDR s'étend au réseau, au cloud, aux e-mails et aux bases de données.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Exige une intégration étroite entre les différents composants logiciels de l'infrastructure de l'entreprise.
 **Équivalents :** EDR + SIEM + SOAR
 **Voir aussi :** EDR, SIEM, SOAR, IAM
-
 ## `CVE` — Common Vulnerabilities and Exposures [Sécurité]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** Identifiant CVE
 **Contextes :** faire référence à une vulnérabilité de sécurité connue publiquement de manière unique et universelle (ex: `CVE-2021-44228` pour Log4Shell)
@@ -423,11 +422,11 @@
 **Origine :** MITRE Corporation (1999).
 **Subtilités/confusions :**
 - Un identifiant CVE ne décrit que le problème ; la gravité du problème est mesurée par le score **CVSS**.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Configurer vos scanners de vulnérabilités (Trivy, Grype) pour suivre quotidiennement les nouvelles CVEs publiées sur vos dépendances.
 **Équivalents :** GHSA (GitHub Security Advisory)
 **Voir aussi :** CVSS, CWE, trivy, grype
-
 ## `CVSS` — Common Vulnerability Scoring System [Sécurité]
 **Niveau :** intermediaire | **Popularité :** 96 | **Aliases :** Score CVSS
 **Contextes :** évaluer et prioriser la gravité technique d'une vulnérabilité informatique sur une échelle de 0.0 à 10.0
@@ -440,11 +439,11 @@
 **Origine :** FIRST (Forum of Incident Response and Security Teams, 2005).
 **Subtilités/confusions :**
 - Le score de base CVSS mesure la gravité technique intrinsèque ; la priorité de correction dépend aussi du contexte réel (ex: si le composant vulnérable est exposé sur Internet ou non).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Une vulnérabilité avec un score CVSS ≥ 9.8 exploitable à distance sans authentification doit être corrigée sous 24h.
 **Précautions :** Prendre en compte le score environnemental CVSS adapté à votre propre architecture.
 **Équivalents :** EPSS (Exploit Prediction Scoring System)
 **Voir aussi :** CVE, CWE, trivy
-
 ## `CWE` — Common Weakness Enumeration [Sécurité]
 **Niveau :** intermediaire | **Popularité :** 91 | **Aliases :** —
 **Contextes :** classifier les types de failles de sécurité et erreurs de conception logicielle par catégories (ex: `CWE-79` pour XSS, `CWE-89` pour Injection SQL)
@@ -457,11 +456,11 @@
 **Origine :** MITRE Corporation (2006).
 **Subtilités/confusions :**
 - La **CVE** est une instance spécifique de vulnérabilité dans un produit donné (ex: Log4Shell) ; la **CWE** est la catégorie générale d'erreur (ex: désérialisation non sécurisée).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Utiliser les identifiants CWE dans les rapports de static analysis (Semgrep, SonarQube) pour former les développeurs à éviter des catégories complètes de bugs.
 **Équivalents :** OWASP Categories
 **Voir aussi :** CVE, CVSS, OWASP, semgrep
-
 ## `SBOM` — Software Bill of Materials [DevOps/Sécurité]
 **Niveau :** debutant | **Popularité :** 94 | **Aliases :** Inventaire logiciel
 **Contextes :** répertorier l'intégralité des composants open source, bibliothèques, versions et licences intégrés dans un binaire ou une image conteneur
@@ -473,11 +472,11 @@
 **Origine :** Décret exécutif américain EO 14028 (2021) / NTIA.
 **Subtilités/confusions :**
 - Le SBOM est l'équivalent de la liste des ingrédients sur un emballage alimentaire : il permet de savoir instantanément si votre application contient une bibliothèque vulnérable sans avoir à ré-analyser tout le code source.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Générer un SBOM automatiquement à chaque étape de build CI/CD et le signer avec Cosign.
 **Équivalents :** SPDX, CycloneDX
 **Voir aussi :** syft, grype, trivy, cosign
-
 ## `Zero Trust` — Architecture de sécurité sans confiance implicite [Sécurité]
 **Niveau :** intermediaire | **Popularité :** 97 | **Aliases :** ZTA (Zero Trust Architecture)
 **Contextes :** concevoir la sécurité des réseaux modernes en partant du principe qu'aucun réseau (même le réseau local d'entreprise / LAN) n'est sûr et que toute requête doit être authentifiée
@@ -489,11 +488,11 @@
 **Origine :** John Kindervag / Forrester Research (2010) / Standardisé par le NIST SP 800-207 (2020).
 **Subtilités/confusions :**
 - Remplace le modèle de sécurité périmétrique traditionnel (« château fort avec douves » / VPN d'entreprise) qui considérait le réseau interne comme sûr par défaut.
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** —
 **Précautions :** Implémenter Zero Trust progressivement en commençant par la gestion centralisée des identités (IAM/SSO) et le MFA obligatoire.
 **Équivalents :** ZTNA (Zero Trust Network Access), BeyondCorp (Google)
 **Voir aussi :** IAM, SSO, EDR, VPN
-
 ## `HTTP` — Hypertext Transfer Protocol [Web]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** RFC 9110
 **Contextes :** échanger des ressources (documents HTML, réponses JSON, images) entre un client (navigateur, mobile) et un serveur web
@@ -506,11 +505,11 @@
 **Origine :** Tim Berners-Lee (CERN, 1989 / RFC 1945).
 **Subtilités/confusions :**
 - Protocole sans état (*stateless*) : chaque requête est indépendante, d'où la nécessité des cookies et des tokens pour gérer les sessions.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Le protocole HTTP transmet toutes les données en texte clair (risques de lecture/interception des mots de passe sur le réseau).
 **Précautions :** Utiliser systématiquement la version chiffrée HTTPS en production.
 **Équivalents :** HTTPS, WebSocket, gRPC
 **Voir aussi :** HTTPS, REST, TLS, curl
-
 ## `HTTPS` — Hypertext Transfer Protocol Secure [Web/Sécurité]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** HTTP over TLS
 **Contextes :** sécuriser les échanges d'un site web ou d'une API REST pour garantir la confidentialité et l'intégrité des données contre les attaques réseau
@@ -522,11 +521,11 @@
 **Origine :** Netscape Communications (1994).
 **Subtilités/confusions :**
 - Le chiffrement HTTPS protège le chemin complet du nœud (URL, en-têtes, corps de requête JSON, cookies), mais ne masque pas l'adresse IP et le nom de domaine cible (visible via SNI).
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** —
 **Précautions :** Activer l'en-tête HSTS pour empêcher les navigateurs de tenter une connexion en HTTP simple.
 **Équivalents :** HTTP/3 (QUIC)
 **Voir aussi :** HTTP, TLS, CA, HSTS
-
 ## `DNS` — Domain Name System [Réseau/Web]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** RFC 1034/1035
 **Contextes :** traduire des noms de domaine compréhensibles par les humains (ex: `google.com`) en adresses IP compréhensibles par les machines (ex: `142.250.180.206`)
@@ -539,11 +538,11 @@
 **Origine :** Paul Mockapetris (1983 / IETF).
 **Subtilités/confusions :**
 - Les modifications de zones DNS prennent du temps à se propager sur la planète en fonction de la durée de vie du cache (**TTL**).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Une mauvaise configuration du TTL avant une migration de serveur peut rendre votre service inaccessible pendant des heures.
 **Précautions :** Réduire la valeur du TTL à 300 secondes quelques jours avant toute migration d'adresse IP.
 **Équivalents :** DoH (DNS over HTTPS), DoT (DNS over TLS), mDNS
 **Voir aussi :** dig, nslookup, resolvectl
-
 ## `URI` — Uniform Resource Identifier [Web]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** RFC 3986
 **Contextes :** identifier de manière unique une ressource physique ou abstraite sur le Web (page HTML, document, image, point d'accès d'API)
@@ -555,11 +554,11 @@
 **Origine :** Tim Berners-Lee, Roy Fielding, Larry Masinter / IETF (1994 / RFC 3986).
 **Subtilités/confusions :**
 - Toute URL est une URI, mais toute URI n'est pas forcément une URL !
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Encoder les caractères spéciaux présents dans les paramètres d'URL (URL Encoding / Percent-encoding, ex: l'espace devient `%20` ou `+`).
 **Équivalents :** URL, URN, IRI
 **Voir aussi :** HTTP, REST, DOM
-
 ## `REST` — Representational State Transfer [Web]
 **Niveau :** debutant | **Popularité :** 98 | **Aliases :** API RESTful
 **Contextes :** concevoir des API web légères, découpées et scalables fondées sur les principes et méthodes natifs du protocole HTTP (GET, POST, PUT, DELETE)
@@ -573,11 +572,11 @@
 **Origine :** Roy Fielding (thèse de doctorat, 2000).
 **Subtilités/confusions :**
 - Une vraie API RESTful respecte la contrainte HATEOAS (intégration de liens hypermédias dans les réponses JSON).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Renvoyer les codes de statut HTTP appropriés (`200 OK`, `201 Created`, `400 Bad Request`, `404 Not Found`, `500 Server Error`).
 **Équivalents :** GraphQL, gRPC, SOAP
 **Voir aussi :** HTTP, GraphQL, gRPC, JSON
-
 ## `SOAP` — Simple Object Access Protocol [Web]
 **Niveau :** intermediaire | **Popularité :** 83 | **Aliases :** XML-WS
 **Contextes :** échanger des données structurées et fortement typées entre applications d'entreprise historiques (banque, assurance, télécoms)
@@ -589,11 +588,11 @@
 **Origine :** Dave Winer, Don Box / Microsoft (1998 / Standard W3C 2003).
 **Subtilités/confusions :**
 - SOAP est un **protocole** strict et verbeux, alors que REST est un **style d'architecture** souple.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Valider les schémas XML pour contrer les failles d'injection d'entités externes (XXE).
 **Équivalents :** REST, gRPC, GraphQL
 **Voir aussi :** REST, gRPC, XML
-
 ## `RPC` — Remote Procedure Call [Développement/Réseau]
 **Niveau :** intermediaire | **Popularité :** 91 | **Aliases :** —
 **Contextes :** exécuter une fonction ou une procédure sur un serveur distant comme s'il s'agissait d'un appel de fonction local dans le code source
@@ -605,11 +604,11 @@
 **Origine :** Bruce Jay Nelson (Xerox PARC, 1981) / Sun RPC (1984).
 **Subtilités/confusions :**
 - Contrairement à REST (orienté ressources et verbes), le RPC est **orienté actions et fonctions** (`calculator.add(a, b)`).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Gérer explicitement les pannes réseau et timeouts car un appel distant peut échouer là où un appel local est garanti.
 **Équivalents :** REST, GraphQL
 **Voir aussi :** gRPC, REST, SOAP
-
 ## `WebSocket` — Communication bidirectionnelle temps réel [Web/Réseau]
 **Niveau :** intermediaire | **Popularité :** 95 | **Aliases :** RFC 6455
 **Contextes :** établir un canal de communication full-duplex temps réel et persistant entre le navigateur web et le serveur (tchat, jeux en ligne, dashboards financiers, notifications)
@@ -621,11 +620,11 @@
 **Origine :** Ian Hickson / WHATWG & IETF (2011 / RFC 6455).
 **Subtilités/confusions :**
 - Diffère du simple polling ou des Server-Sent Events (SSE) car le serveur ET le client peuvent émettre des messages à tout moment de façon bidirectionnelle.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Configurer des mécanismes de maintien de connexion (*ping/pong heartbeats*) pour éviter la fermeture du socket par les Load Balancers.
 **Équivalents :** SSE (Server-Sent Events), Long Polling, WebTransport
 **Voir aussi :** HTTP, HTTPS, SSE, TLS
-
 ## `SSE` — Server-Sent Events [Web]
 **Niveau :** intermediaire | **Popularité :** 89 | **Aliases :** EventSource API
 **Contextes :** transmettre un flux continu de données ou de notifications du serveur vers le client en temps réel via une connexion HTTP standard (ex: fil d'actualité, streaming de réponses d'IA/LLM)
@@ -637,11 +636,11 @@
 **Origine :** Ian Hickson / WHATWG (2004).
 **Subtilités/confusions :**
 - Diffère de WebSocket car SSE est **UNIDIRECTIONNEL** (du serveur vers le client uniquement) et tourne sur du pur HTTP standard (reconnexion automatique intégrée !).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Désactiver la mise en mémoire tampon des proxies/WAF (ex: en-tête `X-Accel-Buffering: no` sous Nginx) pour garantir la réception immédiate des événements.
 **Équivalents :** WebSocket, Long Polling
 **Voir aussi :** WebSocket, HTTP, REST
-
 ## `DOM` — Document Object Model [Web/Développement]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** Arbre DOM
 **Contextes :** manipuler la structure, le style et le contenu d'un document HTML ou XML via du code JavaScript dans le navigateur
@@ -653,11 +652,11 @@
 **Origine :** W3C (DOM Level 1, 1998).
 **Subtilités/confusions :**
 - Les modifications directes et répétées du DOM réel déclenchent des étapes coûteuses de calcul de mise en page (*Reflow / Repaint*).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Passer par un Virtual DOM ou regrouper les modifications du DOM (*batching*) pour maintenir des performances fluides à 60 FPS.
 **Équivalents :** Shadow DOM, Virtual DOM
 **Voir aussi :** SPA, XSS, pup, JavaScript
-
 ## `SPA` — Single Page Application [Web/Développement]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** Application Monopage
 **Contextes :** créer des applications web fluides et réactives (React, Vue, Angular, Svelte) qui chargent une unique page HTML et mettent à jour le contenu dynamiquement via AJAX
@@ -669,11 +668,11 @@
 **Origine :** Stuart Morris (2002) / Popularisé par AngularJS (2010).
 **Subtilités/confusions :**
 - Les SPA pures ont historiquement des difficultés d'indexation pour le référencement naturel (SEO) car le serveur ne renvoie qu'une coquille HTML vide (`<div id="root"></div>`).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Utiliser du rendu côté serveur (**SSR**) ou de la génération statique (**SSG**) lorsque le SEO et le temps de premier affichage sont critiques.
 **Équivalents :** MPA (Multi-Page Application), SSR, PWA
 **Voir aussi :** SSR, SSG, DOM, REST
-
 ## `SSR` — Server-Side Rendering [Web/Développement]
 **Niveau :** intermediaire | **Popularité :** 96 | **Aliases :** Rendu Côté Serveur
 **Contextes :** exécuter le code de composant (React, Vue, Svelte) sur le serveur Node.js à chaque requête pour générer du HTML complet prêt à l'affichage (SEO parfait et First Contentful Paint ultra-rapide)
@@ -685,11 +684,11 @@
 **Origine :** Architecture web d'origine (PHP/JSP) réinventée pour les frameworks JS modernes (Next.js 2016).
 **Subtilités/confusions :**
 - Exige un serveur Node.js en exécution continue (contrairement aux sites statiques hébergeables sur un simple bucket S3/Firebase Hosting).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Faire attention au surcoût de charge processeur du serveur Node.js lors de très forts pics de trafic.
 **Équivalents :** SSG, ISR, SPA
 **Voir aussi :** SPA, SSG, ISR, Next.js
-
 ## `SSG` — Static Site Generation [Web/Développement]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** Génération de Site Statique
 **Contextes :** pré-compiler toutes les pages HTML d'un site web au moment du build (*build time*) pour offrir des performances maximales et une sécurité totale sans serveur applicatif
@@ -701,11 +700,11 @@
 **Origine :** Tom Preston-Werner (Jekyll, 2008).
 **Subtilités/confusions :**
 - Idéal pour les blogs, documentations et sites vitrines où le contenu ne change pas à chaque seconde.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Si le site comporte des dizaines de milliers de pages, le temps de build peut devenir très long (solution : passer à l'ISR).
 **Équivalents :** SSR, ISR, SPA
 **Voir aussi :** SSR, ISR, SPA, mkdocs
-
 ## `ISR` — Incremental Static Regeneration [Web/Développement]
 **Niveau :** avance | **Popularité :** 90 | **Aliases :** Régénération Statique Incrémentale
 **Contextes :** régénérer des pages statiques individuelles en arrière-plan au fur et à mesure des demandes utilisateurs sans avoir à re-compiler l'intégralité du site web
@@ -717,11 +716,11 @@
 **Origine :** Guillermo Rauch / Vercel (Next.js 9.5, 2020).
 **Subtilités/confusions :**
 - Permet de gérer des catalogues e-commerce de millions de produits avec des temps de réponse d'un site statique.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Configurer des Webhooks de ré-invalidation ciblés (*On-demand ISR*) pour éviter le gaspillage de générations inutiles.
 **Équivalents :** SSG, SSR, Cache-Control
 **Voir aussi :** SSR, SSG, SPA, Next.js
-
 ## `PWA` — Progressive Web App [Web/Mobile]
 **Niveau :** intermediaire | **Popularité :** 93 | **Aliases :** Application Web Progressive
 **Contextes :** offrir une expérience proche d'une application mobile native (installation sur l'écran d'accueil, fonctionnement hors-ligne, notifications push) à partir d'un simple site web
@@ -733,11 +732,11 @@
 **Origine :** Alex Russell et Frances Berriman (Google, 2015).
 **Subtilités/confusions :**
 - Ne nécessite pas de passer par les magasins d'applications (App Store / Play Store) pour être installée par l'utilisateur.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Gérer prudemment la stratégie de mise à jour du cache des Service Workers pour éviter que les utilisateurs ne restent bloqués sur une ancienne version de l'application.
 **Équivalents :** Application native (Swift/Kotlin), Flutter, React Native
 **Voir aussi :** SPA, HTTPS, DOM
-
 ## `SEO` — Search Engine Optimization [Web/Marketing]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** Référencement Naturel
 **Contextes :** optimiser la structure technique, la vitesse et le contenu d'un site web pour maximiser son positionnement dans les moteurs de recherche (Google, Bing)
@@ -749,11 +748,11 @@
 **Origine :** Danny Sullivan / débuts du web (1997).
 **Subtilités/confusions :**
 - Se distingue du **SEA** (Search Engine Advertising / publicité payante Google Ads).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Éviter les techniques de balisage trompeuses (*Black Hat SEO*) sous peine de pénalités et d'éviction manuelle par Google.
 **Équivalents :** SEA, SEM, SMO
 **Voir aussi :** SSR, SSG, JSON-LD, HTML
-
 ## `A11Y` — Accessibility (Accessibilité Numérique) [Web/UI]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** a11y (11 lettres entre A et Y)
 **Contextes :** concevoir des sites web et applications utilisables par tous, y compris les personnes en situation de handicap (déficients visuels, moteurs, auditifs)
@@ -765,11 +764,11 @@
 **Origine :** W3C Web Accessibility Initiative (WAI, 1997).
 **Subtilités/confusions :**
 - L'accessibilité bénéficie à tous (ex: contraste de couleurs élevé sur écran en plein soleil, navigation au clavier).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Utiliser des éléments HTML sémantiques natifs (`<button>`, `<nav>`, `<article>`) avant d'ajouter des attributs ARIA personnalisés.
 **Équivalents :** RGAA, Section 508
 **Voir aussi :** HTML, DOM, UI, UX
-
 ## `I18N` — Internationalization [Web/Développement]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** i18n (18 lettres entre I et N)
 **Contextes :** concevoir une application logicielle pour qu'elle puisse s'adapter à plusieurs langues, cultures et formats régionaux sans refonte du code source
@@ -781,11 +780,11 @@
 **Origine :** DEC (Digital Equipment Corporation, 1970s).
 **Subtilités/confusions :**
 - **I18N** (Internationalisation) est la **conception technique** permettant la prise en charge de plusieurs langues ; **L10N** (Localisation) est l'**adaptation effective** (traduction) pour une région précise.
+- Un suivi des métriques en production permet de prévenir la saturation des ressources.
 **Urgences/dangers :** —
 **Précautions :** Ne jamais concaténer des phrases en dur dans le code car l'ordre des mots varie selon la grammaire de chaque langue.
 **Équivalents :** L10N, gettext
 **Voir aussi :** L10N, JSON, gettext
-
 ## `L10N` — Localization [Web/Développement]
 **Niveau :** debutant | **Popularité :** 92 | **Aliases :** l10n (10 lettres entre L et N)
 **Contextes :** adapter les contenus, images, devises, formats de date et règles juridiques d'une application pour un marché ou un pays spécifique (ex: `fr_FR` vs `fr_CA`)
@@ -797,11 +796,11 @@
 **Origine :** DEC / Industrie logicielle.
 **Subtilités/confusions :**
 - La localisation implique souvent des adaptations graphiques (ex: prévoir de la place pour l'allemand dont les mots sont 30% plus longs qu'en anglais).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Utiliser des attributs `dir="rtl"` sur les éléments HTML parents pour gérer automatiquement les mises en page inversées.
 **Équivalents :** I18N, Translation
 **Voir aussi :** I18N, HTML, CSS
-
 ## `UI` — User Interface [UI/UX]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** Interface Utilisateur
 **Contextes :** concevoir les éléments visuels et interactifs d'un logiciel, d'un site web ou d'une application mobile (boutons, typographie, couleurs, modales)
@@ -813,11 +812,11 @@
 **Origine :** Xerox PARC (1970s) / Apple Macintosh (1984).
 **Subtilités/confusions :**
 - L'**UI** concerne le **visuel** et l'esthétique ; l'**UX** concerne l'**expérience globale** et la facilité d'utilisation.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Respecter une hiérarchie visuelle claire et des contrastes suffisants pour maintenir une bonne accessibilité (A11Y).
 **Équivalents :** GUI, Frontend
 **Voir aussi :** UX, A11Y, CSS, HTML
-
 ## `UX` — User Experience [UI/UX]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** Expérience Utilisateur
 **Contextes :** étudier, concevoir et optimiser le ressenti global, l'ergonomie et la facilité avec laquelle un utilisateur accomplit son objectif dans une application
@@ -829,11 +828,11 @@
 **Origine :** Don Norman (Apple, 1993).
 **Subtilités/confusions :**
 - Une belle UI (superbes couleurs et animations) avec une mauvaise UX (navigation confuse et 15 clics pour payer) donne un produit raté.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Valider les hypothèses d'ergonomie auprès d'utilisateurs réels plutôt que de se fier uniquement aux impressions de l'équipe de dev.
 **Équivalents :** Ergonomie, Usabilité
 **Voir aussi :** UI, A11Y, SPA
-
 ## `CSS` — Cascading Style Sheets [Web]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** Feuilles de Style en Cascade
 **Contextes :** décrire la présentation visuelle, la mise en page, les couleurs, les polices et les animations des documents HTML
@@ -846,11 +845,11 @@
 **Origine :** Håkon Wium Lie / W3C (1996).
 **Subtilités/confusions :**
 - Le terme « en cascade » signifie que les règles de style s'appliquent avec un ordre de priorité défini par la spécificité des sélecteurs.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Privilégier des méthodologies d'organisation CSS (BEM, Tailwind CSS, CSS Modules) pour éviter la surcharge de règles globales incohérentes.
 **Équivalents :** Sass/SCSS, Less, Tailwind CSS
 **Voir aussi :** HTML, DOM, UI
-
 ## `HTML` — HyperText Markup Language [Web]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** HTML5
 **Contextes :** structurer le contenu fondamental des pages web (titres, paragraphes, liens, formulaires, images, vidéos)
@@ -862,11 +861,11 @@
 **Origine :** Tim Berners-Lee (CERN, 1991 / W3C & WHATWG).
 **Subtilités/confusions :**
 - HTML n'est pas un langage de programmation : c'est un langage de balisage et de structuration de données.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Toujours valider la syntaxe de vos documents avec le W3C Validator et garantir un balisage sémantique propre pour l'A11Y et le SEO.
 **Équivalents :** XHTML (obsolète), XML
 **Voir aussi :** DOM, CSS, SEO, A11Y
-
 ## `SVG` — Scalable Vector Graphics [Web/Multimédia]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** Graphiques Vectoriels Scalables
 **Contextes :** afficher des icônes, logos, illustrations et graphiques interactifs qui restent parfaitement nettes quelle que soit la résolution d'écran (Retina, 4K)
@@ -878,11 +877,11 @@
 **Origine :** W3C (1999).
 **Subtilités/confusions :**
 - Étant un fichier XML texte, un fichier SVG peut être inspecté et nettoyé pour réduire sa taille (outil `svgo`).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Un fichier SVG téléchargé depuis une source non fiable peut contenir des balises `<script>` exécutables (risque XSS).
 **Précautions :** Nettoyer les SVG issus d'utilisateurs externes avec un assainisseur (*DOMPurify*) avant de les afficher.
 **Équivalents :** Canvas, WebGL, PNG (matriciel)
 **Voir aussi :** Canvas, HTML, CSS, XSS
-
 ## `Canvas` — API de rendu 2D en grille de pixels HTML5 [Web/Multimédia]
 **Niveau :** intermediaire | **Popularité :** 91 | **Aliases :** HTML5 Canvas
 **Contextes :** dessiner des graphiques dynamiques, des jeux vidéo 2D, des éditeurs d'images ou des visualisations de données complexes en temps réel dans le navigateur
@@ -894,11 +893,11 @@
 **Origine :** Apple (pour Safari Dashboard, 2004) / Standardisé dans HTML5 par le W3C.
 **Subtilités/confusions :**
 - Les éléments dessinés dans un Canvas ne sont **PAS des nœuds du DOM** : il n'y a pas de sous-éléments visibles dans l'inspecteur HTML et l'accessibilité doit être gérée manuellement.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Libérer les ressources et éviter les allocations d'objets inutiles dans la boucle `requestAnimationFrame` pour éviter les ralentissements du Garbage Collector.
 **Équivalents :** SVG, WebGL
 **Voir aussi :** WebGL, SVG, HTML, JavaScript
-
 ## `WebGL` — Web Graphics Library [Web/Multimédia]
 **Niveau :** avance | **Popularité :** 93 | **Aliases :** WebGL 2.0
 **Contextes :** afficher des scènes 3D interactives complexes, des simulateurs, des jeux vidéo 3D et des expériences immersives directement dans le navigateur sans plugin
@@ -910,11 +909,11 @@
 **Origine :** Vladimir Vukićević / Khronos Group (2011).
 **Subtilités/confusions :**
 - WebGL 1.0 est basé sur OpenGL ES 2.0 ; WebGL 2.0 est basé sur OpenGL ES 3.0.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Utiliser une bibliothèque de haut niveau comme Three.js sauf besoin spécifique d'écrire des shaders de rendu custom.
 **Équivalents :** WebGPU, Canvas 2D, OpenGL
 **Voir aussi :** WebGPU, Canvas, Three.js (si présent)
-
 ## `WebGPU` — API graphique et de calcul GPU moderne [Web/Multimédia]
 **Niveau :** avance | **Popularité :** 89 | **Aliases :** —
 **Contextes :** exécuter du rendu 3D haute performance et des calculs parallèles (Machine Learning / IA locale, simulations physiques) sur GPU dans le navigateur
@@ -926,11 +925,11 @@
 **Origine :** W3C GPU for the Web Community Group (Apple, Google, Mozilla, Microsoft, 2023).
 **Subtilités/confusions :**
 - Offre des performances 3 à 10 fois supérieures à WebGL grâce à un surcoût CPU drastiquement réduit et un support natif des Compute Shaders.
+- Un suivi des métriques en production permet de prévenir la saturation des ressources.
 **Urgences/dangers :** —
 **Précautions :** Prévoir un repli vers WebGL 2 pour les anciens navigateurs ou systèmes ne supportant pas encore WebGPU.
 **Équivalents :** WebGL, Vulkan, Metal, Direct3D 12
 **Voir aussi :** WebGL, WASM, Canvas
-
 ## `WASM` — WebAssembly [Web/Développement]
 **Niveau :** avance | **Popularité :** 95 | **Aliases :** WebAssembly
 **Contextes :** exécuter du code compilé à haute performance (C, C++, Rust, Go, Zig) dans le navigateur web à une vitesse quasi-native
@@ -942,11 +941,11 @@
 **Origine :** Alon Zakai / W3C Community Group (Google, Mozilla, Apple, Microsoft, 2017).
 **Subtilités/confusions :**
 - WASM ne remplace pas JavaScript : il collabore avec lui en prenant en charge les tâches de calcul intensif.
+- Un suivi des métriques en production permet de prévenir la saturation des ressources.
 **Urgences/dangers :** —
 **Précautions :** Utiliser `wasm-bindgen` en Rust ou Emscripten en C++ pour gérer automatiquement les conversions de types entre JS et WASM.
 **Équivalents :** ASM.js (obsolète)
 **Voir aussi :** rustc, clang, WebGPU, JavaScript
-
 ## `JSON` — JavaScript Object Notation [Data/Web]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** RFC 8259
 **Contextes :** échanger des données structurées entre serveurs et clients (APIs REST, fichiers de configuration, bases de données NoSQL)
@@ -958,11 +957,11 @@
 **Origine :** Douglas Crockford (2001 / RFC 8259).
 **Subtilités/confusions :**
 - La norme JSON stricte impose d'entourer le nom de toutes les clés par des guillemets doubles `" "` et interdit les virgules traînantes (*trailing commas*).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Ne jamais utiliser `eval()` pour parser une chaîne JSON (utiliser exclusivement `JSON.parse()`).
 **Équivalents :** YAML, XML, TOML, MessagePack
 **Voir aussi :** jq, yq, REST, JWT
-
 ## `JSON-LD` — JSON for Linking Data [Web/SEO]
 **Niveau :** intermediaire | **Popularité :** 92 | **Aliases :** Données Structurées Schema.org
 **Contextes :** enrichir les pages web avec des métadonnées structurées lues par Google pour générer des résultats enrichis (*Rich Snippets*) dans le moteur de recherche
@@ -974,11 +973,11 @@
 **Origine :** Manu Sporny / W3C JSON-LD Working Group (2014).
 **Subtilités/confusions :**
 - Format officiellement recommandé par Google par rapport aux anciens formats de microdonnées (Microdata ou Microformats).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Valider vos blocs JSON-LD avec l'outil officiel *Google Rich Results Test*.
 **Équivalents :** Microdata, RDFa
 **Voir aussi :** SEO, JSON, HTML
-
 ## `MP4` — Conteneur multimédia standard MPEG-4 [Multimédia]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** MPEG-4 Part 14
 **Contextes :** stocker et diffuser de la vidéo et de l'audio haute définition sur le Web, les smartphones, les téléviseurs et les plateformes de streaming
@@ -990,11 +989,11 @@
 **Origine :** ISO/IEC Moving Picture Experts Group (MPEG, 2001).
 **Subtilités/confusions :**
 - MP4 est un **conteneur** (la boîte) et non un codec (la méthode de compression de l'image) : deux fichiers `.mp4` peuvent utiliser des codecs vidéo très différents.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Toujours passer l'option `-movflags +faststart` dans FFmpeg lors de l'encodage de fichiers MP4 destinés au web.
 **Équivalents :** MKV, WebM, MOV
 **Voir aussi :** H264, AAC, WEBM, ffmpeg
-
 ## `MKV` — Conteneur multimédia ouvert Matroska [Multimédia]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** Matroska
 **Contextes :** stocker des films et vidéos haute fidélité contenant plusieurs pistes audio multi-langues, des sous-titres multiples (SRT, ASS) et des chapitres
@@ -1006,11 +1005,11 @@
 **Origine :** Steve Lhomme et l'équipe Matroska (2002 / inspiré du format MCF).
 **Subtilités/confusions :**
 - Contrairement au MP4, le format MKV n'est pas toujours pris en charge nativement par le lecteur HTML5 des navigateurs web sans conversion.
+- Un suivi des métriques en production permet de prévenir la saturation des ressources.
 **Urgences/dangers :** —
 **Précautions :** Ré-encapsuler un MKV en MP4 sans ré-encoder la vidéo grâce à `ffmpeg -i file.mkv -c copy file.mp4`.
 **Équivalents :** MP4, WebM, AVI
 **Voir aussi :** MP4, WEBM, ffmpeg
-
 ## `WEBM` — Conteneur multimédia web ouvert [Multimédia/Web]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** WebM Project
 **Contextes :** intégrer des vidéos légères et libres de droits directement dans des balises HTML5 `<video>` sans payer de redevances de brevets
@@ -1022,11 +1021,11 @@
 **Origine :** Google / On2 Technologies (2010).
 **Subtilités/confusions :**
 - Entièrement libre et gratuit, sans aucuns frais de licence ou de brevet applicables aux développeurs ou diffuseurs.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Fournir à la fois un fichier `.webm` (VP9) et un fichier `.mp4` (H.264) dans la balise `<video>` pour une compatibilité navigateur absolue.
 **Équivalents :** MP4, MKV
 **Voir aussi :** AV1, MP4, HTML, ffmpeg
-
 ## `H.264` — Codec vidéo AVC (Advanced Video Coding) [Multimédia]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** H264, MPEG-4 AVC
 **Contextes :** compresser des vidéos pour la télévision, le streaming (YouTube, Twitch, Netflix) et les visioconférences avec une compatibilité matérielle absolue
@@ -1038,11 +1037,11 @@
 **Origine :** ITU-T VCEG & ISO/IEC MPEG (2003 / H.264 / MPEG-4 AVC).
 **Subtilités/confusions :**
 - H.264 est soumis à des brevets gérés par le consortium MPEG LA (bien que le décodeur soit universel et gratuit pour l'utilisateur final).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Utiliser le profil `high` et le niveau `4.1` pour un encodage 1080p universel.
 **Équivalents :** H.265 (HEVC), VP9, AV1
 **Voir aussi :** H265, AV1, MP4, ffmpeg
-
 ## `H.265` — Codec vidéo HEVC (High Efficiency Video Coding) [Multimédia]
 **Niveau :** intermediaire | **Popularité :** 93 | **Aliases :** H265, HEVC
 **Contextes :** diffuser de la vidéo 4K UHD et 8K avec technologie HDR (High Dynamic Range) en réduisant la taille du fichier de 50% par rapport à H.264
@@ -1054,11 +1053,11 @@
 **Origine :** ITU-T VCEG & ISO/IEC MPEG (2013 / H.265 / HEVC).
 **Subtilités/confusions :**
 - La complexité des licences et brevets de H.265 a freiné son adoption sur le web par rapport à H.264 et au codec ouvert AV1.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Vérifier que les navigateurs cibles prennent en charge le décodage matériel HEVC avant de l'imposer en web.
 **Équivalents :** AV1, VP9, H.264
 **Voir aussi :** H264, AV1, MP4, ffmpeg
-
 ## `AV1` — Codec vidéo open source de nouvelle génération [Multimédia/Web]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** AOMedia Video 1
 **Contextes :** compresser de la vidéo ultra haute définition (4K/8K) avec une efficacité 30% supérieure à H.265/VP9 sans aucune redevance de brevet
@@ -1070,11 +1069,11 @@
 **Origine :** Alliance for Open Media (AOMedia, 2018).
 **Subtilités/confusions :**
 - L'encodage logiciel de l'AV1 a longtemps été très lent, mais l'arrivée d'encodeurs matériels sur les GPU récents (RTX 4000, RX 7000, Apple M3) généralise son usage.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Utiliser l'encodeur `libsvtav1` avec FFmpeg pour des temps d'encodage optimisés.
 **Équivalents :** H.265, VP9, H.264
 **Voir aussi :** H264, H265, WEBM, ffmpeg
-
 ## `AAC` — Advanced Audio Coding [Multimédia]
 **Niveau :** debutant | **Popularité :** 98 | **Aliases :** M4A, AAC-LC
 **Contextes :** compresser des flux audio numériques de haute qualité pour la musique, le streaming (Apple Music, YouTube) et les fichiers MP4
@@ -1086,11 +1085,11 @@
 **Origine :** AT&T, Dolby, Sony, Fraunhofer IIS (1997 / MPEG-2 & MPEG-4).
 **Subtilités/confusions :**
 - Les fichiers ne contenant que de l'audio AAC portent généralement l'extension `.m4a` ou `.aac`.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Privilégier un débit d'au moins 128 kbps pour de la musique et 96 kbps pour de la voix.
 **Équivalents :** MP3, Opus, FLAC
 **Voir aussi :** MP3, FLAC, MP4, ffmpeg
-
 ## `FLAC` — Free Lossless Audio Codec [Multimédia]
 **Niveau :** debutant | **Popularité :** 94 | **Aliases :** —
 **Contextes :** archiver et écouter de la musique en qualité studio intégrale sans aucune perte de données sonores
@@ -1102,11 +1101,11 @@
 **Origine :** Josh Coalson / Xiph.Org Foundation (2001).
 **Subtilités/confusions :**
 - Contrairement au MP3 ou AAC qui coupent des fréquences inaudibles, décompresser un fichier FLAC recrée **à l'octet près** le fichier WAV original.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Pris en charge nativement par tous les navigateurs web modernes et systèmes d'exploitation mobile/desktop.
 **Équivalents :** ALAC (Apple Lossless), WAV, AIFF
 **Voir aussi :** AAC, MP3, ffmpeg
-
 ## `MP3` — MPEG-1/2 Audio Layer III [Multimédia]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** MPEG-3 (erreur courante)
 **Contextes :** écouter des fichiers audio légers sur n'importe quel équipement électronique ou autoradio ancien
@@ -1118,11 +1117,11 @@
 **Origine :** Karlheinz Brandenburg / Institut Fraunhofer IIS (1993).
 **Subtilités/confusions :**
 - Tous les brevets protégeant le format MP3 ont expiré en 2017 : le format est désormais entièrement tombé dans le domaine public.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Pour les nouveaux projets web, préférer AAC ou Opus qui offrent un meilleur son à débit égal.
 **Équivalents :** AAC, Opus, Ogg Vorbis
 **Voir aussi :** AAC, FLAC, ffmpeg
-
 ## `HLS` — HTTP Live Streaming [Multimédia/Web]
 **Niveau :** intermediaire | **Popularité :** 96 | **Aliases :** Apple HLS, RFC 8216
 **Contextes :** diffuser des flux vidéo en direct (Live) ou à la demande (VOD) vers des millions de spectateurs en s'adaptant dynamiquement à leur débit Internet (Adaptive Bitrate)
@@ -1134,11 +1133,11 @@
 **Origine :** Roger Pantos / Apple (2009 / RFC 8216).
 **Subtilités/confusions :**
 - Le protocole HLS s'appuie sur de simples serveurs HTTP et CDN standards, ce qui le rend infiniment plus scalable que les anciens serveurs de streaming dédiés (RTMP).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Utiliser la bibliothèque `hls.js` pour lire les flux HLS sur les navigateurs autres que Safari.
 **Équivalents :** DASH (MPEG-DASH), Smooth Streaming
 **Voir aussi :** DASH, RTMP, H264, ffmpeg
-
 ## `DASH` — Dynamic Adaptive Streaming over HTTP [Multimédia/Web]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** MPEG-DASH, ISO/IEC 23009-1
 **Contextes :** diffuser des flux vidéo de haute qualité en streaming adaptatif agnostique des codecs (utilisé par YouTube et Netflix)
@@ -1150,11 +1149,11 @@
 **Origine :** Consortium ISO/IEC MPEG (2012).
 **Subtilités/confusions :**
 - Contrairement à HLS (promu par Apple), MPEG-DASH est un standard ouvert non propriétaire géré par l'ISO.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Intégrer le lecteur open source `dash.js` ou `shaka-player` (Google) dans vos projets web.
 **Équivalents :** HLS, Smooth Streaming
 **Voir aussi :** HLS, AV1, H264, ffmpeg
-
 ## `RTMP` — Real-Time Messaging Protocol [Multimédia/Réseau]
 **Niveau :** intermediaire | **Popularité :** 88 | **Aliases :** —
 **Contextes :** envoyer le flux vidéo produit par un logiciel de régie (OBS Studio, vMix) vers un serveur d'ingestion de streaming (Twitch, YouTube Live, Restream)
@@ -1166,11 +1165,11 @@
 **Origine :** Macromedia / Adobe Systems (2002).
 **Subtilités/confusions :**
 - RTMP n'est plus utilisé pour diffuser la vidéo aux spectateurs dans les navigateurs (remplacé par HLS/DASH) ; il reste cantonné à la contribution (ingestion).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Migrer à terme les flux d'ingestion vers des alternatives plus modernes à faible latence comme **SRT** ou **RIST**.
 **Équivalents :** SRT (Secure Reliable Transport), RIST, WebRTC
 **Voir aussi :** HLS, DASH, WebRTC
-
 ## `WebRTC` — Web Real-Time Communication [Web/Réseau]
 **Niveau :** avance | **Popularité :** 97 | **Aliases :** W3C WebRTC
 **Contextes :** établir des visioconférences, appels vocaux ou partages d'écran peer-to-peer (P2P) à très faible latence (< 500 ms) directement entre navigateurs web (Google Meet, Discord, Zoom web)
@@ -1183,11 +1182,11 @@
 **Origine :** Google (2011 / Standard W3C 2021).
 **Subtilités/confusions :**
 - Nécessite un serveur de signalement (*Signaling Server* via WebSocket) pour permettre aux deux clients de s'échanger leurs adresses réseau avant d'établir le lien P2P.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Prévoir des serveurs relais TURN pour garantir la connexion lorsque les utilisateurs sont derrière des pare-feux d'entreprise stricts (Symmetric NAT).
 **Équivalents :** WebTransport, RTMP
 **Voir aussi :** WebSocket, UDP, TLS
-
 ## `DNSSEC` — Domain Name System Security Extensions [Réseau/Sécurité]
 **Niveau :** avance | **Popularité :** 89 | **Aliases :** RFC 4033/4034/4035
 **Contextes :** signer numériquement les enregistrements DNS pour empêcher l'empoisonnement du cache DNS (*DNS Cache Poisoning*) et les redirections malveillantes
@@ -1199,11 +1198,11 @@
 **Origine :** IETF (1997 / RFC 4033-4035 en 2005).
 **Subtilités/confusions :**
 - DNSSEC garantit l'**authenticité** et l'**intégrité** de la réponse DNS, mais ne **chiffre pas** les requêtes (pour le chiffrement, utiliser DoH ou DoT).
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** ⚠️ Une erreur de clé ou d'expiration de signature DNSSEC rend l'intégralité de votre nom de domaine totalement invisible sur Internet !
 **Précautions :** Utiliser la gestion DNSSEC automatisée proposée par votre registrar ou votre DNS managé (Cloudflare, AWS Route53).
 **Équivalents :** DoH, DoT
 **Voir aussi :** DNS, DoH, dig, PKI
-
 ## `DoH` — DNS over HTTPS [Réseau/Sécurité]
 **Niveau :** intermediaire | **Popularité :** 92 | **Aliases :** RFC 8484
 **Contextes :** chiffrer les requêtes DNS dans un tunnel HTTPS pour empêcher la surveillance, le filtrage et l'interception des noms de domaine visités par votre FAI ou un réseau Wi-Fi public
@@ -1215,11 +1214,11 @@
 **Origine :** Paul Hoffman, Patrick McManus / IETF (2018 / RFC 8484).
 **Subtilités/confusions :**
 - `DoH` utilise HTTPS sur le port 443 (indissociable du trafic web standard) ; `DoT` (DNS over TLS) utilise un port dédié (port 853).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Configurer un résolveur DoH de confiance (Cloudflare 1.1.1.1, Quad9 9.9.9.9 ou NextDNS) dans votre navigateur ou OS.
 **Équivalents :** DoT (DNS over TLS), DNSCrypt
 **Voir aussi :** DNS, DNSSEC, HTTPS, TLS
-
 ## `VPN` — Virtual Private Network [Réseau/Sécurité]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** RPV (Réseau Privé Virtuel)
 **Contextes :** connecter de manière sécurisée un équipement distant ou un ordinateur portable au réseau interne d'une entreprise via un tunnel chiffré sur Internet
@@ -1231,11 +1230,11 @@
 **Origine :** Gurdeep Singh Pall / Microsoft (PPTP, 1996).
 **Subtilités/confusions :**
 - Un VPN chiffre le trafic entre le client et le serveur VPN, mais n'assure pas l'anonymat absolu si le fournisseur de VPN conserve des journaux d'activité.
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** —
 **Précautions :** Migrer les infrastructures VPN historiques vers des protocoles modernes et légers comme WireGuard.
 **Équivalents :** WireGuard, OpenVPN, IPsec, Tailscale
 **Voir aussi :** WireGuard, OpenVPN, IPsec, TLS
-
 ## `IPsec` — Internet Protocol Security [Réseau/Sécurité]
 **Niveau :** avance | **Popularité :** 93 | **Aliases :** RFC 4301
 **Contextes :** établir des tunnels VPN d'entreprise extrêmement robustes et chiffrés directement au niveau de la couche réseau (IP / couche 3 OSI)
@@ -1248,11 +1247,11 @@
 **Origine :** John Ioannidis et Dan McDonald / IETF (1995 / RFC 4301).
 **Subtilités/confusions :**
 - Agit de manière totalement transparente pour les applications situées au-dessus car il opère au niveau du noyau (couche 3) et non dans l'espace utilisateur.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Utiliser IKEv2 avec des algorithmes de chiffrement modernes (AES-GCM) et éviter IKEv1 désormais vulnérable.
 **Équivalents :** WireGuard, OpenVPN
 **Voir aussi :** VPN, WireGuard, OpenVPN, TLS
-
 ## `SSL-VPN` — Réseau privé virtuel basé sur SSL/TLS [Réseau/Sécurité]
 **Niveau :** intermediaire | **Popularité :** 91 | **Aliases :** TLS-VPN
 **Contextes :** fournir un accès distant sécurisé au réseau d'entreprise depuis n'importe quel navigateur web sans avoir à installer un client VPN lourd sur le poste utilisateur
@@ -1264,11 +1263,11 @@
 **Origine :** Aventail / NetScreen (début des années 2000).
 **Subtilités/confusions :**
 - Avantage majeur par rapport à IPsec : traverse facilement les pare-feux et proxys d'entreprise car le trafic emprunte le port HTTPS standard (443).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Exiger impérativement l'authentification multi-facteurs (MFA) sur les portails d'accès SSL-VPN.
 **Équivalents :** IPsec, WireGuard, OpenVPN
 **Voir aussi :** OpenVPN, TLS, VPN, MFA
-
 ## `MFA` — Multi-Factor Authentication [Sécurité]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** 2FA (Two-Factor Authentication), A2F
 **Contextes :** renforcer la sécurité des connexions utilisateurs (comptes cloud, VPN, webmail, SSH) en exigeant au moins deux preuves d'identité distinctes
@@ -1281,11 +1280,11 @@
 **Origine :** Brevets d'authentification réseau (années 1990) / Standardisé par le NVD et le NIST.
 **Subtilités/confusions :**
 - La réception de codes par SMS est considérée comme la forme de 2FA la plus faible en raison des risques de SIM-swapping ; privilégier les clés TOTP ou FIDO2/Passkeys.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Le MFA bloque plus de 99% des attaques d'automates et d'usurpation de mots de passe.
 **Précautions :** Imposer l'activation du MFA pour tous les accès d'administration infrastructure (AWS, GCP, GitHub, VPN).
 **Équivalents :** 2FA, TOTP, FIDO2, Passkey
 **Voir aussi :** TOTP, FIDO2, Passkey, SSO
-
 ## `TOTP` — Time-based One-Time Password [Sécurité]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** RFC 6238
 **Contextes :** générer des codes à usage unique de 6 chiffres se renouvelant toutes les 30 secondes dans une application mobile (Google Authenticator, Authy, 1Password) pour le MFA
@@ -1297,11 +1296,11 @@
 **Origine :** IETF (2011 / RFC 6238 / basé sur HOTP).
 **Subtilités/confusions :**
 - Fonctionne **entièrement hors-ligne** sur le smartphone de l'utilisateur (aucun besoin de réseau mobile ou Internet pour générer le code de 6 chiffres !).
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** —
 **Précautions :** Proposer des codes de secours à imprimer lors de l'activation initiale pour éviter qu'un utilisateur ne perde l'accès à son compte en cas de perte de téléphone.
 **Équivalents :** HOTP, Push notification, FIDO2
 **Voir aussi :** MFA, HOTP, FIDO2
-
 ## `HOTP` — HMAC-based One-Time Password [Sécurité]
 **Niveau :** intermediaire | **Popularité :** 86 | **Aliases :** RFC 4226
 **Contextes :** générer des mots de passe à usage unique basés sur un compteur d'événements (bouton physique sur une carte ou un jeton matériel)
@@ -1315,11 +1314,11 @@
 **Origine :** NINIT / IETF (2005 / RFC 4226).
 **Subtilités/confusions :**
 - Contrairement à TOTP (basé sur le **temps**), HOTP est basé sur un **compteur d'utilisations** qui s'incrémente à chaque demande.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Configurer une fenêtre de resynchronisation du compteur côté serveur en cas d'appuis répétés hors ligne.
 **Équivalents :** TOTP, FIDO2
 **Voir aussi :** TOTP, MFA, HMAC
-
 ## `FIDO2` — Fast Identity Online 2 [Sécurité]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** WebAuthn + CTAP2
 **Contextes :** s'authentifier sur le Web de manière totalement immunisée contre le phishing sans saisir de mot de passe, en utilisant des clés physiques (YubiKey) ou des capteurs biométriques
@@ -1331,11 +1330,11 @@
 **Origine :** FIDO Alliance / W3C (2018).
 **Subtilités/confusions :**
 - FIDO2 lie l'authentification au nom de domaine exact (origine HTTP) : une fausse page de phishing sur un faux domaine ne pourra JAMAIS intercepter la signature FIDO2 !
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** —
 **Précautions :** Enregistrer au moins deux clés de sécurité physiques FIDO2 sur les comptes critiques d'administration.
 **Équivalents :** Passkey, TOTP
 **Voir aussi :** Passkey, MFA, TOTP, RSA
-
 ## `Passkey` — Authentification sans mot de passe [Sécurité]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** Clé de Pass (Apple, Google, Microsoft)
 **Contextes :** remplacer définitivement les mots de passe traditionnels par des paires de clés cryptographiques FIDO2 synchronisées de manière transparente entre vos appareils (iCloud Keychain, Google Password Manager, 1Password)
@@ -1347,11 +1346,11 @@
 **Origine :** Apple, Google, Microsoft et la FIDO Alliance (2022).
 **Subtilités/confusions :**
 - Contrairement aux clés FIDO2 matérielles classiques (YubiKey) scellées dans le matériel, les Passkeys modernes se synchronisent entre vos appareils enregistrés.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Élimine totalement le risque de fuite de mots de passe par piratage des bases de données de serveurs web.
 **Précautions :** Proposer les Passkeys comme méthode de connexion par défaut dans toutes les nouvelles applications web.
 **Équivalents :** FIDO2, WebAuthn
 **Voir aussi :** FIDO2, MFA, TOTP
-
 ## `KDF` — Key Derivation Function [Sécurité]
 **Niveau :** avance | **Popularité :** 90 | **Aliases :** Dérivation de clé
 **Contextes :** dériver des clés cryptographiques robustes à partir d'un mot de passe saisi par un utilisateur, ou hacher des mots de passe en base de données de manière résistante aux GPU
@@ -1364,11 +1363,11 @@
 **Origine :** RSA Laboratories / Standards PKCS (1990s) / PHC (2015).
 **Subtilités/confusions :**
 - Un KDF est **FAIT POUR ÊTRE LENT** (paramétré par un facteur de coût) afin de rendre les attaques par force brute ou dictionnaire impraticables même sur GPU.
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** ⚠️ Ne jamais hacher des mots de passe avec de simples fonctions de hachage rapides comme MD5, SHA-1 ou SHA-256 bruts !
 **Précautions :** Utiliser Argon2id avec un sel aléatoire de 16 octets généré pour chaque mot de passe.
 **Équivalents :** Argon2, bcrypt, PBKDF2, scrypt
 **Voir aussi :** HMAC, hashcat, openssl
-
 ## `RBAC` — Role-Based Access Control [Sécurité/Développement]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** Contrôle d'accès basé sur des rôles
 **Contextes :** restreindre les fonctionnalités et données d'une application ou d'une infrastructure en attribuant des rôles aux utilisateurs (ex: Admin, Editeur, Visiteur)
@@ -1380,11 +1379,11 @@
 **Origine :** David Ferraiolo et Rick Kuhn / NIST (1992 / Standard ANSI/INCITS 359-2004).
 **Subtilités/confusions :**
 - Simple à mettre en œuvre, mais peut devenir rigide si le nombre de cas particuliers augmente (problème d'explosion de rôles / *role explosion*).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Combiner ou faire évoluer vers le modèle ABAC lorsque des règles contextuelles dynamiques (heure, adresse IP, propriété) sont nécessaires.
 **Équivalents :** ABAC, ACL, PBAC
 **Voir aussi :** ABAC, IAM, Kubernetes
-
 ## `ABAC` — Attribute-Based Access Control [Sécurité/Développement]
 **Niveau :** avance | **Popularité :** 88 | **Aliases :** Contrôle d'accès basé sur des attributs
 **Contextes :** exprimer des règles d'autorisation ultra-fines et dynamiques dans des applications d'entreprise complexes ou des environnements de défense
@@ -1397,11 +1396,11 @@
 **Origine :** NIST SP 800-162 (2014) / Standard XACML.
 **Subtilités/confusions :**
 - Beaucoup plus flexible et granulaire que RBAC car il ne nécessite pas de créer un nouveau rôle pour chaque combinaison de conditions.
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Utiliser des moteurs de politique comme Open Policy Agent (**OPA**) ou AWS Verified Permissions pour évaluer les règles ABAC.
 **Équivalents :** RBAC, ReBAC (Relationship-Based Access Control)
 **Voir aussi :** RBAC, IAM, OPA
-
 ## `SAST` — Static Application Security Testing [Développement/Sécurité]
 **Niveau :** intermediaire | **Popularité :** 93 | **Aliases :** Analyse statique de sécurité
 **Contextes :** scanner le code source non exécuté d'une application dans le pipeline CI/CD pour détecter automatiquement des vulnérabilités de sécurité et mauvaises pratiques
@@ -1413,11 +1412,11 @@
 **Origine :** Outils d'analyse statique des années 2000 (Fortify, Coverity, SonarQube, Semgrep).
 **Subtilités/confusions :**
 - **SAST** analyse le **code source** (boîte blanche sans exécution) ; **DAST** teste l'**application en cours d'exécution** (boîte noire par requêtes HTTP).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** —
 **Précautions :** Configurer les règles pour minimiser le taux de faux positifs afin que les développeurs ne prennent pas l'habitude de masquer les alertes.
 **Équivalents :** DAST, IAST, Linting de sécurité
 **Voir aussi :** semgrep, OWASP, DAST, CWE
-
 ## `SAML` — Security Assertion Markup Language [Sécurité]
 **Niveau :** avance | **Popularité :** 91 | **Aliases :** SAML 2.0
 **Contextes :** implémenter l'authentification unique (SSO) d'entreprise entre un fournisseur d'identité (Okta, Azure AD, Ping) et des applications SaaS (Salesforce, Slack, AWS)
@@ -1430,11 +1429,11 @@
 **Origine :** Consortium OASIS (SAML 2.0 en 2005).
 **Subtilités/confusions :**
 - Standard d'entreprise historique basé sur XML, progressivement concurrencé dans les applications modernes par le protocole OIDC (OpenID Connect basé sur JSON/JWT).
+- Les choix d architecture doivent évaluer l impact sur la maintenance et la complexité opérationnelle.
 **Urgences/dangers :** ⚠️ Toujours vérifier la signature cryptographique XML de l'assertion SAML pour contrer les attaques par injection de commentaires XML (*XML Signature Wrapping*).
 **Précautions :** Conserver la clé privée de signature SAML à jour et surveiller son expiration.
 **Équivalents :** OIDC (OpenID Connect), WS-Federation
 **Voir aussi :** OIDC, OAuth2, SSO, XML
-
 ## `OAuth2` — Open Authorization 2.0 [Web/Sécurité]
 **Niveau :** intermediaire | **Popularité :** 99 | **Aliases :** RFC 6749
 **Contextes :** autoriser une application tierce à accéder à des ressources d'un utilisateur (ex: lire ses contacts Google) sans que l'utilisateur ne lui donne son mot de passe
@@ -1447,11 +1446,11 @@
 **Origine :** Eran Hammer, Blaine Cook / IETF (2012 / RFC 6749).
 **Subtilités/confusions :**
 - **OAuth 2.0 est un protocole d'AUTORISATION**, et non d'authentification ! Pour gérer l'authentification (l'identité de l'utilisateur), il faut utiliser la couche **OIDC** construite au-dessus d'OAuth2.
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** ⚠️ Utiliser impérativement le paramètre `state` ou `PKCE` (`code_challenge`) pour éviter les attaques par interception de code d'autorisation.
 **Précautions :** Valider rigoureusement le champ `redirect_uri` côté serveur d'autorisation.
 **Équivalents :** OIDC, SAML
 **Voir aussi :** OIDC, JWT, HMAC, SSO
-
 ## `OIDC` — OpenID Connect [Web/Sécurité]
 **Niveau :** intermediaire | **Popularité :** 98 | **Aliases :** OpenID Connect 1.0
 **Contextes :** implémenter des boutons de connexion sociale ("Se connecter avec Google / GitHub / Apple") ou l'authentification SSO sur des applications web et mobiles modernes
@@ -1464,6 +1463,7 @@
 **Origine :** OpenID Foundation (2014 / Nat Sakimura, John Bradley, Michael B. Jones).
 **Subtilités/confusions :**
 - OIDC = OAuth 2.0 (Autorisation) + ID Token JWT (Identité).
+- Les implémentations doivent suivre les recommandations de sécurité et les mises à jour régulières.
 **Urgences/dangers :** ⚠️ Toujours vérifier la signature, l'émetteur (`iss`) et le destinataire (`aud`) de l'ID Token JWT reçu.
 **Précautions :** Utiliser la découverte automatique via l'endpoint `/.well-known/openid-configuration` pour configurer le client OIDC.
 **Équivalents :** SAML 2.0, OAuth2

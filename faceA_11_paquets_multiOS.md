@@ -33,7 +33,6 @@
 **Précautions :** Lancer `apt-get update` au préalable pour s'assurer que le cache local interrogé est bien à jour.
 **Équivalents :** apt search / apt show, dnf search, pacman -Ss
 **Voir aussi :** apt, apt-get, dpkg
-
 ## `apt-mark` — Gestion de l'état d'installation des paquets APT [Debian/Ubuntu]
 **Niveau :** avance | **Popularité :** 82 | **Aliases :** —
 **Contextes :** marquer un paquet comme installé manuellement pour éviter qu'il ne soit supprimé par `autoremove`, bloquer la mise à jour d'un paquet critique (*hold*)
@@ -51,7 +50,6 @@
 **Précautions :** Lister régulièrement les paquets maintenus avec `apt-mark showhold`.
 **Équivalents :** dnf mark, pacman -D
 **Voir aussi :** apt, apt-get, dpkg
-
 ## `apt-file` — Recherche du paquet contenant un fichier spécifique [Debian/Ubuntu]
 **Niveau :** avance | **Popularité :** 80 | **Aliases :** —
 **Contextes :** trouver quel paquet apt installer lorsque la compilation d'un programme échoue avec un en-tête manquant (ex: `fatal error: pcre.h: No such file`)
@@ -64,11 +62,11 @@
 **Origine :** Sebastien J. Gross / Debian Project (2001) — outil incontournable pour les développeurs et sysadmins.
 **Subtilités/confusions :**
 - `dpkg -S` ne cherche que dans les paquets DÉJÀ installés sur la machine localement, alors que `apt-file search` cherche dans TOUS les paquets de tous les dépôts distants.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Toujours exécuter `apt-file update` après l'installation initiale de l'outil pour créer l'index de recherche local.
 **Équivalents :** dnf provides, pacman -F
 **Voir aussi :** dpkg, apt-cache, apt
-
 ## `dnf` — Gestionnaire de paquets moderne RPM [RHEL/Fedora/CentOS]
 **Niveau :** debutant | **Popularité :** 94 | **Aliases :** —
 **Contextes :** installer et gérer des logiciels sous Fedora, Red Hat Enterprise Linux (RHEL 8/9), Rocky Linux ou AlmaLinux
@@ -86,7 +84,6 @@
 **Précautions :** Utiliser `dnf groupinstall "Development Tools"` pour installer d'un coup l'ensemble de la chaîne de compilation C/C++.
 **Équivalents :** yum, apt (Debian/Ubuntu), pacman (Arch), zypper (SUSE)
 **Voir aussi :** yum, rpm, dnf-plugins-core
-
 ## `apk` — Gestionnaire de paquets ultra-léger Alpine Linux [Alpine Linux]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** —
 **Contextes :** installer des paquets dans des conteneurs Docker ultra-légers basés sur Alpine Linux
@@ -104,7 +101,6 @@
 **Précautions :** Toujours spécifier `--no-cache` lors des installations dans les Dockerfiles Alpine pour minimiser la taille de l'image finale.
 **Équivalents :** apt-get, dnf, pacman
 **Voir aussi :** docker, musl
-
 ## `dpkg-deb` — Inspection et manipulation de fichiers d'archives .deb [Debian/Ubuntu]
 **Niveau :** avance | **Popularité :** 82 | **Aliases :** —
 **Contextes :** extraire le contenu d'un paquet `.deb` sans l'installer, inspecter le fichier de contrôle d'un paquet Debian
@@ -117,11 +113,11 @@
 **Origine :** Ian Murdock / Debian Project (1995) — utilitaire bas niveau manipulant le format d'archive `ar`.
 **Subtilités/confusions :**
 - Un fichier `.deb` est physiquement une archive `ar` contenant trois fichiers : `debian-binary`, `control.tar.gz` et `data.tar.gz`.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser `dpkg-deb -x` pour auditer un fichier de paquet douteux avant de l'installer réellement sur le système.
 **Équivalents :** rpm2cpio (RHEL/Fedora), ar, tar
 **Voir aussi :** dpkg, apt, debuild
-
 ## `rpm2cpio` — Extraction du contenu d'un paquet RPM sans installation [Linux]
 **Niveau :** avance | **Popularité :** 78 | **Aliases :** —
 **Contextes :** récupérer un binaire spécifique dans un paquet `.rpm` sans installer le paquet sur le système
@@ -133,11 +129,11 @@
 **Origine :** Red Hat Linux (1997) — outil de conversion pour les pipelines POSIX.
 **Subtilités/confusions :**
 - Ne s'exécute généralement pas seul : `rpm2cpio` écrit le flux CPIO sur la sortie standard (`stdout`), qui doit être transmise par pipe `|` à la commande `cpio`.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Lancer la commande dans un sous-dossier temporaire vide (ex: `/tmp/rpm_extract`) pour éviter d'éparpiller les fichiers extraits.
 **Équivalents :** dpkg-deb -x (Debian), cpio
 **Voir aussi :** rpm, cpio, dnf
-
 ## `alien` — Convertisseur de formats de paquets Linux [Linux]
 **Niveau :** avance | **Popularité :** 76 | **Aliases :** —
 **Contextes :** convertir un paquet au format `.rpm` en `.deb` pour l'installer sur Ubuntu, ou inversement
@@ -155,7 +151,6 @@
 **Précautions :** Réserver `alien` aux applications isolées hors-dépôts.
 **Équivalents :** dpkg-deb, rpm2cpio
 **Voir aussi :** dpkg, rpm, apt
-
 ## `dnf-plugins-core` — Extensions d'administration dnf (copr, builddep) [RHEL/Fedora]
 **Niveau :** avance | **Popularité :** 83 | **Aliases :** —
 **Contextes :** ajouter un dépôt communautaire COPR sous Fedora/RHEL, installer automatiquement toutes les dépendances de compilation d'un code source
@@ -168,11 +163,11 @@
 **Origine :** Fedora / Red Hat (2014) — remplace les anciens `yum-utils`.
 **Subtilités/confusions :**
 - La sous-commande `dnf config-manager --enable <repo_id>` permet d'activer un dépôt désactivé par défaut (ex: `powertools` ou `crb`).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** S'assurer de la confiance envers un mainteneur COPR avant d'exécuter `dnf copr enable`.
 **Équivalents :** add-apt-repository (Ubuntu), yum-utils
 **Voir aussi :** dnf, rpm
-
 ## `cask` — Extension Homebrew pour la gestion d'applications GUI macOS [macOS]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** brew cask
 **Contextes :** installer des applications graphiques macOS (Visual Studio Code, Docker Desktop, Google Chrome, Slack) en ligne de commande
@@ -190,7 +185,6 @@
 **Précautions :** Utiliser `brew search --casks <nom>` pour vérifier le slug exact de l'application avant installation.
 **Équivalents :** mas, winget, flatpak (Linux)
 **Voir aussi :** brew, mas
-
 ## `pkgutil` — Inspection et extraction des paquets macOS (.pkg) [macOS]
 **Niveau :** avance | **Popularité :** 81 | **Aliases :** —
 **Contextes :** inspecter ou extraire les fichiers d'un installateur d'application macOS `.pkg` sans l'exécuter, oublier les révisions de paquets installés
@@ -203,11 +197,11 @@
 **Origine :** Apple Inc. (macOS 10.5 Leopard, 2007).
 **Subtilités/confusions :**
 - L'option `pkgutil --forget <pkg_id>` supprime l'enregistrement d'installation de la base de données sans supprimer physiquement les fichiers.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Utiliser `pkgutil --expand` pour examiner les scripts d'installation (*preinstall* / *postinstall*) inclus dans les paquets `.pkg`.
 **Équivalents :** dpkg-deb (Linux), installer (macOS)
 **Voir aussi :** brew, hdiutil
-
 ## `flatpak-builder` — Outil de construction d'applications Flatpak [Linux]
 **Niveau :** avance | **Popularité :** 75 | **Aliases :** —
 **Contextes :** créer et packager une application Linux personnelle au format universel Flatpak depuis un manifeste YAML/JSON
@@ -220,11 +214,11 @@
 **Origine :** Alexander Larsson / GNOME & Red Hat (2016).
 **Subtilités/confusions :**
 - Télécharge automatiquement les dépendances et s'exécute dans un environnement de build isolé (*SDK runtime*).
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Vérifier que les runtimes SDK correspondants (ex: `org.freedesktop.Sdk`) sont bien installés via Flatpak avant de lancer le build.
 **Équivalents :** snapcraft, debuild, rpmbuild
 **Voir aussi :** flatpak, snapcraft
-
 ## `snapcraft` — Outil de création et publication de paquets Snap [Linux]
 **Niveau :** avance | **Popularité :** 78 | **Aliases :** —
 **Contextes :** empaqueter un projet open-source au format Snap et le publier sur le Snap Store d'Ubuntu
@@ -237,11 +231,11 @@
 **Origine :** Canonical / Ubuntu (2015).
 **Subtilités/confusions :**
 - Isole par défaut la compilation dans une machine virtuelle (Multipass) ou un conteneur (LXD) pour garantir la reproductibilité.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Tester le paquet localement avec `snap install --dangerous my-app.snap` avant de procéder au déploiement sur le Snap Store.
 **Équivalents :** flatpak-builder, debuild, rpmbuild
 **Voir aussi :** snap, flatpak-builder
-
 ## `debuild` — Outil de packaging et compilation de paquets Debian [Debian/Ubuntu]
 **Niveau :** avance | **Popularité :** 74 | **Aliases :** —
 **Contextes :** compiler un paquet source Debian (`debian/control`, `debian/rules`) pour créer un paquet binaire `.deb` signé
@@ -259,7 +253,6 @@
 **Précautions :** Corriger les avertissements et erreurs signalés par `lintian` à la fin de l'exécution de `debuild`.
 **Équivalents :** rpmbuild, dpkg-buildpackage, snapcraft
 **Voir aussi :** dpkg, dpkg-deb, apt
-
 ## `pnpm` — Gestionnaire de paquets JavaScript rapide et économe en espace [Cross]
 **Niveau :** intermediaire | **Popularité :** 92 | **Aliases :** —
 **Contextes :** gérer les dépendances dans un Monorepo TypeScript/JavaScript sans dupliquer des gigaoctets dans `node_modules`
@@ -277,7 +270,6 @@
 **Précautions :** Configurer un fichier `pnpm-workspace.yaml` pour l'administration propre des projets multi-paquets.
 **Équivalents :** npm, yarn, bun
 **Voir aussi :** npm, yarn, bun, npx
-
 ## `npx` — Exécuteur de paquets et binaires Node.js sans installation globale [Cross]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** —
 **Contextes :** initialiser un projet React/Next.js (`npx create-next-app`), lancer un binaire CLI une fois sans polluer la machine
@@ -295,7 +287,6 @@
 **Précautions :** Toujours vérifier le nom exact du paquet npm avant de lancer une commande `npx`.
 **Équivalents :** bunx, pnpm dlx, yarn dlx
 **Voir aussi :** npm, pnpm, bun
-
 ## `bun` — Runtime JavaScript tout-en-un et gestionnaire de paquets ultra-rapide [Cross]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** —
 **Contextes :** exécuter des scripts TypeScript/JS sans étape de transpilation Babel/tsc, remplacer `npm install` par une alternative 10x plus rapide
@@ -313,7 +304,6 @@
 **Précautions :** Tester les paquets ayant des modules natifs C++ Node-addon pour s'assurer de leur compatibilité avec Bun.
 **Équivalents :** node, npm, pnpm, denon, tsx
 **Voir aussi :** npm, pnpm, npx
-
 ## `pipenv` — Gestionnaire d'environnements virtuels et dépendances Python [Cross]
 **Niveau :** intermediaire | **Popularité :** 86 | **Aliases :** —
 **Contextes :** gérer de manière déterministe les dépendances d'une application Python avec `Pipfile` et `Pipfile.lock`
@@ -331,7 +321,6 @@
 **Précautions :** Générer systématiquement le fichier `Pipfile.lock` avant le déploiement en production (`pipenv lock`).
 **Équivalents :** poetry, uv, conda, venv
 **Voir aussi :** pip, poetry, uv, conda
-
 ## `poetry` — Gestionnaire moderne de dépendances et de build Python [Cross]
 **Niveau :** intermediaire | **Popularité :** 93 | **Aliases :** —
 **Contextes :** développer, empaqueter et publier une bibliothèque ou application Python respectant le standard PEP 518 (`pyproject.toml`)
@@ -349,7 +338,6 @@
 **Précautions :** Commiter les deux fichiers `pyproject.toml` et `poetry.lock` dans votre gestionnaire de version Git.
 **Équivalents :** pipenv, uv, flit, hatch
 **Voir aussi :** pip, pipenv, uv
-
 ## `pixi` — Gestionnaire de dépendances multi-langages rapide basé sur Conda [Cross]
 **Niveau :** avance | **Popularité :** 78 | **Aliases :** —
 **Contextes :** installer et isoler des projets scientifiques ou Data Science mélangeant du Python, C++, R et des binaires GPU CUDA
@@ -367,7 +355,6 @@
 **Précautions :** Préférer `pixi` à `conda` dans les pipelines CI/CD pour diviser le temps d'installation des dépendances par 10.
 **Équivalents :** conda, poetry, uv
 **Voir aussi :** conda, uv, poetry
-
 ## `go` — Outil de gestion des modules et compilateur Go [Cross]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** —
 **Contextes :** installer un outil CLI écrit en Go (`go install`), gérer les modules de dépendance d'un projet (`go mod`)
@@ -385,7 +372,6 @@
 **Précautions :** Lancer systématiquement `go mod tidy` et `go test ./...` avant de commiter des changements.
 **Équivalents :** cargo (Rust), npm (Node), pip (Python)
 **Voir aussi :** cargo, rustup
-
 ## `mix` — Outil de build et gestionnaire de dépendances Elixir [Cross]
 **Niveau :** intermediaire | **Popularité :** 80 | **Aliases :** —
 **Contextes :** créer une application web Phoenix ou un projet backend tolérant aux pannes en langage Elixir
@@ -403,7 +389,6 @@
 **Précautions :** Utiliser `mix test` pour exécuter les doctests inclus directement dans la documentation du code.
 **Équivalents :** cargo, rebar3 (Erlang), npm
 **Voir aussi :** cargo, elixir
-
 ## `luarocks` — Gestionnaire de paquets pour le langage Lua [Cross]
 **Niveau :** intermediaire | **Popularité :** 78 | **Aliases :** —
 **Contextes :** installer des modules Lua (*rocks*) pour Neovim, Nginx OpenResty, Kong API Gateway ou des moteurs de jeux
@@ -421,7 +406,6 @@
 **Précautions :** Vérifier la version de Lua ciblée (Lua 5.1, 5.4 ou LuaJIT) car certains rocks ne sont pas compatibles avec toutes les révisions.
 **Équivalents :** pip, npm, gem
 **Voir aussi :** lua, nginx
-
 ## `cabal` — Gestionnaire de paquets et outil de build pour Haskell [Cross]
 **Niveau :** avance | **Popularité :** 75 | **Aliases :** —
 **Contextes :** développer, empaqueter et compiler des projets en langage fonctionnel Haskell
@@ -439,7 +423,6 @@
 **Précautions :** Lancer `cabal update` régulièrement pour synchroniser l'index des dépendances Hackage.
 **Équivalents :** stack, cargo, ghc
 **Voir aussi :** ghcup, cargo
-
 ## `opam` — Gestionnaire de paquets pour le langage OCaml [Cross]
 **Niveau :** avance | **Popularité :** 74 | **Aliases :** —
 **Contextes :** installer le compilateur OCaml, gérer les bibliothèques et compilateurs spécifiques pour Coq, Dune ou Tezos
@@ -457,7 +440,6 @@
 **Précautions :** Exécuter `eval $(opam env)` après l'initialisation pour mettre à jour les variables d'environnement dans le Shell courant.
 **Équivalents :** cargo, cabal, dune
 **Voir aussi :** dune, ocaml
-
 ## `nimble` — Gestionnaire de paquets du langage Nim [Cross]
 **Niveau :** avance | **Popularité :** 72 | **Aliases :** —
 **Contextes :** gérer les dépendances et automatiser la compilation de projets écrits en langage Nim
@@ -470,11 +452,11 @@
 **Origine :** Dominik Picheta / Nim core team (2012).
 **Subtilités/confusions :**
 - Utilise Git sous le capot pour récupérer directement les dépôts de paquets depuis GitHub/GitLab.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Déclarer les versions exactes requises dans le fichier `.nimble` (`requires "nim >= 2.0.0"`).
 **Équivalents :** cargo, go, shards
 **Voir aussi :** nim, cargo
-
 ## `shards` — Gestionnaire de dépendances pour le langage Crystal [Cross]
 **Niveau :** avance | **Popularité :** 70 | **Aliases :** —
 **Contextes :** installer des bibliothèques (shards) et compiler des applications écrites en langage Crystal
@@ -487,11 +469,11 @@
 **Origine :** Manas Technology Solutions / Crystal community (2015).
 **Subtilités/confusions :**
 - Syntaxe du manifeste `shard.yml` très fortement inspirée du format `Gemfile` / `gemspec` de Ruby.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Commiter le fichier `shard.lock` dans le dépôt Git pour garantir la reproductibilité des builds.
 **Équivalents :** gem, cargo, mix
 **Voir aussi :** crystal, gem
-
 ## `repo` — Gestionnaire de dépôts Git multiples [Cross]
 **Niveau :** avance | **Popularité :** 81 | **Aliases :** —
 **Contextes :** administrer et synchroniser des projets géants composés de dizaines de dépôts Git (AOSP Android, Chromium)
@@ -509,7 +491,6 @@
 **Précautions :** Passer le drapeau `-j` lors du `repo sync` pour paralléliser les téléchargements réseau.
 **Équivalents :** git submodule, git-repo, git subtree
 **Voir aussi :** git, git-submodule
-
 ## `rpmbuild` — Outil de construction de paquets binaires et sources RPM [Linux]
 **Niveau :** avance | **Popularité :** 83 | **Aliases :** —
 **Contextes :** compiler et empaqueter un binaire ou logiciel au format RPM officiel pour Red Hat, Fedora ou Rocky Linux
@@ -527,7 +508,6 @@
 **Précautions :** Ne JAMAIS lancer `rpmbuild` avec les privilèges `sudo` ou compte root : toujours compiler en utilisateur simple dans son `HOME`.
 **Équivalents :** debuild, dpkg-buildpackage, mock, flatpak-builder
 **Voir aussi :** rpm, dnf, debuild
-
 ## `pyenv` — Gestionnaire de versions multiples pour Python [Cross]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** —
 **Contextes :** faire tourner plusieurs versions de Python (3.9, 3.11, 3.12) sur le même poste sans altérer le Python du système d'exploitation
@@ -545,7 +525,6 @@
 **Précautions :** Installer les bibliothèques d'en-tête C de développement (`libssl-dev`, `zlib1g-dev`) avant de compiler de nouvelles versions Python avec `pyenv install`.
 **Équivalents :** asdf, mise, conda, uv
 **Voir aussi :** pip, venv, venv, poetry
-
 ## `rbenv` — Gestionnaire de versions légères pour Ruby [Cross]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** —
 **Contextes :** exécuter des projets Ruby on Rails nécessitant des révisions précises de l'interpréteur Ruby
@@ -563,7 +542,6 @@
 **Précautions :** Toujours vérifier avec `rbenv version` la version active dans le terminal courant.
 **Équivalents :** rvm, asdf, chruby
 **Voir aussi :** gem, bundler, rvm
-
 ## `rvm` — Environnement complet de gestion de versions et gemsets Ruby [Cross]
 **Niveau :** intermediaire | **Popularité :** 88 | **Aliases :** —
 **Contextes :** administrer de grands projets Ruby on Rails historiques nécessitant à la fois une version Ruby et un ensemble de gemmes isolé (*gemsets*)
@@ -581,7 +559,6 @@
 **Précautions :** Charger RVM sous forme de fonction Shell dans `.bashrc` ou `.zshrc` (`source ~/.rvm/scripts/rvm`).
 **Équivalents :** rbenv, chruby, asdf
 **Voir aussi :** rbenv, gem
-
 ## `sdkman` — Gestionnaires des kits de développement Software Development Kit (Java, Kotlin, Scala, Gradle) [Cross]
 **Niveau :** debutant | **Popularité :** 92 | **Aliases :** sdk
 **Contextes :** installer et faire cohabiter plusieurs versions de JDK Java (Open JDK 8, 11, 17, 21), Gradle, Maven ou Spring Boot sur sa machine
@@ -599,7 +576,6 @@
 **Précautions :** Exécuter `sdk update` régulièrement pour maintenir l'index des versions distantes JDK à jour.
 **Équivalents :** jenv, jabba, asdf
 **Voir aussi :** java, javac, maven, gradle
-
 ## `rustup` — Installateur et gestionnaire de toolchains pour le langage Rust [Cross]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** —
 **Contextes :** installer le compilateur Rust (`rustc`), la bibliothèque standard, l'outil de build `cargo` ou cibler une compilation croisée (WebAssembly, ARM)
@@ -617,7 +593,6 @@
 **Précautions :** Exécuter `rustup component add clippy rustfmt` pour installer les outils officiels de linter et formatage de code.
 **Équivalents :** ghcup, pyenv, asdf
 **Voir aussi :** cargo, rustc
-
 ## `ghcup` — Gestionnaire de chaînes de compilation Haskell [Cross]
 **Niveau :** avance | **Popularité :** 78 | **Aliases :** —
 **Contextes :** installer et gérer les versions du compilateur Haskell GHC, de l'outil de build Cabal et du serveur de langage HLS
@@ -630,11 +605,11 @@
 **Origine :** Julian Ospald (hasufell) / Haskell Foundation (2018).
 **Subtilités/confusions :**
 - L'interface TUI lancée via `ghcup tui` est l'un des moyens les plus simples et visuels pour piloter les environnements Haskell sous Linux/macOS.
+- Vérifier le code de retour (0 ou exit status) dans les scripts shell pour détecter les échecs de commande.
 **Urgences/dangers :** —
 **Précautions :** Vérifier que HLS (*Haskell Language Server*) correspond exactement à la version du compilateur GHC sélectionné.
 **Équivalents :** rustup, sdkman, asdf
 **Voir aussi :** cabal, stack
-
 ## `asdf` — Gestionnaire de versions universel extensible par plugins [Cross]
 **Niveau :** intermediaire | **Popularité :** 93 | **Aliases :** —
 **Contextes :** remplacer 10 gestionnaires de versions séparés (nvm, pyenv, rbenv, sdkman) par un seul outil universel unifié
@@ -652,7 +627,6 @@
 **Précautions :** Installer les plugins officiels validés par la communauté pour garantir des téléchargements sécurisés.
 **Équivalents :** mise, proto, rtx
 **Voir aussi :** mise, pyenv, rbenv, nvm
-
 ## `mise` — Remplaçant ultra-rapide de asdf écrit en Rust [Cross]
 **Niveau :** intermediaire | **Popularité :** 89 | **Aliases :** rtx
 **Contextes :** gérer les versions de runtimes (Node, Python, Ruby, Go) et les variables d'environnement de projet avec des performances maximales
@@ -670,7 +644,6 @@
 **Précautions :** Activer la fonction d'intégration Shell `mise activate bash` dans votre fichier de configuration de Shell.
 **Équivalents :** asdf, proto, venv
 **Voir aussi :** asdf, proto, pyenv
-
 ## `proto` — Gestionnaire de toolchains polyglotte de nouvelle génération [Cross]
 **Niveau :** avance | **Popularité :** 76 | **Aliases :** —
 **Contextes :** unifier la gestion des outils de dev (Node, Bun, Go, Python, Rust) dans un Monorepo multi-langages moderne
@@ -688,7 +661,6 @@
 **Précautions :** Définir `proto setup` pour ajouter l'intégration propre des binaires au profil du Shell.
 **Équivalents :** mise, asdf
 **Voir aussi :** mise, asdf
-
 ## `jenv` — Gestionnaire d'environnements et versions Java [Cross]
 **Niveau :** intermediaire | **Popularité :** 84 | **Aliases :** —
 **Contextes :** basculer entre plusieurs versions de JDK installés sur un poste macOS ou Linux (ex: Java 8 pour un projet hérité, Java 17 pour Spring Boot 3)
@@ -701,11 +673,11 @@
 **Origine :** Gilles Cornu (2012) — inspiré directement par la philosophie de `rbenv`.
 **Subtilités/confusions :**
 - Contrairement à SDKMAN, `jenv` NE TÉLÉCHARGE PAS les JDKs : il permet simplement d'ORGANISER et BASCULER entre les JDKs déjà présents sur le disque.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Toujours exécuter `jenv enable-plugin export` pour s'assurer que la variable `$JAVA_HOME` est bien mise à jour dynamiquement.
 **Équivalents :** sdkman, asdf
 **Voir aussi :** sdkman, java
-
 ## `goenv` — Gestionnaire de versions pour le langage Go [Cross]
 **Niveau :** intermediaire | **Popularité :** 78 | **Aliases :** —
 **Contextes :** faire tourner des projets Go nécessitant des révisions spécifiques de la chaîne de compilation Go (ex: Go 1.18 vs Go 1.22)
@@ -718,11 +690,11 @@
 **Origine :** Syu Kato (2016) — dérivé directement de `pyenv` et `rbenv`.
 **Subtilités/confusions :**
 - Met automatiquement à jour les variables `$GOROOT` et `$GOPATH` lors du changement de version active.
+- L execution avec les privilèges d administration doit être restreinte au strict nécessaire.
 **Urgences/dangers :** —
 **Précautions :** S'assurer que les shims `~/.goenv/shims` sont bien déclarés en priorité dans la variable `$PATH`.
 **Équivalents :** gvm, asdf, mise
 **Voir aussi :** go, pyenv, rbenv
-
 ## `tfenv` — Gestionnaire de versions pour Terraform [Cross]
 **Niveau :** intermediaire | **Popularité :** 91 | **Aliases :** —
 **Contextes :** administrer de l'infrastructure as code (IaC) avec plusieurs projets Terraform exigeant des versions différentes (ex: 0.12 vs 1.6)
@@ -740,7 +712,6 @@
 **Précautions :** Inclure un fichier `.terraform-version` dans la racine de chaque dépôt d'infrastructure IaC.
 **Équivalents :** tgswitch, tenv, asdf
 **Voir aussi :** terraform, asdf
-
 ## `phpenv` — Gestionnaire de versions multiples pour PHP [Cross]
 **Niveau :** avance | **Popularité :** 75 | **Aliases :** —
 **Contextes :** maintenir des applications Web PHP héritées (PHP 7.4) et modernes (PHP 8.2/8.3) sur le même poste de travail
@@ -753,11 +724,11 @@
 **Origine :** Dominick D'Aniello (2012) — basé sur la philosophie rbenv.
 **Subtilités/confusions :**
 - Exige que les dépendances système de compilation (libxml2, openssl, cURL, bzip2) soient présentes lors de l'installation.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Lancer `phpenv rehash` après l'installation de nouveaux exécutables via Composer.
 **Équivalents :** asdf, mise, brew
 **Voir aussi :** composer, rbenv
-
 ## `nodenv` — Gestionnaire de versions léger pour Node.js [Cross]
 **Niveau :** intermediaire | **Popularité :** 85 | **Aliases :** —
 **Contextes :** maintenir des projets Node.js exigeant des versions spécifiques de l'environnement d'exécution (ex: Node 16 LTS vs Node 20 LTS)
@@ -770,11 +741,11 @@
 **Origine :** Sam Stephenson & Sam Gleske (2014) — portage direct de rbenv pour Node.js.
 **Subtilités/confusions :**
 - Alternative plus légère et stricte que `nvm`, qui ne dépend pas d'une surcharge lourde du Shell.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Créer un fichier `.node-version` à la racine de vos projets Node pour automatiser la sélection de version sur l'équipe.
 **Équivalents :** nvm, fnm, n, volta, asdf
 **Voir aussi :** npm, nvm, fnm, volta
-
 ## `volta` — Gestionnaire d'outils JavaScript rapide et sans friction [Cross]
 **Niveau :** intermediaire | **Popularité :** 88 | **Aliases :** —
 **Contextes :** épingler de façon stricte et automatique les versions de Node.js, npm, yarn ou pnpm au sein d'une équipe de développement Web
@@ -792,7 +763,6 @@
 **Précautions :** Utiliser `volta pin` pour garantir que tous les développeurs et les runners CI/CD utilisent strictement les mêmes versions de binaires.
 **Équivalents :** fnm, nvm, nodenv, asdf
 **Voir aussi :** npm, pnpm, nvm, fnm
-
 ## `fnm` — Fast Node Manager rapide écrit en Rust [Cross]
 **Niveau :** intermediaire | **Popularité :** 89 | **Aliases :** —
 **Contextes :** basculer automatiquement de version Node.js au changement de dossier dans le terminal sans temps de latence
@@ -810,7 +780,6 @@
 **Précautions :** Évaluer `fnm env --use-on-cd` dans le fichier de profil de votre Shell (`.bashrc` / `.zshrc`) pour l'automatisation complète.
 **Équivalents :** nvm, volta, nodenv, asdf
 **Voir aussi :** nvm, volta, nodenv, npm
-
 ## `nix` — Gestionnaire de paquets déclaratif et reproductible [Linux/macOS]
 **Niveau :** avance | **Popularité :** 88 | **Aliases :** —
 **Contextes :** créer un environnement de développement pur et 100% reproductible sans polluer le système d'exploitation hôte
@@ -828,7 +797,6 @@
 **Précautions :** Nettoyer le store Nix avec `nix-collect-garbage` périodiquement pour éviter la saturation du disque par accumalation de builds.
 **Équivalents :** guix, devbox, flox
 **Voir aussi :** nix-env, guix
-
 ## `nix-env` — Manipulation des profils d'utilisateurs Nix [Linux/macOS]
 **Niveau :** avance | **Popularité :** 82 | **Aliases :** —
 **Contextes :** installer ou désinstaller de façon persistance des applications dans le profil utilisateur Nix sous n'importe quelle distribution Linux ou macOS
@@ -841,11 +809,11 @@
 **Origine :** Eelco Dolstra / NixOS (2003).
 **Subtilités/confusions :**
 - `nix-env --rollback` permet de défaire instantanément n'importe quelle mise à jour qui a cassé un outil.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Privilégier `nix-shell` pour les environnements de dev éphémères et `nix-env` uniquement pour les binaires globaux.
 **Équivalents :** nix, guix
 **Voir aussi :** nix, guix
-
 ## `guix` — Gestionnaire de paquets fonctionnel et libre GNU [Linux]
 **Niveau :** avance | **Popularité :** 76 | **Aliases :** —
 **Contextes :** déployer des environnements de calcul scientifique déclaratifs et audités 100% logiciels libres
@@ -863,7 +831,6 @@
 **Précautions :** Consulter `guix package --list-generations` pour gérer les révisions du profil système.
 **Équivalents :** nix, nix-env
 **Voir aussi :** nix, nix-env
-
 ## `n` — Gestionnaire de versions Node.js interactif et minimaliste [Cross]
 **Niveau :** debutant | **Popularité :** 86 | **Aliases :** —
 **Contextes :** changer de version Node.js sur sa machine de dev avec une interface TUI fléchée ultra-simple
@@ -876,9 +843,9 @@
 **Origine :** TJ Holowaychuk (2011) — outil culte pour sa simplicité désarmante.
 **Subtilités/confusions :**
 - Contrairement à nvm/rbenv, `n` remplace DIRECTEMENT le binaire `node` dans `/usr/local/bin/node` sans passer par des shims ou des fonctions Shell complexes.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Nécessite les droits d'écriture dans `/usr/local/bin` (ou la définition de `N_PREFIX`).
 **Équivalents :** nvm, fnm, nodenv, volta
 **Voir aussi :** nvm, fnm, nodenv, npm
-
 

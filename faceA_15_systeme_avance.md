@@ -30,7 +30,6 @@
 **Précautions :** Combiner `unshare --user --map-root-user` pour créer des namespaces utilisateur non privilégiés sans sudo.
 **Équivalents :** nsenter (joindre), clone(2) (appel système bas niveau)
 **Voir aussi :** nsenter, chroot, pivot_root, lsns
-
 ## `nsenter` — Enter Existing Namespaces [Linux]
 **Niveau :** expert | **Popularité :** 78 | **Aliases :** namespace enter
 **Contextes :** debug de conteneurs, inspection de processus isolés, administration Docker/Kubernetes
@@ -47,7 +46,6 @@
 **Précautions :** Réserver à la phase de debugging ; ne jamais laisser des processus persistants tournant dans des namespaces de conteneurs de production.
 **Équivalents :** `docker exec` (haut niveau), `kubectl exec` (Kubernetes)
 **Voir aussi :** unshare, chroot, lsns, docker exec
-
 ## `lsns` — List Linux Namespaces [Linux]
 **Niveau :** avance | **Popularité :** 67 | **Aliases :** list namespaces
 **Contextes :** audit de conteneurs, debug d'isolation, administration système avancée
@@ -64,7 +62,6 @@
 **Précautions :** Utiliser `lsns -J` pour une sortie JSON exploitable par des scripts de supervision de namespaces.
 **Équivalents :** `/proc/<pid>/ns/` (accès direct aux liens symboliques des namespaces)
 **Voir aussi :** unshare, nsenter, ps, /proc
-
 ## `cgcreate` — Create Control Groups [Linux]
 **Niveau :** expert | **Popularité :** 62 | **Aliases :** cgroup create, libcgroup
 **Contextes :** gestion des ressources systèmes, isolation de processus, déploiement de conteneurs
@@ -81,7 +78,6 @@
 **Précautions :** Préférer systemd-run avec `--property=MemoryLimit=` pour créer des cgroups via systemd sur les systèmes modernes plutôt que les outils libcgroup.
 **Équivalents :** systemd-run (abstraction moderne), Docker --memory (abstraction conteneur)
 **Voir aussi :** systemd-run, cgexec, systemctl, unshare
-
 ## `cgexec` — Execute in Control Group [Linux]
 **Niveau :** expert | **Popularité :** 60 | **Aliases :** cgroup exec
 **Contextes :** exécution de processus dans un cgroup existant, isolation de ressources
@@ -98,7 +94,6 @@
 **Précautions :** Vérifier que le cgroup cible existe et a les bonnes permissions avant d'utiliser `cgexec`.
 **Équivalents :** systemd-run (moderne), Docker/LXC run (abstraction)
 **Voir aussi :** cgcreate, systemd-run, cgroups, unshare
-
 ## `prlimit` — Get/Set Process Resource Limits [Linux]
 **Niveau :** avance | **Popularité :** 65 | **Aliases :** rlimit, resource limits
 **Contextes :** tuning système, isolation de processus, limite de fichiers ouverts, débogage de ressources
@@ -115,7 +110,6 @@
 **Précautions :** Configurer les limites système via `/etc/security/limits.conf` ou les units systemd `LimitNOFILE=` pour les services persistants.
 **Équivalents :** ulimit (shell uniquement), systemd LimitNOFILE (services)
 **Voir aussi :** ulimit, systemctl, /proc/pid/limits
-
 ## `chsh` — Change Login Shell [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 70 | **Aliases :** change shell
 **Contextes :** personnalisation de l'environnement utilisateur, migration vers zsh/fish, administration de comptes
@@ -132,7 +126,6 @@
 **Précautions :** Vérifier que le shell cible est installé et fonctionnel avant de changer — un shell manquant empêche la connexion.
 **Équivalents :** usermod -s (admin), modification directe de /etc/passwd
 **Voir aussi :** passwd, useradd, usermod, /etc/shells
-
 ## `chpasswd` — Change Passwords in Batch [Linux]
 **Niveau :** intermediaire | **Popularité :** 68 | **Aliases :** batch password change
 **Contextes :** administration système, provisionnement automatisé d'utilisateurs, scripts d'intégration
@@ -149,7 +142,6 @@
 **Précautions :** Effacer immédiatement le fichier de mots de passe et vider le cache du shell (`history -c`) après utilisation.
 **Équivalents :** passwd (interactif, un utilisateur à la fois)
 **Voir aussi :** passwd, useradd, usermod, /etc/shadow
-
 ## `grub-install` — Install GRUB Bootloader [Linux]
 **Niveau :** avance | **Popularité :** 80 | **Aliases :** grub2-install
 **Contextes :** réparation de système non-amorçable, migration de disque, installation OS, configuration dual-boot
@@ -166,7 +158,6 @@
 **Précautions :** Effectuer depuis un environnement chroot (`chroot /mnt/system`) ou depuis un live USB pour réparer un GRUB cassé.
 **Équivalents :** efibootmgr (UEFI uniquement), syslinux (alternative légère)
 **Voir aussi :** update-grub, efibootmgr, chroot, fdisk
-
 ## `update-grub` — Update GRUB Configuration [Linux]
 **Niveau :** intermediaire | **Popularité :** 82 | **Aliases :** grub-mkconfig, grub2-mkconfig
 **Contextes :** mise à jour du menu de démarrage après installation d'un noyau, ajout d'OS en dual-boot
@@ -183,7 +174,6 @@
 **Précautions :** Vérifier `/boot/grub/grub.cfg` généré et tester le démarrage avant de redémarrer en production.
 **Équivalents :** grub-mkconfig (équivalent direct)
 **Voir aussi :** grub-install, efibootmgr, /boot, kernel
-
 ## `efibootmgr` — Manage UEFI Boot Entries [Linux]
 **Niveau :** avance | **Popularité :** 75 | **Aliases :** EFI Boot Manager
 **Contextes :** gestion des entrées de démarrage UEFI, ordre de boot, réparation UEFI, dual-boot
@@ -200,7 +190,6 @@
 **Précautions :** Sauvegarder la liste des entrées (`efibootmgr -v > efi_backup.txt`) avant toute modification.
 **Équivalents :** bcdedit (Windows), grub-install --efi-directory
 **Voir aussi :** grub-install, update-grub, fdisk, /boot/efi
-
 ## `keyctl` — Kernel Key Management [Linux]
 **Niveau :** expert | **Popularité :** 60 | **Aliases :** kernel keyring
 **Contextes :** authentification PAM, LUKS/dm-crypt, Kerberos, sécurité des clés cryptographiques
@@ -217,7 +206,6 @@
 **Précautions :** Utiliser `keyctl timeout` pour définir une durée de vie aux clés sensibles et éviter qu'elles restent en mémoire indéfiniment.
 **Équivalents :** gpg-agent (GPG), ssh-agent (SSH), HashiCorp Vault (enterprise)
 **Voir aussi :** gpg, ssh-keygen, openssl, LUKS
-
 ## `lsof` — List Open Files [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 93 | **Aliases :** list open files
 **Contextes :** debug de processus bloqués, audit de sécurité, diagnostic réseau, identification de fichiers verrouillés
@@ -234,7 +222,6 @@
 **Précautions :** Exécuter avec sudo pour voir tous les processus — sans privilèges, seuls les fichiers des processus de l'utilisateur courant sont visibles.
 **Équivalents :** ss -p (sockets), fuser (fichiers montés), /proc/pid/fd (accès direct)
 **Voir aussi :** ss, netstat, fuser, /proc
-
 ## `dstat` — Versatile System Resource Statistics [Linux]
 **Niveau :** intermediaire | **Popularité :** 80 | **Aliases :** dstat, resource monitor
 **Contextes :** monitoring temps réel de performances système, benchmarking, diagnostic de goulots d'étranglement
@@ -251,7 +238,6 @@
 **Précautions :** Utiliser `dstat --output fichier.csv` pour enregistrer les métriques dans un fichier CSV exploitable pour des analyses ultérieures.
 **Équivalents :** vmstat, iostat, sar (analyses ponctuelles), glances (interface TUI riche)
 **Voir aussi :** vmstat, iostat, top, glances, sar
-
 ## `glances` — System Monitoring Tool [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 82 | **Aliases :** glances monitor
 **Contextes :** monitoring système interactif, supervision de serveur distant, vue d'ensemble en temps réel
@@ -268,7 +254,6 @@
 **Précautions :** Installer glances avec le flag de plugins `pip install glances[all]` pour activer la supervision Docker, GPU et les exports vers InfluxDB.
 **Équivalents :** htop (simplifié), atop (enregistrement), Netdata (web temps réel)
 **Voir aussi :** htop, atop, dstat, top, Prometheus
-
 ## `atop` — Advanced System & Process Monitor [Linux]
 **Niveau :** intermediaire | **Popularité :** 78 | **Aliases :** advanced top
 **Contextes :** analyse de performance historique, post-mortem d'incident, monitoring continu de serveur
@@ -285,7 +270,6 @@
 **Précautions :** Configurer la rétention des logs `atop` dans `/etc/default/atop` et surveiller l'espace disque consommé par les fichiers `.adb`.
 **Équivalents :** sar (sysstat), glances -w (temps réel réseau), Prometheus (écosystème cloud)
 **Voir aussi :** top, htop, glances, sar, vmstat
-
 ## `sysdig` — System Call Tracer and Monitor [Linux]
 **Niveau :** expert | **Popularité :** 75 | **Aliases :** sysdig trace, cloud-native monitoring
 **Contextes :** sécurité et forensique Linux, debug de conteneurs, audit de comportements applicatifs
@@ -302,7 +286,6 @@
 **Précautions :** Limiter les captures via des filtres précis ; utiliser Falco plutôt que sysdig en continu sur des environnements de production.
 **Équivalents :** strace (processus unique), bpftrace (eBPF moderne), auditd (audit noyau)
 **Voir aussi :** strace, bpftrace, auditd, auditctl, tcpdump
-
 ## `pivot_root` — Pivot System Root Filesystem [Linux]
 **Niveau :** expert | **Popularité :** 65 | **Aliases :** pivot root
 **Contextes :** démarrage système initramfs, conteneurs, remplacement à chaud du système de fichiers racine
@@ -319,7 +302,6 @@
 **Précautions :** Apres pivot_root, démonter l'ancienne racine avec `umount -l /old_root` pour liberer la mémoire RAM de l'initramfs.
 **Équivalents :** chroot (isolation de processus plus simple), switch_root (utilitaire d'initramfs)
 **Voir aussi :** chroot, unshare, mount, initrd
-
 ## `pwconv` — Convert to Shadow Passwords [Linux]
 **Niveau :** avance | **Popularité :** 60 | **Aliases :** shadow convert
 **Contextes :** sécurité système, gestion des comptes utilisateurs, conversion shadow
@@ -336,7 +318,6 @@
 **Précautions :** Vérifier que `/etc/shadow` a des permissions strictes (root:root 0600 ou root:shadow 0640) après l'exécution.
 **Équivalents :** grpconv (équivalent pour les groupes)
 **Voir aussi :** grpconv, passwd, useradd, /etc/shadow
-
 ## `grpconv` — Convert to Shadow Groups [Linux]
 **Niveau :** avance | **Popularité :** 58 | **Aliases :** gshadow convert
 **Contextes :** sécurité système, gestion des groupes, masquage des mots de passe de groupes
@@ -353,7 +334,6 @@
 **Précautions :** S'assurer que les permissions de `/etc/gshadow` restent restreintes au groupe shadow ou root.
 **Équivalents :** pwconv (pour les utilisateurs)
 **Voir aussi :** pwconv, groupadd, groupmod, /etc/gshadow
-
 ## `sulogin` — Single User Login [Linux]
 **Niveau :** avance | **Popularité :** 72 | **Aliases :** rescue login
 **Contextes :** mode dépannage, secours système, démarrage en mode Single User / Emergency
@@ -370,7 +350,6 @@
 **Précautions :** Définir un mot de passe root fort pour éviter qu'un accès physique avec `init=/bin/sh` ou mode rescue n'ouvre une console sans authentification.
 **Équivalents :** systemd-emergency.service
 **Voir aussi :** systemctl, passwd, /etc/fstab, single
-
 ## `runlevel` — Print Current and Previous SysV Runlevel [Linux]
 **Niveau :** debutant | **Popularité :** 75 | **Aliases :** init level
 **Contextes :** administration système legacy, compatibilité SysVinit, vérification d'état système
@@ -387,7 +366,6 @@
 **Précautions :** Utiliser `systemctl get-default` sur les systèmes modernes pour connaître la cible de démarrage au lieu de se fier a `runlevel`.
 **Équivalents :** systemctl get-default, systemctl list-units --type=target
 **Voir aussi :** telinit, systemctl, systemd, who -r
-
 ## `telinit` — Change SysV Runlevel [Linux]
 **Niveau :** intermediaire | **Popularité :** 70 | **Aliases :** init runlevel change
 **Contextes :** changement de mode d'exécution, basculement en mode maintenance, redémarrage legacy
@@ -405,7 +383,6 @@
 **Précautions :** Privilégier `systemctl isolate <target>` ou `shutdown` pour une gestion propre des notifications et arrêts de services.
 **Équivalents :** systemctl isolate, shutdown, reboot
 **Voir aussi :** runlevel, systemctl, shutdown, systemd
-
 ## `kexec` — Direct Kernel Executive [Linux]
 **Niveau :** expert | **Popularité :** 68 | **Aliases :** fast reboot, kexec-tools
 **Contextes :** redémarrage rapide sans repasser par le BIOS/UEFI, kdump en cas de crash, serveurs haute disponibilité
@@ -422,7 +399,6 @@
 **Précautions :** Toujours fermer les services et démonter les systèmes de fichiers (`systemctl kexec`) avant d'exécuter `kexec -e`.
 **Équivalents :** systemctl kexec (wrapper sécurisé systemd)
 **Voir aussi :** reboot, systemctl, crash, initrd
-
 ## `dracut` — Infrastructure for Building Initramfs Images [Linux]
 **Niveau :** avance | **Popularité :** 78 | **Aliases :** initramfs generator (Fedora/RHEL/Arch)
 **Contextes :** génération d'images initramfs/initrd, mise a jour de noyau, support du chiffrement LUKS / LVM au boot
@@ -439,7 +415,6 @@
 **Précautions :** Toujours conserver une ancienne image initramfs fonctionnelle dans `/boot` avant de régénérer.
 **Équivalents :** update-initramfs (Debian/Ubuntu), mkinitcpio (Arch Linux)
 **Voir aussi :** mkinitcpio, update-grub, initrd, lsinitrd
-
 ## `mkinitcpio` — Modular Initramfs Creation Utility [Linux]
 **Niveau :** avance | **Popularité :** 75 | **Aliases :** arch initramfs generator
 **Contextes :** Arch Linux, Manjaro, génération d'images initramfs, personnalisation des hooks de démarrage
@@ -456,7 +431,6 @@
 **Précautions :** Lancer `mkinitcpio -P` après toute modification de `/etc/mkinitcpio.conf` ou mise a jour du microcode processeur.
 **Équivalents :** dracut (RHEL/Fedora), update-initramfs (Debian)
 **Voir aussi :** dracut, pacman, initrd, grub-install
-
 ## `mokutil` — Machine Owner Key Utility [Linux]
 **Niveau :** avance | **Popularité :** 73 | **Aliases :** MOK manager, UEFI Secure Boot keys
 **Contextes :** UEFI Secure Boot, signature de modules noyau tiers (NVIDIA, VirtualBox, ZFS), gestion des clés MOK
@@ -473,7 +447,6 @@
 **Précautions :** Définir un mot de passe simple et temporaire lors de `mokutil --import` car le clavier dans l'écran MOK au reboot peut être en QWERTY US.
 **Équivalents :** sbctl (Arch Linux Secure Boot key manager)
 **Voir aussi :** efibootmgr, systemctl, Secure Boot, Shim
-
 ## `lsipc` — List IPC Facilities [Linux]
 **Niveau :** avance | **Popularité :** 60 | **Aliases :** list inter-process communication
 **Contextes :** administration système, audit de mémoire partagée, inspection des sémaphores et files de messages IPC
@@ -490,7 +463,6 @@
 **Précautions :** Examiner régulièrement les ressources IPC inutilisées consommant de la RAM sur les serveurs de base de données (PostgreSQL, Oracle).
 **Équivalents :** ipcs (legacy), ipcmk, ipcrm
 **Voir aussi :** ipcs, ipcrm, ipcmk, /proc/sysvipc
-
 ## `ipcmk` — Create IPC Resources [Linux]
 **Niveau :** avance | **Popularité :** 55 | **Aliases :** make IPC resource
 **Contextes :** développement C/C++, création de mémoires partagées pour tests, sémaphores
@@ -502,11 +474,11 @@
 **Origine :** Outil de la suite `util-linux` pour manipuler l'IPC System V en ligne de commande.
 **Subtilités/confusions :**
 - Le segment mémoire crée par `ipcmk` reste alloué en RAM jusqu'à sa suppression explicite via `ipcrm` ou le redémarrage du système.
+- L utilisation dans des scripts automatisés nécessite de gérer le code de retour et d éventuels timeouts.
 **Urgences/dangers :** —
 **Précautions :** Toujours supprimer le segment IPC avec `ipcrm -m <shmid>` après les tests pour éviter les fuites de mémoire RAM.
 **Équivalents :** shmget / semget (appels système C)
 **Voir aussi :** ipcs, ipcrm, lsipc, /dev/shm
-
 ## `ipcrm` — Remove IPC Resources [Linux]
 **Niveau :** avance | **Popularité :** 68 | **Aliases :** remove IPC resource
 **Contextes :** nettoyage de ressources IPC orphelines, débogage de bases de données, libération de mémoire RAM
@@ -523,7 +495,6 @@
 **Précautions :** Vérifier avec `lsipc` ou `ipcs -p` qu'aucun processus n'est rattaché a la ressource avant de la supprimer.
 **Équivalents :** lsipc, ipcs
 **Voir aussi :** ipcs, lsipc, ipcmk, /dev/shm
-
 ## `ipcs` — Show IPC Facilities Status [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 75 | **Aliases :** IPC status
 **Contextes :** diagnostic de bases de données, audit de mémoire partagée, inspection des ressources d'inter-processus
@@ -540,7 +511,6 @@
 **Précautions :** Utiliser `ipcs -l` pour consulter les limites maximales de mémoire partagée imposées par le noyau (`shmmax`, `shmall`).
 **Équivalents :** lsipc (moderne), sysctl kernel.shmmax
 **Voir aussi :** lsipc, ipcrm, ipcmk, sysctl
-
 ## `systemd-run` — Run Programs in Transient Systemd Units [Linux]
 **Niveau :** avance | **Popularité :** 78 | **Aliases :** systemd transient unit
 **Contextes :** isolation ponctuelle de ressources, exécution de tâches en arrière-plan sous systemd, conteneurisation légère
@@ -557,7 +527,6 @@
 **Précautions :** Utiliser `--remember` si vous souhaitez conserver l'état et les logs de l'unité éphémère après sa terminaison.
 **Équivalents :** cgexec (cgroups direct), systemctl, nohup
 **Voir aussi :** systemctl, journalctl, cgroups, systemd-cgls
-
 ## `systemd-cgls` — Recursively Show Control Group Contents [Linux]
 **Niveau :** intermediaire | **Popularité :** 74 | **Aliases :** systemd cgroup list
 **Contextes :** inspection de la hiérarchie cgroups, diagnostic de processus enfants, administration systemd
@@ -574,7 +543,6 @@
 **Précautions :** Combiner avec `ps` ou `pstree` pour avoir les détails complets des arguments de ligne de commande.
 **Équivalents :** systemd-cgtop (vue temps réel avec métriques), pstree -p
 **Voir aussi :** systemd-cgtop, systemctl, ps, cgroups
-
 ## `systemd-cgtop` — Show Top Control Groups by Resource Usage [Linux]
 **Niveau :** intermediaire | **Popularité :** 76 | **Aliases :** systemd cgroup top
 **Contextes :** monitoring de consommation par service, identification de services gourmands, diagnostic systemd
@@ -591,7 +559,6 @@
 **Précautions :** Utiliser les touches `c` (CPU), `m` (Memory), `i` (IO) en mode interactif pour changer le critère de tri.
 **Équivalents :** top / htop (par processus), glances
 **Voir aussi :** systemd-cgls, top, htop, systemctl
-
 ## `systemd-inhibit` — Execute Program with Inhibition Lock [Linux]
 **Niveau :** avance | **Popularité :** 70 | **Aliases :** systemd inhibitor
 **Contextes :** empêchement d'extinction/mise en veille pendant des sauvegardes ou mises a jour critiques
@@ -608,7 +575,6 @@
 **Précautions :** Toujours fournir une explication claire avec `--why=` pour que les administrateurs sachent pourquoi l'extinction est bloquée.
 **Équivalents :** caffeinate (macOS)
 **Voir aussi :** systemctl, shutdown, loginctl
-
 ## `systemd-nspawn` — Spawn a Namespace Container [Linux]
 **Niveau :** avance | **Popularité :** 77 | **Aliases :** nspawn, systemd container
 **Contextes :** conteneurisation légère, chroot amélioré, tests de distributions, debugging de boot
@@ -625,7 +591,6 @@
 **Précautions :** Utiliser `-b` pour démarrer l'init du conteneur en mode boot complet ; utiliser `--private-network` pour isoler la pile réseau.
 **Équivalents :** chroot (basique), LXC (conteneurs système), Docker (conteneurs applicatifs)
 **Voir aussi :** chroot, unshare, machinectl, systemctl
-
 ## `systemd-resolve` — Resolve Hostnames and Service Records [Linux]
 **Niveau :** intermediaire | **Popularité :** 80 | **Aliases :** resolvectl, systemd-resolved
 **Contextes :** diagnostic DNS, inspection de la résolution de noms, vidage du cache DNS local, DNSSEC
@@ -642,7 +607,6 @@
 **Précautions :** Utiliser `resolvectl query example.com` pour tester la résolution exacte utilisée par les applications du système hôte.
 **Équivalents :** dig, nslookup, host, getent hosts
 **Voir aussi :** dig, nslookup, host, networkctl
-
 ## `arp-scan` — ARP Network Scanner [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 85 | **Aliases :** arp scanner
 **Contextes :** découverte d'hôtes sur le réseau local, audit réseau, détection d'équipements connectes sans IP connue
@@ -659,7 +623,6 @@
 **Précautions :** Lancer avec privilèges root (ou CAP_NET_RAW) pour pouvoir émettre des trames ARP brutes.
 **Équivalents :** nmap -sn (scan ICMP/ARP), fping -g
 **Voir aussi :** arp, nmap, fping, ip neigh
-
 ## `tcpick` — TCP Stream Sniffer and Connection Tracker [Linux]
 **Niveau :** avance | **Popularité :** 65 | **Aliases :** tcp stream capture
 **Contextes :** analyse de trafic TCP, réassemblage de flux réseau, forensique, débogage de protocoles en texte clair
@@ -676,7 +639,6 @@
 **Précautions :** Utiliser sur des réseaux d'audit autorisés avec des filtres BPF stricts pour cibler uniquement le trafic pertinent.
 **Équivalents :** tshark (Wireshark CLI), tcpflow, ngrep
 **Voir aussi :** tcpdump, tshark, ngrep, nc
-
 ## `ngrep` — Network Grep [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 82 | **Aliases :** network grep
 **Contextes :** recherche de motifs dans le trafic réseau, inspection de paquets, debug d'APIs HTTP, SIP et DNS
@@ -693,7 +655,6 @@
 **Précautions :** Utiliser le flag `-q` (quiet) pour éviter l'affichage de points de progression lors du silence réseau.
 **Équivalents :** tcpdump -A, tshark -Y
 **Voir aussi :** tcpdump, tshark, grep, tcpick
-
 ## `vnstat` — Console Network Traffic Monitor [Linux]
 **Niveau :** debutant | **Popularité :** 88 | **Aliases :** network traffic logger
 **Contextes :** suivi de consommation de bande passante, statistiques réseau long terme, surveillance de quotas de données
@@ -710,7 +671,6 @@
 **Précautions :** S'assurer que le service `vnstat.service` est active pour que l'historique soit régulièrement alimente.
 **Équivalents :** nload (temps réel uniquement), bmon, iftop
 **Voir aussi :** nload, bmon, nethogs, iftop, ip
-
 ## `bmon` — Bandwidth Monitor and Rate Estimator [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 80 | **Aliases :** bmon monitor
 **Contextes :** visualisation graphique en terminal de la bande passante, surveillance réseau multi-interfaces
@@ -727,7 +687,6 @@
 **Précautions :** Utiliser les flèches haut/bas pour naviguer entre les différentes interfaces réseau affichées.
 **Équivalents :** nload, vnstat, iftop
 **Voir aussi :** nload, vnstat, iftop, nethogs
-
 ## `nload` — Display Network Usage in Real Time [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 84 | **Aliases :** nload traffic monitor
 **Contextes :** contrôle visuel rapide du débit réseau, suivi de transferts de fichiers, diagnostic de vitesse
@@ -744,7 +703,6 @@
 **Précautions :** Utiliser `nload -u M` pour forcer l'affichage en Mégabytes/s au lieu de la conversion automatique.
 **Équivalents :** bmon, iftop, vnstat -l
 **Voir aussi :** bmon, vnstat, iftop, nethogs
-
 ## `iptstate` — Display IP Tables State Table [Linux]
 **Niveau :** avance | **Popularité :** 70 | **Aliases :** netfilter state monitor
 **Contextes :** inspection des tables de suivi de connexions (conntrack), sécurité réseau, debug pare-feu iptables/nftables
@@ -761,7 +719,6 @@
 **Précautions :** Nécessite les privilèges root pour accéder aux états conntrack du noyau.
 **Équivalents :** conntrack -L (commande brute), netstat, ss
 **Voir aussi :** iptables, nftables, ss, netstat
-
 ## `nethogs` — Net Top by Process Traffic [Linux]
 **Niveau :** intermediaire | **Popularité :** 88 | **Aliases :** network top by process
 **Contextes :** identification de processus gourmands en bande passante, diagnostic de consommation réseau inexplicable
@@ -778,7 +735,6 @@
 **Précautions :** Nécessite les privilèges root (ou CAP_NET_RAW + CAP_NET_ADMIN) pour associer les sockets réseau aux PIDs.
 **Équivalents :** iftop (par IP), bmon (par interface), lsof -i
 **Voir aussi :** iftop, bmon, nload, lsof, top
-
 ## `tcptrack` — Monitor TCP Connections on Network Interface [Linux]
 **Niveau :** intermediaire | **Popularité :** 74 | **Aliases :** tcp connection track
 **Contextes :** surveillance de connexions TCP actives, analyse de débits par session, diagnostic serveur web/base de données
@@ -795,7 +751,6 @@
 **Précautions :** Sur un serveur avec des dizaines de milliers de connexions simultanées, le suivi tcptrack peut consommer une quantité significative de CPU.
 **Équivalents :** iftop, iptstate, nethogs
 **Voir aussi :** iftop, nethogs, iptstate, tcpdump
-
 ## `speedtest-cli` — Command Line Interface for Speedtest.net [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 92 | **Aliases :** speedtest
 **Contextes :** mesure de débit Internet, test de bande passante montante/descendante, diagnostic de connexion distante
@@ -812,7 +767,6 @@
 **Précautions :** Ne pas lancer pendant des transferts de données de production importants car le test consomme la totalité de la bande passante disponible pendant quelques secondes.
 **Équivalents :** fast-cli (Fast.com / Netflix), iperf3 (test point-à-point privé)
 **Voir aussi :** iperf3, ping, mtr, curl
-
 ## `shred` — Securely Overwrite a File to Hide Contents [Linux]
 **Niveau :** intermediaire | **Popularité :** 85 | **Aliases :** secure delete file
 **Contextes :** destruction sécurisée de fichiers sensibles, effacement de clés privées, nettoyage de disques avant réaffectation
@@ -829,7 +783,6 @@
 **Précautions :** Pour effacer un SSD de façon sécurisée, utiliser la commande `blkdiscard` ou la fonction Secure Erase du contrôleur NVMe plutôt que `shred`.
 **Équivalents :** srm, wipe, dd if=/dev/urandom
 **Voir aussi :** srm, wipe, dd, SSD
-
 ## `srm` — Secure Remove [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 76 | **Aliases :** secure rm
 **Contextes :** suppression sécurisée de fichiers et dossiers, remplacement sécurisé de `rm`
@@ -846,7 +799,6 @@
 **Précautions :** Vérifier attentivement les chemins transmis avec `-r` pour éviter d'effacer accidentellement des dossiers système.
 **Équivalents :** shred, wipe, rm (non sécurisé)
 **Voir aussi :** shred, wipe, rm, dd
-
 ## `fdupes` — Find Duplicate Files [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 86 | **Aliases :** duplicate file finder
 **Contextes :** nettoyage d'espace disque, déduplication de collections de fichiers, suppression de doublons
@@ -863,7 +815,6 @@
 **Précautions :** Toujours exécuter `fdupes -r` sans le flag `-d` en premier lieu pour inspecter la liste des doublons avant toute suppression.
 **Équivalents :** rmlint (plus rapide, multithread), czkawka
 **Voir aussi :** rm, ln, find, du
-
 ## `ncdu` — NCurses Disk Usage [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** ncurses du, disk usage analyzer
 **Contextes :** analyse d'occupation d'espace disque, nettoyage rapide de serveur, arborescence interactive
@@ -880,7 +831,6 @@
 **Précautions :** Exécuter avec `sudo ncdu -x /` pour que les répertoires restreints (ex: `/root`, `/var/lib/docker`) soient comptabilisés dans la taille.
 **Équivalents :** du (brut), dua-cli, gdu (version Go ultra-rapide)
 **Voir aussi :** du, df, fdupes, ls
-
 ## `wipe` — Secure File Wiping Utility [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 72 | **Aliases :** wipe file
 **Contextes :** effacement sécurisé de fichiers, nettoyage forensique de partitions et disques
@@ -897,7 +847,6 @@
 **Précautions :** Vérifier minutieusement le chemin du fichier ou du périphérique avant de valider la commande.
 **Équivalents :** shred, srm, dd if=/dev/zero
 **Voir aussi :** shred, srm, dd, SSD
-
 ## `scrub` — Disk and File Scrubbing Utility [Linux/macOS]
 **Niveau :** avance | **Popularité :** 68 | **Aliases :** disk scrub
 **Contextes :** conformité aux normes gouvernementales d'effacement de données, nettoyage de disques réreformés

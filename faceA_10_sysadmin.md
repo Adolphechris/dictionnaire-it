@@ -21,7 +21,6 @@
 **Précautions :** Toujours vérifier les permissions modifiées avec `ls -l` ; ne jamais appliquer `777` en production.
 **Équivalents :** icacls (Windows PowerShell/CMD), Set-Acl
 **Voir aussi :** chown, umask, ls, chattr
-
 ## `chown` — Changer le propriétaire d'un fichier [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** —
 **Contextes :** réattribuer un dossier web à l'utilisateur `www-data`, corriger les droits après une copie sous `root`
@@ -41,7 +40,6 @@
 **Précautions :** Toujours contrôler le chemin cible avant d'exécuter `chown -R` avec les privilèges `sudo`.
 **Équivalents :** takeown (Windows CMD), Set-Acl (PowerShell)
 **Voir aussi :** chmod, chgrp, id, ls
-
 ## `useradd` — Créer un compte utilisateur [Linux]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** adduser (wrapper interactif Debian/Ubuntu)
 **Contextes :** provisionner un nouvel accès utilisateur sur un serveur Linux, créer un compte de service applicatif
@@ -60,7 +58,6 @@
 **Précautions :** Définir un mot de passe immédiatement avec `passwd <utilisateur>` après la création.
 **Équivalents :** adduser, New-LocalUser (PowerShell), net user (Windows)
 **Voir aussi :** usermod, userdel, passwd, groupadd
-
 ## `usermod` — Modifier un compte utilisateur [Linux]
 **Niveau :** intermediaire | **Popularité :** 91 | **Aliases :** —
 **Contextes :** ajouter un utilisateur au groupe `docker` ou `sudo`, changer le shell par défaut, verrouiller un compte temporaire
@@ -79,7 +76,6 @@
 **Précautions :** Toujours vérifier avec la commande `id <utilisateur>` après toute modification de groupe.
 **Équivalents :** Add-LocalGroupMember (PowerShell), net localgroup (Windows)
 **Voir aussi :** useradd, userdel, id, passwd
-
 ## `userdel` — Supprimer un compte utilisateur [Linux]
 **Niveau :** intermediaire | **Popularité :** 82 | **Aliases :** deluser (wrapper Debian/Ubuntu)
 **Contextes :** révoquer l'accès d'un collaborateur ayant quitté l'entreprise, nettoyer des comptes temporaires de test
@@ -97,7 +93,6 @@
 **Précautions :** Archiver le répertoire personnel de l'utilisateur avant d'exécuter `userdel -r`.
 **Équivalents :** Remove-LocalUser (PowerShell), net user /delete (Windows)
 **Voir aussi :** useradd, usermod, groupdel
-
 ## `groupadd` — Créer un groupe d'utilisateurs [Linux]
 **Niveau :** debutant | **Popularité :** 84 | **Aliases :** addgroup (wrapper Debian/Ubuntu)
 **Contextes :** créer un groupe de partage pour un projet (`sysadmins`, `developers`), organiser les permissions d'accès aux dossiers
@@ -115,7 +110,6 @@
 **Précautions :** Adopter une convention de nommage claire et en minuscules pour les groupes d'entreprise.
 **Équivalents :** New-LocalGroup (PowerShell), net localgroup (Windows)
 **Voir aussi :** usermod, groupdel, id, /etc/group
-
 ## `passwd` — Modifier le mot de passe d'un compte [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** —
 **Contextes :** changer son propre mot de passe, réinitialiser le mot de passe d'un utilisateur, forcer le changement à la prochaine connexion
@@ -135,7 +129,6 @@
 **Précautions :** Utiliser des mots de passe longs (passphrases) ou privilégier l'authentification par clés SSH sans mot de passe.
 **Équivalents :** Set-LocalUser (PowerShell), net user (Windows)
 **Voir aussi :** useradd, usermod, chage, /etc/shadow
-
 ## `su` — Basculer d'identité utilisateur [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 92 | **Aliases :** —
 **Contextes :** ouvrir une session complète en tant que `root`, basculer temporairement sur un compte de service (`postgres`, `www-data`)
@@ -154,7 +147,6 @@
 **Précautions :** Préférer `sudo` pour exécuter des commandes ciblées avec traçabilité dans les logs d'audit.
 **Équivalents :** sudo -i, runas (Windows CMD)
 **Voir aussi :** sudo, whoami, id, exit
-
 ## `sudo` — Exécuter une commande avec privilèges [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** —
 **Contextes :** installer un paquet, modifier un fichier de configuration dans `/etc`, redémarrer un service système
@@ -174,7 +166,6 @@
 **Précautions :** N'accorder les privilèges sudo qu'aux utilisateurs de confiance et restreindre les commandes autorisées via `/etc/sudoers`.
 **Équivalents :** runas (Windows CMD), Start-Process -Verb RunAs (PowerShell)
 **Voir aussi :** visudo, su, whoami, /etc/sudoers
-
 ## `visudo` — Éditer le fichier sudoers en toute sécurité [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 86 | **Aliases :** —
 **Contextes :** accorder des droits d'administration à un utilisateur, configurer l'exécution de commandes sans mot de passe (`NOPASSWD`)
@@ -193,7 +184,6 @@
 **Précautions :** Placer vos règles personnalisées dans des fichiers séparés sous `/etc/sudoers.d/` plutôt que de modifier le fichier principal.
 **Équivalents :** (spécifique à l'écosystème sudo Unix/Linux)
 **Voir aussi :** sudo, /etc/sudoers
-
 ## `id` — Afficher l'identité et les groupes d'un utilisateur [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 94 | **Aliases :** —
 **Contextes :** vérifier à quels groupes appartient un utilisateur, trouver l'UID/GID numérique pour une configuration Docker ou NFS
@@ -212,7 +202,6 @@
 **Précautions :** Utiliser `id -u` dans vos scripts shell d'administration pour bloquer l'exécution si le script n'est pas lancé en root.
 **Équivalents :** whoami, Get-LocalUser (PowerShell)
 **Voir aussi :** whoami, usermod, /etc/passwd
-
 ## `whoami` — Afficher l'utilisateur effectif courant [Linux/macOS/Windows]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** —
 **Contextes :** vérifier sous quelle identité s'exécute le shell actuel, vérifier si l'on est passé en `root` après un `sudo`
@@ -231,7 +220,6 @@
 **Précautions :** Utiliser dans les scripts de journalisation pour marquer l'auteur des actions exécutées.
 **Équivalents :** id -un, $env:USERNAME (PowerShell), whoami (Windows CMD)
 **Voir aussi :** id, su, sudo, loginctl
-
 ## `umask` — Masque de création de fichiers par défaut [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 82 | **Aliases :** —
 **Contextes :** définir les permissions par défaut attribuées aux nouveaux fichiers et dossiers créés par un utilisateur ou un service
@@ -250,7 +238,6 @@
 **Précautions :** Configurer un `umask 027` ou `077` dans `/etc/profile` ou `.bashrc` pour les serveurs manipulant des données confidentielles.
 **Équivalents :** (spécifique aux permissions POSIX/Unix)
 **Voir aussi :** chmod, chown, .bashrc
-
 ## `chgrp` — Changer le groupe d'un fichier [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 85 | **Aliases :** —
 **Contextes :** partager un fichier avec une équipe sans modifier son propriétaire utilisateur, ajuster les droits de groupe d'un projet
@@ -268,7 +255,6 @@
 **Précautions :** Vérifier les permissions du groupe (`chmod g+rw`) après avoir changé le groupe propriétaire.
 **Équivalents :** chown :groupe, Set-Acl (PowerShell)
 **Voir aussi :** chown, chmod, groups, id
-
 ## `chattr` — Attributs étendus de fichiers [Linux]
 **Niveau :** avance | **Popularité :** 84 | **Aliases :** —
 **Contextes :** rendre un fichier de configuration totalement inaltérable (même par root!), forcer un fichier de log en ajout seul (*append-only*)
@@ -288,7 +274,6 @@
 **Précautions :** Utiliser `lsattr` pour vérifier si un fichier "incapable d'être édité par root" n'est pas protégé par `+i`.
 **Équivalents :** chflags (macOS/BSD), Set-ItemProperty -Attribute (Windows)
 **Voir aussi :** lsattr, chmod, chown
-
 ## `systemctl` — Gestionnaire de services systemd [Linux]
 **Niveau :** intermediaire | **Popularité :** 96 | **Aliases :** —
 **Contextes :** démarrer/arrêter un service web (Nginx/Apache), activer un service au démarrage du système, vérifier le statut d'un démon
@@ -306,7 +291,6 @@
 **Précautions :** Toujours valider les fichiers de configuration (ex: `nginx -t` ou `sshd -t`) avant d'exécuter `systemctl reload/restart`.
 **Équivalents :** service, init, rc-service (Alpine/OpenRC), launchctl (macOS), Get-Service / Start-Service (PowerShell)
 **Voir aussi :** journalctl, systemd-analyze, service, loginctl
-
 ## `journalctl` — Inspection du journal système systemd [Linux]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** —
 **Contextes :** diagnostiquer un crash de service, suivre en temps réel les logs d'une application systemd, filtrer les erreurs système
@@ -324,7 +308,6 @@
 **Précautions :** Purger les anciens journaux de sécurité avec `journalctl --vacuum-size=1G` ou `journalctl --vacuum-time=7d`.
 **Équivalents :** dmesg, tail -f /var/log/syslog, Get-WinEvent (PowerShell)
 **Voir aussi :** systemctl, dmesg, syslog-ng, logrotate
-
 ## `service` — Interface de contrôle des services (compatibilité Init/systemd) [Linux]
 **Niveau :** debutant | **Popularité :** 82 | **Aliases :** —
 **Contextes :** administrer un service sur d'anciens systèmes SysVinit ou scripts POSIX portables
@@ -342,7 +325,6 @@
 **Précautions :** Préférer `systemctl` sur tous les systèmes modernes pour bénéficier de la gestion fine des dépendances systemd.
 **Équivalents :** systemctl, init, rc-service (OpenRC), /etc/init.d/script
 **Voir aussi :** systemctl, journalctl, chkconfig
-
 ## `crontab` — Planificateur de tâches périodiques [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 95 | **Aliases :** —
 **Contextes :** automatiser des sauvegardes nightly, exécuter un nettoyage de logs toutes les heures, générer des rapports périodiques
@@ -361,7 +343,6 @@
 **Précautions :** Toujours faire une sauvegarde préalable (`crontab -l > backup.cron`) avant d'exécuter `crontab -e` ou `crontab -r`.
 **Équivalents :** systemd-timer, at, Schedule-Task (Windows)
 **Voir aussi :** at, systemctl, logrotate
-
 ## `at` — Planification d'exécution unique différée [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 72 | **Aliases :** —
 **Contextes :** programmer un redémarrage nocturne unique, lancer un script lourd à 2h du matin une seule fois
@@ -380,7 +361,6 @@
 **Précautions :** Vérifier que le démon `atd` tourne bien en tâche de fond avant d'y planifier une tâche importante.
 **Équivalents :** crontab (avec date fixe), systemd-run --on-calendar
 **Voir aussi :** crontab, systemctl, sleep
-
 ## `systemd-analyze` — Analyse de performance et démarrage systemd [Linux]
 **Niveau :** avance | **Popularité :** 78 | **Aliases :** —
 **Contextes :** auditer le temps de boot d'un serveur Linux, identifier les services ralentisseurs au démarrage
@@ -398,7 +378,6 @@
 **Précautions :** Ne pas désactiver un service essentiel (ex: `networking` ou `cloud-init`) sous prétexte qu'il apparaît en haut de `systemd-analyze blame`.
 **Équivalents :** dmesg, bootchart
 **Voir aussi :** systemctl, journalctl
-
 ## `hostnamectl` — Configuration du nom d'hôte système [Linux]
 **Niveau :** debutant | **Popularité :** 88 | **Aliases :** —
 **Contextes :** renommer un serveur après son déploiement, vérifier l'architecture matérielle et la version exacte du kernel Linux
@@ -416,7 +395,6 @@
 **Précautions :** Vérifier les références au nom d'hôte dans les applications critiques (SSL, DB, K8s) avant de renommer une machine en production.
 **Équivalents :** hostname, scutil --set HostName (macOS), Rename-Computer (PowerShell)
 **Voir aussi :** hostname, localectl, timedatectl
-
 ## `timedatectl` — Gestion de l'heure et du fuseau horaire [Linux]
 **Niveau :** debutant | **Popularité :** 89 | **Aliases :** —
 **Contextes :** changer le fuseau horaire d'un serveur Cloud (ex: UTC vers Europe/Paris), activer la synchronisation NTP
@@ -434,7 +412,6 @@
 **Précautions :** Préférer la synchronisation progressive NTP plutôt qu me modification manuelle forcée de l'heure avec `set-time`.
 **Équivalents :** date, hwclock, Set-Date / Set-TimeZone (PowerShell)
 **Voir aussi :** date, hwclock, chronyc, ntpdate
-
 ## `localectl` — Configuration des paramètres régionaux et clavier [Linux]
 **Niveau :** intermediaire | **Popularité :** 76 | **Aliases :** —
 **Contextes :** changer la disposition du clavier en console TTY ou sous X11 (azerty/qwerty), définir les locales (langue `fr_FR.UTF-8`)
@@ -452,7 +429,6 @@
 **Précautions :** S'assurer que la locale ciblée est générée dans `/etc/locale.gen` via `locale-gen` avant de l'activer.
 **Équivalents :** locale, dpkg-reconfigure locales (Debian/Ubuntu)
 **Voir aussi :** locale, timedatectl, hostnamectl
-
 ## `loginctl` — Gestion des sessions utilisateurs systemd [Linux]
 **Niveau :** avance | **Popularité :** 74 | **Aliases :** —
 **Contextes :** inspecter les sessions SSH/graphiques ouvertes, forcer la fermeture de la session d'un utilisateur bloqué, autoriser un processus en tâche de fond après déconnexion (*linger*)
@@ -465,11 +441,11 @@
 **Origine :** systemd (2011) — composant de systemd-logind gérant la multiconnexions et les sièges (*seats*).
 **Subtilités/confusions :**
 - L'option `enable-linger` est indispensable sur les serveurs modernes pour faire tourner des conteneurs rootless (Podman/Docker rootless) sous un compte utilisateur non-root sans session SSH active.
+- L execution avec les privilèges d administration doit être restreinte au strict nécessaire.
 **Urgences/dangers :** ⚠️ `loginctl terminate-user <user>` tue instantanément TOUS les processus lancés par cet utilisateur sans ménagement.
 **Précautions :** Prévenir les utilisateurs connectés avant d'exécuter `terminate-session` ou `terminate-user`.
 **Équivalents :** w, who, logoff (Windows)
 **Voir aussi :** systemctl, who, w, last
-
 ## `dmesg` — Affichage du tampon de messages du noyau [Linux]
 **Niveau :** intermediaire | **Popularité :** 92 | **Aliases :** —
 **Contextes :** diagnostiquer une panne matérielle (disque HS, mémoire RAM défectueuse), vérifier la détection d'une clé USB ou carte réseau
@@ -488,7 +464,6 @@
 **Précautions :** Toujours passer le drapeau `-T` ou `-H` pour convertir les timestamps bruts du noyau en dates intelligibles.
 **Équivalents :** journalctl -k, Get-WinEvent -ProviderName Kernel-* (Windows)
 **Voir aussi :** journalctl, lspci, lsusb, uptime
-
 ## `uptime` — Durée de fonctionnement et charge système [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 93 | **Aliases :** —
 **Contextes :** vérifier si un serveur a redémarré récemment, évaluer la charge moyenne (*load average*) du processeur
@@ -506,7 +481,6 @@
 **Précautions :** Si la load average dépasse largement le nombre de vCPUs tout en ayant une utilisation CPU faible, vérifier l'attente I/O disque (*iowait*).
 **Équivalents :** top, w, (Get-CimInstance Win32_OperatingSystem).LastBootUpTime (PowerShell)
 **Voir aussi :** top, w, who, dmesg
-
 ## `shutdown` — Extinction ou redémarrage planifié du système [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** —
 **Contextes :** éteindre proprement un serveur distant, programmer une coupure de maintenance dans 10 minutes avec avertissement aux utilisateurs
@@ -524,7 +498,6 @@
 **Précautions :** Prévenir les utilisateurs et s'assurer que les données en mémoire vive sont écrites sur disque (`sync`) avant l'extinction.
 **Équivalents :** poweroff, reboot, Stop-Computer (PowerShell), shutdown /s /t 0 (Windows CMD)
 **Voir aussi :** reboot, poweroff, systemctl, sync
-
 ## `reboot` — Redémarrage immédiat du système [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** —
 **Contextes :** appliquer une mise à jour du noyau Linux, relancer un serveur après maintenance
@@ -541,7 +514,6 @@
 **Précautions :** Exécuter `sync` avant `reboot` pour s'assurer que les tampons d'écriture sont vidés sur disque.
 **Équivalents :** shutdown -r now, systemctl reboot, Restart-Computer (PowerShell)
 **Voir aussi :** shutdown, poweroff, systemctl, sync
-
 ## `poweroff` — Extinction immédiate de l'alimentation [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 91 | **Aliases :** —
 **Contextes :** éteindre un serveur physique ou une machine virtuelle une fois la maintenance terminée
@@ -558,7 +530,6 @@
 **Précautions :** Sauvegarder les travaux en cours et s'assurer qu'aucun autre utilisateur n'est connecté (`who` / `w`).
 **Équivalents :** shutdown -h now, systemctl poweroff, Stop-Computer (PowerShell)
 **Voir aussi :** shutdown, reboot, systemctl
-
 ## `lsblk` — Liste des périphériques de stockage en bloc [Linux]
 **Niveau :** debutant | **Popularité :** 95 | **Aliases :** —
 **Contextes :** identifier la structure des partitions et disques durs, repérer un nom de disque (`/dev/sdb`, `/dev/nvme0n1`) avant formatage ou montage
@@ -576,7 +547,6 @@
 **Précautions :** Toujours vérifier les noms de disques avec `lsblk` avant d'exécuter une commande destructrice comme `dd` ou `mkfs`.
 **Équivalents :** fdisk -l, diskutil list (macOS), Get-Disk / Get-Partition (PowerShell)
 **Voir aussi :** fdisk, blkid, df, parted
-
 ## `fdisk` — Manipulateur de tables de partitions MBR/GPT [Linux]
 **Niveau :** intermediaire | **Popularité :** 93 | **Aliases :** —
 **Contextes :** créer une partition sur un nouveau disque dur, supprimer une partition, modifier les types de partition (Linux/Swap)
@@ -593,7 +563,6 @@
 **Précautions :** Vérifier trois fois le périphérique cible (`/dev/sdX`) avant d'enregistrer avec `w`. Préférer `gdisk` ou `parted` pour les disques > 2 To (GPT).
 **Équivalents :** gdisk, parted, diskutil (macOS), diskpart (Windows)
 **Voir aussi :** gdisk, parted, lsblk, mkfs
-
 ## `gdisk` — Partitionnement GPT interactif [Linux]
 **Niveau :** intermediaire | **Popularité :** 80 | **Aliases :** —
 **Contextes :** partitionner des disques modernes de plus de 2 To avec UEFI, convertir une ancienne table MBR en GPT sans perte de données
@@ -610,7 +579,6 @@
 **Précautions :** Toujours créer une sauvegarde de la table GPT avec `gdisk -b backup.gpt /dev/sdb` avant toute modification majeure.
 **Équivalents :** fdisk, parted, diskpart (Windows)
 **Voir aussi :** fdisk, parted, lsblk
-
 ## `parted` — Outil universel de partitionnement et redimensionnement [Linux]
 **Niveau :** avance | **Popularité :** 86 | **Aliases :** —
 **Contextes :** agrandir une partition en ligne de commande sans interface graphique, créer des partitions GPT/MBR dans des scripts d'installation automatique
@@ -628,7 +596,6 @@
 **Précautions :** Vérifier que la partition ciblée n'est pas montée (`umount`) avant de tenter un redimensionnement ou un déplacement.
 **Équivalents :** fdisk, gdisk, GParted (GUI), diskpart (Windows)
 **Voir aussi :** fdisk, gdisk, lsblk, resiz2fs
-
 ## `mkfs` — Formatage et création de systèmes de fichiers [Linux]
 **Niveau :** intermediaire | **Popularité :** 92 | **Aliases :** —
 **Contextes :** formater une nouvelle partition en Ext4, XFS ou vFAT, préparer une clé USB ou un disque SSD fraîchement partitionné
@@ -646,7 +613,6 @@
 **Précautions :** Vérifier systématiquement l'identifiant du périphérique avec `lsblk -f` ou `blkid` avant de formater.
 **Équivalents :** newfs (BSD), Format-Volume (PowerShell), format (Windows CMD)
 **Voir aussi :** fdisk, lsblk, fsck, mount
-
 ## `mount` — Montage d'un système de fichiers dans l'arborescence [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 96 | **Aliases :** —
 **Contextes :** rendre accessible un disque externe, monter un partage réseau NFS ou Samba, rattacher une partition ISO/image système
@@ -664,7 +630,6 @@
 **Précautions :** Toujours valider les modifications de `/etc/fstab` avec `mount -a` avant de redémarrer la machine.
 **Équivalents :** diskutil mount (macOS), Mount-DiskImage / New-PSDrive (PowerShell)
 **Voir aussi :** umount, lsblk, df, fstab
-
 ## `umount` — Démontage d'un système de fichiers [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 94 | **Aliases :** —
 **Contextes :** éjecter en toute sécurité une clé USB ou un disque dur externe, démonter un partage NFS avant coupure réseau
@@ -682,7 +647,6 @@
 **Précautions :** Ne jamais retirer physiquement une clé USB ou un disque sans avoir exécuté `umount` préalable (risque de corruption de fichiers).
 **Équivalents :** diskutil unmount (macOS), Dismount-DiskImage (PowerShell)
 **Voir aussi :** mount, lsblk, lsof, fuser
-
 ## `blkid` — Identification des attributs de block devices (UUID, LABEL) [Linux]
 **Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** —
 **Contextes :** récupérer l'UUID d'une partition pour l'inscrire dans `/etc/fstab`, identifier le type exact de système de fichiers d'un disque inconnu
@@ -700,7 +664,6 @@
 **Précautions :** Utiliser `blkid` pour s'assurer du système de fichiers réel avant de tenter un montage ou un formatage.
 **Équivalents :** lsblk -f, Get-Volume (PowerShell)
 **Voir aussi :** lsblk, mount, fstab
-
 ## `fsck` — Vérification et réparation de systèmes de fichiers [Linux/macOS]
 **Niveau :** avance | **Popularité :** 87 | **Aliases :** —
 **Contextes :** réparer une partition endommagée après une coupure de courant brutale, corriger les erreurs de bloc au démarrage du système
@@ -718,7 +681,6 @@
 **Précautions :** Toujours démonter la partition (`umount /dev/sdb1`) ou démarrer sur un Live-USB avant de lancer `fsck`.
 **Équivalents :** e2fsck, xfs_repair, chkdsk (Windows CMD), Repair-Volume (PowerShell)
 **Voir aussi :** mount, umount, mkfs, lsblk
-
 ## `df` — Occupation de l'espace disque des systèmes de fichiers [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 98 | **Aliases :** —
 **Contextes :** vérifier l'espace disque libre restant sur le serveur, diagnostiquer une alerte « Partition / pleine »
@@ -736,7 +698,6 @@
 **Précautions :** Surveiller à la fois l'espace octets (`df -h`) et la table d'inodes (`df -i`).
 **Équivalents :** du, Get-PSDrive / Get-Volume (PowerShell)
 **Voir aussi :** du, lsblk, mount, lsof
-
 ## `du` — Estimation de la taille des fichiers et répertoires [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** —
 **Contextes :** repérer le dossier ou le fichier volumineux qui prend toute la place sur le serveur, analyser la taille d'un projet
@@ -754,7 +715,6 @@
 **Précautions :** Sur un arborescence énorme avec des millions de fichiers, `du /` peut consommer beaucoup d'I/O disque (utiliser avec précaution en prod).
 **Équivalents :** ncdu (outil interactif TUI recommandable), Get-ChildItem | Measure-Object (PowerShell)
 **Voir aussi :** df, ls, ncdu, find
-
 ## `pvcreate` — Initialisation d'un volume physique LVM [Linux]
 **Niveau :** avance | **Popularité :** 83 | **Aliases :** —
 **Contextes :** préparer une nouvelle partition ou un disque brut pour l'intégrer dans une architecture de stockage LVM (*Logical Volume Manager*)
@@ -772,7 +732,6 @@
 **Précautions :** S'assurer avec `lsblk` ou `blkid` que la partition cible ne contient aucun système de fichiers actif.
 **Équivalents :** pvs, pvdisplay, pvremove
 **Voir aussi :** vgcreate, lvcreate, pvs, lsblk
-
 ## `vgcreate` — Création d'un groupe de volumes LVM [Linux]
 **Niveau :** avance | **Popularité :** 82 | **Aliases :** —
 **Contextes :** regrouper plusieurs disques physiques en un seul grand pool de stockage virtuel LVM
@@ -790,7 +749,6 @@
 **Précautions :** Choisir un nom explicite pour le VG (ex: `vg_system`, `vg_data`) pour éviter les confusions en environnement multi-disques.
 **Équivalents :** vgs, vgdisplay, vgextend
 **Voir aussi :** pvcreate, lvcreate, vgs, vgextend
-
 ## `lvcreate` — Création d'un volume logique LVM [Linux]
 **Niveau :** avance | **Popularité :** 84 | **Aliases :** —
 **Contextes :** tailler une partition logique sur mesure pour `/var` ou `/data`, créer un Snapshot LVM instantané avant mise à jour système
@@ -809,7 +767,6 @@
 **Précautions :** Conserver toujours 10 à 20% d'espace non alloué dans le Volume Group pour la création de Snapshots d'urgence.
 **Équivalents :** lvs, lvdisplay, lvextend, lvreduce
 **Voir aussi :** pvcreate, vgcreate, lvs, lvextend, mkfs
-
 ## `swapon` — Activation des espaces d'échange Swap [Linux]
 **Niveau :** intermediaire | **Popularité :** 88 | **Aliases :** —
 **Contextes :** activer une partition ou un fichier de Swap pour éviter les plantages OOM (*Out Of Memory*), étendre la mémoire virtuelle
@@ -827,7 +784,6 @@
 **Précautions :** S'assurer que le fichier de Swap appartient strictly à `root` avec des permissions `0600` pour empêcher la lecture des clés/mots de passe en RAM.
 **Équivalents :** swapoff, mkswap, Get-CimInstance Win32_PageFileSetting (PowerShell)
 **Voir aussi :** swapoff, swap, free, sysctl
-
 ## `sysctl` — Configuration des paramètres du noyau à chaud [Linux]
 **Niveau :** avance | **Popularité :** 91 | **Aliases :** —
 **Contextes :** optimiser la pile réseau TCP/IP, activer le forwarding IP pour un routeur/Docker, ajuster les limites de mémoire virtuelle (*swappiness*)
@@ -845,7 +801,6 @@
 **Précautions :** Tester les paramètres à chaud avec `sysctl -w` avant de les consigner définitivement dans `/etc/sysctl.d/`.
 **Équivalents :** sysctl (macOS/FreeBSD)
 **Voir aussi :** dmesg, lsmod, ulimit
-
 ## `lsmod` — Liste des modules du noyau Linux chargés [Linux]
 **Niveau :** intermediaire | **Popularité :** 87 | **Aliases :** —
 **Contextes :** vérifier si un pilote matériel (ex: carte Nvidia, module Wi-Fi) ou système (ex: `iptable_filter`, `wireguard`) est actuellement chargé en mémoire
@@ -862,7 +817,6 @@
 **Précautions :** Si un module a un compte d'utilisation `Used by` supérieur à 0, il ne pourra pas être déchargé directement sans stopper les services dépendants.
 **Équivalents :** kldstat (FreeBSD), kmutil (macOS)
 **Voir aussi :** modprobe, insmod, rmmod, dmesg
-
 ## `modprobe` — Chargement et déchargement intelligent de modules noyau [Linux]
 **Niveau :** avance | **Popularité :** 89 | **Aliases :** —
 **Contextes :** charger un pilote matériel avec résolution automatique de ses dépendances, bloquer un module vulnérable en liste noire (*blacklist*)
@@ -880,7 +834,6 @@
 **Précautions :** Utiliser `modprobe` de préférence à `insmod` pour éviter les erreurs de symboles manquants.
 **Équivalents :** kldload / kldunload (FreeBSD), kmutil load (macOS)
 **Voir aussi :** lsmod, insmod, rmmod, dmesg
-
 ## `insmod` — Insertion brute d'un fichier module dans le noyau [Linux]
 **Niveau :** avance | **Popularité :** 70 | **Aliases :** —
 **Contextes :** insérer un pilote sur mesure compilé à la main (`.ko`) hors de l'arborescence standard des modules
@@ -897,7 +850,6 @@
 **Précautions :** Réserver `insmod` au développement et test de drivers personnalisés ; utiliser `modprobe` en production.
 **Équivalents :** modprobe, kldload (FreeBSD)
 **Voir aussi :** rmmod, modprobe, lsmod, dmesg
-
 ## `rmmod` — Suppression brute d'un module du noyau [Linux]
 **Niveau :** avance | **Popularité :** 68 | **Aliases :** —
 **Contextes :** décharger un pilote de périphérique spécifique en cours de développement
@@ -914,7 +866,6 @@
 **Précautions :** S'assurer que le module a un compteur d'utilisation à zéro dans `lsmod` avant de le supprimer.
 **Équivalents :** modprobe -r, kldunload (FreeBSD)
 **Voir aussi :** insmod, modprobe, lsmod
-
 ## `lspci` — Lister les périphériques PCI et cartes matérielles [Linux]
 **Niveau :** debutant | **Popularité :** 93 | **Aliases :** —
 **Contextes :** identifier la référence exacte d'une carte réseau, carte graphique (Nvidia/AMD), contrôleur RAID ou bus PCIe
@@ -932,7 +883,6 @@
 **Précautions :** Utiliser `lspci -nn` pour obtenir le `VendorID:DeviceID` exact (ex: `10de:1f08`) afin de télécharger le bon pilote propriétaire.
 **Équivalents :** lsusb, lshw, system_profiler SPPCIDataType (macOS), Get-PnpDevice (PowerShell)
 **Voir aussi :** lsusb, lscpu, lshw, lsmod
-
 ## `lsusb` — Lister les périphériques USB connectés [Linux]
 **Niveau :** debutant | **Popularité :** 92 | **Aliases :** —
 **Contextes :** vérifier si un dongle Wi-Fi/Bluetooth, une clé USB, une caméra ou un lecteur de carte à puce est physique détecté
@@ -950,7 +900,6 @@
 **Précautions :** Combiner avec `dmesg -w` au moment du branchement USB pour observer la reconnaissance en temps réel.
 **Équivalents :** lspci, lshw, system_profiler SPUSBDataType (macOS), Get-PnpDevice -Class USB (PowerShell)
 **Voir aussi :** lspci, lshw, dmesg
-
 ## `lscpu` — Informations détaillées sur l'architecture processeur [Linux]
 **Niveau :** debutant | **Popularité :** 94 | **Aliases :** —
 **Contextes :** vérifier le nombre de cœurs physiques/logiques (vCPU), la présence des instructions de virtualisation (VT-x/AMD-V) ou les cache L1/L2/L3
@@ -967,7 +916,6 @@
 **Précautions :** Vérifier la ligne `Flags` (ex: `aes`, `sse4_2`, `avx2`) lors de l'optimisation d'applications gourmandes en calcul ou cryptographie.
 **Équivalents :** sysctl -a | grep machdep.cpu (macOS), Get-CimInstance Win32_Processor (PowerShell)
 **Voir aussi :** lsmem, lshw, lspci, top
-
 ## `lsmem` — Liste des blocs et de la disposition de la mémoire RAM [Linux]
 **Niveau :** intermediaire | **Popularité :** 75 | **Aliases :** —
 **Contextes :** inspecter les barrettes et blocs de mémoire vive sous Linux, auditer la mémoire Hotplug sur des machines virtuelles
@@ -984,7 +932,6 @@
 **Précautions :** Utiliser `free -h` pour la consommation courante et `lsmem` pour l'architecture bloc hardware.
 **Équivalents :** free, dmidecode --type memory, lshw -C memory
 **Voir aussi :** free, lscpu, lshw, vmstat
-
 ## `lshw` — Inventaire matériel exhaustif du système [Linux]
 **Niveau :** intermediaire | **Popularité :** 88 | **Aliases :** —
 **Contextes :** générer un rapport complet sur les composants d'un serveur physique (CPU, RAM, carte mère, disques, cartes réseau, BIOS)
@@ -1002,7 +949,6 @@
 **Précautions :** Exécuter avec `sudo lshw -class network` pour récupérer l'adresse MAC et la révision de firmware d'une carte NIC.
 **Équivalents :** dmidecode, system_profiler (macOS), Get-ComputerInfo (PowerShell)
 **Voir aussi :** lspci, lsusb, lscpu, dmidecode
-
 ## `free` — Affichage de la mémoire RAM disponible et utilisée [Linux]
 **Niveau :** debutant | **Popularité :** 97 | **Aliases :** —
 **Contextes :** vérifier la mémoire RAM vive disponible sur un serveur, diagnostiquer la saturation RAM ou le swap d'une application
@@ -1020,7 +966,6 @@
 **Précautions :** Ne pas s'inquiéter si la colonne `free` semble basse tant que la colonne `available` reste élevée (phénomène *linuxatemyram*).
 **Équivalents :** vm_stat (macOS), vmstat, (Get-CimInstance Win32_OperatingSystem).FreePhysicalMemory (PowerShell)
 **Voir aussi :** top, htop, vmstat, swapon, lsmem
-
 ## `syslog-ng` — Démon de journalisation système avancé [Linux]
 **Niveau :** avance | **Popularité :** 81 | **Aliases :** —
 **Contextes :** centraliser les logs de centaines de serveurs Linux sur un serveur SIEM central, filtrer et formater les logs système avant stockage
@@ -1037,7 +982,6 @@
 **Précautions :** Toujours valider la syntaxe avec `syslog-ng -s` avant de recharger le service.
 **Équivalents :** rsyslog, systemd-journald, fluentd, logstash
 **Voir aussi :** journalctl, logrotate, dmesg
-
 ## `logrotate` — Rotation et archivage automatique des journaux texte [Linux]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** —
 **Contextes :** compresser quotidiennement les logs applicatifs `/var/log/nginx/` pour éviter la saturation du disque, purger les logs plus vieux de 30 jours
@@ -1055,7 +999,6 @@
 **Précautions :** Utiliser l'option `-d` (*debug*) pour tester de nouvelles règles de rotation sans altérer les logs en production.
 **Équivalents :** newsyslog (BSD/macOS)
 **Voir aussi :** journalctl, crontab, syslog-ng
-
 ## `selinux` — Contrôle d'accès obligatoire SELinux (sestatus/setenforce) [Linux]
 **Niveau :** avance | **Popularité :** 89 | **Aliases :** sestatus, setenforce
 **Contextes :** vérifier si la sécurité renforcée SELinux bloque un service web, basculer temporairement SELinux en mode permissif pour le diagnostic
@@ -1073,7 +1016,6 @@
 **Précautions :** Utiliser `restorecon -R /var/www/html` pour corriger les contextes de fichiers erronés au lieu de désactiver SELinux.
 **Équivalents :** apparmor_status (Ubuntu/Debian), getenforce, restorecon
 **Voir aussi :** apparmor_status, chcon, restorecon, audit2allow
-
 ## `apparmor_status` — Inspection du profil de sécurité AppArmor [Linux]
 **Niveau :** avance | **Popularité :** 84 | **Aliases :** aa-status
 **Contextes :** auditer quels dmons applicatifs (Docker, Snap, Ping, Mysql) sont restreints par un profil de sécurité AppArmor sous Debian/Ubuntu
@@ -1091,4 +1033,3 @@
 **Précautions :** Consulter `journalctl -k | grep -i apparmor` pour identifier les refus d'accès causés par AppArmor.
 **Équivalents :** sestatus / getenforce (SELinux)
 **Voir aussi :** selinux, journalctl, dmesg
-
