@@ -391,7 +391,7 @@
 **Urgences/dangers :** —
 **Précautions :** Certains systèmes de fichiers anciens ou virtuels ne supportent pas l'appel système `fallocate` ; utiliser `dd` en repli.
 **Équivalents :** truncate, dd
-**Voir aussi :** truncate, swapon, mkswap
+**Voir aussi :** truncate, swapon, swap
 
 ## `stat` — Affichage détaillé des métadonnées et i-nœuds d'un fichier [Linux/macOS]
 **Niveau :** debutant | **Popularité :** 93 | **Aliases :** —

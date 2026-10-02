@@ -28,7 +28,7 @@
 **Urgences/dangers :** —
 **Précautions :** Installer les pilotes propriétaires et les toolkits de calcul (CUDA/ROCm) adaptés à la version du noyau de votre système d'exploitation.
 **Équivalents :** TPU, NPU, Carte Graphique
-**Voir aussi :** CPU, TPU, NPU, nvidia-smi
+**Voir aussi :** CPU, TPU, NPU, GPU
 
 ## `TPU` — Tensor Processing Unit [Matériel/IA]
 **Niveau :** avance | **Popularité :** 92 | **Aliases :** Google TPU
@@ -140,7 +140,7 @@
 **Urgences/dangers :** ⚠️ Un bruit de cliquètement répétitif ("Click of Death") indique une panne mécanique imminente de la tête de lecture.
 **Précautions :** Surveiller l'état de santé du disque dur via les métriques S.M.A.R.T. (`smartctl`).
 **Équivalents :** SSD, Ruban magnétique (Tape)
-**Voir aussi :** SSD, RAID, smartctl
+**Voir aussi :** SSD, RAID, S.M.A.R.T.
 
 ## `RAID` — Redundant Array of Independent Disks [Stockage/Infrastructure]
 **Niveau :** intermediaire | **Popularité :** 97 | **Aliases :** Grappe de Disques Redondants
@@ -515,7 +515,7 @@
 **Urgences/dangers :** ⚠️ Bluebugging et Bluesnarfing permettent d'accéder aux données d'appareils Bluetooth mal sécurisés.
 **Précautions :** Désactiver le mode découvrable dès que l'appairage est terminé ; mettre à jour le firmware des périphériques.
 **Équivalents :** BLE, Zigbee (IoT), ANT+
-**Voir aussi :** NFC, WLAN, WPAN, iwconfig
+**Voir aussi :** NFC, WLAN, WPAN, WLAN
 
 ## `NFC` — Near Field Communication [Réseau sans-fil]
 **Niveau :** intermediaire | **Popularité :** 95 | **Aliases :** Communication en Champ Proche, ISO/IEC 18092
@@ -923,7 +923,7 @@
 **Urgences/dangers :** ⚠️ Un attribut SMART "FAIL" ou une augmentation rapide des secteurs réalloués signifie une panne imminente — sauvegarder immédiatement les données.
 **Précautions :** Configurer des alertes automatiques via `smartd` (démon Linux) pour être notifié par email avant la panne physique d'un disque.
 **Équivalents :** NVMe Health Information Log (standard NVMe équivalent)
-**Voir aussi :** HDD, SSD, NVMe, smartctl, RAID
+**Voir aussi :** HDD, SSD, NVMe, S.M.A.R.T., RAID
 
 ## `AHCI` — Advanced Host Controller Interface [Stockage]
 **Niveau :** avance | **Popularité :** 76 | **Aliases :** SATA AHCI, Mode AHCI
@@ -1144,7 +1144,7 @@
 **Urgences/dangers :** —
 **Précautions :** Planifier soigneusement les besoins avant provisionnement — redimensionner un Bare Metal est bien plus contraignant que de modifier une VM cloud.
 **Équivalents :** VM (instance virtuelle mutualisée), Dedicated Host (équivalent AWS)
-**Voir aussi :** Hypervisor, VM, IaaS, Cloud, OpenStack
+**Voir aussi :** Hypervisor, VM, IaaS, Cloud, Cloud
 
 ## `Hypervisor` — Hypervisor / Hyperviseur [Virtualisation]
 **Niveau :** intermediaire | **Popularité :** 95 | **Aliases :** VMM, Virtual Machine Monitor, Superviseur de Machines Virtuelles
@@ -1195,7 +1195,7 @@
 **Urgences/dangers :** ⚠️ Laisser la community string "public" par défaut accessible depuis Internet expose l'intégralité des informations de configuration et de topologie réseau à tout attaquant.
 **Précautions :** Toujours utiliser SNMPv3 avec authentification et chiffrement ; filtrer l'accès SNMP aux seules adresses IP des serveurs de supervision via ACL et VLAN de gestion dédié.
 **Équivalents :** Prometheus/OpenMetrics (pull HTTP moderne), gNMI/gRPC (réseau nouvelle génération)
-**Voir aussi :** MIB, Zabbix, Nagios, SIEM, Syslog
+**Voir aussi :** MIB, SNMP, SNMP, SIEM, Syslog
 
 ## `Syslog` — System Logging Protocol [Supervision]
 **Niveau :** intermediaire | **Popularité :** 87 | **Aliases :** RFC 5424, rsyslog, syslog-ng
@@ -1212,7 +1212,7 @@
 **Urgences/dangers :** ⚠️ Un attaquant ayant compromis un système peut effacer les logs locaux — la centralisation Syslog vers un serveur distant protégé est essentielle pour la forensique.
 **Précautions :** Stocker les logs centralisés sur un système en écriture seule (WORM) ou un SIEM pour garantir leur intégrité légale (chaîne de custody pour les investigations).
 **Équivalents :** Journald (systemd, format binaire), Windows Event Log (équivalent Microsoft)
-**Voir aussi :** SIEM, rsyslog, journalctl, SNMP, Logs
+**Voir aussi :** SIEM, Syslog, journalctl, SNMP, Logs
 
 ## `PXE` — Preboot Execution Environment [Infrastructure IT]
 **Niveau :** avance | **Popularité :** 82 | **Aliases :** Network Boot, iPXE, Network Install
@@ -1450,7 +1450,7 @@
 **Urgences/dangers :** ⚠️ Si les paquets d'annonces VRRP sont bloqués par un pare-feu entre les deux routeurs, les deux passeront en mode Master (Split-Brain), créant un conflit d'IP.
 **Précautions :** Autoriser le protocole IP 112 (VRRP) dans les règles de pare-feu locales entre les membres du cluster.
 **Équivalents :** HSRP (Cisco), CARP (BSD/pfSense)
-**Voir aussi :** Gateway, Keepalived, HA, IP
+**Voir aussi :** Gateway, VRRP, HA, IP
 
 ## `LACP` — Link Aggregation Control Protocol [Réseau]
 **Niveau :** avance | **Popularité :** 86 | **Aliases :** IEEE 802.3ad, IEEE 802.1AX, NIC Bonding
@@ -1552,7 +1552,7 @@
 **Urgences/dangers :** —
 **Précautions :** Appliquer le marquage QoS au plus près de la source (sur le poste ou le premier switch) pour un traitement optimal tout au long du chemin.
 **Équivalents :** Traffic Shaping, Bandwidth Limiting
-**Voir aussi :** DSCP, VoIP, Router, Network
+**Voir aussi :** DSCP, VoIP, Router, Réseau
 
 ## `ZFS Pool` — ZFS Storage Pool (zpool) [Stockage]
 **Niveau :** avance | **Popularité :** 86 | **Aliases :** zpool, ZFS Pool
@@ -1586,7 +1586,7 @@
 **Urgences/dangers :** ⚠️ Un réseau d'interconnexion Ceph (cluster network) lent ou instable provoque le flapping des OSDs et peut paralyser les accès stockage.
 **Précautions :** Déployer un réseau 10 GbE ou 25 GbE dédié exclusivement au trafic de réplication interne du cluster Ceph.
 **Équivalents :** GlusterFS, MinIO (objet uniquement), VMware vSAN
-**Voir aussi :** OpenStack, S3, ZFS, Proxmox
+**Voir aussi :** Cloud, S3, ZFS, Proxmox
 
 ## `LVM` — Logical Volume Manager [Stockage / Linux]
 **Niveau :** intermediaire | **Popularité :** 94 | **Aliases :** LVM2, Logical Volume, Volume Group

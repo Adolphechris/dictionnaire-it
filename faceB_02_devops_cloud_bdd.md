@@ -256,7 +256,7 @@
 - Moindre privilège : donner UNIQUEMENT l'accès nécessaire — "FullAccess" pour tout = faille garantie.
 - Clés d'accès longue durée = risque n°1 volées en public (GitHub) → raccourcir, faire tourner les clés, utiliser des rôles.
 **Exemple :** `aws iam list-users --query "Users[*].UserName"`
-**Voir aussi :** sécurité, Zero Trust, OAuth, cloud
+**Voir aussi :** sécurité, Zero Trust, OAuth2, cloud
 
 ## `ORM` — Couche objet-relationnelle [Bases de données]
 **Catégorie :** Bases de données | **Niveau :** intermediaire | **Popularité :** 70
@@ -1041,7 +1041,7 @@
 - Flag ≠ déploiement : le code est en prod dans les DEUX cas — le flag décide de la visibilité.
 - Trop de flags simultanés = matrice ingérable à tester (limiter le nombre actif).
 **Exemple :** `env "checkout-v2" : pourcentage=10, targeting=beta-users`
-**Voir aussi :** canary, CI/CD, A/B testing, rollback
+**Voir aussi :** canary, CI, A/B testing, rollback
 
 ## `Chaos Engineering` — Test volontaire de résilience [DevOps]
 **Catégorie :** DevOps | **Niveau :** avance | **Popularité :** 55
@@ -1075,7 +1075,7 @@
 - Le mapping est un schéma IMPLICITE : un champ mal deviné au premier doc (text vs keyword) casse les agrégations.
 - Cluster mal dimensionné en RAM = OOM (circuit breaker) — un index par logique, pas par jour "au cas où".
 **Exemple :** `GET /logs-2026.09/_count` — éléments de l'index du mois
-**Voir aussi :** Kibana, FTS5, logstash, NoSQL
+**Voir aussi :** Kibana, FTS5, Syslog, NoSQL
 
 ## `MariaDB` — Fork communautaire de MySQL [Bases de données]
 **Catégorie :** Bases de données | **Niveau :** debutant | **Popularité :** 62
@@ -1145,7 +1145,7 @@
 - Un champ non-indexé (mapping) donne 0 résultat trompeur → vérifier le mapping avant de conclure "pas de logs".
 - Kibana sans auth = tous les logs lisibles (souvent des clés dedans) — toujours protéger.
 **Exemple :** `@timestamp >= "now-1h" AND status >= 500`
-**Voir aussi :** Elasticsearch, logstash, logging, observability
+**Voir aussi :** Elasticsearch, Syslog, logging, observability
 
 ## `MTTR` — Temps moyen de rétablissement [DevOps]
 **Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 72
@@ -1179,7 +1179,7 @@
 - Mesurer l'ÉQUIPE, pas l'individu : objectifs personnels sur ces métriques = tricheries (bugs séparés des features...).
 - DORA ≠ outillage : des pipelines parfaits avec une culture toxique baissent les scores.
 **Exemple :** `Elite : déploiements multiples par jour, MTTR < 1h, taux d'échec < 15%`
-**Voir aussi :** CI/CD, SRE, MTTR, Accelerate
+**Voir aussi :** CI, SRE, MTTR, Accelerate
 
 ## `Post-mortem` — Analyse d'incident sans blâme [DevOps]
 **Catégorie :** DevOps | **Niveau :** intermediaire | **Popularité :** 71
@@ -1301,7 +1301,7 @@
 - Le SSO devient la clé de voûte : le compromettre = toutes les apps compromises → MFA obligatoire dessus.
 - Protocoles : SAML (XML, ancien, entreprise), OIDC (JSON moderne, web/mobile) — choisir OIDC pour le neuf.
 **Exemple :** `App → redirect auth.exemple.fr → retour avec token OIDC`
-**Voir aussi :** OAuth, MFA, IAM, Entra ID
+**Voir aussi :** OAuth2, MFA, IAM, Entra ID
 
 ## `Rollback` — Retour à une version antérieure [DevOps]
 **Catégorie :** DevOps | **Niveau :** debutant | **Popularité :** 78

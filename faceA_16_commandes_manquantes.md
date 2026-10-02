@@ -166,3 +166,146 @@
 **Précautions :** Travailler sur une copie, vérifier le résultat (durée, pistes, sous-titres) avant de remplacer l'original et conserver les sources si la conversion est destructive.
 **Équivalents :** avconv (fork historique), HandBrakeCLI, mencoder (obsolète)
 **Voir aussi :** MP4, MKV, H.264, H.265, AAC, FLAC, HLS, DASH, WEBM
+
+## `ipconfig` — Configuration réseau IP [Windows]
+**Niveau :** debutant | **Popularité :** 95 | **Aliases :** —
+**Contextes :** afficher l'adresse IP, le masque et la passerelle sous Windows, renouveler le bail DHCP, vider le cache DNS local
+**Rôle :** Affiche et gère la configuration réseau des cartes IP sous Windows (adresse IP, masque, passerelle, bail DHCP et cache DNS).
+**Syntaxe :** `ipconfig [/all | /flushdns | /release | /renew]`
+**Cas réguliers :**
+- `ipconfig /all` — Affiche la configuration réseau détaillée de toutes les cartes réseau (MAC, DHCP, DNS)
+- `ipconfig /flushdns` — Vide le cache de résolution DNS local de Windows
+- `ipconfig /release && ipconfig /renew` — Libère et renouvelle le bail DHCP de la carte réseau active
+**Origine :** Utilitaire natif développé par Microsoft pour les systèmes d'exploitation Windows NT et suivants.
+**Subtilités/confusions :**
+- `ipconfig` est spécifique à Windows ; sur Linux et macOS, les équivalents sont `ip` ou `ifconfig`.
+- Ne résout pas les problèmes de routage physique ou de pare-feu : il se limite à l'affichage et la réinitialisation de la couche IP du client.
+**Urgences/dangers :** —
+**Précautions :** Exécuter dans un terminal PowerShell ou CMD avec les privilèges d'administrateur pour renouveler les baux d'interfaces complexes.
+**Équivalents :** ip (Linux), ifconfig (macOS/Unix), Get-NetIPAddress (PowerShell)
+**Voir aussi :** ip, ifconfig, ping, nslookup, DHCP, DNS
+
+## `who` — Utilisateurs connectés [Linux/macOS]
+**Niveau :** debutant | **Popularité :** 82 | **Aliases :** —
+**Contextes :** savoir qui est actuellement connecté sur le système, identifier les terminaux et l'heure de connexion
+**Rôle :** Affiche la liste des utilisateurs actuellement connectés sur la machine avec le nom de terminal et la date de session.
+**Syntaxe :** `who [options] [fichier]`
+**Cas réguliers :**
+- `who` — Affiche les utilisateurs connectés, leur pseudo, leur terminal (pts/0, tty1) et leur date de connexion
+- `who -b` — Affiche la date et l'heure du dernier démarrage (boot) du système
+- `who am i` — Affiche uniquement les informations de la session utilisateur courante
+**Origine :** Présent dans la première version d'Unix AT&T (1971) et formalisé dans la norme POSIX.
+**Subtilités/confusions :**
+- `who` donne uniquement la liste des utilisateurs connectés ; `w` donne la même liste augmentée des commandes en cours d'exécution.
+- `whoami` n'affiche que le nom de l'utilisateur courant, sans informations de terminal ni d'horodatage.
+**Urgences/dangers :** —
+**Précautions :** Surveiller `who` sur les serveurs de production pour détecter des connexions concurrentes suspectes.
+**Équivalents :** w, whoami, id, last
+**Voir aussi :** w, whoami, id, last, loginctl
+
+## `w` — Utilisateurs et activités en cours [Linux/macOS]
+**Niveau :** debutant | **Popularité :** 84 | **Aliases :** —
+**Contextes :** surveiller les sessions actives, connaître la charge système et savoir quelle commande chaque utilisateur exécute
+**Rôle :** Affiche l'uptime, la charge moyenne et la liste des utilisateurs connectés avec les processus qu'ils exécutent.
+**Syntaxe :** `w [options] [user]`
+**Cas réguliers :**
+- `w` — Affiche l'en-tête de charge système (load average) et la table des sessions avec la commande courante (WHAT)
+- `w adolphe` — Filtre l'affichage sur le seul utilisateur adolphe
+- `w -h` — Masque l'en-tête pour faciliter le traitement dans un script
+**Origine :** Écrit par Mark Horton pour BSD 3.0 (1980), intègre ensuite à toutes les distributions Linux/Unix.
+**Subtilités/confusions :**
+- La colonne `WHAT` affiche la ligne de commande du processus de premier plan exécuté par la session.
+- La colonne `IDLE` indique le temps écoulé depuis la dernière interaction clavier de l'utilisateur sur le terminal.
+**Urgences/dangers :** —
+**Précautions :** Utile lors des interventions de maintenance pour vérifier qu'aucun autre administrateur n'exécute de tâche critique avant un reboot.
+**Équivalents :** who, uptime, ps, top
+**Voir aussi :** who, whoami, uptime, top, ps
+
+## `tee` — Dupliquer la sortie standard [Linux/macOS]
+**Niveau :** intermediaire | **Popularité :** 90 | **Aliases :** —
+**Contextes :** enregistrer les logs d'une commande tout en continuant de les voir à l'écran, écrire dans un fichier protégé via sudo
+**Rôle :** Lit l'entrée standard et l'écrit simultanément sur la sortie standard et dans un ou plusieurs fichiers.
+**Syntaxe :** `commande | tee [-a] fichier.log`
+**Cas réguliers :**
+- `echo "127.0.0.1 db" | sudo tee -a /etc/hosts` — Écrit dans un fichier système protégé en contournant les restrictions de redirection bash avec sudo
+- `make 2>&1 | tee build.log` — Affiche la compilation en direct dans le terminal tout en l'enregistrant dans build.log
+**Origine :** Présent dans Unix Version 6 (1975), son nom s'inspire des raccords en 'T' de la tuyauterie.
+**Subtilités/confusions :**
+- Sans l'option `-a` (append), `tee` écrase le fichier cible au lieu de s'y ajouter.
+- `sudo echo "text" > /etc/hosts` échoue avec "Permission denied" car la redirection `>` est faite par le shell non-root ; `sudo tee` résout le problème.
+**Urgences/dangers :** —
+**Précautions :** Toujours utiliser `-a` quand on souhaite compléter un fichier journal sans écraser son historique existant.
+**Équivalents :** redirection `>>` (sans affichage écran), script (capture de session)
+**Voir aussi :** echo, cat, Redirection, sudo, script
+
+## `sync` — Vider les tampons de disque [Linux/macOS]
+**Niveau :** intermediaire | **Popularité :** 85 | **Aliases :** —
+**Contextes :** forcer l'écriture physique des données de la RAM vers le disque, préparer l'extinction d'un serveur ou le retrait d'une clé USB
+**Rôle :** Force le noyau à vider tous les tampons de mémoire cache d'écriture (write buffers) vers le stockage physique.
+**Syntaxe :** `sync [options] [fichier...]`
+**Cas réguliers :**
+- `sync` — Force le vidage de tous les tampons de tous les systèmes de fichiers montés
+- `sync /media/usb` — Synchronise uniquement les tampons associés au point de montage spécifié
+- `sync --data fichier.txt` — Force l'écriture des données d'un fichier spécifique sans forcer toutes les métadonnées
+**Origine :** Présent depuis la première version d'Unix AT&T (1971) ; traditionnel dans les rituels d'arrêt système ("sync; sync; shutdown").
+**Subtilités/confusions :**
+- Le retour de la commande `sync` garantit que toutes les écritures en attente sont physiquement remises au stockage.
+- Indispensable avant de débrancher une clé USB écrite avec `dd` ou `cp` sans passer par un démontage propre (`umount`).
+**Urgences/dangers :** —
+**Précautions :** Exécuter `sync` avant d'éteindre brutalement une machine virtuelle ou un serveur de test sans passer par shutdown.
+**Équivalents :** umount (qui appelle sync automatiquement), fsync(2) (appel système)
+**Voir aussi :** dd, umount, mount, RAM, Storage
+
+## `rsync` — Synchroniser des fichiers et répertoires [Linux/macOS]
+**Niveau :** intermediaire | **Popularité :** 96 | **Aliases :** —
+**Contextes :** faire des sauvegardes incrémentales, synchroniser des dossiers distants via SSH, migrer des données d'un serveur à un autre
+**Rôle :** Outil puissant de copie et de synchronisation de fichiers à distance ou en local avec calcul de différence delta pour transférer uniquement les parties modifiées.
+**Syntaxe :** `rsync [options] source/ destination/`
+**Cas réguliers :**
+- `rsync -avz --delete /data/ user@backup:/backup/` — Synchronise un dossier vers un serveur distant via SSH en supprimant les fichiers disparus
+- `rsync -avP source.iso dest.iso` — Affiche la progression (`-P`) et permet de reprendre un transfert interrompu (`--partial`)
+- `rsync -av --dry-run src/ dst/` — Simule la synchronisation sans modifier aucun fichier à destination
+**Origine :** Développé par Andrew Tridgell et Paul Mackerras en 1996, célèbre pour son algorithme d'écart (delta-transfer algorithm).
+**Subtilités/confusions :**
+- La barre oblique finale est critique : `rsync src/ dst/` copie le CONTENU de src dans dst, alors que `rsync src dst/` copie le DOSSIER src lui-même dans dst.
+- `--delete` efface les fichiers du dossier cible s'ils n'existent plus dans la source — toujours tester avec `--dry-run` au préalable.
+**Urgences/dangers :** ⚠️ Une mauvaise syntaxe avec l'option `--delete` peut effacer par mégarde l'intégralité d'un dossier de destination critique.
+**Précautions :** Toujours valider une nouvelle commande rsync avec `--dry-run` (`-n`) avant d'exécuter la synchronisation réelle.
+**Équivalents :** scp (copie simple), rclone (cloud), robocopy (Windows)
+**Voir aussi :** scp, sftp, SSH, tar, Cron, backup
+
+## `fuser` — Identifier les processus utilisant un fichier [Linux]
+**Niveau :** avance | **Popularité :** 80 | **Aliases :** —
+**Contextes :** débloquer un point de montage impossible à démonter, trouver quel processus verrouille un fichier ou un port réseau
+**Rôle :** Affiche les PIDs des processus qui utilisent un fichier, un répertoire ou un socket réseau spécifié.
+**Syntaxe :** `fuser [options] <fichier|dossier|port>`
+**Cas réguliers :**
+- `fuser -v /mnt/usb` — Affiche sous forme détaillée la liste des processus utilisant le point de montage /mnt/usb
+- `fuser 80/tcp` — Identifie le processus qui occupe le port TCP 80
+- `fuser -k -9 /mnt/usb` — Tue immédiatement (`kill -9`) tous les processus qui bloquent le démontage du dossier
+**Origine :** Utilitaire traditionnel Unix System V, intègre dans le paquet `psmisc` sous Linux.
+**Subtilités/confusions :**
+- Utile pour résoudre les erreurs "device is busy" lors de l'exécution de `umount`.
+- `lsof` donne une vue plus exhaustive des fichiers ouverts, mais `fuser` permet d'exécuter l'action de kill directement (`-k`).
+**Urgences/dangers :** ⚠️ L'option `-k` (kill) peut tuer des processus système vitaux si le chemin ciblé est mal configuré.
+**Précautions :** Inspecter d'abord les processus avec `fuser -v` avant de décider d'utiliser l'option de nettoyage `-k`.
+**Équivalents :** lsof, ss, killall
+**Voir aussi :** lsof, umount, kill, ps, ss
+
+## `objdump` — Inspecter les fichiers objets et binaires [Linux]
+**Niveau :** expert | **Popularité :** 76 | **Aliases :** —
+**Contextes :** ingénierie inverse, débogage bas niveau, inspection du code assembleur d'un exécutable ELF, analyse de sécurité
+**Rôle :** Affiche les informations détaillées d'un fichier binaire ou objet (en-têtes, sections, instructions désassemblées).
+**Syntaxe :** `objdump [options] <fichier-binaire>`
+**Cas réguliers :**
+- `objdump -d binaire` — Désassemble les sections d'instructions exécutables du binaire en langage assembleur
+- `objdump -x binaire` — Affiche tous les en-têtes et la table des symboles du fichier ELF
+- `objdump -M intel -d binaire` — Affiche le désassemblage avec la syntaxe Intel plutôt qu'AT&T
+**Origine :** Fait partie de la suite d'outils GNU Binutils développée par la Free Software Foundation.
+**Subtilités/confusions :**
+- Nécessite un fichier au format binaire (ELF sous Linux, PE sous Windows) — ne fonctionne pas sur des scripts texte.
+- Si le binaire est strippé (symboles retirés), les noms de fonctions apparaissent sous forme d'adresses brutes.
+**Urgences/dangers :** —
+**Précautions :** Combiner avec `gdb` ou `radare2` pour une analyse dynamique interactive des binaires complexes.
+**Équivalents :** readelf, nm, gdb, radare2
+**Voir aussi :** readelf, nm, gdb, gcc, clang

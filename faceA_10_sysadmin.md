@@ -826,7 +826,7 @@
 **Urgences/dangers :** ⚠️ Exécuter `swapoff -a` sur un serveur dont la RAM physique est déjà saturée provoque le crash du système par OOM-Killer.
 **Précautions :** S'assurer que le fichier de Swap appartient strictly à `root` avec des permissions `0600` pour empêcher la lecture des clés/mots de passe en RAM.
 **Équivalents :** swapoff, mkswap, Get-CimInstance Win32_PageFileSetting (PowerShell)
-**Voir aussi :** swapoff, mkswap, free, sysctl
+**Voir aussi :** swapoff, swap, free, sysctl
 
 ## `sysctl` — Configuration des paramètres du noyau à chaud [Linux]
 **Niveau :** avance | **Popularité :** 91 | **Aliases :** —

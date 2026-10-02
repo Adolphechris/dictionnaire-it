@@ -233,7 +233,7 @@
 **Urgences/dangers :** —
 **Précautions :** Vérifier l'architecture Compute Capability de votre GPU (`nvidia-smi`) et passer l'option `-arch=sm_XX` correspondante.
 **Équivalents :** hipcc (AMD ROCm)
-**Voir aussi :** gcc, clang, nvidia-smi
+**Voir aussi :** gcc, clang, GPU
 
 ## `nasm` — Netwide Assembler pour l'architecture x86/x64 [Cross]
 **Niveau :** avance | **Popularité :** 82 | **Aliases :** —

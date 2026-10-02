@@ -560,7 +560,7 @@
 **Urgences/dangers :** —
 **Précautions :** Équiper les IDE des développeurs avec des plugins de vérification automatique en temps réel.
 **Équivalents :** TDD, Continuous Testing
-**Voir aussi :** SAST, DevSecOps, TDD, CI/CD
+**Voir aussi :** SAST, DevSecOps, TDD, CI
 
 ## `Agile` — Méthodologie itérative de gestion de projet [Management/Dev]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** Agile Software Development
@@ -657,7 +657,7 @@
 **Urgences/dangers :** ⚠️ Exige une suite de tests automatisés (CI) extrêmement rapide et fiable pour éviter de casser la branche principale.
 **Précautions :** Utiliser conjointement des Feature Flags pour désactiver les fonctionnalités non prêtes en production.
 **Équivalents :** Continuous Integration, GitFlow (alternative)
-**Voir aussi :** Git, CI/CD, Feature Flag
+**Voir aussi :** Git, CI, Feature Flag
 
 ## `Refactoring` — Reconfiguration interne du code sans altérer son comportement [Développement]
 **Niveau :** debutant | **Popularité :** 99 | **Aliases :** Réusinage de code
@@ -1380,7 +1380,7 @@
 **Urgences/dangers :** —
 **Précautions :** Protéger le contrôleur SDN central avec une haute disponibilité maximale pour éviter d'isoler tout le réseau.
 **Équivalents :** SD-WAN, NFV (Network Functions Virtualization)
-**Voir aussi :** SD-WAN, Cloud, Network, VPC
+**Voir aussi :** SD-WAN, Cloud, Réseau, VPC
 
 ## `SD-WAN` — Software-Defined Wide Area Network [Réseau]
 **Niveau :** intermediaire | **Popularité :** 93 | **Aliases :** WAN Piloté par Logiciel
@@ -1396,7 +1396,7 @@
 **Urgences/dangers :** —
 **Précautions :** Intégrer des briques de sécurité (SASE / Firewall cloud) directement sur les équipements SD-WAN d'agences.
 **Équivalents :** MPLS (alternative traditionnelle), SASE
-**Voir aussi :** SDN, IPsec, VPN, Network
+**Voir aussi :** SDN, IPsec, VPN, Réseau
 
 ## `BaaS` — Backend as a Service [Cloud/Web]
 **Niveau :** debutant | **Popularité :** 94 | **Aliases :** Backend en tant que Service

@@ -757,7 +757,7 @@
 **Urgences/dangers :** ⚠️ `git am` applique des commits signés par d'autres : toujours réviser le contenu du patch avant application.
 **Précautions :** Vérifier que les patchs s'appliquent sur la bonne version de départ pour limiter les conflits de fusion.
 **Équivalents :** hg import, svn patch
-**Voir aussi :** git format-patch, git apply, git send-email
+**Voir aussi :** git am, git apply, git send-email
 
 ## `git apply` — Appliquer un patch sans commiter [Linux/macOS/Windows]
 **Niveau :** intermediaire | **Popularité :** 74 | **Aliases :** —
@@ -1097,7 +1097,7 @@
 **Urgences/dangers :** ⚠️ Tester la configuration SMTP avec `--suppress-cc=all` ou vers sa propre adresse d'abord pour éviter le spam involontaire sur les listes publiques.
 **Précautions :** Utiliser des jetons d'application (App Passwords) pour les serveurs Gmail ou Outlook sécurisés par 2FA.
 **Équivalents :** hg email
-**Voir aussi :** git format-patch, git am, git config
+**Voir aussi :** git am, git am, git config
 
 ## `git request-pull` — Résumé de demande d'intégration [Linux/macOS/Windows]
 **Niveau :** intermediaire | **Popularité :** 68 | **Aliases :** —
@@ -1116,7 +1116,7 @@
 **Urgences/dangers :** — (lecture seule)
 **Précautions :** S'assurer que le dépôt distant mentionné dans l'URL est accessible publiquement par le mainteneur.
 **Équivalents :** GitHub Pull Request, GitLab Merge Request
-**Voir aussi :** git send-email, git format-patch, git log
+**Voir aussi :** git send-email, git am, git log
 
 ## `git gitweb` — Interface web de consultation de dépôt [Linux/macOS/Windows]
 **Niveau :** intermediaire | **Popularité :** 64 | **Aliases :** —

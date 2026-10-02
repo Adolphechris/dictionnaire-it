@@ -586,3 +586,187 @@
 **Précautions :** Tester en écrivant vers un fichier temporaire ou via tee, activer set -o pipefail dans les scripts et se méfier des variables non vérifiées dans les chemins.
 **Équivalents :** Tube (pipe), tee (double sortie), substitution de processus
 **Voir aussi :** Shell, echo, printf, tee, grep, test, PATH
+
+## `PATH` — Variable d'environnement des exécutables [Système]
+**Catégorie :** Système | **Niveau :** debutant | **Popularité :** 96
+**Signification :** System Executable Search Path
+**Contextes :** exécuter une commande sans préciser son chemin absolu, ajouter des outils au terminal, configurer des environnements de développement
+**Définition :** Variable d'environnement listant les répertoires séparés par `:` (Unix) ou `;` (Windows) dans lesquels le shell recherche les exécutables à lancer sans leur chemin absolu.
+**Syntaxe :** `echo $PATH / export PATH="$HOME/bin:$PATH"`
+**Cas réguliers :**
+- `export PATH="$HOME/.local/bin:$PATH"` — Ajouter un répertoire personnel en tête du PATH pour donner la priorité aux outils installés localement
+- `echo $PATH | tr ':' '\n'` — Lister de façon lisible les dossiers analysés par le shell
+- `which commande` — Trouver quel dossier du PATH héberge le binaire exécuté par le shell
+**Origine :** Présent depuis les premières versions d'Unix AT&T et formalisé dans la norme POSIX.
+**Subtilités/confusions :**
+- L'ordre des répertoires dans PATH est crucial : le shell s'arrête au premier exécutable correspondant trouvé.
+- Mettre le répertoire courant (`.`) dans le PATH est une faille de sécurité majeure car un exécutable malveillant peut y être inséré.
+**Urgences/dangers :** ⚠️ Écraser la variable avec `export PATH="/mon/dossier"` (sans réinclure `$PATH`) rend les commandes de base (`ls`, `cat`, `sudo`) introuvables dans la session.
+**Précautions :** Toujours concaténer l'ancien `$PATH` lors de modifications (`export PATH="/nouveau:$PATH"`).
+**Équivalents :** %PATH% (Windows CMD), $env:PATH (PowerShell)
+**Voir aussi :** export, printenv, Shell, env, which
+
+## `.gitignore` — Fichier d'exclusion Git [Git]
+**Catégorie :** Git | **Niveau :** debutant | **Popularité :** 96
+**Signification :** Git Ignore File
+**Contextes :** ignorer les dépendances installées (node_modules, venv), masquer les fichiers temporaires et compilés, prévenir la fuite de secrets
+**Définition :** Fichier de configuration texte situé à la racine ou dans les sous-dossiers d'un dépôt Git, définissant les motifs de fichiers et répertoires que Git ne doit pas suivre.
+**Syntaxe :** `cat .gitignore`
+**Cas réguliers :**
+- `node_modules/` — Ignorer un dossier entier et tous ses fichiers
+- `*.log` — Ignorer tous les fichiers ayant l'extension .log
+- `.env` — Empêcher la publication de fichiers contenant des clés API et des secrets
+**Origine :** Intégré à Git par Linus Torvalds pour faciliter la gestion des artefacts de compilation du noyau Linux.
+**Subtilités/confusions :**
+- `.gitignore` n'a aucun effet sur les fichiers DÉJÀ suivis (tracked) par Git — il faut utiliser `git rm --cached <file>` pour cesser de suivre un fichier déjà validé.
+- Une ligne commençant par `!` annule l'exclusion pour un fichier spécifique.
+**Urgences/dangers :** ⚠️ Ne pas inclure `.env` ou `credentials.json` dans `.gitignore` risque de publier des mots de passe en clair sur un dépôt public.
+**Précautions :** Utiliser des modèles `.gitignore` éprouvés (ex: de gitignore.io) dès l'initialisation (`git init`) du projet.
+**Équivalents :** .dockerignore, .helmignore, .npmignore
+**Voir aussi :** git, git status, git rm, Git
+
+## `/etc/shadow` — Fichier des mots de passe chiffrés [Sécurité / Système]
+**Catégorie :** Sécurité | **Niveau :** avance | **Popularité :** 92
+**Signification :** Shadow Password File
+**Contextes :** stockage sécurisé des hachages de mots de passe sous Linux, règles d'expiration de comptes, audit de sécurité
+**Définition :** Fichier système protégé (mode 0600, accessible uniquement par root) contenant les empreintes chiffrées (hashes) et les paramètres d'expiration des mots de passe utilisateurs.
+**Syntaxe :** `sudo cat /etc/shadow`
+**Cas réguliers :**
+- `user:$6$hashes...:19500:0:90:7:::` — Ligne shadow montrant le hachage SHA-512 (`$6$`), la date de dernière modification et le délai d'expiration (90 jours)
+- `user:!:19500:0:90:7:::` — Le symbole `!` ou `*` indique un compte dont le mot de passe est verrouillé
+**Origine :** Développé dans le cadre de la suite shadow-utils sous Linux pour masquer les mots de passe hors de `/etc/passwd` qui est lisible par tous.
+**Subtilités/confusions :**
+- `/etc/passwd` contient la liste des utilisateurs et leurs shells (lisible par tous) ; `/etc/shadow` stocke les mots de passe chiffrés (lisible par root seul).
+- Le hachage commence par un préfixe indiquant l'algorithme : `$1$` (MD5), `$5$` (SHA-256), `$6$` (SHA-512), `$y$` (yescrypt).
+**Urgences/dangers :** ⚠️ Si les permissions de `/etc/shadow` sont altérées (ex: lisible par tous), n'importe quel utilisateur local peut extraire les hachages et tenter une attaque par dictionnaire offline (John the Ripper / Hashcat).
+**Précautions :** Vérifier régulièrement que `/etc/shadow` a les permissions `0600` (ou `0640` avec le groupe shadow).
+**Équivalents :** /etc/gshadow (pour les groupes), SAM (Windows)
+**Voir aussi :** pwconv, passwd, hashcat, john, Sécurité
+
+## `/etc/sudoers` — Fichier de configuration des droits sudo [Sécurité / Système]
+**Catégorie :** Sécurité | **Niveau :** avance | **Popularité :** 94
+**Signification :** Sudoers Configuration File
+**Contextes :** accorder des privilèges d'administration ciblés à des utilisateurs ou groupes sans leur donner le mot de passe root
+**Définition :** Fichier de configuration définissant les règles d'élévation de privilèges de la commande `sudo`.
+**Syntaxe :** `sudo visudo`
+**Cas réguliers :**
+- `%wheel ALL=(ALL) ALL` — Autorise tous les membres du groupe wheel à exécuter n'importe quelle commande via sudo
+- `deploy ALL=(ALL) NOPASSWD: /bin/systemctl restart nginx` — Autorise l'utilisateur deploy à redémarrer nginx sans saisir de mot de passe
+**Origine :** Développé avec l'utilitaire `sudo` par Robert Coggeshall et Cliff Spencer en 1980.
+**Subtilités/confusions :**
+- Ne JAMAIS éditer ce fichier directement avec un éditeur classique comme `nano` ou `vim` : toujours utiliser `visudo` qui vérifie la syntaxe avant d'enregistrer.
+- Une erreur de syntaxe dans `/etc/sudoers` bloque immédiatement tous les accès `sudo` du système.
+**Urgences/dangers :** ⚠️ Éditer `/etc/sudoers` sans `visudo` peut casser sudo et bloquer toute administration de la machine si le compte root n'est pas directement accessible.
+**Précautions :** Déposer de préférence les règles personnalisées dans des fichiers séparés sous `/etc/sudoers.d/` gérés par `visudo -f`.
+**Équivalents :** PolicyKit (polkit)
+**Voir aussi :** sudo, su, visudo, Sécurité
+
+## `fstab` — Table des systèmes de fichiers [Système]
+**Catégorie :** Système | **Niveau :** intermediaire | **Popularité :** 95
+**Signification :** File System Table (/etc/fstab)
+**Contextes :** monter automatiquement les partitions disques, volumes LVM, échanges swap et partages réseau (NFS/CIFS) au démarrage du système
+**Définition :** Fichier de configuration Linux stocké sous `/etc/fstab` qui liste les systèmes de fichiers à monter automatiquement au boot avec leurs options.
+**Syntaxe :** `cat /etc/fstab`
+**Cas réguliers :**
+- `UUID=3a2b... /ext4 defaults 0 2` — Montage d'une partition par son identifiant unique UUID
+- `192.168.1.100:/data /mnt/nfs nfs defaults 0 0` — Montage d'un partage réseau NFS distant au démarrage
+**Origine :** Présent depuis Unix V7 pour automatiser le montage des disques au boot.
+**Subtilités/confusions :**
+- Il est fortement recommandé d'utiliser les UUIDs (`UUID=...`) plutôt que les noms de périphériques bruts (`/dev/sda1`) qui peuvent changer au redémarrage.
+- L'option `nofail` est cruciale pour les montages réseau (NFS/CIFS) afin d'éviter de bloquer le boot si le serveur distant est hors ligne.
+**Urgences/dangers :** ⚠️ Une erreur de syntaxe ou un UUID erroné dans `/etc/fstab` provoque un échec de boot et bascule le système en mode emergency `sulogin`.
+**Précautions :** Toujours tester la configuration avec `mount -a` après modification de `/etc/fstab` avant de redémarrer le système.
+**Équivalents :** systemd.mount (unités de montage modernes)
+**Voir aussi :** mount, umount, blkid, lsblk, sulogin, System
+
+## `.bashrc` — Script d'initialisation du shell Bash [Shell]
+**Catégorie :** Shell | **Niveau :** debutant | **Popularité :** 94
+**Signification :** Bash Run Control File
+**Contextes :** personnaliser l'invite de commande (PS1), définir des alias de commandes, ajouter des variables d'environnement pour les sessions Bash interactives
+**Définition :** Script shell exécuté automatiquement à l'ouverture de chaque nouvelle session interactive du shell Bash.
+**Syntaxe :** `cat ~/.bashrc && source ~/.bashrc`
+**Cas réguliers :**
+- `alias ll='ls -la'` — Définir un raccourci de commande personnalisé
+- `export PATH="$HOME/bin:$PATH"` — Ajouter un dossier au PATH utilisateur
+- `source ~/.bashrc` — Recharger immédiatement les modifications sans fermer le terminal
+**Origine :** Développé avec le GNU Bash shell par Brian Fox en 1989.
+**Subtilités/confusions :**
+- `.bashrc` est exécuté pour les shells interactifs non-login ; `.bash_profile` ou `.profile` est exécuté pour les shells de connexion (login).
+- Placer des affichages texte (echo) dans `.bashrc` peut casser les connexions non interactives scp ou rsync.
+**Urgences/dangers :** —
+**Précautions :** Sauvegarder `.bashrc` avant modification et éviter les boucles infinies de commandes dans le script.
+**Équivalents :** .zshrc (Zsh), config.fish (Fish)
+**Voir aussi :** alias, export, Shell, PATH, bash
+
+## `.gitattributes` — Attributs des fichiers Git [Git]
+**Catégorie :** Git | **Niveau :** avance | **Popularité :** 82
+**Signification :** Git Attributes File
+**Contextes :** gérer les fins de lignes (LF vs CRLF) entre Windows et Linux, configurer Git LFS pour les fichiers volumineux, personnaliser les diffs
+**Définition :** Fichier de configuration permettant d'associer des attributs spécifiques à des motifs de fichiers dans un dépôt Git.
+**Syntaxe :** `cat .gitattributes`
+**Cas réguliers :**
+- `* text=auto eol=lf` — Forcer les fins de ligne en LF Unix pour tous les fichiers texte du dépôt
+- `*.psd filter=lfs diff=lfs merge=lfs -text` — Déléguer la gestion des fichiers binaires volumineux à Git LFS
+**Origine :** Ajouté au projet Git pour résoudre les problèmes de compatibilité multi-plateformes.
+**Subtilités/confusions :**
+- Permet d'éviter que les développeurs Windows et Linux ne modifient constamment les fins de lignes de tout le projet à chaque commit.
+- Peut également servir à ignorer certains fichiers lors de la génération d'archives (`git archive`).
+**Urgences/dangers :** —
+**Précautions :** Normaliser `.gitattributes` dès la création du dépôt pour éviter les conflits de fins de ligne massifs.
+**Équivalents :** .gitignore (pour l'exclusion)
+**Voir aussi :** git, git archive, Git, .gitignore
+
+## `/proc` — Système de fichiers virtuel de processus [Système]
+**Catégorie :** Système | **Niveau :** avance | **Popularité :** 93
+**Signification :** Process Virtual File System (procfs)
+**Contextes :** inspecter l'état du noyau Linux et des processus en temps réel, lire la mémoire et les configurations système
+**Définition :** Système de fichiers virtuel (procfs) généré dynamiquement en mémoire par le noyau Linux sous le répertoire `/proc`.
+**Syntaxe :** `cat /proc/cpuinfo / cat /proc/meminfo / cat /proc/sys/vm/swappiness`
+**Cas réguliers :**
+- `cat /proc/cpuinfo` — Lire les informations matérielles détaillées des cœurs du processeur
+- `cat /proc/sys/net/ipv4/ip_forward` — Vérifier si le routage IP est activé dans le noyau
+- `ls -l /proc/<PID>/fd` — Examiner tous les descripteurs de fichiers ouverts par un processus
+**Origine :** Conçu à l'origine sous Bell Labs Unix par Tom Killian pour l'inspection des processus, étendu par Linux pour les métriques noyau.
+**Subtilités/confusions :**
+- Les fichiers dans `/proc` ont une taille apparente de 0 octet sur disque car ils n'existent qu'en RAM générés à la volée par le noyau.
+- La modification de certains fichiers sous `/proc/sys/` altère instantanément la configuration du noyau en cours d'exécution.
+**Urgences/dangers :** —
+**Précautions :** Préférer l'utilisation de `sysctl` pour modifier de manière permanente les paramètres du noyau plutôt que l'écriture directe dans `/proc/sys/`.
+**Équivalents :** /sys (sysfs), sysctl
+**Voir aussi :** sysctl, ps, lsof, top, CPU, RAM
+
+## `Protobuf` — Protocol Buffers [Data / Développement]
+**Catégorie :** Data | **Niveau :** avance | **Popularité :** 88
+**Signification :** Protocol Buffers (Google Serialisation)
+**Contextes :** communication inter-microservices ultra-rapide avec gRPC, sérialisation binaire compacte, API internes
+**Définition :** Mécanisme neutre vis-à-vis des langages et des plateformes conçu par Google pour sérialiser des données structurées de manière binaire et compacte.
+**Syntaxe :** `protoc --go_out=. service.proto`
+**Cas réguliers :**
+- `message User { string name = 1; int32 id = 2; }` — Définition de la structure de données dans un fichier `.proto`
+- `Compilation avec protoc` — Génération automatique des classes de données typées en Go, Java, Python ou C++
+**Origine :** Développé en interne chez Google au début des années 2000, publié en open-source en 2008.
+**Subtilités/confusions :**
+- Protobuf est un format binaire non lisible à l'œil nu (contrairement à JSON ou XML), ce qui le rend beaucoup plus compact et rapide à parser.
+- Les numéros de champs (`= 1`, `= 2`) identifient les données dans le binaire : ne jamais modifier les numéros de champs existants pour conserver la compatibilité ascendante.
+**Urgences/dangers :** —
+**Précautions :** Utiliser le compilateur officiel `protoc` et maintenir des fichiers `.proto` versionnés pour la compatibilité de vos APIs.
+**Équivalents :** JSON (lisible), MessagePack, Avro, CBOR
+**Voir aussi :** gRPC, JSON, API, Microservices
+
+## `Entra ID` — Microsoft Entra ID [Sécurité / Cloud]
+**Catégorie :** Sécurité | **Niveau :** intermediaire | **Popularité :** 90
+**Signification :** Microsoft Entra ID (anciennement Azure Active Directory)
+**Contextes :** gestion des identités cloud, Single Sign-On (SSO), contrôle d'accès conditionnel, sécurité entreprise Microsoft 365
+**Rôle :** Service de gestion des identités et des accès basé sur le cloud de Microsoft assurant le SSO, l'authentification MFA et la gestion des comptes d'entreprise.
+**Syntaxe :** (Console Azure / PowerShell `Connect-MgGraph`)
+**Cas réguliers :**
+- `Authentification SSO Microsoft 365` — Connexion unifiée à toutes les applications SaaS via SAML/OIDC
+- `Accès Conditionnel` — Restriction de connexion basée sur l'état de l'appareil et la géolocalisation
+**Origine :** Lancé par Microsoft sous le nom d'Azure Active Directory en 2010, renommé Microsoft Entra ID en 2023.
+**Subtilités/confusions :**
+- Ne repose pas sur les mêmes protocoles que l'Active Directory traditionnel sur site (pas de Kerberos/LDAP direct, mais OAuth2/OIDC/SAML).
+- Entra ID Connect permet de synchroniser les comptes de l'AD local vers Entra ID Cloud.
+**Urgences/dangers :** —
+**Précautions :** Exiger le MFA pour tous les comptes utilisateurs et administrateurs d'un tenant Entra ID.
+**Équivalents :** Okta, Ping Identity, Keycloak
+**Voir aussi :** SSO, SAML, OAuth2, MFA, Cloud

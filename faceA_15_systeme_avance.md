@@ -386,7 +386,7 @@
 **Urgences/dangers :** —
 **Précautions :** Utiliser `systemctl get-default` sur les systèmes modernes pour connaître la cible de démarrage au lieu de se fier a `runlevel`.
 **Équivalents :** systemctl get-default, systemctl list-units --type=target
-**Voir aussi :** telinit, systemctl, init, who -r
+**Voir aussi :** telinit, systemctl, systemd, who -r
 
 ## `telinit` — Change SysV Runlevel [Linux]
 **Niveau :** intermediaire | **Popularité :** 70 | **Aliases :** init runlevel change
@@ -404,7 +404,7 @@
 **Urgences/dangers :** ⚠️ `telinit 0` ou `telinit 6` coupe immédiatement les services sans avertissement préalable aux utilisateurs connectes.
 **Précautions :** Privilégier `systemctl isolate <target>` ou `shutdown` pour une gestion propre des notifications et arrêts de services.
 **Équivalents :** systemctl isolate, shutdown, reboot
-**Voir aussi :** runlevel, systemctl, shutdown, init
+**Voir aussi :** runlevel, systemctl, shutdown, systemd
 
 ## `kexec` — Direct Kernel Executive [Linux]
 **Niveau :** expert | **Popularité :** 68 | **Aliases :** fast reboot, kexec-tools
@@ -828,7 +828,7 @@
 **Urgences/dangers :** ⚠️ Lancer `shred` sur un périphérique bloc (/dev/sda) détruit définitivement toutes les données sans confirmation ni possibilité de restauration.
 **Précautions :** Pour effacer un SSD de façon sécurisée, utiliser la commande `blkdiscard` ou la fonction Secure Erase du contrôleur NVMe plutôt que `shred`.
 **Équivalents :** srm, wipe, dd if=/dev/urandom
-**Voir aussi :** srm, wipe, dd, blkdiscard
+**Voir aussi :** srm, wipe, dd, SSD
 
 ## `srm` — Secure Remove [Linux/macOS]
 **Niveau :** intermediaire | **Popularité :** 76 | **Aliases :** secure rm
@@ -896,7 +896,7 @@
 **Urgences/dangers :** ⚠️ Les données effacées par `wipe` ne peuvent en aucun cas être récupérées.
 **Précautions :** Vérifier minutieusement le chemin du fichier ou du périphérique avant de valider la commande.
 **Équivalents :** shred, srm, dd if=/dev/zero
-**Voir aussi :** shred, srm, dd, blkdiscard
+**Voir aussi :** shred, srm, dd, SSD
 
 ## `scrub` — Disk and File Scrubbing Utility [Linux/macOS]
 **Niveau :** avance | **Popularité :** 68 | **Aliases :** disk scrub
